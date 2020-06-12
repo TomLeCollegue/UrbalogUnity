@@ -5,5 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Role role;
+    [SerializeField]
+    private string namePlayer;
 
 }
