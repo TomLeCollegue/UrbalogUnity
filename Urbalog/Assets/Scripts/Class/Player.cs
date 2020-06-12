@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     private Role role;
     [SerializeField]
-    private string namePlayer;
+
+    public string namePlayer { get; set; }
+    public string ID { get; set; }
 
 }
