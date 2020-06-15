@@ -43,16 +43,24 @@ public class PlayerSetup : NetworkBehaviour
         CmdGetRoleForPlayer();
 
 
+
+    }
+    private void OnDisable()
+    {
+        Player _player = GetComponent<Player>();
+        Debug.Log("remove");
+        GameManager.singleton.UnRegisterPlayer(_player.ID);
+
     }
 
+
+    #region getGameManager Fonction
     [Command]
     void CmdSendActualGameManager()
     {
         RpcGetActualGameManager(GetbyteGameManager(GameManager.singleton.game));
 
     }
-
-
     private byte[] GetbyteGameManager(Game game)
     {
         var formatter = new BinaryFormatter();
@@ -74,7 +82,6 @@ public class PlayerSetup : NetworkBehaviour
         return obj;
     }
 
-
     [ClientRpc]
     void RpcGetActualGameManager(byte[] bytes)
     {
@@ -82,19 +89,10 @@ public class PlayerSetup : NetworkBehaviour
         GameManager.singleton.game = gameReceived;
         
     }
-
- 
-
-    private void OnDisable()
-    {
-        Player _player = GetComponent<Player>();
-        Debug.Log("remove");
-        GameManager.singleton.UnRegisterPlayer(_player.ID);
-       
-    }
+    #endregion
 
 
-
+    #region DistribRole
 
     private byte[] GetbyteFromObject(System.Object obj)
     {
@@ -139,6 +137,9 @@ public class PlayerSetup : NetworkBehaviour
         }
         player.role = (Role)ByteArrayToObject2(arrByte);
     }
+
+
+    #endregion
 
 
 }

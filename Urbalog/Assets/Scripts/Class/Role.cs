@@ -6,12 +6,12 @@ using UnityEngine;
 [Serializable]
 public class Role
 {
-    private string nameRole;
-    private string hold;
-    private string improve;
-    private int ressourceSocial;
-    private int ressourcePolitical;
-    private int ressourceEconomical;
+    public string nameRole;
+    public string hold;
+    public string improve;
+    public int ressourceSocial;
+    public int ressourcePolitical;
+    public int ressourceEconomical;
 
     public string ressource1;
     public string ressource2;
