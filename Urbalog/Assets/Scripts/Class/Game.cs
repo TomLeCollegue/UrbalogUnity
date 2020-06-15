@@ -32,7 +32,7 @@ public class Game
 
     public void FillRoles()
     {
-        Roles.Add(new Role("Role1", "Environment", "Fluidity",0, 8, 7));
+        Roles.Add(new Role("Role1", "Environment", "Fluidity",0, 1, 1));
         Roles.Add(new Role("Role2", "Attractiveness", "Fluidity", 3, 0, 2));
     }
 
