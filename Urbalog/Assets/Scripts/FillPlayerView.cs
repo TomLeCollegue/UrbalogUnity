@@ -8,7 +8,7 @@ public class FillPlayerView : MonoBehaviour
 {
 
     #region Building1
-    public Button building1Button;
+    public TextMeshProUGUI building1Button;
     public TextMeshProUGUI PoliticalBuilding1;
     public TextMeshProUGUI EcoBuilding1;
     public TextMeshProUGUI SocialBuilding1;
@@ -60,6 +60,7 @@ public class FillPlayerView : MonoBehaviour
         AttractBuilding1.text = game.Market[1].attractScore.ToString();
         FluidBuilding1.text = game.Market[1].fluidScore.ToString();
         EnviBuilding1.text = game.Market[1].enviScore.ToString();
+        building1Button.text = game.Market[1].name;
 
         FillRole();
     }
