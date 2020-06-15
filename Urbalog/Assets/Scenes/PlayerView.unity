@@ -3391,7 +3391,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 74.45
+  m_fontSize: 68.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6155,7 +6155,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 74.45
+  m_fontSize: 68.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9898,7 +9898,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 74.45
+  m_fontSize: 68.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -13483,7 +13483,6 @@ GameObject:
   - component: {fileID: 1208990635}
   - component: {fileID: 1208990634}
   - component: {fileID: 1208990633}
-  - component: {fileID: 1208990638}
   - component: {fileID: 1208990637}
   m_Layer: 5
   m_Name: Button
@@ -13635,24 +13634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73e10f1ccfd922468e42cf485382411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
---- !u!114 &1208990638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1208990631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 387713907
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0
 --- !u!1 &1234333029
 GameObject:
   m_ObjectHideFlags: 0
@@ -13917,7 +13898,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 74.45
+  m_fontSize: 68.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14390,11 +14371,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building1Button: {fileID: 0}
   PoliticalBuilding1: {fileID: 485456110}
-  EcoBuilding1: {fileID: 0}
-  SocialBuilding1: {fileID: 0}
-  AttractBuilding1: {fileID: 0}
-  EnviBuilding1: {fileID: 0}
-  FluidBuilding1: {fileID: 0}
+  EcoBuilding1: {fileID: 1145764279}
+  SocialBuilding1: {fileID: 2007376643}
+  AttractBuilding1: {fileID: 442313127}
+  EnviBuilding1: {fileID: 183670690}
+  FluidBuilding1: {fileID: 1571980784}
 --- !u!114 &1376666347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14407,7 +14388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93bf7714b41101d49aa97eb744fb1b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumBuilding: 0
+  NumPlayer: 0
   players: []
 --- !u!4 &1376666348
 Transform:
@@ -15227,7 +15208,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 74.45
+  m_fontSize: 68.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -21829,10 +21810,10 @@ RectTransform:
   m_Father: {fileID: 39052277}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 3}
-  m_SizeDelta: {x: 3850.6443, y: 2143.9246}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107351638
 MonoBehaviour:
