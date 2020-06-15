@@ -1,14 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
+[Serializable]
 public class Game
 {
   
     public List<Building> Market { get; set; } = new List<Building>();
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
+    public List<Role> Roles { get; set; } = new List<Role>();
 
 
     public void FillMarket()
@@ -26,6 +28,12 @@ public class Game
         DeckBuildings.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
         DeckBuildings.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
         DeckBuildings.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+    }
+
+    public void FillRoles()
+    {
+        Roles.Add(new Role("Role1", "Environment", "Fluid",0, 1, 2));
+        Roles.Add(new Role("Role2", "Political", "Fluid", 0, 1, 2));
     }
 
 

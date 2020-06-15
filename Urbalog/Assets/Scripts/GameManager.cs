@@ -3,18 +3,24 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[Serializable]
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager singleton;
 
+    public Game game = new Game();
+
     [SerializeField]
-    private Game game = new Game();
+    private int NumPlayer;
+
+
+    [SerializeField]
+    private List<Player> players  = new List<Player>();
 
     private void Awake()
     {
-        if(singleton != null)
+        if (singleton != null)
         {
             Debug.LogError("more than One GameManager");
         }
@@ -25,19 +31,10 @@ public class GameManager : MonoBehaviour
 
         game.FillMarket();
         game.FillDeckBuildings();
+        game.FillRoles();
     }
 
 
-    [SerializeField]
-    private int NumBuilding;
-
-    
-    private List<Role> Roles = new List<Role>();
-
-    [SerializeField]
-    private List<Player> players  = new List<Player>();
-
-   
     public void UnRegisterPlayer(string _ID)
     {
         for (int i = 0; i < players.Count; i++)
@@ -57,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeValueNum()
     {
-        NumBuilding++;
+        game.Market[1].FinanceSocial += 1;
     }
 
     void OnGUI()
@@ -70,6 +67,7 @@ public class GameManager : MonoBehaviour
         {
             GUILayout.Label(singleton.players[i].ID);
         }
+        GUILayout.Label(singleton.NumPlayer.ToString());
         GUILayout.EndVertical();
         GUILayout.EndArea();
     }
