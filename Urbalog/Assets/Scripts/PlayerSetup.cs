@@ -1,9 +1,11 @@
 ﻿using Mirror;
+using System;
 using System.Dynamic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+
 
 
 [RequireComponent(typeof(Player))]
@@ -38,6 +40,7 @@ public class PlayerSetup : NetworkBehaviour
         GameManager.singleton.RegisterPlayer(_player);
 
         CmdSendActualGameManager();
+        CmdGetRoleForPlayer();
 
 
     }
@@ -89,4 +92,53 @@ public class PlayerSetup : NetworkBehaviour
         GameManager.singleton.UnRegisterPlayer(_player.ID);
        
     }
+
+
+
+
+    private byte[] GetbyteFromObject(System.Object obj)
+    {
+        var formatter = new BinaryFormatter();
+        using (var stream = new MemoryStream())
+        {
+            formatter.Serialize(stream, obj);
+            return stream.ToArray();
+        }
+    }
+
+    private System.Object ByteArrayToObject2(byte[] arrBytes)
+    {
+        MemoryStream memStream = new MemoryStream();
+        BinaryFormatter binForm = new BinaryFormatter();
+        memStream.Write(arrBytes, 0, arrBytes.Length);
+        memStream.Seek(0, SeekOrigin.Begin);
+        System.Object obj = (System.Object)binForm.Deserialize(memStream);
+
+        return obj;
+    }
+
+
+    [Command]
+    void CmdGetRoleForPlayer()
+    {
+        int numToSend = GameManager.singleton.NumPlayerForRole;
+
+        Role role = GameManager.singleton.game.Roles[numToSend];
+        RpcSendRoleForPlayer(GetbyteFromObject(role));
+        GameManager.singleton.NumPlayerForRole++;
+           
+    }
+
+    [ClientRpc]
+    void RpcSendRoleForPlayer(byte[] arrByte)
+    {
+        Player player = GetComponent<Player>();
+        if(player.role != null)
+        {
+            return;
+        }
+        player.role = (Role)ByteArrayToObject2(arrByte);
+    }
+
+
 }

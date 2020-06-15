@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Game game = new Game();
 
     [SerializeField]
-    private int NumPlayer;
+    public int NumPlayerForRole { get; set; } = 0;
 
 
     [SerializeField]
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         {
             GUILayout.Label(singleton.players[i].ID);
         }
-        GUILayout.Label(singleton.NumPlayer.ToString());
+        GUILayout.Label(singleton.NumPlayerForRole.ToString());
         GUILayout.EndVertical();
         GUILayout.EndArea();
     }
