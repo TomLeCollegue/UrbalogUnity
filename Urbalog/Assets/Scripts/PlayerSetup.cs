@@ -7,9 +7,8 @@ public class PlayerSetup : NetworkBehaviour
 
     [SerializeField]
     Behaviour[] componentsToDisable;
-    [SerializeField]
-    GameManager gm;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         if (!isLocalPlayer)
@@ -19,22 +18,30 @@ public class PlayerSetup : NetworkBehaviour
                 componentsToDisable[i].enabled = false;
             }
         }
-        
-        GameManager gm = GameObject.Find("GameManager").GetComponentInChildren<GameManager>();
+        else 
+        { transform.name = "playerLocal";}
 
-        // mettre le nom du player dans le player
+    }
+
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
         _player.ID = _netID;
-        gm.players.Add(_player);
+        GameManager.singleton.RegisterPlayer(_player);
+
+
     }
 
  
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        GameManager _gm = GameObject.Find("GameManager").GetComponentInChildren<GameManager>();
-        _gm.UnRegisterPlayer(GetComponent<NetworkIdentity>().netId.ToString());
+        Player _player = GetComponent<Player>();
         Debug.Log("remove");
+        GameManager.singleton.UnRegisterPlayer(_player.ID);
+       
     }
 }

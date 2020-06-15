@@ -1,22 +1,64 @@
-﻿using System;
-using System.Collections;
+﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager singleton;
+
     [SerializeField]
     private Game game = new Game();
 
-    public List<Role> Roles { get; set; } = new List<Role>();
-    public List<Player> players { get; set; } = new List<Player>();
-
-    private void Start()
+    private void Awake()
     {
+        if(singleton != null)
+        {
+            Debug.LogError("more than One GameManager");
+        }
+        else
+        {
+            singleton = this;
+        }
+
         game.FillMarket();
         game.FillDeckBuildings();
     }
 
+
+    [SerializeField]
+    private int NumBuilding;
+
+    
+    private List<Role> Roles = new List<Role>();
+
+    [SerializeField]
+    private List<Player> players  = new List<Player>();
+
+   
+    public void UnRegisterPlayer(string _ID)
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            if(players[i].ID.Equals(_ID))
+            {
+                players.Remove(players[i]);
+            }
+        }
+    }
+
+    
+    public void RegisterPlayer(Player player)
+    {
+        players.Add(player);
+    }
+
+    public void ChangeValueNum()
+    {
+        NumBuilding++;
+    }
 
     void OnGUI()
     {
@@ -24,16 +66,12 @@ public class GameManager : MonoBehaviour
 
         GUILayout.BeginVertical();
 
-        for (int i = 0; i < players.Count; i++)
+        for (int i = 0; i < singleton.players.Count; i++)
         {
-            GUILayout.Label(players[i].ID);
+            GUILayout.Label(singleton.players[i].ID);
         }
         GUILayout.EndVertical();
         GUILayout.EndArea();
     }
 
-    public void UnRegisterPlayer(string _ID)
-    {
-        players.RemoveAt(Int16.Parse(_ID));
-    }
 }

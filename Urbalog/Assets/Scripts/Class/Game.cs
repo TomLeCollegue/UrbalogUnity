@@ -10,6 +10,7 @@ public class Game
     public List<Building> Market { get; set; } = new List<Building>();
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
 
+
     public void FillMarket()
     {
         Market.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
@@ -26,4 +27,24 @@ public class Game
         DeckBuildings.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
         DeckBuildings.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
     }
+
+
+    public void BetOnBuilding(int numBuilding, string ressource, int ValueBet)
+    {
+        Building building = Market[numBuilding];
+
+        if (ressource.Equals("Economical"))
+        {
+            building.FinanceEconomical += ValueBet;
+        }
+        else if (ressource.Equals("Political"))
+        {
+            building.FinancePolitical += ValueBet;
+        }
+        else
+        {
+            building.FinanceSocial += ValueBet;
+        }
+    }
+
 }
