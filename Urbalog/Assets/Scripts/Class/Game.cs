@@ -1,14 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
+[Serializable]
 public class Game
 {
   
     public List<Building> Market { get; set; } = new List<Building>();
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
+    public List<Role> Roles { get; set; } = new List<Role>();
+
 
     public void FillMarket()
     {
@@ -26,4 +29,33 @@ public class Game
         DeckBuildings.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
         DeckBuildings.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
     }
+
+    public void FillRoles()
+    {
+        Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
+        Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
+        Roles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
+        Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+    }
+
+
+    public void BetOnBuilding(int numBuilding, string ressource, int ValueBet)
+    {
+        Building building = Market[numBuilding];
+
+        if (ressource.Equals("Economical"))
+        {
+            building.FinanceEconomical += ValueBet;
+        }
+        else if (ressource.Equals("Political"))
+        {
+            building.FinancePolitical += ValueBet;
+        }
+        else
+        {
+            building.FinanceSocial += ValueBet;
+        }
+    }
+
 }

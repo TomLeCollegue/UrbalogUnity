@@ -3,22 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class Building
 {
-    private string name;
-    private string description;
+    public string name { get; set; }
+    public string description { get; set; }
 
-    private int Economical;
-    private int Social;
-    private int Political;
-    private int FinanceEconomical;
-    private int FinanceSocial;
-    private int FinancePolitical;
+    public int Economical { get; set; }
+    public int Social { get; set; }
+    public int Political { get; set; }
+    public int FinanceEconomical { get; set; }
+    public int FinanceSocial { get; set; }
+    public int FinancePolitical { get; set; }
 
-    private int enviScore;
-    private int fluidScore;
-    private int attractScore;
+    public int enviScore { get; set; }
+    public int fluidScore { get; set; }
+    public int attractScore { get; set; }
 
     public Building(string _name, string _description,
         int _economical, int _social, int _political, int _enviScore,
