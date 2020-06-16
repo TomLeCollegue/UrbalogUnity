@@ -4,16 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DisplayHUD : MonoBehaviour
+public class DisplayHUD : NetworkBehaviour
 {
     public NetworkManagerHUD hud;
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Lobby")
+        if (SceneManager.GetActiveScene().name == "LobbyRoom" )
+        {
+            hud.showGUI = true;
+        }
+        else
         {
             hud.showGUI = false;
         }
-        else
+
+
+        if (isServer)
         {
             hud.showGUI = true;
         }
