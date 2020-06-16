@@ -18,6 +18,8 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI EnviBuilding1;
     public TextMeshProUGUI FluidBuilding1;
     
+    public Image AttractBuilding1Image;
+
     [Space(10)]
     [Header("Building 2")]
     public TextMeshProUGUI building2Button;
@@ -91,6 +93,7 @@ public class FillPlayerView : MonoBehaviour
     void Update()
     {
         FillPLayerViewInfo();
+        ColorImpact();
     }
 
 
@@ -217,4 +220,18 @@ public class FillPlayerView : MonoBehaviour
         }
         #endregion
     }
+
+    private void ColorImpact()
+    {
+        Game game = GameManager.singleton.game;
+        Debug.Log("1");
+
+        if (game.Market[0].attractScore == 0)
+        {
+            AttractBuilding1Image.GetComponent<Image>().color = Color.red;
+            Debug.Log("cé rouge ?");
+        }
+    }
+
+    
 }

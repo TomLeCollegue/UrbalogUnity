@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3415,7 +3415,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 75.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5474,7 +5474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cdd5819c25bdef34988eeb1e35caf1ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b9aaf2980ce3a84292c98523a72d72a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6179,7 +6179,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 75.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9946,7 +9946,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 75.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10530,7 +10530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe836f55ecec3ac498f857a149a586c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 583b5613bf9fa0a4e8e35f6c1d73603d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -13970,7 +13970,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 75.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14472,6 +14472,7 @@ MonoBehaviour:
   AttractBuilding1: {fileID: 442313127}
   EnviBuilding1: {fileID: 183670690}
   FluidBuilding1: {fileID: 1571980784}
+  AttractBuilding1Image: {fileID: 84419366}
   building2Button: {fileID: 238300628}
   PoliticalBuilding2: {fileID: 1718398702}
   EcoBuilding2: {fileID: 1010619039}
@@ -14512,9 +14513,9 @@ MonoBehaviour:
   EcoImage: {fileID: 21300000, guid: 934dad9f735201945b80d8a05e51da84, type: 3}
   PoliImage: {fileID: 21300000, guid: 5d90e8f2fa9281a4ab2ea8a86872dd97, type: 3}
   SocialImage: {fileID: 21300000, guid: e5497433448275d44943fb3f9f3fadfe, type: 3}
-  FluidImage: {fileID: 21300000, guid: cdd5819c25bdef34988eeb1e35caf1ee, type: 3}
-  AttractImage: {fileID: 21300000, guid: fe836f55ecec3ac498f857a149a586c0, type: 3}
-  EnviImage: {fileID: 21300000, guid: 957565e70df2b5c4d8f89ee7be74b0fd, type: 3}
+  FluidImage: {fileID: 21300000, guid: 6b9aaf2980ce3a84292c98523a72d72a, type: 3}
+  AttractImage: {fileID: 21300000, guid: 583b5613bf9fa0a4e8e35f6c1d73603d, type: 3}
+  EnviImage: {fileID: 21300000, guid: 81b7961e277a62640a42fd56f93cd644, type: 3}
 --- !u!114 &1376666347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15346,7 +15347,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 75.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
