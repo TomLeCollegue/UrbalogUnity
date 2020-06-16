@@ -1,11 +1,16 @@
 ﻿using Mirror;
 using UnityEngine;
 
-public class HostGame : MonoBehaviour
+public class HostGame : NetworkBehaviour
 {
     [SerializeField]
     private uint roomSize = 6;
-    public string roomName = "name";
+
+    [SyncVar]
+    public string roomName = "En Attente des joueurs";
+
+
+    public string playerName = "name player";
     private NetworkManager networkManager;
 
     void Start()
@@ -13,9 +18,9 @@ public class HostGame : MonoBehaviour
         networkManager = NetworkManager.singleton;
 
     }
-    public void SetRoomName (string _name)
+    public void SetPlayerName (string _name)
     {
-        roomName = _name;
+        playerName = _name;
     }
     public void SetIP(string _ip)
     {
@@ -34,6 +39,6 @@ public class HostGame : MonoBehaviour
 
     public void JoinGame()
     {
-        networkManager.StartClient();
+        GetComponent<NetworkManager>().StartClient();
     }
 }

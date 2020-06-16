@@ -28,4 +28,8 @@ public class Player : NetworkBehaviour
         GameManager.singleton.ChangeValueNum();
         num++;
     }
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 }

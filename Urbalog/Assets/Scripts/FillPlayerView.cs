@@ -136,10 +136,10 @@ public class FillPlayerView : MonoBehaviour
         FluidBuilding5.text = game.Market[4].fluidScore.ToString();
         EnviBuilding5.text = game.Market[4].enviScore.ToString();
         building5Button.text = game.Market[4].name;
-
         FillRole();
     }
 
+    
 
 
     private void FillRole()

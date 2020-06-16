@@ -3415,7 +3415,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 74.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6179,7 +6179,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 74.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9946,7 +9946,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 74.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -13970,7 +13970,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 74.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14435,113 +14435,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354175354}
   m_CullTransparentMesh: 0
---- !u!1 &1376666345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1376666348}
-  - component: {fileID: 1376666347}
-  - component: {fileID: 1376666346}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1376666346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376666345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742f7d9864c49b7409aec9eb37bbec72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  building1Button: {fileID: 1287833291}
-  PoliticalBuilding1: {fileID: 485456110}
-  EcoBuilding1: {fileID: 1145764279}
-  SocialBuilding1: {fileID: 2007376643}
-  AttractBuilding1: {fileID: 442313127}
-  EnviBuilding1: {fileID: 183670690}
-  FluidBuilding1: {fileID: 1571980784}
-  building2Button: {fileID: 238300628}
-  PoliticalBuilding2: {fileID: 1718398702}
-  EcoBuilding2: {fileID: 1010619039}
-  SocialBuilding2: {fileID: 1081706922}
-  AttractBuilding2: {fileID: 470051725}
-  EnviBuilding2: {fileID: 1027071134}
-  FluidBuilding2: {fileID: 1407078648}
-  building3Button: {fileID: 913829076}
-  PoliticalBuilding3: {fileID: 229614422}
-  EcoBuilding3: {fileID: 1539692792}
-  SocialBuilding3: {fileID: 1725608239}
-  AttractBuilding3: {fileID: 126216521}
-  EnviBuilding3: {fileID: 750782970}
-  FluidBuilding3: {fileID: 1037521017}
-  building4Button: {fileID: 1523626093}
-  PoliticalBuilding4: {fileID: 920054315}
-  EcoBuilding4: {fileID: 899668278}
-  SocialBuilding4: {fileID: 1576983641}
-  AttractBuilding4: {fileID: 576928541}
-  EnviBuilding4: {fileID: 1234333032}
-  FluidBuilding4: {fileID: 61278916}
-  building5Button: {fileID: 502385785}
-  PoliticalBuilding5: {fileID: 1630038804}
-  EcoBuilding5: {fileID: 902258219}
-  SocialBuilding5: {fileID: 90468023}
-  AttractBuilding5: {fileID: 370747806}
-  EnviBuilding5: {fileID: 1519015617}
-  FluidBuilding5: {fileID: 350688}
-  NameRole: {fileID: 2056021109}
-  NombreRessource1: {fileID: 1083490653}
-  NombreRessource2: {fileID: 413263370}
-  ressource1Img: {fileID: 640355095}
-  ressource2Img: {fileID: 1751697806}
-  ressource1betImage: {fileID: 178207554}
-  ressource2betImage: {fileID: 614583974}
-  holdImage: {fileID: 461171816}
-  improveImage: {fileID: 984284505}
-  EcoImage: {fileID: 21300000, guid: 934dad9f735201945b80d8a05e51da84, type: 3}
-  PoliImage: {fileID: 21300000, guid: 5d90e8f2fa9281a4ab2ea8a86872dd97, type: 3}
-  SocialImage: {fileID: 21300000, guid: e5497433448275d44943fb3f9f3fadfe, type: 3}
-  FluidImage: {fileID: 21300000, guid: cdd5819c25bdef34988eeb1e35caf1ee, type: 3}
-  AttractImage: {fileID: 21300000, guid: fe836f55ecec3ac498f857a149a586c0, type: 3}
-  EnviImage: {fileID: 21300000, guid: 957565e70df2b5c4d8f89ee7be74b0fd, type: 3}
---- !u!114 &1376666347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376666345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93bf7714b41101d49aa97eb744fb1b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players: []
---- !u!4 &1376666348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376666345}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1407078645
 GameObject:
   m_ObjectHideFlags: 0
@@ -15346,7 +15239,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88
+  m_fontSize: 74.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -22200,3 +22093,292 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e7b3bbd687f1049aebfe776ad9f9a2, type: 3}
+--- !u!1001 &6661469081138975963
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: building1Button
+      value: 
+      objectReference: {fileID: 1287833291}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: PoliticalBuilding1
+      value: 
+      objectReference: {fileID: 485456110}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EcoBuilding1
+      value: 
+      objectReference: {fileID: 1145764279}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: SocialBuilding1
+      value: 
+      objectReference: {fileID: 2007376643}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: AttractBuilding1
+      value: 
+      objectReference: {fileID: 442313127}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EnviBuilding1
+      value: 
+      objectReference: {fileID: 183670690}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: FluidBuilding1
+      value: 
+      objectReference: {fileID: 1571980784}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: building2Button
+      value: 
+      objectReference: {fileID: 238300628}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: PoliticalBuilding2
+      value: 
+      objectReference: {fileID: 1718398702}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EcoBuilding2
+      value: 
+      objectReference: {fileID: 1010619039}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: SocialBuilding2
+      value: 
+      objectReference: {fileID: 1081706922}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: AttractBuilding2
+      value: 
+      objectReference: {fileID: 470051725}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EnviBuilding2
+      value: 
+      objectReference: {fileID: 1027071134}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: FluidBuilding2
+      value: 
+      objectReference: {fileID: 1407078648}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: building3Button
+      value: 
+      objectReference: {fileID: 913829076}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: PoliticalBuilding3
+      value: 
+      objectReference: {fileID: 229614422}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EcoBuilding3
+      value: 
+      objectReference: {fileID: 1539692792}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: SocialBuilding3
+      value: 
+      objectReference: {fileID: 1725608239}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: AttractBuilding3
+      value: 
+      objectReference: {fileID: 126216521}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EnviBuilding3
+      value: 
+      objectReference: {fileID: 750782970}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: FluidBuilding3
+      value: 
+      objectReference: {fileID: 1037521017}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: building4Button
+      value: 
+      objectReference: {fileID: 1523626093}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: PoliticalBuilding4
+      value: 
+      objectReference: {fileID: 920054315}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EcoBuilding4
+      value: 
+      objectReference: {fileID: 899668278}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: SocialBuilding4
+      value: 
+      objectReference: {fileID: 1576983641}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: AttractBuilding4
+      value: 
+      objectReference: {fileID: 576928541}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EnviBuilding4
+      value: 
+      objectReference: {fileID: 1234333032}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: FluidBuilding4
+      value: 
+      objectReference: {fileID: 61278916}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: building5Button
+      value: 
+      objectReference: {fileID: 502385785}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: PoliticalBuilding5
+      value: 
+      objectReference: {fileID: 1630038804}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EcoBuilding5
+      value: 
+      objectReference: {fileID: 902258219}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: SocialBuilding5
+      value: 
+      objectReference: {fileID: 90468023}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: AttractBuilding5
+      value: 
+      objectReference: {fileID: 370747806}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: EnviBuilding5
+      value: 
+      objectReference: {fileID: 1519015617}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: FluidBuilding5
+      value: 
+      objectReference: {fileID: 350688}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: NameRole
+      value: 
+      objectReference: {fileID: 2056021109}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: NombreRessource1
+      value: 
+      objectReference: {fileID: 1083490653}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: NombreRessource2
+      value: 
+      objectReference: {fileID: 413263370}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: ressource1Img
+      value: 
+      objectReference: {fileID: 640355095}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: ressource2Img
+      value: 
+      objectReference: {fileID: 1751697806}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: ressource1betImage
+      value: 
+      objectReference: {fileID: 178207554}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: ressource2betImage
+      value: 
+      objectReference: {fileID: 614583974}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: holdImage
+      value: 
+      objectReference: {fileID: 461171816}
+    - target: {fileID: 6661469079763097137, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: improveImage
+      value: 
+      objectReference: {fileID: 984284505}
+    - target: {fileID: 6661469079763097138, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661469079763097143, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a25ee203e57059e4c98a11d54ad52861, type: 3}
