@@ -81,7 +81,7 @@ public class BetControl : NetworkBehaviour
         }
         if (isOk)
         {
-            CmdBet(value, Ressource);
+            CmdBet(value, Ressource, numBuildingBet);
             ChangeRessourcePlayer(value, Ressource);
         }
     }
@@ -104,9 +104,9 @@ public class BetControl : NetworkBehaviour
     }
 
     [Command]
-    public void CmdBet(int value, string Ressource)
+    public void CmdBet(int value, string Ressource, int num)
     {
-        RpcBet(value, Ressource, numBuildingBet);
+        RpcBet(value, Ressource, num);
     }
 
     [ClientRpc]
