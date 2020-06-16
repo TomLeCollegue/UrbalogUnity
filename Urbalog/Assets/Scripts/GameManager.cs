@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class GameManager : MonoBehaviour
@@ -59,17 +60,20 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
+        if(SceneManager.GetActiveScene().name == "LobbyRoom") 
+        {
         GUILayout.BeginArea(new Rect(200, 200, 200, 500));
 
         GUILayout.BeginVertical();
 
         for (int i = 0; i < singleton.players.Count; i++)
         {
-            GUILayout.Label(singleton.players[i].ID);
+            GUILayout.Label("Player 1 : " + singleton.players[i].ID);
         }
-        GUILayout.Label(singleton.NumPlayerForRole.ToString());
+        
         GUILayout.EndVertical();
         GUILayout.EndArea();
+        }
     }
 
 }

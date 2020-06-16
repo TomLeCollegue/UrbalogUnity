@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6661469079763097138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6661469079763097143}
+  - component: {fileID: 6661469079763097136}
+  - component: {fileID: 6661469079763097137}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6661469079763097143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661469079763097138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6661469079763097136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661469079763097138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bf7714b41101d49aa97eb744fb1b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+--- !u!114 &6661469079763097137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661469079763097138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742f7d9864c49b7409aec9eb37bbec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building1Button: {fileID: 0}
+  PoliticalBuilding1: {fileID: 0}
+  EcoBuilding1: {fileID: 0}
+  SocialBuilding1: {fileID: 0}
+  AttractBuilding1: {fileID: 0}
+  EnviBuilding1: {fileID: 0}
+  FluidBuilding1: {fileID: 0}
+  building2Button: {fileID: 0}
+  PoliticalBuilding2: {fileID: 0}
+  EcoBuilding2: {fileID: 0}
+  SocialBuilding2: {fileID: 0}
+  AttractBuilding2: {fileID: 0}
+  EnviBuilding2: {fileID: 0}
+  FluidBuilding2: {fileID: 0}
+  building3Button: {fileID: 0}
+  PoliticalBuilding3: {fileID: 0}
+  EcoBuilding3: {fileID: 0}
+  SocialBuilding3: {fileID: 0}
+  AttractBuilding3: {fileID: 0}
+  EnviBuilding3: {fileID: 0}
+  FluidBuilding3: {fileID: 0}
+  building4Button: {fileID: 0}
+  PoliticalBuilding4: {fileID: 0}
+  EcoBuilding4: {fileID: 0}
+  SocialBuilding4: {fileID: 0}
+  AttractBuilding4: {fileID: 0}
+  EnviBuilding4: {fileID: 0}
+  FluidBuilding4: {fileID: 0}
+  building5Button: {fileID: 0}
+  PoliticalBuilding5: {fileID: 0}
+  EcoBuilding5: {fileID: 0}
+  SocialBuilding5: {fileID: 0}
+  AttractBuilding5: {fileID: 0}
+  EnviBuilding5: {fileID: 0}
+  FluidBuilding5: {fileID: 0}
+  NameRole: {fileID: 0}
+  NombreRessource1: {fileID: 0}
+  NombreRessource2: {fileID: 0}
+  ressource1Img: {fileID: 0}
+  ressource2Img: {fileID: 0}
+  ressource1betImage: {fileID: 0}
+  ressource2betImage: {fileID: 0}
+  holdImage: {fileID: 0}
+  improveImage: {fileID: 0}
+  EcoImage: {fileID: 21300000, guid: 934dad9f735201945b80d8a05e51da84, type: 3}
+  PoliImage: {fileID: 21300000, guid: 5d90e8f2fa9281a4ab2ea8a86872dd97, type: 3}
+  SocialImage: {fileID: 21300000, guid: e5497433448275d44943fb3f9f3fadfe, type: 3}
+  FluidImage: {fileID: 21300000, guid: cdd5819c25bdef34988eeb1e35caf1ee, type: 3}
+  AttractImage: {fileID: 21300000, guid: fe836f55ecec3ac498f857a149a586c0, type: 3}
+  EnviImage: {fileID: 21300000, guid: 957565e70df2b5c4d8f89ee7be74b0fd, type: 3}

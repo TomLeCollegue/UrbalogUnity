@@ -29,7 +29,10 @@ public class PlayerSetup : NetworkBehaviour
         { transform.name = "playerLocal";}
 
     }
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     public override void OnStartClient()
     {
@@ -37,14 +40,18 @@ public class PlayerSetup : NetworkBehaviour
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
         _player.ID = _netID;
+        if (isLocalPlayer)
+        {
+            _player.namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
+        }
         GameManager.singleton.RegisterPlayer(_player);
 
         CmdSendActualGameManager();
         CmdGetRoleForPlayer();
 
 
-
     }
+
     private void OnDisable()
     {
         Player _player = GetComponent<Player>();
@@ -140,6 +147,5 @@ public class PlayerSetup : NetworkBehaviour
 
 
     #endregion
-
 
 }
