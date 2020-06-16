@@ -19,6 +19,8 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI FluidBuilding1;
     
     public Image AttractBuilding1Image;
+    public Image EnviBuilding1Image;
+    public Image fluidBuilding1Image;
 
     [Space(10)]
     [Header("Building 2")]
@@ -30,6 +32,10 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI EnviBuilding2;
     public TextMeshProUGUI FluidBuilding2;
 
+    public Image AttractBuilding2Image;
+    public Image EnviBuilding2Image;
+    public Image fluidBuilding2Image;
+
     [Space(10)]
     [Header("Building 3")]
     public TextMeshProUGUI building3Button;
@@ -39,6 +45,10 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI AttractBuilding3;
     public TextMeshProUGUI EnviBuilding3;
     public TextMeshProUGUI FluidBuilding3;
+
+    public Image AttractBuilding3Image;
+    public Image EnviBuilding3Image;
+    public Image fluidBuilding3Image;
 
     [Space(10)]
     [Header("Building 4")]
@@ -50,6 +60,10 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI EnviBuilding4;
     public TextMeshProUGUI FluidBuilding4;
 
+    public Image AttractBuilding4Image;
+    public Image EnviBuilding4Image;
+    public Image fluidBuilding4Image;
+
     [Space(10)]
     [Header("Building 5")]
     public TextMeshProUGUI building5Button;
@@ -59,6 +73,10 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI AttractBuilding5;
     public TextMeshProUGUI EnviBuilding5;
     public TextMeshProUGUI FluidBuilding5;
+
+    public Image AttractBuilding5Image;
+    public Image EnviBuilding5Image;
+    public Image fluidBuilding5Image;
     #endregion
 
     #region Role
@@ -86,14 +104,19 @@ public class FillPlayerView : MonoBehaviour
 
 
     #endregion
-
+    public bool isAlreadyUpdated = false;
 
 
     // Update is called once per frame
     void Update()
     {
-        FillPLayerViewInfo();
-        ColorImpact();
+        if (!isAlreadyUpdated)
+        {
+            FillPLayerViewInfo();
+            ColorImpact();
+            isAlreadyUpdated = true;
+        }
+
     }
 
 
@@ -226,12 +249,223 @@ public class FillPlayerView : MonoBehaviour
         Game game = GameManager.singleton.game;
         Debug.Log("1");
 
-        if (game.Market[0].attractScore == 0)
+        //Attract
+            //building1
+        if (game.Market[0].attractScore < 0)
         {
             AttractBuilding1Image.GetComponent<Image>().color = Color.red;
-            Debug.Log("cé rouge ?");
         }
+        else if (game.Market[0].attractScore == 0)
+        {
+            AttractBuilding1Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            AttractBuilding1Image.GetComponent<Image>().color = Color.green;
+        }
+
+            //building2
+        if (game.Market[1].attractScore < 0)
+        {
+            AttractBuilding2Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[1].attractScore == 0)
+        {
+            AttractBuilding2Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            AttractBuilding2Image.GetComponent<Image>().color = Color.green;
+        }
+
+            //building3
+        if (game.Market[2].attractScore < 0)
+        {
+            AttractBuilding3Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[2].attractScore == 0)
+        {
+            AttractBuilding3Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            AttractBuilding3Image.GetComponent<Image>().color = Color.green;
+        }
+
+            //building4
+        if (game.Market[3].attractScore < 0)
+        {
+            AttractBuilding4Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[3].attractScore == 0)
+        {
+            AttractBuilding4Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            AttractBuilding4Image.GetComponent<Image>().color = Color.green;
+        }
+
+            //building5
+        if (game.Market[4].attractScore < 0)
+        {
+            AttractBuilding5Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[4].attractScore == 0)
+        {
+            AttractBuilding5Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            AttractBuilding5Image.GetComponent<Image>().color = Color.green;
+        }
+
+
+        //Envi
+        //building1
+        if (game.Market[0].enviScore < 0)
+        {
+            EnviBuilding1Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[0].enviScore == 0)
+        {
+            EnviBuilding1Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            EnviBuilding1Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building2
+        if (game.Market[1].enviScore < 0)
+        {
+            EnviBuilding2Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[1].enviScore == 0)
+        {
+            EnviBuilding2Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            EnviBuilding2Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building3
+        if (game.Market[2].enviScore < 0)
+        {
+            EnviBuilding3Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[2].enviScore == 0)
+        {
+            EnviBuilding3Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            EnviBuilding3Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building4
+        if (game.Market[3].enviScore < 0)
+        {
+            EnviBuilding4Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[3].enviScore == 0)
+        {
+            EnviBuilding4Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            EnviBuilding4Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building5
+        if (game.Market[4].enviScore < 0)
+        {
+            EnviBuilding5Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[4].enviScore == 0)
+        {
+            EnviBuilding5Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            EnviBuilding5Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //Fluidity
+        //building1
+        if (game.Market[0].fluidScore < 0)
+        {
+            fluidBuilding1Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[0].fluidScore == 0)
+        {
+            fluidBuilding1Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            fluidBuilding1Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building2
+        if (game.Market[1].fluidScore < 0)
+        {
+            fluidBuilding2Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[1].fluidScore == 0)
+        {
+            fluidBuilding2Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            fluidBuilding2Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building3
+        if (game.Market[2].fluidScore < 0)
+        {
+            fluidBuilding3Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[2].fluidScore == 0)
+        {
+            fluidBuilding3Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            fluidBuilding3Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building4
+        if (game.Market[3].fluidScore < 0)
+        {
+            fluidBuilding4Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[3].fluidScore == 0)
+        {
+            fluidBuilding4Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            fluidBuilding4Image.GetComponent<Image>().color = Color.green;
+        }
+
+        //building5
+        if (game.Market[4].fluidScore < 0)
+        {
+            fluidBuilding5Image.GetComponent<Image>().color = Color.red;
+        }
+        else if (game.Market[4].fluidScore == 0)
+        {
+            fluidBuilding5Image.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            fluidBuilding5Image.GetComponent<Image>().color = Color.green;
+        }
+
+
     }
+
 
     
 }
