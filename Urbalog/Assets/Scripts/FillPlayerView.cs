@@ -113,9 +113,9 @@ public class FillPlayerView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FillPLayerViewInfo();
         if (!isAlreadyUpdated)
         {
-            FillPLayerViewInfo();
             ColorImpact();
             isAlreadyUpdated = true;
         }
