@@ -12,7 +12,10 @@ public class Game
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
 
-
+    /**
+     * <summary>Fills market List with the appropriate Buildings.</summary>
+     * TODO: This method has to fill the market with random buildings from the deck
+     * */
     public void FillMarket()
     {
         Market.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
@@ -30,6 +33,9 @@ public class Game
         DeckBuildings.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
     }
 
+    /**
+     * <summary>Fills roles list with the different roles and their stats</summary>
+     * */
     public void FillRoles()
     {
         Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
@@ -39,7 +45,12 @@ public class Game
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
 
-
+    /**
+     * <summary>Add valueBet to the correct ressource on the correct building</summary>
+     * <param name="numBuilding">The index of the building that you want to bet on</param>
+     * <param name="ressource">String which is the name of the ressource the bet has been made</param>
+     * <param name="ValueBet">How much we bet</param>
+     */
     public void BetOnBuilding(int numBuilding, string ressource, int ValueBet)
     {
         Building building = Market[numBuilding];

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [Serializable]
 public class Building
 {
@@ -20,6 +21,7 @@ public class Building
     public int fluidScore { get; set; }
     public int attractScore { get; set; }
 
+    //Constructor
     public Building(string _name, string _description,
         int _economical, int _social, int _political, int _enviScore,
         int _fluidScore, int _attractScore)

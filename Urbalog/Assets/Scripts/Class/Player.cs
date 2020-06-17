@@ -16,12 +16,20 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private int num;
 
+    /// <summary>
+    /// test function which seems deprecated
+    /// TODO: delete this method
+    /// </summary>
     [Command]
     public void CmdChangeNum()
     {
         RpcChangeNum();
     }
 
+    /// <summary>
+    /// test function which seems deprecated
+    /// TODO: delete this method
+    /// </summary>
     [ClientRpc]
     public void RpcChangeNum()
     {

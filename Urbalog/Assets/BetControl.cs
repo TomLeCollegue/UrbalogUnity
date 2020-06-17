@@ -15,7 +15,15 @@ public class BetControl : NetworkBehaviour
 
 
 
-
+    /// <summary>
+    /// See if the bet is a -1 or a +1 bet and on which ressource.
+    /// Then, check if the bet is possible on the building the player chose to open
+    /// BetPanel.
+    /// </summary>
+    /// <param name="value">if -1 then player wanted to take back his resource
+    /// if +1 then player wanted to bet 1 resource</param>
+    /// <param name="Ressource">It's the resource the player wanted to bet on
+    /// can be "Political", "Economical" or "Social"</param>
     public void VerifBet(int value, string Ressource)
     {
         Game game = GameManager.singleton.game;
@@ -79,6 +87,7 @@ public class BetControl : NetworkBehaviour
                 }
             }
         }
+        //The bet is considered doable
         if (isOk)
         {
             CmdBet(value, Ressource, numBuildingBet);
@@ -86,7 +95,12 @@ public class BetControl : NetworkBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Is used when a player bet is done.
+    /// It changes accurately the ressources available to the player depending on his bet.
+    /// </summary>
+    /// <param name="value">can be -1 or +1, it's what should be substracted to the player resources.</param>
+    /// <param name="Ressource">The Resource the player used to bet</param>
     private void ChangeRessourcePlayer(int value, string Ressource)
     {
         if (Ressource.Equals("Economical"))
@@ -103,12 +117,26 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Done by the server.
+    /// Does a bet
+    /// </summary>
+    /// <param name="value">value of the bet : -1 or +1</param>
+    /// <param name="Ressource">The resource the player chose to bet</param>
+    /// <param name="num">The index of the building in the market</param>
     [Command]
     public void CmdBet(int value, string Ressource, int num)
     {
         RpcBet(value, Ressource, num);
     }
 
+    /// <summary>
+    /// Client side.
+    /// Changes how a building is financed according to one bet
+    /// </summary>
+    /// <param name="value">value of the bet : -1 or +1</param>
+    /// <param name="Ressource">The resource the player chose to bet</param>
+    /// <param name="numBuildingBet">The index of the building in the market</param>
     [ClientRpc]
     public void RpcBet(int value, string Ressource, int numBuildingBet)
     {

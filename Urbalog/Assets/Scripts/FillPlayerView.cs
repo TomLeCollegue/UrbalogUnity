@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// FillsPlayerView with all the informations about the current state of the game.
+/// </summary>
 public class FillPlayerView : MonoBehaviour
 {
-
+    #region Colors
     Color urbaGreen = new Color(0.1f, 0.3f, 0.0f);
     Color urbaRed = new Color(0.6f, 0.0f, 0.0f);
-
+    #endregion
     #region Building1
     [Space(10)]
     [Header("Building 1")]
@@ -107,6 +110,8 @@ public class FillPlayerView : MonoBehaviour
 
 
     #endregion
+
+    //For the actions that needs to be updated only once a turn
     public bool isAlreadyUpdated = false;
 
 
@@ -114,6 +119,8 @@ public class FillPlayerView : MonoBehaviour
     void Update()
     {
         FillPLayerViewInfo();
+
+        //is needed only once a turn
         if (!isAlreadyUpdated)
         {
             ColorImpact();
@@ -122,7 +129,12 @@ public class FillPlayerView : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// It Fills all player view, from buildings names, buildings scores and finance, also calls the <see cref="FillRole"/>
+    /// method.
+    /// It is called once a frame.
+    /// TODO: Some information don't need to be called once a frame, so we could make them not be updated.
+    /// </summary>
     private void FillPLayerViewInfo()
     {
         Game game = GameManager.singleton.game;
@@ -170,7 +182,11 @@ public class FillPlayerView : MonoBehaviour
 
     
 
-
+    /// <summary>
+    /// It checks the player role and changes informations that are written on the player card accordingly.
+    /// Does it for the ressources (because they change when a bet is done) and for the objectives sprites.
+    /// TODO: The sprites don't need to be called once a frame
+    /// </summary>
     private void FillRole()
     {
         Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
@@ -247,10 +263,14 @@ public class FillPlayerView : MonoBehaviour
         #endregion
     }
 
+    /// <summary>
+    /// Checks every building impact scores and color the impact sprite depending if it is a
+    /// negative impact or positive impact
+    /// </summary>
+    /// <remarks>coloring in red if negative, in black if 0 and in green if positive</remarks>
     private void ColorImpact()
     {
         Game game = GameManager.singleton.game;
-        Debug.Log("1");
 
         //Attract
             //building1
