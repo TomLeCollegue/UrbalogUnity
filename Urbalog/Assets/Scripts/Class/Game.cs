@@ -12,6 +12,11 @@ public class Game
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
 
+    public int cityAttractiveness = 0;
+    public int cityEnvironment = 0;
+    public int cityFluidity = 0;
+
+
     /**
      * <summary>Fills market List with the appropriate Buildings.</summary>
      * TODO: This method has to fill the market with random buildings from the deck
@@ -43,8 +48,8 @@ public class Game
     public void FillRoles()
     {
         Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
-        Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
         Roles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
         Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
@@ -72,5 +77,6 @@ public class Game
             building.FinanceSocial += ValueBet;
         }
     }
+
 
 }

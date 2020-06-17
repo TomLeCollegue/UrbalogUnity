@@ -155,5 +155,40 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    [Command]
+    public void CmdUpdateCityScore()
+    {
+        RpcUpdateCityScore();
+        Debug.Log("Test");
+    }
+
+    [ClientRpc]
+    public void RpcUpdateCityScore()
+    {
+        Game _game = GameManager.singleton.game;
+        CityScorePanel _cityScorePanel = GameObject.Find("playerLocal").GetComponent<CityScorePanel>();
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (isFinanced(_game.Market[i]))
+            {
+                _game.cityAttractiveness += _game.Market[i].attractScore;
+                _game.cityEnvironment += _game.Market[i].enviScore;
+                _game.cityFluidity += _game.Market[i].fluidScore;
+            }
+        }
+        Debug.Log(_game.cityAttractiveness + " attrac");
+        Debug.Log(_game.cityEnvironment+ " envi");
+        Debug.Log(_game.cityFluidity+ " fluid");
+        _cityScorePanel.UpdateCityScorePanel();
+
+    }
+
+    public bool isFinanced(Building _building)
+    {
+        return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
+            && _building.FinanceSocial >= _building.FinanceSocial);
+    }
+
 
 }
