@@ -24,6 +24,10 @@ public class Game
         Market.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1,0,1,2));
         Market.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
     }
+
+    /// <summary>
+    /// All the urbalog buildings
+    /// </summary>
     public void FillDeckBuildings()
     {
         DeckBuildings.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
