@@ -12,6 +12,8 @@ public class Game
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
 
+    public List<Player> players = new List<Player>();
+
     public int cityAttractiveness = 0;
     public int cityEnvironment = 0;
     public int cityFluidity = 0;

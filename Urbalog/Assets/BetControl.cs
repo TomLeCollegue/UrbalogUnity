@@ -206,7 +206,7 @@ public class BetControl : NetworkBehaviour
     public bool isFinanced(Building _building)
     {
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
-            && _building.FinanceSocial >= _building.Social);
+            /*&& _building.FinanceSocial >= _building.Social*/);
     }
 
     /// <summary>

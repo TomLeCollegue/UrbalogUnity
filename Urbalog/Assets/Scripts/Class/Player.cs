@@ -10,8 +10,13 @@ public class Player : NetworkBehaviour
     public Role role { get; set; }
 
     [SerializeField]
-    public string namePlayer { get; set; }
+    [SyncVar]
+    public string namePlayer = "nom";
     public string ID { get; set; }
+
+
+    [SyncVar]
+    public bool nextTurn = false;
 
     [SerializeField]
     private int num;
