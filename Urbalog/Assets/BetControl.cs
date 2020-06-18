@@ -14,8 +14,6 @@ public class BetControl : NetworkBehaviour
         numBuildingBet = num;
     }
 
-
-
     /// <summary>
     /// See if the bet is a -1 or a +1 bet and on which ressource.
     /// Then, check if the bet is possible on the building the player chose to open
@@ -183,16 +181,9 @@ public class BetControl : NetworkBehaviour
                 _game.cityEnvironment += _game.Market[i].enviScore;
                 _game.cityFluidity += _game.Market[i].fluidScore;
 
-                Debug.Log("tour "+ i);
-                Debug.Log("Attrac :" + _game.cityAttractiveness);
-                Debug.Log("Envi :" + _game.cityEnvironment);
-                Debug.Log("Fluid :" + _game.cityFluidity);
-
             }
         }
-        Debug.Log(_game.cityAttractiveness + " attrac");
-        Debug.Log(_game.cityEnvironment+ " envi");
-        Debug.Log(_game.cityFluidity+ " fluid");
+
         //_cityScorePanel.UpdateCityScorePanel();
         //UpdateCityScorePanel();
 
@@ -208,7 +199,23 @@ public class BetControl : NetworkBehaviour
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
             /*&& _building.FinanceSocial >= _building.Social*/);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns>Returns the number of Buildings that are financed</returns>
+    public int nbBuildingsFinanced()
+    {
+        Game _game = GameManager.singleton.game;
+        int _res = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            if (isFinanced(_game.Market[i]))
+            {
+                _res += 1;
+            }
+        }
+        return _res;
+    }
 
 
 }
