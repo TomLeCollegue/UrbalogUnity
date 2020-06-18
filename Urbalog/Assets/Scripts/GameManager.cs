@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         else
         {
             singleton = this;
+            DontDestroyOnLoad(this);
         }
 
         game.FillMarket();
@@ -87,5 +88,8 @@ public class GameManager : MonoBehaviour
         GUILayout.EndArea();
         }
     }
+
+
+   
 
 }

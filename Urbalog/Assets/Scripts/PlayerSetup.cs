@@ -48,10 +48,8 @@ public class PlayerSetup : NetworkBehaviour
         _player.ID = _netID;
         if (isLocalPlayer)
         {
-            Debug.Log("isLocalPlayer");
-            string netID = GetComponent<NetworkIdentity>().netId.ToString();
             string namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
-            CmdSendInfoPlayer(netID, namePlayer);
+            CmdSendInfoPlayer(_netID, namePlayer);
         }
         CmdGetRoleForPlayer();
         CmdSendActualGameManager();
@@ -136,6 +134,23 @@ public class PlayerSetup : NetworkBehaviour
         }
     }
     #endregion
+
+    [Command]
+    public void CmdChangeBoolNextTurn(string _id)
+    {
+        Debug.Log("nextTurn fonction command");
+        GameManager gameManager = GameManager.singleton;
+        for (int i = 0; i < gameManager.game.players.Count; i++)
+        {
+            Debug.Log("nextTurn Boucle " + i);
+            if (gameManager.game.players[i].ID.Equals(_id))
+            {
+                Debug.Log("nextTurn Boucle " + i + " Trouvé" );
+                gameManager.game.players[i].nextTurn = !gameManager.game.players[i].nextTurn;
+            }
+        }
+    }
+
 
 
     #region Fonction Serialization      GetbyteFromObject()    ByteArrayToObject2()

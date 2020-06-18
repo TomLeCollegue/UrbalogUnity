@@ -1,20 +1,18 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NextTurnButton : MonoBehaviour
+public class NextTurnButton : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public void ClickNextTurn()
     {
-        
+        string _id = GameObject.Find("playerLocal").GetComponent<Player>().ID.ToString();
+        Debug.Log("nextTurn " + _id);
+        GameObject.Find("playerLocal").GetComponent<PlayerSetup>().CmdChangeBoolNextTurn(_id);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     /// <summary>
     /// Goes in BetControl so the city score is updated for all players
