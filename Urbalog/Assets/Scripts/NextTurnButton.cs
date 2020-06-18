@@ -16,6 +16,9 @@ public class NextTurnButton : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Goes in BetControl so the city score is updated for all players
+    /// </summary>
     public void UpdateCityScore()
     {
         BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();

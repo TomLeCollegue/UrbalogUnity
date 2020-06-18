@@ -156,6 +156,9 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Server Side. Updates City Score for all players when one presses 'NextTurn'
+    /// </summary>
     [Command]
     public void CmdUpdateCityScore()
     {
@@ -163,6 +166,9 @@ public class BetControl : NetworkBehaviour
         Debug.Log("Test");
     }
 
+    /// <summary>
+    /// Client Side. Updates the city scores for local player.
+    /// </summary>
     [ClientRpc]
     public void RpcUpdateCityScore()
     {
@@ -192,12 +198,21 @@ public class BetControl : NetworkBehaviour
 
     }
 
+    /// <summary>
+    /// Checks if a building is financed and ready to be built when a player presses Next Turn.
+    /// </summary>
+    /// <param name="_building">the building we check of type Building</param>
+    /// <returns></returns>
     public bool isFinanced(Building _building)
     {
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
             && _building.FinanceSocial >= _building.Social);
     }
 
+    /// <summary>
+    /// Update the panel with the city score when someone presses NextTurn so the player can see
+    /// the city score's evolution.
+    /// </summary>
     public void UpdateCityScorePanel()
     {
         Game _game = GameManager.singleton.game;
