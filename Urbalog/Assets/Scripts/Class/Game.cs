@@ -12,6 +12,8 @@ public class Game
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
 
+    public List<Building> pioche { get; set; } = new List<Building>();
+ 
     public int cityAttractiveness = 0;
     public int cityEnvironment = 0;
     public int cityFluidity = 0;
@@ -25,11 +27,15 @@ public class Game
      * */
     public void FillMarket()
     {
-        Market.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
-        Market.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service", 1, 2, 2, 1, -1, 1));
-        Market.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
-        Market.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1,0,1,2));
-        Market.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+
+        pioche = DeckBuildings;
+
+        for (int i =0; i < 5; i++){
+            var randomMarket = new System.Random();
+            int index = randomMarket.Next(pioche.Count);
+            Building buildingToAdd = pioche[index];
+            Market.Add(buildingToAdd);
+        }
     }
 
     /// <summary>
@@ -51,7 +57,7 @@ public class Game
         DeckBuildings.Add(new Building("PAV", "un Point d'Accueil des Véhicules est une grande aire de livraison équipée de moyens de manutention à la disposition des livreurs",2,2,1,-1,4,-3));
         DeckBuildings.Add(new Building("Stations GAZ GNV", "Station de recharge au gaz naturel utilisée pour recharger des camions plus propres",2,3,1,2,0,-1));
         DeckBuildings.Add(new Building("Banc", "2 Bancs",1,1,1,1,-1,0));
-        DeckBuildings.Add(new Building("Zone végétalisée", "Espace vert",1,2,2,4,-4,1));
+        DeckBuildings.Add(new Building("Zone végétalisée", "Espace vert",1,2,2,4,-4,1)); 
     }
 
     /**
