@@ -1,6 +1,7 @@
 ﻿using Mirror;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BetControl : NetworkBehaviour
@@ -166,7 +167,7 @@ public class BetControl : NetworkBehaviour
     public void RpcUpdateCityScore()
     {
         Game _game = GameManager.singleton.game;
-        CityScorePanel _cityScorePanel = GameObject.Find("playerLocal").GetComponent<CityScorePanel>();
+        //CityScorePanel _cityScorePanel = GameObject.Find("playerLocal").GetComponent<CityScorePanel>();
 
         for (int i = 0; i < 5; i++)
         {
@@ -175,20 +176,43 @@ public class BetControl : NetworkBehaviour
                 _game.cityAttractiveness += _game.Market[i].attractScore;
                 _game.cityEnvironment += _game.Market[i].enviScore;
                 _game.cityFluidity += _game.Market[i].fluidScore;
+
+                Debug.Log("tour "+ i);
+                Debug.Log("Attrac :" + _game.cityAttractiveness);
+                Debug.Log("Envi :" + _game.cityEnvironment);
+                Debug.Log("Fluid :" + _game.cityFluidity);
+
             }
         }
         Debug.Log(_game.cityAttractiveness + " attrac");
         Debug.Log(_game.cityEnvironment+ " envi");
         Debug.Log(_game.cityFluidity+ " fluid");
-        _cityScorePanel.UpdateCityScorePanel();
+        //_cityScorePanel.UpdateCityScorePanel();
+        UpdateCityScorePanel();
 
     }
 
     public bool isFinanced(Building _building)
     {
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
-            && _building.FinanceSocial >= _building.FinanceSocial);
+            && _building.FinanceSocial >= _building.Social);
     }
 
+    public void UpdateCityScorePanel()
+    {
+        Game _game = GameManager.singleton.game;
+
+        Debug.Log("1CityScorePanel : Attract.text");
+
+        TextMeshProUGUI _Attract = GameObject.Find("AttractCityScoreText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI _Envi = GameObject.Find("EnviCityScoreText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI _Fluid = GameObject.Find("FluidCityScoreText").GetComponent<TextMeshProUGUI>();
+
+        _Attract.text = _game.cityAttractiveness.ToString();
+        _Envi.text = _game.cityEnvironment.ToString();
+        _Fluid.text = _game.cityFluidity.ToString();
+
+
+    }
 
 }
