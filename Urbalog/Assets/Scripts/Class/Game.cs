@@ -42,6 +42,16 @@ public class Game
         DeckBuildings.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
         DeckBuildings.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
         DeckBuildings.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+        DeckBuildings.Add(new Building("Grand magasin", "Supermarché ou grande surface spécialisée (+ de 20 salariés)",3,6,2,-1,-2,5));
+        DeckBuildings.Add(new Building("Zone de rencontre", "Une zone de rencontre est une zone apaisée où la vitesse est limitée à 20km/h, sans trottoirs où tous les usagers de la voirie peuvent se croiser (vélo, autos, piétons, camions, etc...)",2,2,2,2,-1,1));
+        DeckBuildings.Add(new Building("Réseau de consignes", "Un réseau de consignes automatiques est composé de boites sécurisées permettant le retrait de colis à toute heure",2,3,2,0,2,0));
+        DeckBuildings.Add(new Building("Dispositif anti-bélier", "Plots en béton disposés devant les batiments pour éviter l'usage de voiture-bélier",1,1,1,0,-2,1));
+        DeckBuildings.Add(new Building("Aire de livraison", "Emplacement réservé à l'arrêt des véhicules pour réaliser une livraison ou un enlèvement de marchandise",3,1,2,-1,2,-1));
+        DeckBuildings.Add(new Building("CDU", "Un Centre de Distribution Urbaine est un entrepôt situé en ville qui facilite les livraisons",3,2,2,2,4,-1));
+        DeckBuildings.Add(new Building("PAV", "un Point d'Accueil des Véhicules est une grande aire de livraison équipée de moyens de manutention à la disposition des livreurs",2,2,1,-1,4,-3));
+        DeckBuildings.Add(new Building("Stations GAZ GNV", "Station de recharge au gaz naturel utilisée pour recharger des camions plus propres",2,3,1,2,0,-1));
+        DeckBuildings.Add(new Building("Banc", "2 Bancs",1,1,1,1,-1,0));
+        DeckBuildings.Add(new Building("Zone végétalisée", "Espace vert",1,2,2,4,-4,1));
     }
 
     /**
