@@ -194,7 +194,7 @@ public class BetControl : NetworkBehaviour
         Debug.Log(_game.cityEnvironment+ " envi");
         Debug.Log(_game.cityFluidity+ " fluid");
         //_cityScorePanel.UpdateCityScorePanel();
-        UpdateCityScorePanel();
+        //UpdateCityScorePanel();
 
     }
 
@@ -206,28 +206,9 @@ public class BetControl : NetworkBehaviour
     public bool isFinanced(Building _building)
     {
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
-            && _building.FinanceSocial >= _building.Social);
+            /*&& _building.FinanceSocial >= _building.Social*/);
     }
 
-    /// <summary>
-    /// Update the panel with the city score when someone presses NextTurn so the player can see
-    /// the city score's evolution.
-    /// </summary>
-    public void UpdateCityScorePanel()
-    {
-        Game _game = GameManager.singleton.game;
 
-        Debug.Log("1CityScorePanel : Attract.text");
-
-        TextMeshProUGUI _Attract = GameObject.Find("AttractCityScoreText").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI _Envi = GameObject.Find("EnviCityScoreText").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI _Fluid = GameObject.Find("FluidCityScoreText").GetComponent<TextMeshProUGUI>();
-
-        _Attract.text = _game.cityAttractiveness.ToString();
-        _Envi.text = _game.cityEnvironment.ToString();
-        _Fluid.text = _game.cityFluidity.ToString();
-
-
-    }
 
 }

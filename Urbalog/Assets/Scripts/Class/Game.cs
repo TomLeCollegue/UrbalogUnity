@@ -16,6 +16,8 @@ public class Game
     public int cityEnvironment = 0;
     public int cityFluidity = 0;
 
+    public int turnNumber = 0;
+
 
     /**
      * <summary>Fills market List with the appropriate Buildings.</summary>
