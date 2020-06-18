@@ -12,11 +12,11 @@ public class Game
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
 
-    public int cityAttractiveness = 0;
-    public int cityEnvironment = 0;
-    public int cityFluidity = 0;
+    public int cityAttractiveness;
+    public int cityEnvironment;
+    public int cityFluidity;
 
-    public int turnNumber = 0;
+    public int turnNumber;
 
 
     /**

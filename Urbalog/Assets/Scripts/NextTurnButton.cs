@@ -45,7 +45,7 @@ public class NextTurnButton : MonoBehaviour
     {
         Game _game = GameManager.singleton.game;
 
-        turnNumberText.text = "N° Tour : " + _game.turnNumber.ToString();
+        turnNumberText.text = "Num Tour : " + _game.turnNumber.ToString();
     }
 
 
