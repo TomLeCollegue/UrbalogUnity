@@ -29,12 +29,13 @@ public class Game
     {
 
         pioche = DeckBuildings;
-
-        for (int i =0; i < 5; i++){
-            var randomMarket = new System.Random();
-            int index = randomMarket.Next(pioche.Count);
+        var randomMarket = new System.Random();
+        for (int i = 0; i < 5; i++){
+            int index = randomMarket.Next((pioche.Count)-1);
+            Debug.Log(index);
             Building buildingToAdd = pioche[index];
             Market.Add(buildingToAdd);
+            pioche.RemoveAt(index);
         }
     }
 

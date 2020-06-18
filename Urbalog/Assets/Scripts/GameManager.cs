@@ -30,8 +30,9 @@ public class GameManager : MonoBehaviour
             singleton = this;
         }
 
-        game.FillMarket();
+        
         game.FillDeckBuildings();
+        game.FillMarket();
         game.FillRoles();
     }
 
