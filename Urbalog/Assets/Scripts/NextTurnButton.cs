@@ -20,7 +20,6 @@ public class NextTurnButton : NetworkBehaviour
     {
         if (isServer)
         {
-            Debug.Log("je suis le serveur");
             if (CheckForNextTurn())
             {
                 Debug.Log("Cest la fin du tour");
