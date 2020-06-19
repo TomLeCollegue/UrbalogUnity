@@ -33,9 +33,8 @@ public class Game
         for (int i = 0; i < 5; i++){
             int index = randomMarket.Next((pioche.Count)-1);
             Debug.Log(index);
-            while (!BuildingInMarket(pioche[index]))
+            while (BuildingInMarket(pioche[index]))
             {
-                Debug.Log("test" + index);
                 index = randomMarket.Next((pioche.Count)-1);
             
             }
@@ -46,15 +45,11 @@ public class Game
 
     public bool BuildingInMarket(Building buildingPioché)
     {
-        for(int i=0;i<(Market.Count)-1;i++)
+        for(int i=0;i<(Market.Count);i++)
         {
             if(Market[i].name == buildingPioché.name)
             {
                 return true;
-            }
-            else
-            {
-                return false;
             }
         }
         return false;
