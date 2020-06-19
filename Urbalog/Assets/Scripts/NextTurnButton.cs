@@ -41,6 +41,7 @@ public class NextTurnButton : NetworkBehaviour
     {
         PlayerSetup playerSetup = GameObject.Find("playerLocal").GetComponent<PlayerSetup>();
         GameManager gameManager = GameManager.singleton;
+        ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
 
         // Check les batiment construit 
         // Les ajouter dans la list des batiments construit
@@ -52,7 +53,6 @@ public class NextTurnButton : NetworkBehaviour
 
         // Changer le numéro de tour
 
-        ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
 
     }
 
