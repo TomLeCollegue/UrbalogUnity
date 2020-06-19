@@ -56,7 +56,5 @@ public class CityScoreButton : MonoBehaviour
         Attract.text = _game.cityAttractiveness.ToString();
         Envi.text = _game.cityEnvironment.ToString();
         Fluid.text = _game.cityFluidity.ToString();
-
     }
-
 }

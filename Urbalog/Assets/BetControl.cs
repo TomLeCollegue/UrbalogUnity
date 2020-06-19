@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -181,13 +182,17 @@ public class BetControl : NetworkBehaviour
                 _game.cityEnvironment += _game.Market[i].enviScore;
                 _game.cityFluidity += _game.Market[i].fluidScore;
 
+                AddBuildingInBuildingsBuilt(_game.Market[i]);
             }
+            Debug.Log(_game.BuildingsBuilt.ToString());
         }
 
         //_cityScorePanel.UpdateCityScorePanel();
         //UpdateCityScorePanel();
 
     }
+
+
 
     /// <summary>
     /// Checks if a building is financed and ready to be built when a player presses Next Turn.
@@ -217,5 +222,15 @@ public class BetControl : NetworkBehaviour
         return _res;
     }
 
+    /// <summary>
+    /// Add an Object of type Building in the <see cref="Game.BuildingsBuilt"/> list.
+    /// </summary>
+    /// <param name="_building">Type Building, the building we want to add.</param>
+    public void AddBuildingInBuildingsBuilt(Building _building)
+    {
+        Game _game = GameManager.singleton.game;
+
+        _game.BuildingsBuilt.Add(_building);
+    }
 
 }
