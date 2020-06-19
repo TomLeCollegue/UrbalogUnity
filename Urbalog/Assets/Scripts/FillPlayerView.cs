@@ -139,7 +139,7 @@ public class FillPlayerView : MonoBehaviour
     private void FillPLayerViewInfo()
     {
         Game _game = GameManager.singleton.game;
-
+        FillBuildingsImpact();
         //Building1
         PoliticalBuilding1.text = _game.Market[0].FinancePolitical + "/" + _game.Market[0].Political;
         EcoBuilding1.text = _game.Market[0].FinanceEconomical + "/" + _game.Market[0].Economical;

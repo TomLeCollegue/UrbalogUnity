@@ -48,7 +48,7 @@ public class NextTurnButton : NetworkBehaviour
         // Les supprimer du Deck
 
         
-        gameManager.game.FillMarket();           // Changer le marché
+        gameManager.game.FillMarket2();           // Changer le marché
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
 
         // Changer le numéro de tour
