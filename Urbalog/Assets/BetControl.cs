@@ -231,6 +231,17 @@ public class BetControl : NetworkBehaviour
         Game _game = GameManager.singleton.game;
 
         _game.BuildingsBuilt.Add(_building);
+        RemoveBuildingFromPioche(_building);
+    }
+
+    /// <summary>
+    /// Remove the building in argument from <see cref="Game.pioche"/> so it doesn't appear in the Market until the end of the game.
+    /// </summary>
+    /// <param name="_building">The building we wan to remove.</param>
+    public void RemoveBuildingFromPioche(Building _building)
+    {
+        Game _game = GameManager.singleton.game;
+        _game.pioche.Remove(_building);
     }
 
 }
