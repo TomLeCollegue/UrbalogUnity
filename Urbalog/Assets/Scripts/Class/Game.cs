@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,17 +12,13 @@ public class Game
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
 
+    public List<Building> pioche { get; set; } = new List<Building>();
+ 
+    public int cityAttractiveness = 0;
+    public int cityEnvironment = 0;
+    public int cityFluidity = 0;
 
-    //All the buildings that are built by the players throughout the game
-    public List<Building> BuildingsBuilt { get; set; } = new List<Building>();
-
-    public int cityAttractiveness;
-    public int cityEnvironment;
-    public int cityFluidity;
-
-    public int turnNumber;
-    
-    public List<Player> players = new List<Player>();
+    public int turnNumber = 0;
 
 
     /**
@@ -31,22 +27,32 @@ public class Game
      * */
     public void FillMarket()
     {
-        Market.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
-        Market.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service", 1, 2, 2, 1, -1, 1));
-        Market.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
-        Market.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1,0,1,2));
-        Market.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+
+        pioche = DeckBuildings;
+        var randomMarket = new System.Random();
+        for (int i = 0; i < 5; i++){
+            int index = randomMarket.Next((pioche.Count)-1);
+            Debug.Log(index);
+            while (BuildingInMarket(pioche[index]))
+            {
+                index = randomMarket.Next((pioche.Count)-1);
+            
+            }
+            Building buildingToAdd = pioche[index];
+            Market.Add(buildingToAdd);
+        }
     }
 
-    public void FillMarket2()
+    public bool BuildingInMarket(Building buildingPioché)
     {
-        Debug.Log("tour fillMarket2");
-        Market.Clear();
-        Market.Add(new Building("Pyste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
-        Market.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service", 1, 2, 2, 1, -1, 1));
-        Market.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
-        Market.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
-        Market.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+        for(int i=0;i<(Market.Count);i++)
+        {
+            if(Market[i].name == buildingPioché.name)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -59,6 +65,16 @@ public class Game
         DeckBuildings.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
         DeckBuildings.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
         DeckBuildings.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+        DeckBuildings.Add(new Building("Grand magasin", "Supermarché ou grande surface spécialisée (+ de 20 salariés)",3,6,2,-1,-2,5));
+        DeckBuildings.Add(new Building("Zone de rencontre", "Une zone de rencontre est une zone apaisée où la vitesse est limitée à 20km/h, sans trottoirs où tous les usagers de la voirie peuvent se croiser (vélo, autos, piétons, camions, etc...)",2,2,2,2,-1,1));
+        DeckBuildings.Add(new Building("Réseau de consignes", "Un réseau de consignes automatiques est composé de boites sécurisées permettant le retrait de colis à toute heure",2,3,2,0,2,0));
+        DeckBuildings.Add(new Building("Dispositif anti-bélier", "Plots en béton disposés devant les batiments pour éviter l'usage de voiture-bélier",1,1,1,0,-2,1));
+        DeckBuildings.Add(new Building("Aire de livraison", "Emplacement réservé à l'arrêt des véhicules pour réaliser une livraison ou un enlèvement de marchandise",3,1,2,-1,2,-1));
+        DeckBuildings.Add(new Building("CDU", "Un Centre de Distribution Urbaine est un entrepôt situé en ville qui facilite les livraisons",3,2,2,2,4,-1));
+        DeckBuildings.Add(new Building("PAV", "un Point d'Accueil des Véhicules est une grande aire de livraison équipée de moyens de manutention à la disposition des livreurs",2,2,1,-1,4,-3));
+        DeckBuildings.Add(new Building("Stations GAZ GNV", "Station de recharge au gaz naturel utilisée pour recharger des camions plus propres",2,3,1,2,0,-1));
+        DeckBuildings.Add(new Building("Banc", "2 Bancs",1,1,1,1,-1,0));
+        DeckBuildings.Add(new Building("Zone végétalisée", "Espace vert",1,2,2,4,-4,1)); 
     }
 
     /**
@@ -72,6 +88,18 @@ public class Game
         Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
+  
+  public void FillMarket2()
+    {
+        Debug.Log("tour fillMarket2");
+        Market.Clear();
+        Market.Add(new Building("Pyste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
+        Market.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service", 1, 2, 2, 1, -1, 1));
+        Market.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
+        Market.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
+        Market.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+    }
+
 
     /**
      * <summary>Add valueBet to the correct ressource on the correct building</summary>
@@ -99,3 +127,4 @@ public class Game
 
 
 }
+
