@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -88,6 +88,18 @@ public class Game
         Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
+  
+  public void FillMarket2()
+    {
+        Debug.Log("tour fillMarket2");
+        Market.Clear();
+        Market.Add(new Building("Pyste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
+        Market.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service", 1, 2, 2, 1, -1, 1));
+        Market.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
+        Market.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
+        Market.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+    }
+
 
     /**
      * <summary>Add valueBet to the correct ressource on the correct building</summary>
@@ -115,3 +127,4 @@ public class Game
 
 
 }
+

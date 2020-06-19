@@ -10,7 +10,7 @@ public class HostGame : NetworkBehaviour
     public string roomName = "En Attente des joueurs";
 
 
-    public string playerName = "name player";
+    public string playerName = "nameplayer";
     private NetworkManager networkManager;
 
     void Start()

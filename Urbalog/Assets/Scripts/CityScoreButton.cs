@@ -30,6 +30,9 @@ public class CityScoreButton : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Opens the panel if closed and opens it if closed
+    /// </summary>
     public void TogglePanel()
     {
         bool _isActive = Panel.activeSelf;
@@ -41,6 +44,9 @@ public class CityScoreButton : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Refresh city scores on panel when it is opened
+    /// </summary>
     public void UpdateCityScorePanel()
     {
         Game _game = GameManager.singleton.game;
@@ -50,7 +56,5 @@ public class CityScoreButton : MonoBehaviour
         Attract.text = _game.cityAttractiveness.ToString();
         Envi.text = _game.cityEnvironment.ToString();
         Fluid.text = _game.cityFluidity.ToString();
-
     }
-
 }
