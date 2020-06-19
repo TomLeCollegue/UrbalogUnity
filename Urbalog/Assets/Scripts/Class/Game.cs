@@ -11,6 +11,9 @@ public class Game
     public List<Building> Market { get; set; } = new List<Building>();
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
+    public List<Player> players = new List<Player>();
+
+    public List<Building> BuildingsBuilt = new List<Building>();
 
     public List<Building> pioche { get; set; } = new List<Building>();
  
