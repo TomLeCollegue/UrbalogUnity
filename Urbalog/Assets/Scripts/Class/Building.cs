@@ -21,10 +21,15 @@ public class Building
     public int fluidScore { get; set; }
     public int attractScore { get; set; }
 
+    public int logisticScore { get; set; }
+
+    public string logisticDescription { get; set; }
+
+
     //Constructor
     public Building(string _name, string _description,
         int _economical, int _social, int _political, int _enviScore,
-        int _fluidScore, int _attractScore)
+        int _fluidScore, int _attractScore, int _logisticScore, string _logisticDescription)
     {
         name = _name;
         description = _description;
@@ -34,6 +39,8 @@ public class Building
         enviScore = _enviScore;
         fluidScore = _fluidScore;
         attractScore = _attractScore;
+        logisticScore = _logisticScore;
+        logisticDescription = _logisticDescription;
 
     }
 

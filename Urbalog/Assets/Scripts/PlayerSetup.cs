@@ -11,10 +11,8 @@ using UnityEngine.SocialPlatforms;
 [RequireComponent(typeof(Player))]
 public class PlayerSetup : NetworkBehaviour
 {
-
     [SerializeField]
     Behaviour[] componentsToDisable;
-
 
     void Start()
     {
@@ -51,8 +49,8 @@ public class PlayerSetup : NetworkBehaviour
             string namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
             CmdSendInfoPlayer(_netID, namePlayer);
         }
-        CmdGetRoleForPlayer();
-        CmdSendActualGameManager();
+        CmdGetRoleForPlayer(); //Tom, ça devrait pas être dans le if(isLocalPlayer), ça ?
+        CmdSendActualGameManager(); //et ça aussi
     }
 
     #region getGameManager Fonction
@@ -86,8 +84,8 @@ public class PlayerSetup : NetworkBehaviour
     [ClientRpc]
     void RpcGetActualGameManager(byte[] bytes)
     {
-        Game gameReceived = ByteArrayToObject(bytes);
-        GameManager.singleton.game = gameReceived;
+        Game _gameReceived = ByteArrayToObject(bytes);
+        GameManager.singleton.game = _gameReceived;
 
     }
     #endregion
