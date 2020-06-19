@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,8 +14,6 @@ public class BetControl : NetworkBehaviour
     {
         numBuildingBet = num;
     }
-
-
 
     /// <summary>
     /// See if the bet is a -1 or a +1 bet and on which ressource.
@@ -183,20 +182,17 @@ public class BetControl : NetworkBehaviour
                 _game.cityEnvironment += _game.Market[i].enviScore;
                 _game.cityFluidity += _game.Market[i].fluidScore;
 
-                Debug.Log("tour "+ i);
-                Debug.Log("Attrac :" + _game.cityAttractiveness);
-                Debug.Log("Envi :" + _game.cityEnvironment);
-                Debug.Log("Fluid :" + _game.cityFluidity);
-
+                AddBuildingInBuildingsBuilt(_game.Market[i]);
             }
+            Debug.Log(_game.BuildingsBuilt.ToString());
         }
-        Debug.Log(_game.cityAttractiveness + " attrac");
-        Debug.Log(_game.cityEnvironment+ " envi");
-        Debug.Log(_game.cityFluidity+ " fluid");
+
         //_cityScorePanel.UpdateCityScorePanel();
-        UpdateCityScorePanel();
+        //UpdateCityScorePanel();
 
     }
+
+
 
     /// <summary>
     /// Checks if a building is financed and ready to be built when a player presses Next Turn.
@@ -208,26 +204,33 @@ public class BetControl : NetworkBehaviour
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
             /*&& _building.FinanceSocial >= _building.Social*/);
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns>Returns the number of Buildings that are financed</returns>
+    public int nbBuildingsFinanced()
+    {
+        Game _game = GameManager.singleton.game;
+        int _res = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            if (isFinanced(_game.Market[i]))
+            {
+                _res += 1;
+            }
+        }
+        return _res;
+    }
 
     /// <summary>
-    /// Update the panel with the city score when someone presses NextTurn so the player can see
-    /// the city score's evolution.
+    /// Add an Object of type Building in the <see cref="Game.BuildingsBuilt"/> list.
     /// </summary>
-    public void UpdateCityScorePanel()
+    /// <param name="_building">Type Building, the building we want to add.</param>
+    public void AddBuildingInBuildingsBuilt(Building _building)
     {
         Game _game = GameManager.singleton.game;
 
-        Debug.Log("1CityScorePanel : Attract.text");
-
-        TextMeshProUGUI _Attract = GameObject.Find("AttractCityScoreText").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI _Envi = GameObject.Find("EnviCityScoreText").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI _Fluid = GameObject.Find("FluidCityScoreText").GetComponent<TextMeshProUGUI>();
-
-        _Attract.text = _game.cityAttractiveness.ToString();
-        _Envi.text = _game.cityEnvironment.ToString();
-        _Fluid.text = _game.cityFluidity.ToString();
-
-
+        _game.BuildingsBuilt.Add(_building);
     }
 
 }

@@ -1,10 +1,15 @@
 ﻿using Mirror;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
+
+    public GameObject Panel;
+    public TextMeshProUGUI turnNumberText;
+
     /// <summary>
     /// Change your Next turn bool from a state to an other
     /// </summary>
@@ -91,4 +96,26 @@ public class NextTurnButton : NetworkBehaviour
         BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
         _betControl.CmdUpdateCityScore();
     }
+
+    /// <summary>
+    /// When NextTurn button is clicked, the cityScorePanel is closed
+    /// </summary>
+    public void CloseCityScorePanel()
+    {
+        Panel.SetActive(false);
+    }
+
+    /// <summary>
+    /// Each turn, the turn number update on the playerView scene
+    /// </summary>
+    public void UpdateTurnNumber()
+    {
+        Game _game = GameManager.singleton.game;
+
+        turnNumberText.text = "Num Tour : " + _game.turnNumber.ToString();
+    }
+
+
+
+
 }
