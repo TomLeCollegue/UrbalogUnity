@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     public int NumPlayerForRole { get; set; } = 0;
 
 
-    [SerializeField]
-    private List<Player> players  = new List<Player>();
+    public List<Player> players  = new List<Player>();
 
     private void Awake()
     {
@@ -28,6 +27,7 @@ public class GameManager : MonoBehaviour
         else
         {
             singleton = this;
+            DontDestroyOnLoad(this);
         }
 
         game.FillMarket();
@@ -41,11 +41,11 @@ public class GameManager : MonoBehaviour
     /// <param name="_ID">the id of the player leaving as a string</param>
     public void UnRegisterPlayer(string _ID)
     {
-        for (int i = 0; i < players.Count; i++)
+        for (int i = 0; i < game.players.Count; i++)
         {
-            if(players[i].ID.Equals(_ID))
+            if(game.players[i].ID.Equals(_ID))
             {
-                players.Remove(players[i]);
+                game.players.Remove(players[i]);
             }
         }
     }
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     /// <param name="player">is a player Object. The player who just entered the game</param>
     public void RegisterPlayer(Player player)
     {
-        players.Add(player);
+        game.players.Add(player);
     }
 
     /// <summary>
@@ -79,14 +79,17 @@ public class GameManager : MonoBehaviour
 
         GUILayout.BeginVertical();
 
-        for (int i = 0; i < singleton.players.Count; i++)
+        for (int i = 0; i < singleton.game.players.Count; i++)
         {
-            GUILayout.Label("Player ID : " + singleton.players[i].ID);
+            GUILayout.Label("Player "+ i + ": " + singleton.game.players[i].namePlayer);
         }
         
         GUILayout.EndVertical();
         GUILayout.EndArea();
         }
     }
+
+
+   
 
 }
