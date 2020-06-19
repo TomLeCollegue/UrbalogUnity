@@ -57,7 +57,7 @@ public class PlayerSetup : NetworkBehaviour
 
     #region getGameManager Fonction
     [Command]
-    void CmdSendActualGameManager()
+    public void CmdSendActualGameManager()
     {
         RpcGetActualGameManager(GetbyteGameManager(GameManager.singleton.game));
 

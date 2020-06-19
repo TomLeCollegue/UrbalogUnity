@@ -23,11 +23,32 @@ public class NextTurnButton : NetworkBehaviour
             if (CheckForNextTurn())
             {
                 Debug.Log("Cest la fin du tour");
-
-                //Player Boolean to False
-                CmdResetTurnBoolPlayer();
+                NextTurn();
             }
         }
+    }
+
+
+    /// <summary>
+    /// Fonction for next Turn in general
+    /// </summary>
+    private void NextTurn()
+    {
+        PlayerSetup playerSetup = GameObject.Find("playerLocal").GetComponent<PlayerSetup>();
+        GameManager gameManager = GameManager.singleton;
+
+        // Check les batiment construit 
+        // Les ajouter dans la list des batiments construit
+        // Les supprimer du Deck
+
+        
+        gameManager.game.FillMarket();           // Changer le marché
+        playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
+
+        // Changer le numéro de tour
+
+        ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
+
     }
 
     /// <summary>
@@ -52,7 +73,7 @@ public class NextTurnButton : NetworkBehaviour
     /// <summary>
     /// Reset the Next turn bools for every player.
     /// </summary>
-    private void CmdResetTurnBoolPlayer()
+    private void ResetTurnBoolPlayer()
     {
         GameManager gameManager = GameManager.singleton;
         for (int i = 0; i < gameManager.game.players.Count; i++)
