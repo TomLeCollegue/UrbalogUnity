@@ -11,7 +11,7 @@ public class Game
     public List<Building> Market { get; set; } = new List<Building>();
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
-    public List<Player> players = new List<Player>();
+   
 
     public List<Building> BuildingsBuilt = new List<Building>();
 
@@ -100,15 +100,11 @@ public class Game
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
   
-  public void FillMarket2()
+  public void ChangeMarket()
     {
-        Debug.Log("tour fillMarket2");
+        Debug.Log("tour ChangeMarket");
         Market.Clear();
-        Market.Add(new Building("Pyste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0));
-        Market.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service", 1, 2, 2, 1, -1, 1));
-        Market.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1));
-        Market.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2));
-        Market.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0));
+        FillMarket();
     }
 
 

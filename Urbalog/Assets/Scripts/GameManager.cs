@@ -42,11 +42,11 @@ public class GameManager : MonoBehaviour
     /// <param name="_ID">the id of the player leaving as a string</param>
     public void UnRegisterPlayer(string _ID)
     {
-        for (int i = 0; i < game.players.Count; i++)
+        for (int i = 0; i < players.Count; i++)
         {
-            if(game.players[i].ID.Equals(_ID))
+            if(players[i].ID.Equals(_ID))
             {
-                game.players.Remove(players[i]);
+                players.Remove(players[i]);
             }
         }
     }
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     /// <param name="player">is a player Object. The player who just entered the game</param>
     public void RegisterPlayer(Player player)
     {
-        game.players.Add(player);
+        players.Add(player);
     }
 
     /// <summary>
@@ -80,9 +80,9 @@ public class GameManager : MonoBehaviour
 
         GUILayout.BeginVertical();
 
-        for (int i = 0; i < singleton.game.players.Count; i++)
+        for (int i = 0; i < singleton.players.Count; i++)
         {
-            GUILayout.Label("Player "+ i + ": " + singleton.game.players[i].namePlayer);
+            GUILayout.Label("Player "+ i + ": " + singleton.players[i].namePlayer);
         }
         
         GUILayout.EndVertical();

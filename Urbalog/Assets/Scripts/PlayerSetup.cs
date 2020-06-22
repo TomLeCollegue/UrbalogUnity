@@ -123,11 +123,11 @@ public class PlayerSetup : NetworkBehaviour
     public void CmdSendInfoPlayer(string id, string namePlayer)
     {
         GameManager gameManager = GameManager.singleton;
-        for (int i = 0; i < gameManager.game.players.Count; i++)
+        for (int i = 0; i < gameManager.players.Count; i++)
         {
-            if (gameManager.game.players[i].ID.Equals(id))
+            if (gameManager.players[i].ID.Equals(id))
             {
-                gameManager.game.players[i].namePlayer = namePlayer;
+                gameManager.players[i].namePlayer = namePlayer;
             }
         }
     }
@@ -138,13 +138,13 @@ public class PlayerSetup : NetworkBehaviour
     {
         Debug.Log("nextTurn fonction command");
         GameManager gameManager = GameManager.singleton;
-        for (int i = 0; i < gameManager.game.players.Count; i++)
+        for (int i = 0; i < gameManager.players.Count; i++)
         {
             Debug.Log("nextTurn Boucle " + i);
-            if (gameManager.game.players[i].ID.Equals(_id))
+            if (gameManager.players[i].ID.Equals(_id))
             {
                 Debug.Log("nextTurn Boucle " + i + " Trouvé" );
-                gameManager.game.players[i].nextTurn = !gameManager.game.players[i].nextTurn;
+                gameManager.players[i].nextTurn = !gameManager.players[i].nextTurn;
             }
         }
     }

@@ -244,4 +244,18 @@ public class BetControl : NetworkBehaviour
         _game.pioche.Remove(_building);
     }
 
+
+    public void BuildTheBuildings()
+    {
+        Game _game = GameManager.singleton.game;
+        for (int i = 0; i < 5; i++)
+        {
+            if (isFinanced(_game.Market[i]))
+            {
+                AddBuildingInBuildingsBuilt(_game.Market[i]);
+                RemoveBuildingFromPioche(_game.Market[i]);
+            }
+        }
+    }
+
 }
