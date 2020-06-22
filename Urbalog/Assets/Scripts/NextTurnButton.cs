@@ -46,11 +46,8 @@ public class NextTurnButton : NetworkBehaviour
         ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
         betControl.BuildTheBuildings();          // Check les batiment construit, Les ajouter dans la list des batiments construit, Les supprimer du Deck
         gameManager.game.ChangeMarket();         // Changer le marché
-        
+        UpdateTurnNumber();                      // Changer le numéro de tour
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
-
-        // Changer le numéro de tour
-
 
     }
 
@@ -85,16 +82,6 @@ public class NextTurnButton : NetworkBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Goes in BetControl so the city score is updated for all players
-    /// </summary>
-    public void UpdateCityScore()
-    {
-        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
-        _betControl.CmdUpdateCityScore();
-    }
-
     /// <summary>
     /// When NextTurn button is clicked, the cityScorePanel is closed
     /// </summary>
@@ -109,8 +96,9 @@ public class NextTurnButton : NetworkBehaviour
     public void UpdateTurnNumber()
     {
         Game _game = GameManager.singleton.game;
-
-        turnNumberText.text = "Num Tour : " + _game.turnNumber.ToString();
+        _game.turnNumber += 1;
+        FillPlayerView fillView = GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>();
+        fillView.UpdateTurn();
     }
 
 

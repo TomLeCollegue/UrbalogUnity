@@ -9,7 +9,11 @@ public class BetControl : NetworkBehaviour
 {
     public int numBuildingBet;
 
-
+    #region Bet
+    /// <summary>
+    /// Change the number of the builgding we are Betting on
+    /// </summary>
+    /// <param name="num"></param>
     public void ChangeNumBuildingBet(int num)
     {
         numBuildingBet = num;
@@ -155,45 +159,9 @@ public class BetControl : NetworkBehaviour
         }
     }
 
-    /// <summary>
-    /// Server Side. Updates City Score for all players when one presses 'NextTurn'
-    /// </summary>
-    [Command]
-    public void CmdUpdateCityScore()
-    {
-        RpcUpdateCityScore();
-        Debug.Log("Test");
-    }
+    #endregion
 
-    /// <summary>
-    /// Client Side. Updates the city scores for local player.
-    /// </summary>
-    [ClientRpc]
-    public void RpcUpdateCityScore()
-    {
-        Game _game = GameManager.singleton.game;
-        //CityScorePanel _cityScorePanel = GameObject.Find("playerLocal").GetComponent<CityScorePanel>();
-
-        for (int i = 0; i < 5; i++)
-        {
-            if (isFinanced(_game.Market[i]))
-            {
-                _game.cityAttractiveness += _game.Market[i].attractScore;
-                _game.cityEnvironment += _game.Market[i].enviScore;
-                _game.cityFluidity += _game.Market[i].fluidScore;
-
-                AddBuildingInBuildingsBuilt(_game.Market[i]);
-            }
-            Debug.Log(_game.BuildingsBuilt.ToString());
-        }
-
-        //_cityScorePanel.UpdateCityScorePanel();
-        //UpdateCityScorePanel();
-
-    }
-
-
-
+    #region Finance
     /// <summary>
     /// Checks if a building is financed and ready to be built when a player presses Next Turn.
     /// </summary>
@@ -205,7 +173,7 @@ public class BetControl : NetworkBehaviour
             /*&& _building.FinanceSocial >= _building.Social*/);
     }
     /// <summary>
-    /// 
+    /// Check how many buildings are financed and return it
     /// </summary>
     /// <returns>Returns the number of Buildings that are financed</returns>
     public int nbBuildingsFinanced()
@@ -221,6 +189,10 @@ public class BetControl : NetworkBehaviour
         }
         return _res;
     }
+
+    #endregion
+
+    #region Management Built buildings
 
     /// <summary>
     /// Add an Object of type Building in the <see cref="Game.BuildingsBuilt"/> list.
@@ -244,7 +216,6 @@ public class BetControl : NetworkBehaviour
         _game.pioche.Remove(_building);
     }
 
-
     public void BuildTheBuildings()
     {
         Game _game = GameManager.singleton.game;
@@ -253,9 +224,28 @@ public class BetControl : NetworkBehaviour
             if (isFinanced(_game.Market[i]))
             {
                 AddBuildingInBuildingsBuilt(_game.Market[i]);
+                UpdateCityScores();
                 RemoveBuildingFromPioche(_game.Market[i]);
             }
         }
     }
 
+    public void UpdateCityScores()
+    {
+        Game _game = GameManager.singleton.game;
+        _game.cityEnvironment = 0;
+        _game.cityFluidity = 0;
+        _game.cityAttractiveness = 0;
+        _game.cityLogistic = 0;
+
+        for (int i = 0; i < _game.BuildingsBuilt.Count ; i++)
+        {
+            _game.cityEnvironment += _game.BuildingsBuilt[i].enviScore;
+            _game.cityFluidity += _game.BuildingsBuilt[i].fluidScore;
+            _game.cityAttractiveness += _game.BuildingsBuilt[i].attractScore;
+            _game.cityLogistic += _game.BuildingsBuilt[i].logisticScore;
+        }
+    }
+
+    #endregion
 }

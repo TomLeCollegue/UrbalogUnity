@@ -11,19 +11,22 @@ public class Game
     public List<Building> Market { get; set; } = new List<Building>();
     public List<Building> DeckBuildings { get; set; } = new List<Building>();
     public List<Role> Roles { get; set; } = new List<Role>();
-   
 
     public List<Building> BuildingsBuilt = new List<Building>();
-
     public List<Building> pioche { get; set; } = new List<Building>();
  
+
+    //City Scores
     public int cityAttractiveness = 0;
     public int cityEnvironment = 0;
     public int cityFluidity = 0;
+    public int cityLogistic = 0;
 
-    public int turnNumber = 0;
+    public int turnNumber = 1;
 
 
+
+    #region Market management
     /**
      * <summary>Fills market List with the appropriate Buildings.</summary>
      * TODO: This method has to fill the market with random buildings from the deck
@@ -91,6 +94,16 @@ public class Game
     /**
      * <summary>Fills roles list with the different roles and their stats</summary>
      * */
+  
+    public void ChangeMarket()
+    {
+        Debug.Log("tour ChangeMarket");
+        Market.Clear();
+        FillMarket();
+    }
+
+    #endregion
+
     public void FillRoles()
     {
         Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
@@ -99,14 +112,6 @@ public class Game
         Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
-  
-  public void ChangeMarket()
-    {
-        Debug.Log("tour ChangeMarket");
-        Market.Clear();
-        FillMarket();
-    }
-
 
     /**
      * <summary>Add valueBet to the correct ressource on the correct building</summary>
@@ -131,6 +136,8 @@ public class Game
             building.FinanceSocial += ValueBet;
         }
     }
+
+
 
 
 }

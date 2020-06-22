@@ -58,6 +58,7 @@ public class PlayerSetup : NetworkBehaviour
     public void CmdSendActualGameManager()
     {
         RpcGetActualGameManager(GetbyteGameManager(GameManager.singleton.game));
+        Debug.Log("try to send Game to players");
 
     }
     private byte[] GetbyteGameManager(Game game)
@@ -86,7 +87,8 @@ public class PlayerSetup : NetworkBehaviour
     {
         Game _gameReceived = ByteArrayToObject(bytes);
         GameManager.singleton.game = _gameReceived;
-
+        Debug.Log("Received Game from Server");
+        GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>().isAlreadyUpdated = false;
     }
     #endregion
 

@@ -9,12 +9,10 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager singleton;
-
     public Game game = new Game();
 
     [SerializeField]
     public int NumPlayerForRole { get; set; } = 0;
-
 
     public List<Player> players  = new List<Player>();
 
@@ -36,6 +34,8 @@ public class GameManager : MonoBehaviour
         game.FillRoles();
     }
 
+
+    #region Registering players
     /// <summary>
     /// Remove a player from the player list when he disconnects.
     /// </summary>
@@ -60,14 +60,7 @@ public class GameManager : MonoBehaviour
         players.Add(player);
     }
 
-    /// <summary>
-    /// test function with seems deprecated
-    /// TODO: delete this method
-    /// </summary>
-    public void ChangeValueNum()
-    {
-        game.Market[1].FinanceSocial += 1;
-    }
+    #endregion
 
     /// <summary>
     /// Prints the players list on the lobby screen with their ID.
