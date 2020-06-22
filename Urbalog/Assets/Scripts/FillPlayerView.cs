@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// FillsPlayerView with all the informations about the current state of the game.
+/// </summary>
 public class FillPlayerView : MonoBehaviour
 {
-
+    #region Colors
     Color urbaGreen = new Color(0.1f, 0.3f, 0.0f);
     Color urbaRed = new Color(0.6f, 0.0f, 0.0f);
-
-    #region Building1
+    #endregion
+    #region Buildings
     [Space(10)]
     [Header("Building 1")]
     public TextMeshProUGUI building1Button;
@@ -82,6 +85,7 @@ public class FillPlayerView : MonoBehaviour
     public Image fluidBuilding5Image;
     #endregion
 
+    public TextMeshProUGUI turnNumberText;
     #region Role
     [Space(10)]
     [Header("Role")]
@@ -107,6 +111,8 @@ public class FillPlayerView : MonoBehaviour
 
 
     #endregion
+
+    //For the actions that needs to be updated only once a turn
     public bool isAlreadyUpdated = false;
 
 
@@ -114,63 +120,105 @@ public class FillPlayerView : MonoBehaviour
     void Update()
     {
         FillPLayerViewInfo();
+
+
+        //is needed only once a turn
         if (!isAlreadyUpdated)
         {
             ColorImpact();
+            FillBuildingsImpact();
+            turnNumberText.text = "Num Tour : " + GameManager.singleton.game.turnNumber.ToString();
             isAlreadyUpdated = true;
         }
 
     }
 
-
+    /// <summary>
+    /// It Fills all player view, from buildings names, buildings scores and finance, also calls the <see cref="FillRole"/>
+    /// method.
+    /// It is called once a frame.
+    /// </summary>
+    /// <remarks>Does not fill buildings impact, see <see cref="FillBuildingsImpact"/></remarks>
     private void FillPLayerViewInfo()
     {
-        Game game = GameManager.singleton.game;
-        PoliticalBuilding1.text = game.Market[0].FinancePolitical + "/" + game.Market[0].Political;
-        EcoBuilding1.text = game.Market[0].FinanceEconomical + "/" + game.Market[0].Economical;
-        SocialBuilding1.text = game.Market[0].FinanceSocial + "/" + game.Market[0].Social;
-        AttractBuilding1.text = game.Market[0].attractScore.ToString();
-        FluidBuilding1.text = game.Market[0].fluidScore.ToString();
-        EnviBuilding1.text = game.Market[0].enviScore.ToString();
-        building1Button.text = game.Market[0].name;
+        Game _game = GameManager.singleton.game;
+        //FillBuildingsImpact();
+        //ColorImpact();
+        //Building1
+        PoliticalBuilding1.text = _game.Market[0].FinancePolitical + "/" + _game.Market[0].Political;
+        EcoBuilding1.text = _game.Market[0].FinanceEconomical + "/" + _game.Market[0].Economical;
+        SocialBuilding1.text = _game.Market[0].FinanceSocial + "/" + _game.Market[0].Social;
 
-        PoliticalBuilding2.text = game.Market[1].FinancePolitical + "/" + game.Market[1].Political;
-        EcoBuilding2.text = game.Market[1].FinanceEconomical + "/" + game.Market[1].Economical;
-        SocialBuilding2.text = game.Market[1].FinanceSocial + "/" + game.Market[1].Social;
-        AttractBuilding2.text = game.Market[1].attractScore.ToString();
-        FluidBuilding2.text = game.Market[1].fluidScore.ToString();
-        EnviBuilding2.text = game.Market[1].enviScore.ToString();
-        building2Button.text = game.Market[1].name;
+        //Building2
+        PoliticalBuilding2.text = _game.Market[1].FinancePolitical + "/" + _game.Market[1].Political;
+        EcoBuilding2.text = _game.Market[1].FinanceEconomical + "/" + _game.Market[1].Economical;
+        SocialBuilding2.text = _game.Market[1].FinanceSocial + "/" + _game.Market[1].Social;
 
-        PoliticalBuilding3.text = game.Market[2].FinancePolitical + "/" + game.Market[2].Political;
-        EcoBuilding3.text = game.Market[2].FinanceEconomical + "/" + game.Market[2].Economical;
-        SocialBuilding3.text = game.Market[2].FinanceSocial + "/" + game.Market[2].Social;
-        AttractBuilding3.text = game.Market[2].attractScore.ToString();
-        FluidBuilding3.text = game.Market[2].fluidScore.ToString();
-        EnviBuilding3.text = game.Market[2].enviScore.ToString();
-        building3Button.text = game.Market[2].name;
+        //Building3
+        PoliticalBuilding3.text = _game.Market[2].FinancePolitical + "/" + _game.Market[2].Political;
+        EcoBuilding3.text = _game.Market[2].FinanceEconomical + "/" + _game.Market[2].Economical;
+        SocialBuilding3.text = _game.Market[2].FinanceSocial + "/" + _game.Market[2].Social;
 
-        PoliticalBuilding4.text = game.Market[3].FinancePolitical + "/" + game.Market[3].Political;
-        EcoBuilding4.text = game.Market[3].FinanceEconomical + "/" + game.Market[3].Economical;
-        SocialBuilding4.text = game.Market[3].FinanceSocial + "/" + game.Market[3].Social;
-        AttractBuilding4.text = game.Market[3].attractScore.ToString();
-        FluidBuilding4.text = game.Market[3].fluidScore.ToString();
-        EnviBuilding4.text = game.Market[3].enviScore.ToString();
-        building4Button.text = game.Market[3].name;
+        //Building4
+        PoliticalBuilding4.text = _game.Market[3].FinancePolitical + "/" + _game.Market[3].Political;
+        EcoBuilding4.text = _game.Market[3].FinanceEconomical + "/" + _game.Market[3].Economical;
+        SocialBuilding4.text = _game.Market[3].FinanceSocial + "/" + _game.Market[3].Social;
 
-        PoliticalBuilding5.text = game.Market[4].FinancePolitical + "/" + game.Market[4].Political;
-        EcoBuilding5.text = game.Market[4].FinanceEconomical + "/" + game.Market[4].Economical;
-        SocialBuilding5.text = game.Market[4].FinanceSocial + "/" + game.Market[4].Social;
-        AttractBuilding5.text = game.Market[4].attractScore.ToString();
-        FluidBuilding5.text = game.Market[4].fluidScore.ToString();
-        EnviBuilding5.text = game.Market[4].enviScore.ToString();
-        building5Button.text = game.Market[4].name;
+        //Building5
+        PoliticalBuilding5.text = _game.Market[4].FinancePolitical + "/" + _game.Market[4].Political;
+        EcoBuilding5.text = _game.Market[4].FinanceEconomical + "/" + _game.Market[4].Economical;
+        SocialBuilding5.text = _game.Market[4].FinanceSocial + "/" + _game.Market[4].Social;
+
+
         FillRole();
+    }
+
+    /// <summary>
+    /// Fills the playerView with the buildings impact and name
+    /// </summary>
+    /// <remarks>Is not done once a frame to improve performance</remarks>
+    private void FillBuildingsImpact()
+    {
+        Game _game = GameManager.singleton.game;
+
+        //Building1
+        AttractBuilding1.text = _game.Market[0].attractScore.ToString();
+        FluidBuilding1.text = _game.Market[0].fluidScore.ToString();
+        EnviBuilding1.text = _game.Market[0].enviScore.ToString();
+        building1Button.text = _game.Market[0].name;
+
+        //Building2
+        AttractBuilding2.text = _game.Market[1].attractScore.ToString();
+        FluidBuilding2.text = _game.Market[1].fluidScore.ToString();
+        EnviBuilding2.text = _game.Market[1].enviScore.ToString();
+        building2Button.text = _game.Market[1].name;
+
+        //Building3
+        AttractBuilding3.text = _game.Market[2].attractScore.ToString();
+        FluidBuilding3.text = _game.Market[2].fluidScore.ToString();
+        EnviBuilding3.text = _game.Market[2].enviScore.ToString();
+        building3Button.text = _game.Market[2].name;
+
+        //Building4
+        AttractBuilding4.text = _game.Market[3].attractScore.ToString();
+        FluidBuilding4.text = _game.Market[3].fluidScore.ToString();
+        EnviBuilding4.text = _game.Market[3].enviScore.ToString();
+        building4Button.text = _game.Market[3].name;
+
+        //Building5
+        AttractBuilding5.text = _game.Market[4].attractScore.ToString();
+        FluidBuilding5.text = _game.Market[4].fluidScore.ToString();
+        EnviBuilding5.text = _game.Market[4].enviScore.ToString();
+        building5Button.text = _game.Market[4].name;
     }
 
     
 
-
+    /// <summary>
+    /// It checks the player role and changes informations that are written on the player card accordingly.
+    /// Does it for the ressources (because they change when a bet is done) and for the objectives sprites.
+    /// TODO: The sprites don't need to be called once a frame
+    /// </summary>
     private void FillRole()
     {
         Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
@@ -247,10 +295,15 @@ public class FillPlayerView : MonoBehaviour
         #endregion
     }
 
+
+    /// <summary>
+    /// Checks every building impact scores and color the impact sprite depending if it is a
+    /// negative impact or positive impact
+    /// </summary>
+    /// <remarks>coloring in red if negative, in black if 0 and in green if positive</remarks>
     private void ColorImpact()
     {
         Game game = GameManager.singleton.game;
-        Debug.Log("1");
 
         //Attract
             //building1
@@ -467,6 +520,12 @@ public class FillPlayerView : MonoBehaviour
         }
 
 
+    }
+
+    public void UpdateTurn()
+    {
+        Debug.Log("Update Turn:" + GameManager.singleton.game.turnNumber.ToString());
+        isAlreadyUpdated = false;
     }
 
 

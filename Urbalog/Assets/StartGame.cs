@@ -11,6 +11,9 @@ public class StartGame : NetworkBehaviour
             CmdChangeScene();
     }
 
+    /// <summary>
+    /// Changes gameScene to begin the game.
+    /// </summary>
     [Server]
     void CmdChangeScene()
     {

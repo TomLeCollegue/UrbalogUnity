@@ -9,15 +9,12 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager singleton;
-
     public Game game = new Game();
 
     [SerializeField]
     public int NumPlayerForRole { get; set; } = 0;
 
-
-    [SerializeField]
-    private List<Player> players  = new List<Player>();
+    public List<Player> players  = new List<Player>();
 
     private void Awake()
     {
@@ -28,14 +25,21 @@ public class GameManager : MonoBehaviour
         else
         {
             singleton = this;
+            DontDestroyOnLoad(this);
         }
 
-        game.FillMarket();
+        
         game.FillDeckBuildings();
+        game.FillMarket();
         game.FillRoles();
     }
 
 
+    #region Registering players
+    /// <summary>
+    /// Remove a player from the player list when he disconnects.
+    /// </summary>
+    /// <param name="_ID">the id of the player leaving as a string</param>
     public void UnRegisterPlayer(string _ID)
     {
         for (int i = 0; i < players.Count; i++)
@@ -47,17 +51,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// Adds the player in the players list when he connects in the game as a client
+    /// </summary>
+    /// <param name="player">is a player Object. The player who just entered the game</param>
     public void RegisterPlayer(Player player)
     {
         players.Add(player);
     }
 
-    public void ChangeValueNum()
-    {
-        game.Market[1].FinanceSocial += 1;
-    }
+    #endregion
 
+    /// <summary>
+    /// Prints the players list on the lobby screen with their ID.
+    /// </summary>
     void OnGUI()
     {
         if(SceneManager.GetActiveScene().name == "LobbyRoom") 
@@ -68,12 +75,15 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < singleton.players.Count; i++)
         {
-            GUILayout.Label("Player 1 : " + singleton.players[i].ID);
+            GUILayout.Label("Player "+ i + ": " + singleton.players[i].namePlayer);
         }
         
         GUILayout.EndVertical();
         GUILayout.EndArea();
         }
     }
+
+
+   
 
 }

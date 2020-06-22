@@ -1,55 +1,30 @@
 ﻿using Mirror;
 using System;
+using System.Collections;
 using System.Dynamic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-
-
+using UnityEngine.SocialPlatforms;
 
 [RequireComponent(typeof(Player))]
 public class PlayerSetup : NetworkBehaviour
 {
-
     [SerializeField]
     Behaviour[] componentsToDisable;
 
-
     void Start()
     {
-        if (!isLocalPlayer)
+        // rename the Local Player
+        if (isLocalPlayer)
         {
-            for (int i = 0; i < componentsToDisable.Length; i++)
-            {
-                componentsToDisable[i].enabled = false;
-            }
+            transform.name = "playerLocal";
         }
-        else 
-        { transform.name = "playerLocal";}
-
     }
     private void Awake()
     {
         DontDestroyOnLoad(this);
-    }
-
-    public override void OnStartClient()
-    {
-        base.OnStartClient();
-        string _netID = GetComponent<NetworkIdentity>().netId.ToString();
-        Player _player = GetComponent<Player>();
-        _player.ID = _netID;
-        if (isLocalPlayer)
-        {
-            _player.namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
-        }
-        GameManager.singleton.RegisterPlayer(_player);
-
-        CmdSendActualGameManager();
-        CmdGetRoleForPlayer();
-
-
     }
 
     private void OnDisable()
@@ -60,12 +35,30 @@ public class PlayerSetup : NetworkBehaviour
 
     }
 
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        string _netID = GetComponent<NetworkIdentity>().netId.ToString();
+        Player _player = GetComponent<Player>();
+        GameManager.singleton.RegisterPlayer(_player);
+
+        //assigne to the local player his name and ID
+        _player.ID = _netID;
+        if (isLocalPlayer)
+        {
+            string namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
+            CmdSendInfoPlayer(_netID, namePlayer);
+        }
+        CmdGetRoleForPlayer(); //Tom, ça devrait pas être dans le if(isLocalPlayer), ça ?
+        CmdSendActualGameManager(); //et ça aussi
+    }
 
     #region getGameManager Fonction
     [Command]
-    void CmdSendActualGameManager()
+    public void CmdSendActualGameManager()
     {
         RpcGetActualGameManager(GetbyteGameManager(GameManager.singleton.game));
+        Debug.Log("try to send Game to players");
 
     }
     private byte[] GetbyteGameManager(Game game)
@@ -92,15 +85,75 @@ public class PlayerSetup : NetworkBehaviour
     [ClientRpc]
     void RpcGetActualGameManager(byte[] bytes)
     {
-        Game gameReceived = ByteArrayToObject(bytes);
-        GameManager.singleton.game = gameReceived;
-        
+        Game _gameReceived = ByteArrayToObject(bytes);
+        GameManager.singleton.game = _gameReceived;
+        Debug.Log("Received Game from Server");
+        GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>().isAlreadyUpdated = false;
     }
     #endregion
 
 
     #region DistribRole
+    [Command]
+    void CmdGetRoleForPlayer()
+    {
+        int numToSend = GameManager.singleton.NumPlayerForRole;
 
+        Role role = GameManager.singleton.game.Roles[numToSend];
+        RpcSendRoleForPlayer(GetbyteFromObject(role));
+        GameManager.singleton.NumPlayerForRole++;
+
+    }
+
+    [ClientRpc]
+    void RpcSendRoleForPlayer(byte[] arrByte)
+    {
+        Player player = GetComponent<Player>();
+        if (player.role != null)
+        {
+            return;
+        }
+        player.role = (Role)ByteArrayToObject2(arrByte);
+    }
+
+    #endregion
+
+
+    #region SendInfoOfPlayer   CmdSendInfoPlayer(string id, string namePlayer)  RpcGetInfoOfPlayer(string _id, string _namePlayer)
+
+    [Command]
+    public void CmdSendInfoPlayer(string id, string namePlayer)
+    {
+        GameManager gameManager = GameManager.singleton;
+        for (int i = 0; i < gameManager.players.Count; i++)
+        {
+            if (gameManager.players[i].ID.Equals(id))
+            {
+                gameManager.players[i].namePlayer = namePlayer;
+            }
+        }
+    }
+    #endregion
+
+    [Command]
+    public void CmdChangeBoolNextTurn(string _id)
+    {
+        Debug.Log("nextTurn fonction command");
+        GameManager gameManager = GameManager.singleton;
+        for (int i = 0; i < gameManager.players.Count; i++)
+        {
+            Debug.Log("nextTurn Boucle " + i);
+            if (gameManager.players[i].ID.Equals(_id))
+            {
+                Debug.Log("nextTurn Boucle " + i + " Trouvé" );
+                gameManager.players[i].nextTurn = !gameManager.players[i].nextTurn;
+            }
+        }
+    }
+
+
+
+    #region Fonction Serialization      GetbyteFromObject()    ByteArrayToObject2()
     private byte[] GetbyteFromObject(System.Object obj)
     {
         var formatter = new BinaryFormatter();
@@ -121,31 +174,6 @@ public class PlayerSetup : NetworkBehaviour
 
         return obj;
     }
-
-
-    [Command]
-    void CmdGetRoleForPlayer()
-    {
-        int numToSend = GameManager.singleton.NumPlayerForRole;
-
-        Role role = GameManager.singleton.game.Roles[numToSend];
-        RpcSendRoleForPlayer(GetbyteFromObject(role));
-        GameManager.singleton.NumPlayerForRole++;
-           
-    }
-
-    [ClientRpc]
-    void RpcSendRoleForPlayer(byte[] arrByte)
-    {
-        Player player = GetComponent<Player>();
-        if(player.role != null)
-        {
-            return;
-        }
-        player.role = (Role)ByteArrayToObject2(arrByte);
-    }
-
-
     #endregion
-
 }
+

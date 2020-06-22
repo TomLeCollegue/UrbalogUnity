@@ -1,21 +1,33 @@
 ﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BetControl : NetworkBehaviour
 {
     public int numBuildingBet;
 
-
+    #region Bet
+    /// <summary>
+    /// Change the number of the builgding we are Betting on
+    /// </summary>
+    /// <param name="num"></param>
     public void ChangeNumBuildingBet(int num)
     {
         numBuildingBet = num;
     }
 
-
-
-
+    /// <summary>
+    /// See if the bet is a -1 or a +1 bet and on which ressource.
+    /// Then, check if the bet is possible on the building the player chose to open
+    /// BetPanel.
+    /// </summary>
+    /// <param name="value">if -1 then player wanted to take back his resource
+    /// if +1 then player wanted to bet 1 resource</param>
+    /// <param name="Ressource">It's the resource the player wanted to bet on
+    /// can be "Political", "Economical" or "Social"</param>
     public void VerifBet(int value, string Ressource)
     {
         Game game = GameManager.singleton.game;
@@ -79,6 +91,7 @@ public class BetControl : NetworkBehaviour
                 }
             }
         }
+        //The bet is considered doable
         if (isOk)
         {
             CmdBet(value, Ressource, numBuildingBet);
@@ -86,7 +99,12 @@ public class BetControl : NetworkBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Is used when a player bet is done.
+    /// It changes accurately the ressources available to the player depending on his bet.
+    /// </summary>
+    /// <param name="value">can be -1 or +1, it's what should be substracted to the player resources.</param>
+    /// <param name="Ressource">The Resource the player used to bet</param>
     private void ChangeRessourcePlayer(int value, string Ressource)
     {
         if (Ressource.Equals("Economical"))
@@ -103,12 +121,26 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Done by the server.
+    /// Does a bet
+    /// </summary>
+    /// <param name="value">value of the bet : -1 or +1</param>
+    /// <param name="Ressource">The resource the player chose to bet</param>
+    /// <param name="num">The index of the building in the market</param>
     [Command]
     public void CmdBet(int value, string Ressource, int num)
     {
         RpcBet(value, Ressource, num);
     }
 
+    /// <summary>
+    /// Client side.
+    /// Changes how a building is financed according to one bet
+    /// </summary>
+    /// <param name="value">value of the bet : -1 or +1</param>
+    /// <param name="Ressource">The resource the player chose to bet</param>
+    /// <param name="numBuildingBet">The index of the building in the market</param>
     [ClientRpc]
     public void RpcBet(int value, string Ressource, int numBuildingBet)
     {
@@ -127,5 +159,93 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    #endregion
 
+    #region Finance
+    /// <summary>
+    /// Checks if a building is financed and ready to be built when a player presses Next Turn.
+    /// </summary>
+    /// <param name="_building">the building we check of type Building</param>
+    /// <returns></returns>
+    public bool isFinanced(Building _building)
+    {
+        return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
+            /*&& _building.FinanceSocial >= _building.Social*/);
+    }
+    /// <summary>
+    /// Check how many buildings are financed and return it
+    /// </summary>
+    /// <returns>Returns the number of Buildings that are financed</returns>
+    public int nbBuildingsFinanced()
+    {
+        Game _game = GameManager.singleton.game;
+        int _res = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            if (isFinanced(_game.Market[i]))
+            {
+                _res += 1;
+            }
+        }
+        return _res;
+    }
+
+    #endregion
+
+    #region Management Built buildings
+
+    /// <summary>
+    /// Add an Object of type Building in the <see cref="Game.BuildingsBuilt"/> list.
+    /// </summary>
+    /// <param name="_building">Type Building, the building we want to add.</param>
+    public void AddBuildingInBuildingsBuilt(Building _building)
+    {
+        Game _game = GameManager.singleton.game;
+
+        _game.BuildingsBuilt.Add(_building);
+        RemoveBuildingFromPioche(_building);
+    }
+
+    /// <summary>
+    /// Remove the building in argument from <see cref="Game.pioche"/> so it doesn't appear in the Market until the end of the game.
+    /// </summary>
+    /// <param name="_building">The building we wan to remove.</param>
+    public void RemoveBuildingFromPioche(Building _building)
+    {
+        Game _game = GameManager.singleton.game;
+        _game.pioche.Remove(_building);
+    }
+
+    public void BuildTheBuildings()
+    {
+        Game _game = GameManager.singleton.game;
+        for (int i = 0; i < 5; i++)
+        {
+            if (isFinanced(_game.Market[i]))
+            {
+                AddBuildingInBuildingsBuilt(_game.Market[i]);
+                UpdateCityScores();
+                RemoveBuildingFromPioche(_game.Market[i]);
+            }
+        }
+    }
+
+    public void UpdateCityScores()
+    {
+        Game _game = GameManager.singleton.game;
+        _game.cityEnvironment = 0;
+        _game.cityFluidity = 0;
+        _game.cityAttractiveness = 0;
+        _game.cityLogistic = 0;
+
+        for (int i = 0; i < _game.BuildingsBuilt.Count ; i++)
+        {
+            _game.cityEnvironment += _game.BuildingsBuilt[i].enviScore;
+            _game.cityFluidity += _game.BuildingsBuilt[i].fluidScore;
+            _game.cityAttractiveness += _game.BuildingsBuilt[i].attractScore;
+            _game.cityLogistic += _game.BuildingsBuilt[i].logisticScore;
+        }
+    }
+
+    #endregion
 }
