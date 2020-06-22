@@ -24,6 +24,7 @@ public class BetControl : NetworkBehaviour
     }
 
     /// <summary>
+    /// TODO: Delete because not used
     /// See if the bet is a -1 or a +1 bet and on which ressource.
     /// Then, check if the bet is possible on the building the player chose to open
     /// BetPanel.
@@ -103,6 +104,12 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if a bet can be done and then does it if possible.
+    /// </summary>
+    /// <param name="_value">+1 or -1. Is the value of the bet</param>
+    /// <param name="_resource">"Economical", "Political" or "Social", is the type of ressource which is bet</param>
+    /// <param name="_role">player's role so we can know which resources he can use</param>
     public void CheckBet(int _value, string _resource, Role _role)
     {
         Game _game = GameManager.singleton.game;
@@ -110,9 +117,9 @@ public class BetControl : NetworkBehaviour
 
         int _index = FindIndexResource(_resource, _role);
 
-        if (_value == -1)
+        if (_value == -1) //if player choose '-'
         {
-            if (_index<0)
+            if (_index<0) //it means this player doesn't have _resource at all
             {
                 betDoable = false;
             }
@@ -121,13 +128,13 @@ public class BetControl : NetworkBehaviour
                 //We don't even need to check how it is on the market
                 //Because to take money back, we only need to know if
                 //current player paid himself
-                if (playerBets[numBuildingBet,_index] <= 0)
+                if (playerBets[numBuildingBet,_index] <= 0) //The player didn't bet on this building with this resource so he can't take money from it
                     {
                         betDoable = false;
                     }
             }
         }
-        else if(_value == 1)
+        else if(_value == 1) ////if player choose '+'
         {
             if (_resource.Equals("Political"))
             {
@@ -371,4 +378,18 @@ public class BetControl : NetworkBehaviour
 
     }
 
+    /// <summary>
+    /// reset playersBet for each player
+    /// </summary>
+    public void resetPlayersBet()
+    {
+        Game _game = GameManager.singleton.game;
+        for (int i = 0; i < _game.Market.Count; i++)
+        {
+            for (int j = 0; j < 2 ; j++)
+            {
+                playerBets[i, j] = 0;
+            }
+        }
+    }
 }

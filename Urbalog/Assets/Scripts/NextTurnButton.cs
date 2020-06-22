@@ -47,6 +47,7 @@ public class NextTurnButton : NetworkBehaviour
         betControl.BuildTheBuildings();          // Check les batiment construit, Les ajouter dans la list des batiments construit, Les supprimer du Deck
         gameManager.game.ChangeMarket();         // Changer le marché
         UpdateTurnNumber();                      // Changer le numéro de tour
+        betControl.resetPlayersBet();            // Réinitialiser le tableau des mises de chaques joueurs
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
 
     }
