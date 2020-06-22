@@ -7,7 +7,11 @@ using UnityEngine;
 
 public class BetControl : NetworkBehaviour
 {
-    public int numBuildingBet;
+    public int numBuildingBet; //Controled by the button, so this number is always the number we bet on.
+
+    public int[,] playerBets = new int[5,2]; //each row is for a building
+    //each column for resources
+
 
     #region Bet
     /// <summary>
@@ -98,6 +102,100 @@ public class BetControl : NetworkBehaviour
             ChangeRessourcePlayer(value, Ressource);
         }
     }
+
+    public void CheckBet(int _value, string _resource, Role _role)
+    {
+        Game _game = GameManager.singleton.game;
+        bool betDoable = true;
+
+        int _index = FindIndexResource(_resource, _role);
+
+        if (_value == -1)
+        {
+            if (_index<0)
+            {
+                betDoable = false;
+            }
+            else
+            {
+                //We don't even need to check how it is on the market
+                //Because to take money back, we only need to know if
+                //current player paid himself
+                if (playerBets[numBuildingBet,_index] <= 0)
+                    {
+                        betDoable = false;
+                    }
+            }
+        }
+        else if(_value == 1)
+        {
+            if (_resource.Equals("Political"))
+            {
+                if (GetComponent<Player>().role.ressourcePolitical < 1)
+                {
+                    betDoable = false;
+                }
+                if (_game.Market[numBuildingBet].FinancePolitical >= _game.Market[numBuildingBet].Political)
+                {
+                    betDoable = false;
+                }
+            }
+            else if (_resource.Equals("Economical"))
+            {
+                if (GetComponent<Player>().role.ressourceEconomical < 1)
+                {
+                    betDoable = false;
+                }
+                if (_game.Market[numBuildingBet].FinanceEconomical >= _game.Market[numBuildingBet].Economical)
+                {
+                    betDoable = false;
+                }
+            }
+            else
+            {
+                if (GetComponent<Player>().role.ressourceSocial < 1)
+                {
+                    betDoable = false;
+                }
+                if (_game.Market[numBuildingBet].FinanceSocial >= _game.Market[numBuildingBet].Social)
+                {
+                    betDoable = false;
+                }
+            }
+        }
+
+        if (betDoable)
+        {
+            CmdBet(_value, _resource, numBuildingBet);
+            ChangeRessourcePlayer(_value, _resource);
+            AddBetInPlayerBets(_value, FindIndexResource(_resource, _role));
+        }
+    }
+
+    /// <summary>
+    /// when given the name of the resource and the player's role, gives the index of the resource in playersBet.
+    /// </summary>
+    /// <param name="_resource">the name of the resource : Economical, Political or Social</param>
+    /// <param name="_role">The player's role, allowing us to find what are his resource1 and resource2</param>
+    public int FindIndexResource(string _resource, Role _role)
+    {
+        if (_resource.Equals(_role.ressource1))
+        {
+            return 0;
+        }
+        else if (_resource.Equals(_role.ressource2))
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+
+
+
 
     /// <summary>
     /// Is used when a player bet is done.
@@ -216,6 +314,9 @@ public class BetControl : NetworkBehaviour
         _game.pioche.Remove(_building);
     }
 
+    /// <summary>
+    /// It builds the buildings when we go to the next turn if they are financed.
+    /// </summary>
     public void BuildTheBuildings()
     {
         Game _game = GameManager.singleton.game;
@@ -230,6 +331,9 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks all the buildings already built and changes the 4 city score accordingly.
+    /// </summary>
     public void UpdateCityScores()
     {
         Game _game = GameManager.singleton.game;
@@ -248,4 +352,23 @@ public class BetControl : NetworkBehaviour
     }
 
     #endregion
+
+    /// <summary>
+    /// Adds +1 or -1 in playerBets[][] so we can track where a player has bet and how many
+    /// </summary>
+    /// <param name="_value">+1 or -1, the amount someone bets</param>
+    /// <param name="_nbResource">0 or 1 : It's the resource the player decided to bet with.</param>
+    public void AddBetInPlayerBets(int _value, int _nbResource)
+    {
+        if (playerBets[numBuildingBet, _nbResource] >= 1)
+        {
+            playerBets[numBuildingBet, _nbResource] += _value ;
+        }
+        else if (playerBets[numBuildingBet, _nbResource] == 0 && _value > 0)
+        {
+            playerBets[numBuildingBet, _nbResource] += _value ;
+        }
+
+    }
+
 }
