@@ -1308,6 +1308,8 @@ MonoBehaviour:
   AttractCity: {fileID: 1383380771}
   EnviCity: {fileID: 1184576377}
   FluidCity: {fileID: 1524981848}
+  LogisticCity: {fileID: 1413412002}
+  SentenceLogistic: {fileID: 1982680272}
 --- !u!1 &1413411999
 GameObject:
   m_ObjectHideFlags: 0
