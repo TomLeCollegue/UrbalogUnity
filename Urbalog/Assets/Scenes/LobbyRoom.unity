@@ -287,6 +287,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6661469079763097136, guid: a25ee203e57059e4c98a11d54ad52861,
+        type: 3}
+      propertyPath: game.turnNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6661469079763097138, guid: a25ee203e57059e4c98a11d54ad52861,
         type: 3}
       propertyPath: m_Name

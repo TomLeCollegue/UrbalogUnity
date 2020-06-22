@@ -39,20 +39,15 @@ public class NextTurnButton : NetworkBehaviour
     /// </summary>
     private void NextTurn()
     {
+        BetControl betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
         PlayerSetup playerSetup = GameObject.Find("playerLocal").GetComponent<PlayerSetup>();
         GameManager gameManager = GameManager.singleton;
+
         ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
-
-        // Check les batiment construit 
-        // Les ajouter dans la list des batiments construit
-        // Les supprimer du Deck
-
-        
-        gameManager.game.FillMarket2();           // Changer le marché
+        betControl.BuildTheBuildings();          // Check les batiment construit, Les ajouter dans la list des batiments construit, Les supprimer du Deck
+        gameManager.game.ChangeMarket();         // Changer le marché
+        UpdateTurnNumber();                      // Changer le numéro de tour
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
-
-        // Changer le numéro de tour
-
 
     }
 
@@ -64,9 +59,9 @@ public class NextTurnButton : NetworkBehaviour
     { 
         GameManager gameManager = GameManager.singleton;
         bool boolTurn = true;
-        for (int i = 0; i < gameManager.game.players.Count; i++)
+        for (int i = 0; i < gameManager.players.Count; i++)
         {    
-            if (!gameManager.game.players[i].nextTurn)
+            if (!gameManager.players[i].nextTurn)
             {
                 boolTurn = false;
                 
@@ -81,20 +76,10 @@ public class NextTurnButton : NetworkBehaviour
     private void ResetTurnBoolPlayer()
     {
         GameManager gameManager = GameManager.singleton;
-        for (int i = 0; i < gameManager.game.players.Count; i++)
+        for (int i = 0; i < gameManager.players.Count; i++)
         {
-            gameManager.game.players[i].nextTurn = false;
+            gameManager.players[i].nextTurn = false;
         }
-    }
-
-
-    /// <summary>
-    /// Goes in BetControl so the city score is updated for all players
-    /// </summary>
-    public void UpdateCityScore()
-    {
-        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
-        _betControl.CmdUpdateCityScore();
     }
 
     /// <summary>
@@ -111,8 +96,9 @@ public class NextTurnButton : NetworkBehaviour
     public void UpdateTurnNumber()
     {
         Game _game = GameManager.singleton.game;
-
-        turnNumberText.text = "Num Tour : " + _game.turnNumber.ToString();
+        _game.turnNumber += 1;
+        FillPlayerView fillView = GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>();
+        fillView.UpdateTurn();
     }
 
 

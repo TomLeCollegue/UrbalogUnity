@@ -13,7 +13,7 @@ public class FillPlayerView : MonoBehaviour
     Color urbaGreen = new Color(0.1f, 0.3f, 0.0f);
     Color urbaRed = new Color(0.6f, 0.0f, 0.0f);
     #endregion
-    #region Building1
+    #region Buildings
     [Space(10)]
     [Header("Building 1")]
     public TextMeshProUGUI building1Button;
@@ -85,6 +85,7 @@ public class FillPlayerView : MonoBehaviour
     public Image fluidBuilding5Image;
     #endregion
 
+    public TextMeshProUGUI turnNumberText;
     #region Role
     [Space(10)]
     [Header("Role")]
@@ -120,11 +121,13 @@ public class FillPlayerView : MonoBehaviour
     {
         FillPLayerViewInfo();
 
+
         //is needed only once a turn
         if (!isAlreadyUpdated)
         {
             ColorImpact();
             FillBuildingsImpact();
+            turnNumberText.text = "Num Tour : " + GameManager.singleton.game.turnNumber.ToString();
             isAlreadyUpdated = true;
         }
 
@@ -139,7 +142,8 @@ public class FillPlayerView : MonoBehaviour
     private void FillPLayerViewInfo()
     {
         Game _game = GameManager.singleton.game;
-        FillBuildingsImpact();
+        //FillBuildingsImpact();
+        //ColorImpact();
         //Building1
         PoliticalBuilding1.text = _game.Market[0].FinancePolitical + "/" + _game.Market[0].Political;
         EcoBuilding1.text = _game.Market[0].FinanceEconomical + "/" + _game.Market[0].Economical;
@@ -516,6 +520,12 @@ public class FillPlayerView : MonoBehaviour
         }
 
 
+    }
+
+    public void UpdateTurn()
+    {
+        Debug.Log("Update Turn:" + GameManager.singleton.game.turnNumber.ToString());
+        isAlreadyUpdated = false;
     }
 
 
