@@ -364,20 +364,13 @@ public class BetControl : NetworkBehaviour
     }
 
     /// <summary>
-    /// Checks player bet and the building given and returns the player investment.
+    /// Checks player bet and the building given and returns the player investment to them.
+    /// Also it takes this amount back from building finances.
     /// </summary>
     /// <param name="_building">The building we check</param>
     /// <param name="_player">the player we return the resources</param>
     private void ReturnBuildingResources(Building _building, Player _player, int _indexBuilding)
     {
-        //find which resources the player uses
-
-        //Watch in building if he paid
-
-        //give back the money
-
-        //substract form the building resources if
-
         int _indexPolitical = FindIndexFromResource("Political", _player.role);
         int _indexEconomical = FindIndexFromResource("Economical", _player.role);
         int _indexSocial = FindIndexFromResource("Social", _player.role);
@@ -418,5 +411,16 @@ public class BetControl : NetworkBehaviour
                 _player.role.ressourceSocial += _tempSocial;
             }
         }
+    }
+
+    /// <summary>
+    /// Tells if a given resource on a given building is fully financed or not
+    /// </summary>
+    /// <param name="_finance">this parameter is the finance we want to check on our building</param>
+    /// <param name="_max">The maximum before a resource is completed</param>
+    /// <returns></returns>
+    public bool ResourceIsCompleted(int _finance, int _max)
+    {
+        return (_finance >= _max);
     }
 }

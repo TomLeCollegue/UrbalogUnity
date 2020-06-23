@@ -3526,7 +3526,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 63.05
+  m_fontSize: 63.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6498,7 +6498,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 63.05
+  m_fontSize: 63.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10452,7 +10452,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 63.05
+  m_fontSize: 63.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15120,7 +15120,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 63.05
+  m_fontSize: 63.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15749,6 +15749,9 @@ MonoBehaviour:
   AttractBuilding1Image: {fileID: 84419366}
   EnviBuilding1Image: {fileID: 1620878593}
   fluidBuilding1Image: {fileID: 1623869044}
+  PoliticalFrameBuilding1: {fileID: 1021811206}
+  EcoFrameBuilding1: {fileID: 1818236266}
+  SocialFrameBuilding1: {fileID: 698659045}
   building2Button: {fileID: 238300628}
   PoliticalBuilding2: {fileID: 1718398702}
   EcoBuilding2: {fileID: 1010619039}
@@ -15759,6 +15762,9 @@ MonoBehaviour:
   AttractBuilding2Image: {fileID: 434283763}
   EnviBuilding2Image: {fileID: 1494207043}
   fluidBuilding2Image: {fileID: 1942114998}
+  PoliticalFrameBuilding2: {fileID: 1589113259}
+  EcoFrameBuilding2: {fileID: 978874173}
+  SocialFrameBuilding2: {fileID: 403034080}
   building3Button: {fileID: 913829076}
   PoliticalBuilding3: {fileID: 229614422}
   EcoBuilding3: {fileID: 1539692792}
@@ -15769,6 +15775,9 @@ MonoBehaviour:
   AttractBuilding3Image: {fileID: 846381936}
   EnviBuilding3Image: {fileID: 911822488}
   fluidBuilding3Image: {fileID: 1142103723}
+  PoliticalFrameBuilding3: {fileID: 99414238}
+  EcoFrameBuilding3: {fileID: 103948448}
+  SocialFrameBuilding3: {fileID: 610077503}
   building4Button: {fileID: 1523626093}
   PoliticalBuilding4: {fileID: 920054315}
   EcoBuilding4: {fileID: 899668278}
@@ -15779,6 +15788,9 @@ MonoBehaviour:
   AttractBuilding4Image: {fileID: 1698389949}
   EnviBuilding4Image: {fileID: 634025507}
   fluidBuilding4Image: {fileID: 653398753}
+  PoliticalFrameBuilding4: {fileID: 1871073787}
+  EcoFrameBuilding4: {fileID: 801415496}
+  SocialFrameBuilding4: {fileID: 1824004700}
   building5Button: {fileID: 502385785}
   PoliticalBuilding5: {fileID: 1630038804}
   EcoBuilding5: {fileID: 902258219}
@@ -15789,6 +15801,9 @@ MonoBehaviour:
   AttractBuilding5Image: {fileID: 581898779}
   EnviBuilding5Image: {fileID: 2067964575}
   fluidBuilding5Image: {fileID: 1014897503}
+  PoliticalFrameBuilding5: {fileID: 498383857}
+  EcoFrameBuilding5: {fileID: 204510697}
+  SocialFrameBuilding5: {fileID: 1794523010}
   turnNumberText: {fileID: 2100661406}
   NameRole: {fileID: 2056021109}
   NombreRessource1: {fileID: 1083490653}
@@ -16701,7 +16716,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 63.05
+  m_fontSize: 63.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
