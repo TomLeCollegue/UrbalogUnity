@@ -24,87 +24,6 @@ public class BetControl : NetworkBehaviour
     }
 
     /// <summary>
-    /// TODO: Delete because not used
-    /// See if the bet is a -1 or a +1 bet and on which ressource.
-    /// Then, check if the bet is possible on the building the player chose to open
-    /// BetPanel.
-    /// </summary>
-    /// <param name="value">if -1 then player wanted to take back his resource
-    /// if +1 then player wanted to bet 1 resource</param>
-    /// <param name="Ressource">It's the resource the player wanted to bet on
-    /// can be "Political", "Economical" or "Social"</param>
-    public void VerifBet(int value, string Ressource)
-    {
-        Game game = GameManager.singleton.game;
-        bool isOk = true;
-        
-        if (value == -1)
-        {
-            if (Ressource.Equals("Political"))
-            {
-                if(game.Market[numBuildingBet].FinancePolitical < 1)
-                {
-                    isOk = false;
-                }   
-            }
-            else if (Ressource.Equals("Economical"))
-            {
-                if (game.Market[numBuildingBet].FinanceEconomical < 1)
-                {
-                    isOk = false;
-                }
-            }
-            else
-            {
-                if (game.Market[numBuildingBet].FinanceSocial < 1)
-                {
-                    isOk = false;
-                }
-            }
-
-        }
-        if (value == 1)
-        {
-            if (Ressource.Equals("Political"))
-            {
-                if(GetComponent<Player>().role.ressourcePolitical < 1){
-                    isOk = false;
-                }
-                if (game.Market[numBuildingBet].FinancePolitical >= game.Market[numBuildingBet].Political)
-                {
-                    isOk = false;
-                }
-            }
-            else if (Ressource.Equals("Economical"))
-            {
-                if (GetComponent<Player>().role.ressourceEconomical < 1){
-                    isOk = false;
-                }
-                if (game.Market[numBuildingBet].FinanceEconomical >= game.Market[numBuildingBet].Economical)
-                {
-                    isOk = false;
-                }
-            }
-            else
-            {
-                if (GetComponent<Player>().role.ressourceSocial < 1){
-                    isOk = false;
-                }
-                if (game.Market[numBuildingBet].FinanceSocial >= game.Market[numBuildingBet].Social)
-                {
-                    isOk = false;
-                }
-            }
-        }
-        //The bet is considered doable
-        if (isOk)
-        {
-            CmdBet(value, Ressource, numBuildingBet);
-            ChangeRessourcePlayer(value, Ressource);
-        }
-    }
-
-    /// <summary>
     /// Check if a bet can be done and then does it if possible.
     /// </summary>
     /// <param name="_value">+1 or -1. Is the value of the bet</param>
@@ -115,7 +34,7 @@ public class BetControl : NetworkBehaviour
         Game _game = GameManager.singleton.game;
         bool betDoable = true;
 
-        int _index = FindIndexResource(_resource, _role);
+        int _index = FindIndexFromResource(_resource, _role);
 
         if (_value == -1) //if player choose '-'
         {
@@ -175,7 +94,7 @@ public class BetControl : NetworkBehaviour
         {
             CmdBet(_value, _resource, numBuildingBet);
             ChangeRessourcePlayer(_value, _resource);
-            AddBetInPlayerBets(_value, FindIndexResource(_resource, _role));
+            AddBetInPlayerBets(_value, FindIndexFromResource(_resource, _role));
         }
     }
 
@@ -184,7 +103,9 @@ public class BetControl : NetworkBehaviour
     /// </summary>
     /// <param name="_resource">the name of the resource : Economical, Political or Social</param>
     /// <param name="_role">The player's role, allowing us to find what are his resource1 and resource2</param>
-    public int FindIndexResource(string _resource, Role _role)
+    /// <returns>-1 if the player doesn't have this resource in his role
+    /// 0 if it's in the first spot and 1 if _resource is in 2nd spot</returns>
+    public int FindIndexFromResource(string _resource, Role _role)
     {
         if (_resource.Equals(_role.ressource1))
         {
@@ -200,8 +121,29 @@ public class BetControl : NetworkBehaviour
         }
     }
 
-
-
+    /// <summary>
+    /// When given an index for playerBets, gives the corresponding resource from a player.
+    /// </summary>
+    /// <param name="_index"></param>
+    /// <param name="_role"></param>
+    /// <returns>"Economical", "Political" or "Social"</returns>
+    public string FindResourceFromIndex(int _index, Role _role)
+    {
+        string res = "";
+        if (_index == 0)
+        {
+            res = _role.ressource1;
+        }
+        else if (_index == 1)
+        {
+            res = _role.ressource2;
+        }
+        else
+        {
+            Debug.LogError("bad index send in FindResourceFromIndex");
+        }
+        return res;
+    }
 
 
     /// <summary>
@@ -381,10 +323,10 @@ public class BetControl : NetworkBehaviour
     /// <summary>
     /// reset playersBet for each player
     /// </summary>
-    public void resetPlayersBet()
+    public void ResetPlayersBet()
     {
         Game _game = GameManager.singleton.game;
-        for (int i = 0; i < _game.Market.Count; i++)
+        for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 2 ; j++)
             {

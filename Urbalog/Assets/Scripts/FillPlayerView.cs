@@ -12,6 +12,7 @@ public class FillPlayerView : MonoBehaviour
     #region Colors
     Color urbaGreen = new Color(0.1f, 0.3f, 0.0f);
     Color urbaRed = new Color(0.6f, 0.0f, 0.0f);
+    Color urbaBlue = new Color(0.0f,0.3f,0.9f);
     #endregion
     #region Buildings
     [Space(10)]
@@ -56,6 +57,7 @@ public class FillPlayerView : MonoBehaviour
     public Image EnviBuilding3Image;
     public Image fluidBuilding3Image;
 
+
     [Space(10)]
     [Header("Building 4")]
     public TextMeshProUGUI building4Button;
@@ -70,6 +72,7 @@ public class FillPlayerView : MonoBehaviour
     public Image EnviBuilding4Image;
     public Image fluidBuilding4Image;
 
+
     [Space(10)]
     [Header("Building 5")]
     public TextMeshProUGUI building5Button;
@@ -83,6 +86,8 @@ public class FillPlayerView : MonoBehaviour
     public Image AttractBuilding5Image;
     public Image EnviBuilding5Image;
     public Image fluidBuilding5Image;
+
+
     #endregion
 
     public TextMeshProUGUI turnNumberText;
@@ -120,7 +125,7 @@ public class FillPlayerView : MonoBehaviour
     void Update()
     {
         FillPLayerViewInfo();
-
+        ShowWherePlayerLocalBet();
 
         //is needed only once a turn
         if (!isAlreadyUpdated)
@@ -130,7 +135,6 @@ public class FillPlayerView : MonoBehaviour
             turnNumberText.text = "Num Tour : " + GameManager.singleton.game.turnNumber.ToString();
             isAlreadyUpdated = true;
         }
-
     }
 
     /// <summary>
@@ -142,8 +146,7 @@ public class FillPlayerView : MonoBehaviour
     private void FillPLayerViewInfo()
     {
         Game _game = GameManager.singleton.game;
-        //FillBuildingsImpact();
-        //ColorImpact();
+
         //Building1
         PoliticalBuilding1.text = _game.Market[0].FinancePolitical + "/" + _game.Market[0].Political;
         EcoBuilding1.text = _game.Market[0].FinanceEconomical + "/" + _game.Market[0].Economical;
@@ -519,8 +522,8 @@ public class FillPlayerView : MonoBehaviour
             fluidBuilding5Image.GetComponent<Image>().color = urbaGreen;
         }
 
-
     }
+
 
     public void UpdateTurn()
     {
@@ -528,6 +531,238 @@ public class FillPlayerView : MonoBehaviour
         isAlreadyUpdated = false;
     }
 
+    /// <summary>
+    /// For each text, shows on which building and on which resource the playerLocal bets with a blue color.
+    /// </summary>
+    public void ShowWherePlayerLocalBet()
+    {
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+        Role _role = GameObject.Find("playerLocal").GetComponent<Player>().role;
 
-    
+        int _building = 0;
+
+        //Building1
+        //Political
+        if (_betControl.FindIndexFromResource("Political", _role) != -1)
+        {
+            if (IsBet(_betControl,"Political",_role, _building))
+            {
+                PoliticalBuilding1.color = urbaBlue;
+            }
+            else
+            {
+                PoliticalBuilding1.color = Color.black;
+            }
+        }
+
+        //Economical
+        if (_betControl.FindIndexFromResource("Economical", _role) != -1)
+        {
+            if (IsBet(_betControl, "Economical", _role, _building))
+            {
+                EcoBuilding1.color = urbaBlue;
+            }
+            else
+            {
+                EcoBuilding1.color = Color.black;
+            }
+        }
+
+        //Social
+        if (_betControl.FindIndexFromResource("Social", _role) != -1)
+        {
+            if (IsBet(_betControl, "Social", _role, _building))
+            {
+                SocialBuilding1.color = urbaBlue;
+            }
+            else
+            {
+                SocialBuilding1.color = Color.black;
+            }
+        }
+
+        //Building2
+        //Political
+        if (_betControl.FindIndexFromResource("Political", _role) != -1)
+        {
+            if (IsBet(_betControl, "Political", _role, _building+1))
+            {
+                PoliticalBuilding2.color = urbaBlue;
+            }
+            else
+            {
+                PoliticalBuilding2.color = Color.black;
+            }
+        }
+
+        //Economical
+        if (_betControl.FindIndexFromResource("Economical", _role) != -1)
+        {
+            if (IsBet(_betControl, "Economical", _role, _building+1))
+            {
+                EcoBuilding2.color = urbaBlue;
+            }
+            else
+            {
+                EcoBuilding2.color = Color.black;
+            }
+        }
+
+        //Social
+        if (_betControl.FindIndexFromResource("Social", _role) != -1)
+        {
+            if (IsBet(_betControl, "Social", _role, _building+1))
+            {
+                SocialBuilding2.color = urbaBlue;
+            }
+            else
+            {
+                SocialBuilding2.color = Color.black;
+            }
+        }
+
+        //Building3
+        //Political
+        if (_betControl.FindIndexFromResource("Political", _role) != -1)
+        {
+            if (IsBet(_betControl, "Political", _role, _building + 2))
+            {
+                PoliticalBuilding3.color = urbaBlue;
+            }
+            else
+            {
+                PoliticalBuilding3.color = Color.black;
+            }
+        }
+
+        //Economical
+        if (_betControl.FindIndexFromResource("Economical", _role) != -1)
+        {
+            if (IsBet(_betControl, "Economical", _role, _building + 2))
+            {
+                EcoBuilding3.color = urbaBlue;
+            }
+            else
+            {
+                EcoBuilding3.color = Color.black;
+            }
+        }
+
+        //Social
+        if (_betControl.FindIndexFromResource("Social", _role) != -1)
+        {
+            if (IsBet(_betControl, "Social", _role, _building + 2))
+            {
+                SocialBuilding3.color = urbaBlue;
+            }
+            else
+            {
+                SocialBuilding3.color = Color.black;
+            }
+        }
+
+        //Building4
+        //Political
+        if (_betControl.FindIndexFromResource("Political", _role) != -1)
+        {
+            if (IsBet(_betControl, "Political", _role, _building + 3))
+            {
+                PoliticalBuilding4.color = urbaBlue;
+            }
+            else
+            {
+                PoliticalBuilding4.color = Color.black;
+            }
+        }
+
+        //Economical
+        if (_betControl.FindIndexFromResource("Economical", _role) != -1)
+        {
+            if (IsBet(_betControl, "Economical", _role, _building + 3))
+            {
+                EcoBuilding4.color = urbaBlue;
+            }
+            else
+            {
+                EcoBuilding4.color = Color.black;
+            }
+        }
+
+        //Social
+        if (_betControl.FindIndexFromResource("Social", _role) != -1)
+        {
+            if (IsBet(_betControl, "Social", _role, _building + 3))
+            {
+                SocialBuilding4.color = urbaBlue;
+            }
+            else
+            {
+                SocialBuilding4.color = Color.black;
+            }
+        }
+
+        //Building5
+        //Political
+        if (_betControl.FindIndexFromResource("Political", _role) != -1)
+        {
+            if (IsBet(_betControl, "Political", _role, _building + 4))
+            {
+                PoliticalBuilding5.color = urbaBlue;
+            }
+            else
+            {
+                PoliticalBuilding5.color = Color.black;
+            }
+        }
+
+        //Economical
+        if (_betControl.FindIndexFromResource("Economical", _role) != -1)
+        {
+            if (IsBet(_betControl, "Economical", _role, _building + 4))
+            {
+                EcoBuilding5.color = urbaBlue;
+            }
+            else
+            {
+                EcoBuilding5.color = Color.black;
+            }
+        }
+
+        //Social
+        if (_betControl.FindIndexFromResource("Social", _role) != -1)
+        {
+            if (IsBet(_betControl, "Social", _role, _building + 4))
+            {
+                SocialBuilding5.color = urbaBlue;
+            }
+            else
+            {
+                SocialBuilding5.color = Color.black;
+            }
+        }
+
+
+    }
+
+    public bool IsBet(BetControl _betControl, string _resource, Role _role, int _building)
+    {
+        bool _res;
+        if (_betControl.FindIndexFromResource(_resource, _role) > -1)
+        {
+            //TODO: vérifier player bet et renvoyer true si > 0
+            if (_betControl.playerBets[_building, _betControl.FindIndexFromResource(_resource, _role)] > 0)
+            {
+                _res = true;
+            }
+            else
+            {
+                _res = false;
+            }
+        }
+        else
+        {
+            _res = false;
+        }
+        return _res;
+    }
 }
