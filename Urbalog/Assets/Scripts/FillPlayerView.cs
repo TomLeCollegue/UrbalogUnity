@@ -15,6 +15,7 @@ public class FillPlayerView : MonoBehaviour
     Color urbaBlue = new Color(0.0f,0.3f,0.9f);
     Color resourceFrameLightGreen = new Color(0.47f,0.73f,0.42f);
     Color resourceFrameLightGrey = new Color(0.68f, 0.68f, 0.68f);
+    Color buildingNameGreen = new Color(0.00f, 1.00f, 0.22f);
     #endregion
     #region Buildings
     [Space(10)]
@@ -35,6 +36,8 @@ public class FillPlayerView : MonoBehaviour
     public Image EcoFrameBuilding1;
     public Image SocialFrameBuilding1;
 
+    public TextMeshProUGUI buildingName1;
+
     [Space(10)]
     [Header("Building 2")]
     public TextMeshProUGUI building2Button;
@@ -52,6 +55,8 @@ public class FillPlayerView : MonoBehaviour
     public Image PoliticalFrameBuilding2;
     public Image EcoFrameBuilding2;
     public Image SocialFrameBuilding2;
+
+    public TextMeshProUGUI buildingName2;
 
     [Space(10)]
     [Header("Building 3")]
@@ -71,6 +76,7 @@ public class FillPlayerView : MonoBehaviour
     public Image EcoFrameBuilding3;
     public Image SocialFrameBuilding3;
 
+    public TextMeshProUGUI buildingName3;
 
     [Space(10)]
     [Header("Building 4")]
@@ -90,6 +96,8 @@ public class FillPlayerView : MonoBehaviour
     public Image EcoFrameBuilding4;
     public Image SocialFrameBuilding4;
 
+    public TextMeshProUGUI buildingName4;
+
 
     [Space(10)]
     [Header("Building 5")]
@@ -108,6 +116,8 @@ public class FillPlayerView : MonoBehaviour
     public Image PoliticalFrameBuilding5;
     public Image EcoFrameBuilding5;
     public Image SocialFrameBuilding5;
+
+    public TextMeshProUGUI buildingName5;
 
 
     #endregion
@@ -149,6 +159,7 @@ public class FillPlayerView : MonoBehaviour
         FillPLayerViewInfo();
         ShowWherePlayerLocalBet();
         SetResourceFramesInGreenWhenCompleted();
+        SetBuildingNameInGreenWhenFinanced();
 
         //is needed only once a turn
         if (!isAlreadyUpdated)
@@ -806,7 +817,6 @@ public class FillPlayerView : MonoBehaviour
         //fluidBuilding3Image.GetComponent<Image>().color = Color.black;
         Game _game = GameManager.singleton.game;
         BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
-        Building _building = _game.Market[0];
 
         //Building1
         //Political
@@ -963,6 +973,23 @@ public class FillPlayerView : MonoBehaviour
             SocialFrameBuilding5.GetComponent<Image>().color = resourceFrameLightGrey;
         }
 
+
+    }
+
+
+    public void SetBuildingNameInGreenWhenFinanced()
+    {
+        Game _game = GameManager.singleton.game;
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+
+        if (_betControl.isFinanced(_game.Market[0]))
+        {
+            buildingName1.color = buildingNameGreen;
+        }
+        else
+        {
+            buildingName1.color = Color.white;
+        }
 
     }
 }

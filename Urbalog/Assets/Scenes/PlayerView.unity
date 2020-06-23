@@ -15101,8 +15101,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281859840
+  m_fontColor: {r: 0, g: 1, b: 0.21581602, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15752,6 +15752,7 @@ MonoBehaviour:
   PoliticalFrameBuilding1: {fileID: 1021811206}
   EcoFrameBuilding1: {fileID: 1818236266}
   SocialFrameBuilding1: {fileID: 698659045}
+  buildingName1: {fileID: 1287833291}
   building2Button: {fileID: 238300628}
   PoliticalBuilding2: {fileID: 1718398702}
   EcoBuilding2: {fileID: 1010619039}
@@ -15765,6 +15766,7 @@ MonoBehaviour:
   PoliticalFrameBuilding2: {fileID: 1589113259}
   EcoFrameBuilding2: {fileID: 978874173}
   SocialFrameBuilding2: {fileID: 403034080}
+  buildingName2: {fileID: 0}
   building3Button: {fileID: 913829076}
   PoliticalBuilding3: {fileID: 229614422}
   EcoBuilding3: {fileID: 1539692792}
@@ -15778,6 +15780,7 @@ MonoBehaviour:
   PoliticalFrameBuilding3: {fileID: 99414238}
   EcoFrameBuilding3: {fileID: 103948448}
   SocialFrameBuilding3: {fileID: 610077503}
+  buildingName3: {fileID: 0}
   building4Button: {fileID: 1523626093}
   PoliticalBuilding4: {fileID: 920054315}
   EcoBuilding4: {fileID: 899668278}
@@ -15791,6 +15794,7 @@ MonoBehaviour:
   PoliticalFrameBuilding4: {fileID: 1871073787}
   EcoFrameBuilding4: {fileID: 801415496}
   SocialFrameBuilding4: {fileID: 1824004700}
+  buildingName4: {fileID: 0}
   building5Button: {fileID: 502385785}
   PoliticalBuilding5: {fileID: 1630038804}
   EcoBuilding5: {fileID: 902258219}
@@ -15804,6 +15808,7 @@ MonoBehaviour:
   PoliticalFrameBuilding5: {fileID: 498383857}
   EcoFrameBuilding5: {fileID: 204510697}
   SocialFrameBuilding5: {fileID: 1794523010}
+  buildingName5: {fileID: 0}
   turnNumberText: {fileID: 2100661406}
   NameRole: {fileID: 2056021109}
   NombreRessource1: {fileID: 1083490653}
