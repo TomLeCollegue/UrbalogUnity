@@ -334,4 +334,89 @@ public class BetControl : NetworkBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Checks the market for all the buildings that are not financed entirely to give back
+    /// the resources for the players who bet.
+    /// </summary>
+    public void GiveBackResourcesToPlayerWhenNextTurn()
+    {
+        Game _game = GameManager.singleton.game;
+
+        for (int i = 0; i < _game.Market.Count; i++)
+        {
+            if (!isFinanced(_game.Market[i]) && !BuildingIsNotFinancedAtAll(_game.Market[i])) 
+            {
+                ReturnBuildingResources(_game.Market[i], GetComponent<Player>(), i);
+            }
+        }
+
+    }
+
+    /// <summary>
+    /// tells if a building as at least one resource on it or not.
+    /// </summary>
+    /// <param name="_building"></param>
+    /// <returns></returns>
+    public bool BuildingIsNotFinancedAtAll(Building _building)
+    {
+        return (_building.FinancePolitical == 0 && _building.FinanceEconomical == 0 && _building.FinanceSocial == 0);
+    }
+
+    /// <summary>
+    /// Checks player bet and the building given and returns the player investment.
+    /// </summary>
+    /// <param name="_building">The building we check</param>
+    /// <param name="_player">the player we return the resources</param>
+    private void ReturnBuildingResources(Building _building, Player _player, int _indexBuilding)
+    {
+        //find which resources the player uses
+
+        //Watch in building if he paid
+
+        //give back the money
+
+        //substract form the building resources if
+
+        int _indexPolitical = FindIndexFromResource("Political", _player.role);
+        int _indexEconomical = FindIndexFromResource("Economical", _player.role);
+        int _indexSocial = FindIndexFromResource("Social", _player.role);
+
+        int _tempPolitical = 0;
+        int _tempEconomical = 0;
+        int _tempSocial = 0;
+
+        if (_indexPolitical > -1)
+        {
+            if (playerBets[_indexBuilding,_indexPolitical]>0)
+            {
+                _tempPolitical = playerBets[_indexBuilding, _indexPolitical]; 
+                playerBets[_indexBuilding, _indexPolitical] -= _building.FinancePolitical; //substract in playerBets
+                _building.FinancePolitical -= _tempPolitical; //Update how is _building financed
+                _player.role.ressourcePolitical += _tempPolitical; //give back the resource to the player's hand
+            }
+        }
+
+        if (_indexEconomical > -1)
+        {
+            if (playerBets[_indexBuilding, _indexEconomical] > 0)
+            {
+                _tempEconomical = playerBets[_indexBuilding, _indexEconomical];
+                playerBets[_indexBuilding, _indexEconomical] -= _building.FinanceEconomical;
+                _building.FinanceEconomical -= _tempEconomical;
+                _player.role.ressourceEconomical += _tempEconomical;
+            }
+        }
+
+        if (_indexSocial > -1)
+        {
+            if (playerBets[_indexBuilding, _indexSocial] > 0)
+            {
+                _tempSocial = playerBets[_indexBuilding, _indexSocial];
+                playerBets[_indexBuilding, _indexSocial] -= _building.FinanceSocial;
+                _building.FinanceSocial -= _tempSocial;
+                _player.role.ressourceSocial += _tempSocial;
+            }
+        }
+    }
 }
