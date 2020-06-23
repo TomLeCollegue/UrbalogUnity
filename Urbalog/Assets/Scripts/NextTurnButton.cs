@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-
+    public static int NumberBuildingsToEnd = 2;
     public GameObject Panel;
     public TextMeshProUGUI turnNumberText;
+
+
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -25,6 +27,11 @@ public class NextTurnButton : NetworkBehaviour
     {
         if (isServer)
         {
+            if (CheckEndGameCondition())
+            {
+                CmdChangeSceneToEndGame();
+                return;
+            }
             if (CheckForNextTurn())
             {
                 Debug.Log("Cest la fin du tour");
@@ -33,6 +40,8 @@ public class NextTurnButton : NetworkBehaviour
         }
     }
 
+
+    #region Next turn 
 
     /// <summary>
     /// Fonction for next Turn in general
@@ -103,7 +112,30 @@ public class NextTurnButton : NetworkBehaviour
         fillView.UpdateTurn();
     }
 
+    #endregion
+
+    #region EndGame
+
+    public bool CheckEndGameCondition()
+    {
+        if(GameManager.singleton.game.BuildingsBuilt.Count >= NumberBuildingsToEnd)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 
 
+    [Server]
+    private void CmdChangeSceneToEndGame()
+    {
+        NetworkManager.singleton.ServerChangeScene("EndGame");
+    } 
+
+
+    #endregion
 }
