@@ -122,6 +122,8 @@ public class FillPlayerView : MonoBehaviour
 
     #endregion
 
+    [Space(10)]
+    [Header("Turn Number")]
     public TextMeshProUGUI turnNumberText;
     #region Role
     [Space(10)]
@@ -982,6 +984,7 @@ public class FillPlayerView : MonoBehaviour
         Game _game = GameManager.singleton.game;
         BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
 
+        //Building1
         if (_betControl.isFinanced(_game.Market[0]))
         {
             buildingName1.color = buildingNameGreen;
@@ -989,6 +992,46 @@ public class FillPlayerView : MonoBehaviour
         else
         {
             buildingName1.color = Color.white;
+        }
+
+        //Building2
+        if (_betControl.isFinanced(_game.Market[1]))
+        {
+            buildingName2.color = buildingNameGreen;
+        }
+        else
+        {
+            buildingName2.color = Color.white;
+        }
+
+        //Building3
+        if (_betControl.isFinanced(_game.Market[2]))
+        {
+            buildingName3.color = buildingNameGreen;
+        }
+        else
+        {
+            buildingName3.color = Color.white;
+        }
+
+        //Building4
+        if (_betControl.isFinanced(_game.Market[3]))
+        {
+            buildingName4.color = buildingNameGreen;
+        }
+        else
+        {
+            buildingName4.color = Color.white;
+        }
+
+        //Building5
+        if (_betControl.isFinanced(_game.Market[4]))
+        {
+            buildingName5.color = buildingNameGreen;
+        }
+        else
+        {
+            buildingName5.color = Color.white;
         }
 
     }
