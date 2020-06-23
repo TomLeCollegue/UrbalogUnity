@@ -1,25 +1,24 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class RenameBuilding : MonoBehaviour
+public class RenameBuilding : NetworkBehaviour
 {
+    public TextMeshProUGUI BuildingName;
 
-    public TextMeshProUGUI BuldingName;
-    public int test;
+    [SyncVar]
+    public string NameBuilding;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        test = 0;
-        BuldingName.text = "Poste" + test;
+        BuildingName.text = NameBuilding;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Rename(string Name)
     {
-        test += 1;
-        BuldingName.text = "Poste" + test;
+        NameBuilding = Name;
+        BuildingName.text = NameBuilding;
     }
 }
