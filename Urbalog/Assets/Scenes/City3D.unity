@@ -6094,6 +6094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1790182559}
   - component: {fileID: 1790182558}
+  - component: {fileID: 1790182560}
   m_Layer: 0
   m_Name: CityManager
   m_TagString: Untagged
@@ -6113,6 +6114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7f492fbb07460488d5490e0d094531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   SpawnPoints:
   - {fileID: 202452541}
   - {fileID: 1092347255}
@@ -6121,6 +6124,9 @@ MonoBehaviour:
   - {fileID: 1313286896}
   - {fileID: 1224482350}
   - {fileID: 1299108217}
+  Building: {fileID: 8284877600998288032, guid: 1395087f23a23914087423a94b8bada8,
+    type: 3}
+  Buildings: []
 --- !u!4 &1790182559
 Transform:
   m_ObjectHideFlags: 0
@@ -6135,6 +6141,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1790182560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790182557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 952811287
+  serverOnly: 1
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1001 &1829074721
 PrefabInstance:
   m_ObjectHideFlags: 0
