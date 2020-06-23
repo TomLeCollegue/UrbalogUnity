@@ -19,24 +19,19 @@ public class FillEndGameView : MonoBehaviour
     void Start()
     {
         FillEndGameScoreInfo();
+        test();
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //awake is initialized after all objects are initialized
-    private void Awake()
+    private void test()
     {
-        buildingsContainer = transform.Find("BuildingEntryContainer");
-        buildingsTemplate = buildingsContainer.Find("BuildingEntryTemplate");
+        /*buildingsContainer = transform.Find("BuildingEntryContainer");
+        buildingsTemplate = buildingsContainer.Find("BuildingEntryTemplate");*/
 
         buildingsTemplate.gameObject.SetActive(false);
 
-        for(int i = 0; i <= 5; i++)
+        for(int i = 0; i < GameManager.singleton.game.BuildingsBuilt.Count; i++)
         {
             Transform entryTransform = Instantiate(buildingsTemplate, buildingsContainer);
             entryTransform.gameObject.SetActive(true);
