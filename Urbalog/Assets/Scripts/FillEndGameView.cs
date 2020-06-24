@@ -15,11 +15,13 @@ public class FillEndGameView : MonoBehaviour
     public TextMeshProUGUI LogisticCity;
     public TextMeshProUGUI SentenceLogistic;
 
+    public ScrollRect scrollRect;
     // Start is called before the first frame update
     void Start()
     {
         FillEndGameScoreInfo();
         FillBuildingsBuiltList();
+        scrollRect.verticalNormalizedPosition = 1;
     }
 
 

@@ -19,6 +19,6 @@ public class BuildingsBuiltListItem : MonoBehaviour
     }
     public void RenameScoreLogstring(int _logScoreBuilding)
     {
-        logScoreBuilding.text = _logScoreBuilding.ToString();
+        logScoreBuilding.text = "Logistique : " + _logScoreBuilding.ToString();
     }
 }

@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/City3D.unity
     guid: 62dfdb8d50c938849a6c9ab6ef750fc1
   - enabled: 0
-    path: Assets/Scenes/EndGame.unity
+    path: Assets/Scenes/EndGameOLD.unity
     guid: 2512da7382fcf9547a72306a9f1eb576
   m_configObjects: {}
