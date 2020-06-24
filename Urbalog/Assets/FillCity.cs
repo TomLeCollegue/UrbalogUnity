@@ -17,7 +17,7 @@ public class FillCity : NetworkBehaviour
     {
 
         //Test Spawn Buildings
-        if (isServer)
+        /*if (isServer)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -33,7 +33,7 @@ public class FillCity : NetworkBehaviour
             }
 
 
-        }
+        }*/
     }
 
 

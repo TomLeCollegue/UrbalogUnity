@@ -11,7 +11,7 @@ public class FillListPlayer : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("UpdateList", 0, 2f);
+        InvokeRepeating("UpdateList", 0, 1f);
     }
 
     public void UpdateList()
