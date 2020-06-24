@@ -49,8 +49,8 @@ public class PlayerSetup : NetworkBehaviour
             string namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
             CmdSendInfoPlayer(_netID, namePlayer);
         }
-        CmdGetRoleForPlayer(); //Tom, ça devrait pas être dans le if(isLocalPlayer), ça ?
-        CmdSendActualGameManager(); //et ça aussi
+        CmdGetRoleForPlayer(); 
+        CmdSendActualGameManager(); 
     }
 
     #region getGameManager Fonction
@@ -132,6 +132,7 @@ public class PlayerSetup : NetworkBehaviour
                 gameManager.players[i].namePlayer = namePlayer;
             }
         }
+        //GameObject.Find("ListPlayerManager").GetComponent<FillListPlayer>().UpdateList();
     }
     #endregion
 
