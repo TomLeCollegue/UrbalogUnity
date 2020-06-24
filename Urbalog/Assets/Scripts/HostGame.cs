@@ -41,4 +41,9 @@ public class HostGame : NetworkBehaviour
     {
         GetComponent<NetworkManager>().StartClient();
     }
+
+    public void SetPort(string _port)
+    {
+        // set port 
+    }
 }
