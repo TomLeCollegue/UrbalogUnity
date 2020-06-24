@@ -64,7 +64,8 @@ MonoBehaviour:
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 8284877600998288032, guid: 1395087f23a23914087423a94b8bada8, type: 3}
 --- !u!114 &518646868029173892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8bede278f4d4d748bb047a8c94a5a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   roomSize: 6
+  roomName: En Attente des joueurs
+  playerName: nameplayer
