@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2019-12-15T03:49:37Z</created><keywords></keywords><modified>2019-12-15T03:49:37Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_geometries>
+    <geometry id="tile22-lib" name="tile22Mesh">
+      <mesh>
+        <source id="tile22-POSITION">
+          <float_array id="tile22-POSITION-array" count="24">
+-100.000000 -100.000000 100.000000
+-100.000000 0.000000 100.000000
+100.000000 -100.000000 100.000000
+100.000000 0.000000 100.000000
+100.000000 -100.000000 -100.000000
+100.000000 0.000000 -100.000000
+-100.000000 -100.000000 -100.000000
+-100.000000 0.000000 -100.000000
+</float_array>
+          <technique_common>
+            <accessor source="#tile22-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="tile22-Normal0">
+          <float_array id="tile22-Normal0-array" count="108">
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#tile22-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="tile22-UV0">
+          <float_array id="tile22-UV0-array" count="36">
+0.999039 0.782216
+0.999039 0.874019
+0.876965 0.874022
+0.876955 0.782219
+0.999039 0.782216
+0.999039 0.874019
+0.876955 0.782219
+0.876965 0.874022
+0.999039 0.874019
+0.999039 0.782216
+0.000985 0.874026
+0.000973 0.000969
+0.875005 0.000968
+0.875015 0.874036
+0.107819 0.898431
+0.107819 0.923431
+0.082819 0.923431
+0.082819 0.898431
+</float_array>
+          <technique_common>
+            <accessor source="#tile22-UV0-array" count="18" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="tile22-VERTEX">
+          <input semantic="POSITION" source="#tile22-POSITION"/>
+        </vertices>
+        <triangles count="12"><input semantic="VERTEX" offset="0" source="#tile22-VERTEX"/><input semantic="NORMAL" offset="1" source="#tile22-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#tile22-UV0"/><p> 1 0 2 2 1 0 3 2 1 2 3 0 1 4 2 0 5 3 2 6 0 4 7 4 3 8 1 3 9 1 4 10 4 5 11 5 7 12 7 5 13 5 6 14 6 4 15 4 6 16 6 5 17 5 6 18 6 0 19 9 1 20 8 1 21 8 7 22 7 6 23 6 1 24 13 3 25 10 7 26 12 3 27 10 5 28 11 7 29 12 0 30 16 4 31 14 2 32 15 4 33 14 0 34 16 6 35 17</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="" name="">
+      <node name="tile22" id="tile22" sid="tile22"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#tile22-lib"/><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.000000</start_time><end_time>1.000000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#"></instance_visual_scene>
+  </scene>
+</COLLADA>
