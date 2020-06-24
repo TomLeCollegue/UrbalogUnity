@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 2;
+    public static int NumberBuildingsToEnd = 3;
     public GameObject Panel;
     public TextMeshProUGUI turnNumberText;
 
@@ -59,7 +59,7 @@ public class NextTurnButton : NetworkBehaviour
         betControl.ResetPlayersBet();            // Réinitialiser le tableau des mises de chaques joueurs
         UpdateTurnNumber();                      // Changer le numéro de tour
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
-
+        GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
     }
 
     /// <summary>

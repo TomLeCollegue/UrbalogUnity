@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class CityScoreButton : MonoBehaviour
 {
     public GameObject Panel;
+    public GameObject MainFrame;
+    public GameObject ButtonBack;
 
     public TextMeshProUGUI Attract;
     public TextMeshProUGUI Envi;
@@ -18,6 +20,8 @@ public class CityScoreButton : MonoBehaviour
         if (Panel != null)
         {
             Panel.SetActive(true);
+            MainFrame.SetActive(false);
+            ButtonBack.SetActive(true);
             UpdateCityScorePanel();
         }
     }
@@ -27,6 +31,8 @@ public class CityScoreButton : MonoBehaviour
         if (Panel != null)
         {
             Panel.SetActive(false);
+            ButtonBack.SetActive(false);
+            MainFrame.SetActive(true);
         }
     }
 
