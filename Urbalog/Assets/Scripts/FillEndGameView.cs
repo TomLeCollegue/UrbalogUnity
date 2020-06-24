@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class FillEndGameView : MonoBehaviour
 {
-    public Transform buildingsContainer;
-    public Transform buildingsTemplate;
+    public GameObject buildingsBuiltItem;
+    public Transform buildingsListHolder;
     public TextMeshProUGUI AttractCity;
     public TextMeshProUGUI EnviCity;
     public TextMeshProUGUI FluidCity;
@@ -19,25 +19,25 @@ public class FillEndGameView : MonoBehaviour
     void Start()
     {
         FillEndGameScoreInfo();
-        test();
+        FillBuildingsBuiltList();
     }
 
 
     //awake is initialized after all objects are initialized
-    private void test()
+    private void FillBuildingsBuiltList()
     {
-        /*buildingsContainer = transform.Find("BuildingEntryContainer");
-        buildingsTemplate = buildingsContainer.Find("BuildingEntryTemplate");*/
-
-        buildingsTemplate.gameObject.SetActive(false);
-
-        for(int i = 0; i < GameManager.singleton.game.BuildingsBuilt.Count; i++)
+        for (int i = 0; i < GameManager.singleton.game.BuildingsBuilt.Count; i++)
         {
-            Transform entryTransform = Instantiate(buildingsTemplate, buildingsContainer);
-            entryTransform.gameObject.SetActive(true);
-            entryTransform.Find("NameEntry").GetComponent<Text>().text = GameManager.singleton.game.BuildingsBuilt[i].name;
-            entryTransform.Find("DescriptionEntry").GetComponent<Text>().text = GameManager.singleton.game.BuildingsBuilt[i].description;
+            SpawnBuildingBuiltItem(GameManager.singleton.game.BuildingsBuilt[i]);
         }
+    }
+    public void SpawnBuildingBuiltItem(Building _building)
+    {
+        GameObject Item = Instantiate(buildingsBuiltItem, buildingsListHolder);
+        Item.GetComponent<BuildingsBuiltListItem>().RenameBuilding(_building.name);
+        Item.GetComponent<BuildingsBuiltListItem>().RenameDescripLog(_building.logisticDescription);
+        Item.GetComponent<BuildingsBuiltListItem>().RenameScoreLogstring(_building.logisticScore);
+
     }
 
     private void FillEndGameScoreInfo()
