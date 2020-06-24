@@ -7,7 +7,11 @@ using UnityEngine;
 
 public class BetControl : NetworkBehaviour
 {
-    public int numBuildingBet;
+    public int numBuildingBet; //Controled by the button, so this number is always the number we bet on.
+
+    public int[,] playerBets = new int[5,2]; //each row is for a building
+    //each column for resources
+
 
     #region Bet
     /// <summary>
@@ -20,84 +24,127 @@ public class BetControl : NetworkBehaviour
     }
 
     /// <summary>
-    /// See if the bet is a -1 or a +1 bet and on which ressource.
-    /// Then, check if the bet is possible on the building the player chose to open
-    /// BetPanel.
+    /// Check if a bet can be done and then does it if possible.
     /// </summary>
-    /// <param name="value">if -1 then player wanted to take back his resource
-    /// if +1 then player wanted to bet 1 resource</param>
-    /// <param name="Ressource">It's the resource the player wanted to bet on
-    /// can be "Political", "Economical" or "Social"</param>
-    public void VerifBet(int value, string Ressource)
+    /// <param name="_value">+1 or -1. Is the value of the bet</param>
+    /// <param name="_resource">"Economical", "Political" or "Social", is the type of ressource which is bet</param>
+    /// <param name="_role">player's role so we can know which resources he can use</param>
+    public void CheckBet(int _value, string _resource, Role _role)
     {
-        Game game = GameManager.singleton.game;
-        bool isOk = true;
-        
-        if (value == -1)
-        {
-            if (Ressource.Equals("Political"))
-            {
-                if(game.Market[numBuildingBet].FinancePolitical < 1)
-                {
-                    isOk = false;
-                }   
-            }
-            else if (Ressource.Equals("Economical"))
-            {
-                if (game.Market[numBuildingBet].FinanceEconomical < 1)
-                {
-                    isOk = false;
-                }
-            }
-            else
-            {
-                if (game.Market[numBuildingBet].FinanceSocial < 1)
-                {
-                    isOk = false;
-                }
-            }
+        Game _game = GameManager.singleton.game;
+        bool betDoable = true;
 
-        }
-        if (value == 1)
+        int _index = FindIndexFromResource(_resource, _role);
+
+        if (_value == -1) //if player choose '-'
         {
-            if (Ressource.Equals("Political"))
+            if (_index<0) //it means this player doesn't have _resource at all
             {
-                if(GetComponent<Player>().role.ressourcePolitical < 1){
-                    isOk = false;
-                }
-                if (game.Market[numBuildingBet].FinancePolitical >= game.Market[numBuildingBet].Political)
+                betDoable = false;
+            }
+            else
+            {
+                //We don't even need to check how it is on the market
+                //Because to take money back, we only need to know if
+                //current player paid himself
+                if (playerBets[numBuildingBet,_index] <= 0) //The player didn't bet on this building with this resource so he can't take money from it
+                    {
+                        betDoable = false;
+                    }
+            }
+        }
+        else if(_value == 1) ////if player choose '+'
+        {
+            if (_resource.Equals("Political"))
+            {
+                if (GetComponent<Player>().role.ressourcePolitical < 1)
                 {
-                    isOk = false;
+                    betDoable = false;
+                }
+                if (_game.Market[numBuildingBet].FinancePolitical >= _game.Market[numBuildingBet].Political)
+                {
+                    betDoable = false;
                 }
             }
-            else if (Ressource.Equals("Economical"))
+            else if (_resource.Equals("Economical"))
             {
-                if (GetComponent<Player>().role.ressourceEconomical < 1){
-                    isOk = false;
-                }
-                if (game.Market[numBuildingBet].FinanceEconomical >= game.Market[numBuildingBet].Economical)
+                if (GetComponent<Player>().role.ressourceEconomical < 1)
                 {
-                    isOk = false;
+                    betDoable = false;
+                }
+                if (_game.Market[numBuildingBet].FinanceEconomical >= _game.Market[numBuildingBet].Economical)
+                {
+                    betDoable = false;
                 }
             }
             else
             {
-                if (GetComponent<Player>().role.ressourceSocial < 1){
-                    isOk = false;
-                }
-                if (game.Market[numBuildingBet].FinanceSocial >= game.Market[numBuildingBet].Social)
+                if (GetComponent<Player>().role.ressourceSocial < 1)
                 {
-                    isOk = false;
+                    betDoable = false;
+                }
+                if (_game.Market[numBuildingBet].FinanceSocial >= _game.Market[numBuildingBet].Social)
+                {
+                    betDoable = false;
                 }
             }
         }
-        //The bet is considered doable
-        if (isOk)
+
+        if (betDoable)
         {
-            CmdBet(value, Ressource, numBuildingBet);
-            ChangeRessourcePlayer(value, Ressource);
+            CmdBet(_value, _resource, numBuildingBet);
+            ChangeRessourcePlayer(_value, _resource);
+            AddBetInPlayerBets(_value, FindIndexFromResource(_resource, _role));
         }
     }
+
+    /// <summary>
+    /// when given the name of the resource and the player's role, gives the index of the resource in playersBet.
+    /// </summary>
+    /// <param name="_resource">the name of the resource : Economical, Political or Social</param>
+    /// <param name="_role">The player's role, allowing us to find what are his resource1 and resource2</param>
+    /// <returns>-1 if the player doesn't have this resource in his role
+    /// 0 if it's in the first spot and 1 if _resource is in 2nd spot</returns>
+    public int FindIndexFromResource(string _resource, Role _role)
+    {
+        if (_resource.Equals(_role.ressource1))
+        {
+            return 0;
+        }
+        else if (_resource.Equals(_role.ressource2))
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    /// <summary>
+    /// When given an index for playerBets, gives the corresponding resource from a player.
+    /// </summary>
+    /// <param name="_index"></param>
+    /// <param name="_role"></param>
+    /// <returns>"Economical", "Political" or "Social"</returns>
+    public string FindResourceFromIndex(int _index, Role _role)
+    {
+        string res = "";
+        if (_index == 0)
+        {
+            res = _role.ressource1;
+        }
+        else if (_index == 1)
+        {
+            res = _role.ressource2;
+        }
+        else
+        {
+            Debug.LogError("bad index send in FindResourceFromIndex");
+        }
+        return res;
+    }
+
 
     /// <summary>
     /// Is used when a player bet is done.
@@ -216,6 +263,9 @@ public class BetControl : NetworkBehaviour
         _game.pioche.Remove(_building);
     }
 
+    /// <summary>
+    /// It builds the buildings when we go to the next turn if they are financed.
+    /// </summary>
     public void BuildTheBuildings()
     {
         Game _game = GameManager.singleton.game;
@@ -230,6 +280,9 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks all the buildings already built and changes the 4 city score accordingly.
+    /// </summary>
     public void UpdateCityScores()
     {
         Game _game = GameManager.singleton.game;
@@ -248,4 +301,126 @@ public class BetControl : NetworkBehaviour
     }
 
     #endregion
+
+    /// <summary>
+    /// Adds +1 or -1 in playerBets[][] so we can track where a player has bet and how many
+    /// </summary>
+    /// <param name="_value">+1 or -1, the amount someone bets</param>
+    /// <param name="_nbResource">0 or 1 : It's the resource the player decided to bet with.</param>
+    public void AddBetInPlayerBets(int _value, int _nbResource)
+    {
+        if (playerBets[numBuildingBet, _nbResource] >= 1)
+        {
+            playerBets[numBuildingBet, _nbResource] += _value ;
+        }
+        else if (playerBets[numBuildingBet, _nbResource] == 0 && _value > 0)
+        {
+            playerBets[numBuildingBet, _nbResource] += _value ;
+        }
+
+    }
+
+    /// <summary>
+    /// reset playersBet for each player
+    /// </summary>
+    public void ResetPlayersBet()
+    {
+        Game _game = GameManager.singleton.game;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 2 ; j++)
+            {
+                playerBets[i, j] = 0;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Checks the market for all the buildings that are not financed entirely to give back
+    /// the resources for the players who bet.
+    /// </summary>
+    public void GiveBackResourcesToPlayerWhenNextTurn()
+    {
+        Game _game = GameManager.singleton.game;
+
+        for (int i = 0; i < _game.Market.Count; i++)
+        {
+            if (!isFinanced(_game.Market[i]) && !BuildingIsNotFinancedAtAll(_game.Market[i])) 
+            {
+                ReturnBuildingResources(_game.Market[i], GetComponent<Player>(), i);
+            }
+        }
+
+    }
+
+    /// <summary>
+    /// tells if a building as at least one resource on it or not.
+    /// </summary>
+    /// <param name="_building"></param>
+    /// <returns></returns>
+    public bool BuildingIsNotFinancedAtAll(Building _building)
+    {
+        return (_building.FinancePolitical == 0 && _building.FinanceEconomical == 0 && _building.FinanceSocial == 0);
+    }
+
+    /// <summary>
+    /// Checks player bet and the building given and returns the player investment to them.
+    /// Also it takes this amount back from building finances.
+    /// </summary>
+    /// <param name="_building">The building we check</param>
+    /// <param name="_player">the player we return the resources</param>
+    private void ReturnBuildingResources(Building _building, Player _player, int _indexBuilding)
+    {
+        int _indexPolitical = FindIndexFromResource("Political", _player.role);
+        int _indexEconomical = FindIndexFromResource("Economical", _player.role);
+        int _indexSocial = FindIndexFromResource("Social", _player.role);
+
+        int _tempPolitical = 0;
+        int _tempEconomical = 0;
+        int _tempSocial = 0;
+
+        if (_indexPolitical > -1)
+        {
+            if (playerBets[_indexBuilding,_indexPolitical]>0)
+            {
+                _tempPolitical = playerBets[_indexBuilding, _indexPolitical]; 
+                playerBets[_indexBuilding, _indexPolitical] -= _building.FinancePolitical; //substract in playerBets
+                _building.FinancePolitical -= _tempPolitical; //Update how is _building financed
+                _player.role.ressourcePolitical += _tempPolitical; //give back the resource to the player's hand
+            }
+        }
+
+        if (_indexEconomical > -1)
+        {
+            if (playerBets[_indexBuilding, _indexEconomical] > 0)
+            {
+                _tempEconomical = playerBets[_indexBuilding, _indexEconomical];
+                playerBets[_indexBuilding, _indexEconomical] -= _building.FinanceEconomical;
+                _building.FinanceEconomical -= _tempEconomical;
+                _player.role.ressourceEconomical += _tempEconomical;
+            }
+        }
+
+        if (_indexSocial > -1)
+        {
+            if (playerBets[_indexBuilding, _indexSocial] > 0)
+            {
+                _tempSocial = playerBets[_indexBuilding, _indexSocial];
+                playerBets[_indexBuilding, _indexSocial] -= _building.FinanceSocial;
+                _building.FinanceSocial -= _tempSocial;
+                _player.role.ressourceSocial += _tempSocial;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Tells if a given resource on a given building is fully financed or not
+    /// </summary>
+    /// <param name="_finance">this parameter is the finance we want to check on our building</param>
+    /// <param name="_max">The maximum before a resource is completed</param>
+    /// <returns></returns>
+    public bool ResourceIsCompleted(int _finance, int _max)
+    {
+        return (_finance >= _max);
+    }
 }

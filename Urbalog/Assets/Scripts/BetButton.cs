@@ -31,7 +31,7 @@ public class BetButton : MonoBehaviour
     {
         BetControl betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
         Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
-        betControl.VerifBet(value, role.ressource1);
+        betControl.CheckBet(value, role.ressource1, role);
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ public class BetButton : MonoBehaviour
     {
         BetControl betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
         Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
-        betControl.VerifBet(value, role.ressource2);
+        betControl.CheckBet(value, role.ressource2, role);
     }
 
 
