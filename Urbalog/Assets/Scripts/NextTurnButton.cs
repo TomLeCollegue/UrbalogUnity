@@ -7,8 +7,7 @@ using UnityEngine;
 public class NextTurnButton : NetworkBehaviour
 {
     public static int NumberBuildingsToEnd = 3;
-    public GameObject Panel;
-    public TextMeshProUGUI turnNumberText;
+    public TextMeshProUGUI TextButton;
 
 
 
@@ -37,6 +36,16 @@ public class NextTurnButton : NetworkBehaviour
                 Debug.Log("Cest la fin du tour");
                 NextTurn();
             }
+        }
+
+        bool Turn = GameObject.Find("playerLocal").GetComponent<Player>().nextTurn;
+        if (!Turn)
+        {
+            TextButton.text = "Tour Suivant";
+        }
+        else
+        {
+            TextButton.text = "Annuler";
         }
     }
 
@@ -93,13 +102,6 @@ public class NextTurnButton : NetworkBehaviour
         }
     }
 
-    /// <summary>
-    /// When NextTurn button is clicked, the cityScorePanel is closed
-    /// </summary>
-    public void CloseCityScorePanel()
-    {
-        Panel.SetActive(false);
-    }
 
     /// <summary>
     /// Each turn, the turn number update on the playerView scene

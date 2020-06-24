@@ -6565,8 +6565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  Panel: {fileID: 0}
-  turnNumberText: {fileID: 0}
+  TextButton: {fileID: 2099739039}
 --- !u!114 &420338684
 MonoBehaviour:
   m_ObjectHideFlags: 0
