@@ -985,7 +985,7 @@ public class FillPlayerView : MonoBehaviour
         BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
 
         //Building1
-        if (_betControl.isFinanced(_game.Market[0]))
+        if (_betControl.IsFinanced(_game.Market[0]))
         {
             buildingName1.color = buildingNameGreen;
         }
@@ -995,7 +995,7 @@ public class FillPlayerView : MonoBehaviour
         }
 
         //Building2
-        if (_betControl.isFinanced(_game.Market[1]))
+        if (_betControl.IsFinanced(_game.Market[1]))
         {
             buildingName2.color = buildingNameGreen;
         }
@@ -1005,7 +1005,7 @@ public class FillPlayerView : MonoBehaviour
         }
 
         //Building3
-        if (_betControl.isFinanced(_game.Market[2]))
+        if (_betControl.IsFinanced(_game.Market[2]))
         {
             buildingName3.color = buildingNameGreen;
         }
@@ -1015,7 +1015,7 @@ public class FillPlayerView : MonoBehaviour
         }
 
         //Building4
-        if (_betControl.isFinanced(_game.Market[3]))
+        if (_betControl.IsFinanced(_game.Market[3]))
         {
             buildingName4.color = buildingNameGreen;
         }
@@ -1025,7 +1025,7 @@ public class FillPlayerView : MonoBehaviour
         }
 
         //Building5
-        if (_betControl.isFinanced(_game.Market[4]))
+        if (_betControl.IsFinanced(_game.Market[4]))
         {
             buildingName5.color = buildingNameGreen;
         }

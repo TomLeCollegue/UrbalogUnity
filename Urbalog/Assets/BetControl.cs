@@ -53,7 +53,7 @@ public class BetControl : NetworkBehaviour
                     }
             }
         }
-        else if(_value == 1) ////if player choose '+'
+        else if(_value == 1) //if player choose '+'
         {
             if (_resource.Equals("Political"))
             {
@@ -214,22 +214,22 @@ public class BetControl : NetworkBehaviour
     /// </summary>
     /// <param name="_building">the building we check of type Building</param>
     /// <returns></returns>
-    public bool isFinanced(Building _building)
+    public bool IsFinanced(Building _building)
     {
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
-            /*&& _building.FinanceSocial >= _building.Social*/);
+            && _building.FinanceSocial >= _building.Social);
     }
     /// <summary>
     /// Check how many buildings are financed and return it
     /// </summary>
     /// <returns>Returns the number of Buildings that are financed</returns>
-    public int nbBuildingsFinanced()
+    public int NbBuildingsFinanced()
     {
         Game _game = GameManager.singleton.game;
         int _res = 0;
         for (int i = 0; i < 5; i++)
         {
-            if (isFinanced(_game.Market[i]))
+            if (IsFinanced(_game.Market[i]))
             {
                 _res += 1;
             }
@@ -271,7 +271,7 @@ public class BetControl : NetworkBehaviour
         Game _game = GameManager.singleton.game;
         for (int i = 0; i < 5; i++)
         {
-            if (isFinanced(_game.Market[i]))
+            if (IsFinanced(_game.Market[i]))
             {
                 AddBuildingInBuildingsBuilt(_game.Market[i]);
                 UpdateCityScores();
@@ -335,6 +335,25 @@ public class BetControl : NetworkBehaviour
         }
     }
 
+    [Command]
+    public void CmdResetPlayersBet()
+    {
+        RpcResetPlayersBet();
+    }
+
+    [ClientRpc]
+    public void RpcResetPlayersBet()
+    {
+        Game _game = GameManager.singleton.game;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                playerBets[i, j] = 0;
+            }
+        }
+    }
+
     /// <summary>
     /// Checks the market for all the buildings that are not financed entirely to give back
     /// the resources for the players who bet.
@@ -345,12 +364,24 @@ public class BetControl : NetworkBehaviour
 
         for (int i = 0; i < _game.Market.Count; i++)
         {
-            if (!isFinanced(_game.Market[i]) && !BuildingIsNotFinancedAtAll(_game.Market[i])) 
+            if (!IsFinanced(_game.Market[i]) && !BuildingIsNotFinancedAtAll(_game.Market[i])) 
             {
                 ReturnBuildingResources(_game.Market[i], GetComponent<Player>(), i);
             }
         }
 
+    }
+
+    [Command]
+    public void CmdGiveBackResourcesToPlayerWhenNextTurn()
+    {
+        RpcGiveBackResourcesToPlayerWhenNextTurn();
+    }
+
+    [ClientRpc]
+    public void RpcGiveBackResourcesToPlayerWhenNextTurn()
+    {
+        GiveBackResourcesToPlayerWhenNextTurn();
     }
 
     /// <summary>

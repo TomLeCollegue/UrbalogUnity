@@ -63,9 +63,9 @@ public class NextTurnButton : NetworkBehaviour
 
         ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
         betControl.BuildTheBuildings();          // Check les batiment construit, Les ajouter dans la list des batiments construit, Les supprimer du Deck
-        betControl.GiveBackResourcesToPlayerWhenNextTurn();       // Rendre les ressources aux joueurs pour les aménagements pas financés entièrement.
+        betControl.CmdGiveBackResourcesToPlayerWhenNextTurn();       // Rendre les ressources aux joueurs pour les aménagements pas financés entièrement.
         gameManager.game.ChangeMarket();         // Changer le marché
-        betControl.ResetPlayersBet();            // Réinitialiser le tableau des mises de chaques joueurs
+        betControl.CmdResetPlayersBet();            // Réinitialiser le tableau des mises de chaques joueurs
         UpdateTurnNumber();                      // Changer le numéro de tour
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
