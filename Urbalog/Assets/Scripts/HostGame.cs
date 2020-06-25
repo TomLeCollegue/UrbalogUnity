@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using System;
 using UnityEngine;
 
 public class HostGame : NetworkBehaviour
@@ -40,5 +41,10 @@ public class HostGame : NetworkBehaviour
     public void JoinGame()
     {
         GetComponent<NetworkManager>().StartClient();
+    }
+
+    public void SetPort(string _port)
+    {
+        GetComponent<TelepathyTransport>().port = Convert.ToUInt16(_port);
     }
 }
