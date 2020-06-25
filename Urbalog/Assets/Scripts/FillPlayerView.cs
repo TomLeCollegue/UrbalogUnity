@@ -14,8 +14,9 @@ public class FillPlayerView : MonoBehaviour
     Color urbaRed = new Color(0.6f, 0.0f, 0.0f);
     Color urbaBlue = new Color(0.0f,0.3f,0.9f);
     Color resourceFrameLightGreen = new Color(0.47f,0.73f,0.42f);
-    Color resourceFrameLightGrey = new Color(0.68f, 0.68f, 0.68f);
+    Color resourceFrameLightGrey = new Color(1f, 1f, 1f);
     Color buildingNameGreen = new Color(0.00f, 1.00f, 0.22f);
+    Color NameBuildingNotFinanced = new Color(0.1764706f , 0.1686275f, 0.2470588f);
     #endregion
     #region Buildings
     [Space(10)]
@@ -991,7 +992,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else
         {
-            buildingName1.color = Color.white;
+            buildingName1.color = NameBuildingNotFinanced;
         }
 
         //Building2
@@ -1001,7 +1002,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else
         {
-            buildingName2.color = Color.white;
+            buildingName2.color = NameBuildingNotFinanced;
         }
 
         //Building3
@@ -1011,7 +1012,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else
         {
-            buildingName3.color = Color.white;
+            buildingName3.color = NameBuildingNotFinanced;
         }
 
         //Building4
@@ -1021,7 +1022,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else
         {
-            buildingName4.color = Color.white;
+            buildingName4.color = NameBuildingNotFinanced;
         }
 
         //Building5
@@ -1031,7 +1032,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else
         {
-            buildingName5.color = Color.white;
+            buildingName5.color = NameBuildingNotFinanced;
         }
 
     }

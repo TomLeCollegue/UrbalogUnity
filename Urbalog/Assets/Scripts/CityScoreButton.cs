@@ -9,6 +9,7 @@ public class CityScoreButton : MonoBehaviour
     public GameObject Panel;
     public GameObject MainFrame;
     public GameObject ButtonBack;
+    public GameObject TitleCity;
 
     public TextMeshProUGUI Attract;
     public TextMeshProUGUI Envi;
@@ -22,6 +23,7 @@ public class CityScoreButton : MonoBehaviour
             Panel.SetActive(true);
             MainFrame.SetActive(false);
             ButtonBack.SetActive(true);
+            TitleCity.SetActive(true);
             UpdateCityScorePanel();
         }
     }
@@ -33,6 +35,7 @@ public class CityScoreButton : MonoBehaviour
             Panel.SetActive(false);
             ButtonBack.SetActive(false);
             MainFrame.SetActive(true);
+            TitleCity.SetActive(false);
         }
     }
 
