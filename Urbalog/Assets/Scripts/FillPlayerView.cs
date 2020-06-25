@@ -10,8 +10,9 @@ using TMPro;
 public class FillPlayerView : MonoBehaviour
 {
     #region Colors
-    Color urbaGreen = new Color(0.1f, 0.3f, 0.0f);
-    Color urbaRed = new Color(0.6f, 0.0f, 0.0f);
+    Color urbaGrey = new Color(0.58f, 0.63f, 0.71f);
+    Color urbaGreen = new Color(0.56f, 0.68f, 0.32f);
+    Color urbaRed = new Color(0.83f, 0.19f, 0.11f);
     Color urbaBlue = new Color(0.0f,0.3f,0.9f);
     Color resourceFrameLightGreen = new Color(0.47f,0.73f,0.42f);
     Color resourceFrameLightGrey = new Color(1f, 1f, 1f);
@@ -353,7 +354,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[0].attractScore == 0)
         {
-            AttractBuilding1Image.GetComponent<Image>().color = Color.black;
+            AttractBuilding1Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -367,7 +368,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[1].attractScore == 0)
         {
-            AttractBuilding2Image.GetComponent<Image>().color = Color.black;
+            AttractBuilding2Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -381,7 +382,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[2].attractScore == 0)
         {
-            AttractBuilding3Image.GetComponent<Image>().color = Color.black;
+            AttractBuilding3Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -395,7 +396,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[3].attractScore == 0)
         {
-            AttractBuilding4Image.GetComponent<Image>().color = Color.black;
+            AttractBuilding4Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -409,7 +410,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[4].attractScore == 0)
         {
-            AttractBuilding5Image.GetComponent<Image>().color = Color.black;
+            AttractBuilding5Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -425,7 +426,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[0].enviScore == 0)
         {
-            EnviBuilding1Image.GetComponent<Image>().color = Color.black;
+            EnviBuilding1Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -439,7 +440,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[1].enviScore == 0)
         {
-            EnviBuilding2Image.GetComponent<Image>().color = Color.black;
+            EnviBuilding2Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -453,7 +454,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[2].enviScore == 0)
         {
-            EnviBuilding3Image.GetComponent<Image>().color = Color.black;
+            EnviBuilding3Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -467,7 +468,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[3].enviScore == 0)
         {
-            EnviBuilding4Image.GetComponent<Image>().color = Color.black;
+            EnviBuilding4Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -481,7 +482,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[4].enviScore == 0)
         {
-            EnviBuilding5Image.GetComponent<Image>().color = Color.black;
+            EnviBuilding5Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -496,7 +497,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[0].fluidScore == 0)
         {
-            fluidBuilding1Image.GetComponent<Image>().color = Color.black;
+            fluidBuilding1Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -510,7 +511,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[1].fluidScore == 0)
         {
-            fluidBuilding2Image.GetComponent<Image>().color = Color.black;
+            fluidBuilding2Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -524,7 +525,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[2].fluidScore == 0)
         {
-            fluidBuilding3Image.GetComponent<Image>().color = Color.black;
+            fluidBuilding3Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -538,7 +539,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[3].fluidScore == 0)
         {
-            fluidBuilding4Image.GetComponent<Image>().color = Color.black;
+            fluidBuilding4Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
@@ -552,7 +553,7 @@ public class FillPlayerView : MonoBehaviour
         }
         else if (game.Market[4].fluidScore == 0)
         {
-            fluidBuilding5Image.GetComponent<Image>().color = Color.black;
+            fluidBuilding5Image.GetComponent<Image>().color = urbaGrey;
         }
         else
         {
