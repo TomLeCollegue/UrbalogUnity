@@ -95,6 +95,7 @@ public class BetControl : NetworkBehaviour
             CmdBet(_value, _resource, numBuildingBet);
             ChangeRessourcePlayer(_value, _resource);
             AddBetInPlayerBets(_value, FindIndexFromResource(_resource, _role));
+            Debug.Log(playerBets.ToString());
         }
     }
 
@@ -326,11 +327,13 @@ public class BetControl : NetworkBehaviour
     public void ResetPlayersBet()
     {
         Game _game = GameManager.singleton.game;
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+
         for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 2 ; j++)
             {
-                playerBets[i, j] = 0;
+                _betControl.playerBets[i, j] = 0;
             }
         }
     }
@@ -344,14 +347,7 @@ public class BetControl : NetworkBehaviour
     [ClientRpc]
     public void RpcResetPlayersBet()
     {
-        Game _game = GameManager.singleton.game;
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 2; j++)
-            {
-                playerBets[i, j] = 0;
-            }
-        }
+        ResetPlayersBet();
     }
 
     /// <summary>
@@ -361,12 +357,13 @@ public class BetControl : NetworkBehaviour
     public void GiveBackResourcesToPlayerWhenNextTurn()
     {
         Game _game = GameManager.singleton.game;
+        Player _player = GameObject.Find("playerLocal").GetComponent<Player>();
 
         for (int i = 0; i < _game.Market.Count; i++)
         {
             if (!IsFinanced(_game.Market[i]) && !BuildingIsNotFinancedAtAll(_game.Market[i])) 
             {
-                ReturnBuildingResources(_game.Market[i], GetComponent<Player>(), i);
+                ReturnBuildingResources(_game.Market[i], _player , i);
             }
         }
 
@@ -376,6 +373,7 @@ public class BetControl : NetworkBehaviour
     public void CmdGiveBackResourcesToPlayerWhenNextTurn()
     {
         RpcGiveBackResourcesToPlayerWhenNextTurn();
+        GiveBackResourcesToPlayerWhenNextTurn();
     }
 
     [ClientRpc]
@@ -406,16 +404,18 @@ public class BetControl : NetworkBehaviour
         int _indexEconomical = FindIndexFromResource("Economical", _player.role);
         int _indexSocial = FindIndexFromResource("Social", _player.role);
 
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+
         int _tempPolitical = 0;
         int _tempEconomical = 0;
         int _tempSocial = 0;
 
         if (_indexPolitical > -1)
         {
-            if (playerBets[_indexBuilding,_indexPolitical]>0)
+            if (_betControl.playerBets[_indexBuilding,_indexPolitical]>0)
             {
-                _tempPolitical = playerBets[_indexBuilding, _indexPolitical]; 
-                playerBets[_indexBuilding, _indexPolitical] -= _building.FinancePolitical; //substract in playerBets
+                _tempPolitical = _betControl.playerBets[_indexBuilding, _indexPolitical]; 
+                _betControl.playerBets[_indexBuilding, _indexPolitical] -= _building.FinancePolitical; //substract in playerBets
                 _building.FinancePolitical -= _tempPolitical; //Update how is _building financed
                 _player.role.ressourcePolitical += _tempPolitical; //give back the resource to the player's hand
             }
@@ -423,10 +423,10 @@ public class BetControl : NetworkBehaviour
 
         if (_indexEconomical > -1)
         {
-            if (playerBets[_indexBuilding, _indexEconomical] > 0)
+            if (_betControl.playerBets[_indexBuilding, _indexEconomical] > 0)
             {
-                _tempEconomical = playerBets[_indexBuilding, _indexEconomical];
-                playerBets[_indexBuilding, _indexEconomical] -= _building.FinanceEconomical;
+                _tempEconomical = _betControl.playerBets[_indexBuilding, _indexEconomical];
+                _betControl.playerBets[_indexBuilding, _indexEconomical] -= _building.FinanceEconomical;
                 _building.FinanceEconomical -= _tempEconomical;
                 _player.role.ressourceEconomical += _tempEconomical;
             }
@@ -434,10 +434,10 @@ public class BetControl : NetworkBehaviour
 
         if (_indexSocial > -1)
         {
-            if (playerBets[_indexBuilding, _indexSocial] > 0)
+            if (_betControl.playerBets[_indexBuilding, _indexSocial] > 0)
             {
-                _tempSocial = playerBets[_indexBuilding, _indexSocial];
-                playerBets[_indexBuilding, _indexSocial] -= _building.FinanceSocial;
+                _tempSocial = _betControl.playerBets[_indexBuilding, _indexSocial];
+                _betControl.playerBets[_indexBuilding, _indexSocial] -= _building.FinanceSocial;
                 _building.FinanceSocial -= _tempSocial;
                 _player.role.ressourceSocial += _tempSocial;
             }
