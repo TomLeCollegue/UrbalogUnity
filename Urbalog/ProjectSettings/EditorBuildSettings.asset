@@ -17,13 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerView.unity
     guid: 4901ba90f19e3864ab111764cf436219
-  - enabled: 1
-    path: Assets/Scenes/EndGame.unity
-    guid: 0fc6f363a2551194480d5a989af5fd14
-  - enabled: 0
-    path: Assets/Scenes/City3D.unity
-    guid: 62dfdb8d50c938849a6c9ab6ef750fc1
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/City3D.unity
+    guid: 62dfdb8d50c938849a6c9ab6ef750fc1
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 2512da7382fcf9547a72306a9f1eb576
   m_configObjects: {}
