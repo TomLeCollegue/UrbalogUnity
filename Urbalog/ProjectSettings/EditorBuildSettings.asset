@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PopUp.unity
+    guid: 192adff8057138d4da4ce5bf134763cf
+  - enabled: 1
     path: Assets/Scenes/LobbyRework.unity
     guid: 7710ffc6adf357744b7af299b5c3688b
   - enabled: 1
