@@ -165,6 +165,7 @@ public class FillPlayerView : MonoBehaviour
         ShowWherePlayerLocalBet();
         SetResourceFramesInGreenWhenCompleted();
         SetBuildingNameInGreenWhenFinanced();
+        ScorePlayer.text = "Score :" + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
 
         //is needed only once a turn
         if (!isAlreadyUpdated)
@@ -172,7 +173,6 @@ public class FillPlayerView : MonoBehaviour
             ColorImpact();
             FillBuildingsImpact();
             turnNumberText.text = "Num Tour : " + GameManager.singleton.game.turnNumber.ToString();
-            ScorePlayer.text = "Score :" + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
             isAlreadyUpdated = true;
         }
     }

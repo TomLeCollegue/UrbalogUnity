@@ -72,6 +72,7 @@ public class NextTurnButton : NetworkBehaviour
         UpdateTurnNumber();                      // Changer le numéro de tour
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
+        Invoke("PopUpPlayer", 2);
     }
 
     private void ResetFinanceBuildingInMarket()
@@ -200,6 +201,11 @@ public class NextTurnButton : NetworkBehaviour
         }
 
         return GainScore;
+    }
+
+    public void PopUpPlayer()
+    {
+        GameObject.Find("playerLocal").GetComponent<Player>().CmdScore();
     }
 
     

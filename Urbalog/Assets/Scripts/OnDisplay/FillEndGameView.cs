@@ -14,6 +14,7 @@ public class FillEndGameView : MonoBehaviour
     public TextMeshProUGUI FluidCity;
     public TextMeshProUGUI LogisticCity;
     public TextMeshProUGUI SentenceLogistic;
+    public TextMeshProUGUI Score;
 
     public ScrollRect scrollRect;
     // Start is called before the first frame update
@@ -22,6 +23,11 @@ public class FillEndGameView : MonoBehaviour
         FillEndGameScoreInfo();
         FillBuildingsBuiltList();
         scrollRect.verticalNormalizedPosition = 1;
+    }
+
+    private void Update()
+    {
+        Score.text = "Score : " + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
     }
 
 
@@ -64,11 +70,11 @@ public class FillEndGameView : MonoBehaviour
         }
         else if ((LogisticScore > -2) && (LogisticScore <= 0))
         {
-            SentenceLogistic.text = "D'un point de vue logistique, l'organisation de votre ville est à revoir.";
+            SentenceLogistic.text = "Dans votre ville, les transports de marchandises se font avec quelques difficultés mineures.";
         }
         else if ((LogisticScore > 0) && (LogisticScore <= 2))
         {
-            SentenceLogistic.text = "D'un point de vue logistique, l'organisation de votre ville est à revoir.";
+            SentenceLogistic.text = "D'un point de vue logistique, votre ville s'en sort plutôt bien, la plupart des livraisons se font sans encombre.";
         }
         else
         {
