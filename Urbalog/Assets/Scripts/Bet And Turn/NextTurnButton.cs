@@ -64,6 +64,7 @@ public class NextTurnButton : NetworkBehaviour
 
         ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
         betControl.CmdGiveBackResourcesToPlayerWhenNextTurn();       // Rendre les ressources aux joueurs pour les aménagements pas financés entièrement.
+        DistribScorePlayer();
         betControl.BuildTheBuildings();          // Check les batiment construit, Les ajouter dans la list des batiments construit, Les supprimer du Deck
         ResetFinanceBuildingInMarket();
         gameManager.game.ChangeMarket();         // Changer le marché
@@ -126,6 +127,83 @@ public class NextTurnButton : NetworkBehaviour
         FillPlayerView fillView = GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>();
         fillView.UpdateTurn();
     }
+
+    #endregion
+
+
+    #region Score Player
+    public void DistribScorePlayer()
+    {
+        int ScoreEnvi = 0;
+        int ScoreAttract = 0;
+        int ScoreFluid = 0;
+        BetControl betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+        Game game = GameManager.singleton.game;
+        for (int i = 0; i < game.Market.Count; i++)
+        {
+            if (betControl.IsFinanced(game.Market[i]))
+            {
+                ScoreEnvi += game.Market[i].enviScore;
+                ScoreAttract += game.Market[i].attractScore;
+                ScoreFluid += game.Market[i].fluidScore;
+            }
+        }
+
+        Debug.Log("Score : " + ScoreEnvi + " " + ScoreAttract + " " + ScoreFluid);
+        CheckScorePlayers(ScoreEnvi, ScoreAttract, ScoreFluid);
+        
+    }
+
+    public void CheckScorePlayers(int envi, int attract, int fluid)
+    {
+        GameManager gameManager = GameManager.singleton;
+        for (int i = 0; i < gameManager.players.Count; i++)
+        {
+            if(CheckObjectifPlayer(gameManager.players[i], envi, fluid, attract))
+            {
+                gameManager.players[i].scorePlayer += 1;
+            }
+        }
+    }
+
+    public bool CheckObjectifPlayer(Player player, int envi, int fluid, int attract)
+    {
+        bool GainScore = true;
+        //Hold Check
+        if (player.role.hold.Equals("Environment") && envi < 0)
+        {
+            GainScore = false;
+        }
+        else if (player.role.hold.Equals("Attractiveness") && attract < 0)
+        {
+            GainScore = false;
+        }
+        else if (player.role.hold.Equals("Fluidity") && fluid < 0)
+        {
+            GainScore = false;
+        }
+
+
+
+        //Improve Check
+        if (player.role.improve.Equals("Environment") && envi < 1)
+        {
+            GainScore = false;
+        }
+        else if (player.role.improve.Equals("Attractiveness") && attract < 1)
+        {
+            GainScore = false;
+        }
+        else if (player.role.improve.Equals("Fluidity") && fluid < 1)
+        {
+            GainScore = false;
+        }
+
+        return GainScore;
+    }
+
+    
+
 
     #endregion
 
