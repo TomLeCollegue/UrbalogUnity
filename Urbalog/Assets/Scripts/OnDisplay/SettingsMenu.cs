@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public GameObject MainSettingsMenu;
+    public GameObject BuildingsSettingsMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +30,15 @@ public class SettingsMenu : MonoBehaviour
         SceneManager.LoadScene("LobbyRework");
     }
 
+    public void DisplayBuildingsSettingsMenu()
+    {
+        MainSettingsMenu.SetActive(false);
+        BuildingsSettingsMenu.SetActive(true);
+    }
+    public void DisplaySettingsMenu()
+    {
+        MainSettingsMenu.SetActive(true);
+        BuildingsSettingsMenu.SetActive(false);
+    }
 
 }
