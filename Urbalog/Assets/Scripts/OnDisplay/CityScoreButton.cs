@@ -66,4 +66,9 @@ public class CityScoreButton : MonoBehaviour
         Envi.text = _game.cityEnvironment.ToString();
         Fluid.text = _game.cityFluidity.ToString();
     }
+
+    private void Update()
+    {
+        UpdateCityScorePanel();
+    }
 }
