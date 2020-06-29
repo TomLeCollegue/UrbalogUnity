@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
                 players.Remove(players[i]);
             }
         }
+
+        GameObject.Find("ListPlayerManager").GetComponent<FillListPlayer>().UpdateList();
     }
 
     /// <summary>
@@ -58,11 +60,12 @@ public class GameManager : MonoBehaviour
     public void RegisterPlayer(Player player)
     {
         players.Add(player);
+        GameObject.Find("ListPlayerManager").GetComponent<FillListPlayer>().UpdateList();
     }
 
     #endregion
 
-    /// <summary>
+    /*/// <summary>
     /// Prints the players list on the lobby screen with their ID.
     /// </summary>
     void OnGUI()
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
         GUILayout.EndVertical();
         GUILayout.EndArea();
         }
-    }
+    }*/
 
 
    
