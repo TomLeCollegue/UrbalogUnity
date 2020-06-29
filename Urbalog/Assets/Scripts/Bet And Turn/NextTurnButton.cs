@@ -7,10 +7,8 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 3;
+    public static int NumberBuildingsToEnd = 3; //default value
     public TextMeshProUGUI TextButton;
-
-
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -21,6 +19,8 @@ public class NextTurnButton : NetworkBehaviour
         Debug.Log("nextTurn " + _id);
         GameObject.Find("playerLocal").GetComponent<PlayerSetup>().CmdChangeBoolNextTurn(_id);
     }
+
+
 
 
     private void Update()
