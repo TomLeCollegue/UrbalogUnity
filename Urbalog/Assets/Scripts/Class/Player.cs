@@ -19,7 +19,44 @@ public class Player : NetworkBehaviour
     public bool nextTurn = false;
 
     [SerializeField]
+    [SyncVar]
+    public int scorePlayer = 0;
+    private int OldScore = 0;
+
+    [SerializeField]
     private int num;
 
-    
+    [Command]
+    public void CmdScore()
+    {
+        RpcCheckScoreChange();
+    }
+
+    [ClientRpc]
+    public void RpcCheckScoreChange()
+    {
+        Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+        if(player.scorePlayer > player.OldScore)
+        {
+            DisplayPopUpWin();
+            player.OldScore = player.scorePlayer;
+        }
+        else
+        {
+            DisplayPopUpLose();
+            player.OldScore = scorePlayer;
+        }
+    }
+
+    private void DisplayPopUpLose()
+    {
+        Debug.Log("Perdu");
+        GameObject.Find("PlayerViewManager").GetComponent<PopUpScoreManager>().OpenPopUpLose();
+    }
+
+    private void DisplayPopUpWin()
+    {
+        Debug.Log("Gagné");
+        GameObject.Find("PlayerViewManager").GetComponent<PopUpScoreManager>().OpenPopUpWin();
+    }
 }

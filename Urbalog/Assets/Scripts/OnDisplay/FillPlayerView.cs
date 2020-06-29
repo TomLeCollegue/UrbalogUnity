@@ -133,6 +133,7 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI NameRole;
     public TextMeshProUGUI NombreRessource1;
     public TextMeshProUGUI NombreRessource2;
+    public TextMeshProUGUI ScorePlayer;
 
     public Image ressource1Img;
     public Image ressource2Img;
@@ -164,6 +165,7 @@ public class FillPlayerView : MonoBehaviour
         ShowWherePlayerLocalBet();
         SetResourceFramesInGreenWhenCompleted();
         SetBuildingNameInGreenWhenFinanced();
+        ScorePlayer.text = "Score :" + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
 
         //is needed only once a turn
         if (!isAlreadyUpdated)
