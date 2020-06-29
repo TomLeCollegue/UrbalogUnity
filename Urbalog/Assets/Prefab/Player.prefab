@@ -63,7 +63,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.001
+  namePlayer: nom
+  ID: 
+  nextTurn: 0
+  scorePlayer: 0
   num: 0
 --- !u!114 &3990254775008448743
 MonoBehaviour:
@@ -92,3 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90a94d5f4d62384b949a1a44f170e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  numBuildingBet: 0
