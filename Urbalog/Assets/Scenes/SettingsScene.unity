@@ -3217,7 +3217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Num\xE9ro de buildings\npour terminer la partie"
+  m_text: "Nombre d'am\xE9nagements\npour terminer la partie"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b2d56e49cc6b434d92316970eb7e66c, type: 2}
   m_sharedMaterial: {fileID: 814458562197375951, guid: 3b2d56e49cc6b434d92316970eb7e66c,
@@ -3287,10 +3287,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1953973218}
-    characterCount: 43
+    characterCount: 45
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 7
+    spaceCount: 5
+    wordCount: 6
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -3560,7 +3560,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
+  m_fontSize: 72
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1

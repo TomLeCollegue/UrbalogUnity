@@ -36,6 +36,12 @@ public class Player : NetworkBehaviour
     public void RpcCheckScoreChange()
     {
         Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+
+        if(player.role.nameRole.Equals("SERVEUR") || player.role.nameRole.Equals("PLATEAU"))
+        {
+            return;
+        }
+
         if(player.scorePlayer > player.OldScore)
         {
             DisplayPopUpWin();
