@@ -5749,7 +5749,7 @@ PrefabInstance:
     - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
       propertyPath: maxConnections
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
