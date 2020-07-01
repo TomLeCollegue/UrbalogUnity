@@ -22280,6 +22280,13 @@ MonoBehaviour:
   holdMarket: {fileID: 1966123168}
   ressource1MarketText: {fileID: 1754792133}
   ressource2MarketText: {fileID: 2077831864}
+  PicRole: {fileID: 287210627}
+  Commercant: {fileID: 21300000, guid: 9a9d4376f33795b438e5c8cc465956ba, type: 3}
+  Transport: {fileID: 21300000, guid: aa74b5e4279c207408eb5098bb11105f, type: 3}
+  Mairie: {fileID: 21300000, guid: c06659b791d94de459ccd4d90829ff64, type: 3}
+  Habitant: {fileID: 21300000, guid: f5afad406424a5140b8078d5de6805eb, type: 3}
+  TransportPublic: {fileID: 21300000, guid: dfdebb6ff7cd60c44a05f58043a4442e, type: 3}
+  NamePlayer: {fileID: 1311232313}
   isAlreadyUpdated: 0
 --- !u!114 &1376666347
 MonoBehaviour:

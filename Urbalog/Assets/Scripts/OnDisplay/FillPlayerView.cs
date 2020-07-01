@@ -160,6 +160,16 @@ public class FillPlayerView : MonoBehaviour
     public TextMeshProUGUI ressource1MarketText;
     public TextMeshProUGUI ressource2MarketText;
 
+    public Image PicRole;
+    public Sprite Commercant;
+    public Sprite Transport;
+    public Sprite Mairie;
+    public Sprite Habitant;
+    public Sprite TransportPublic;
+
+    public TextMeshProUGUI NamePlayer;
+
+
 
 
 
@@ -281,6 +291,33 @@ public class FillPlayerView : MonoBehaviour
     {
         Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
         NameRole.text = role.nameRole;
+        NamePlayer.text = GameObject.Find("playerLocal").GetComponent<Player>().namePlayer;
+
+        if (role.nameRole.Equals("Habitant"))
+        {
+            PicRole.GetComponent<Image>().sprite = Habitant;
+        }
+        else if (role.nameRole.Equals("Transporteur"))
+        {
+            PicRole.GetComponent<Image>().sprite = Transport;
+        }
+        else if (role.nameRole.Equals("Collectivité Locale"))
+        {
+            PicRole.GetComponent<Image>().sprite = Mairie;
+        }
+        else if (role.nameRole.Equals("Commerçant"))
+        {
+            PicRole.GetComponent<Image>().sprite = Commercant;
+
+        }
+        else
+        {
+            PicRole.GetComponent<Image>().sprite = TransportPublic;
+        }
+
+
+        
+
 
         #region Ressources
         if (role.ressource1.Equals("Economical"))
