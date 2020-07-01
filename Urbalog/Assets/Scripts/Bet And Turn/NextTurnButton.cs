@@ -72,6 +72,7 @@ public class NextTurnButton : NetworkBehaviour
         UpdateTurnNumber();                      // Changer le numéro de tour
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
+        CallCityView();
         Invoke("PopUpPlayer", 2);
     }
 
@@ -208,8 +209,9 @@ public class NextTurnButton : NetworkBehaviour
         GameObject.Find("playerLocal").GetComponent<Player>().CmdScore();
     }
 
-    
-
+    public void CallCityView() {
+        GameObject.Find("playerLocal").GetComponent<Player>().CmdCityView();
+    }
 
     #endregion
 

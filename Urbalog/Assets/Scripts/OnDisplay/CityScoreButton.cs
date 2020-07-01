@@ -26,6 +26,7 @@ public class CityScoreButton : MonoBehaviour
             ButtonBack.SetActive(true);
             TitleCity.SetActive(true);
             UpdateCityScorePanel();
+            Market.SetActive(false);
         }
     }
 
