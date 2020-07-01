@@ -94,7 +94,7 @@ public class NextTurnButton : NetworkBehaviour
     { 
         GameManager gameManager = GameManager.singleton;
         bool boolTurn = true;
-        for (int i = 2; i < gameManager.players.Count; i++)
+        for (int i = 0; i < gameManager.players.Count; i++)
         {    
             if (!gameManager.players[i].nextTurn)
             {
