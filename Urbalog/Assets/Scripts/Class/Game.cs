@@ -48,7 +48,11 @@ public class Game
             Market.Add(buildingToAdd);
         }
     }
-
+    /// <summary>
+    /// Shows if buildingpioché is in the market or not.
+    /// </summary>
+    /// <param name="buildingPioché"></param>
+    /// <returns></returns>
     public bool BuildingInMarket(Building buildingPioché)
     {
         for(int i=0;i<(Market.Count);i++)
