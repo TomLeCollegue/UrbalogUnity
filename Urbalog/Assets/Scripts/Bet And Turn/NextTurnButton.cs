@@ -16,7 +16,6 @@ public class NextTurnButton : NetworkBehaviour
     public void ClickNextTurn()
     {
         string _id = GameObject.Find("playerLocal").GetComponent<Player>().ID.ToString();
-        Debug.Log("nextTurn " + _id);
         GameObject.Find("playerLocal").GetComponent<PlayerSetup>().CmdChangeBoolNextTurn(_id);
     }
 
@@ -34,7 +33,6 @@ public class NextTurnButton : NetworkBehaviour
             }
             if (CheckForNextTurn())
             {
-                Debug.Log("Cest la fin du tour");
                 NextTurn();
             }
         }
@@ -94,7 +92,7 @@ public class NextTurnButton : NetworkBehaviour
     { 
         GameManager gameManager = GameManager.singleton;
         bool boolTurn = true;
-        for (int i = 2; i < gameManager.players.Count; i++)
+        for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
         {    
             if (!gameManager.players[i].nextTurn)
             {
@@ -150,7 +148,7 @@ public class NextTurnButton : NetworkBehaviour
             }
         }
 
-        Debug.Log("Score : " + ScoreEnvi + " " + ScoreAttract + " " + ScoreFluid);
+
         CheckScorePlayers(ScoreEnvi, ScoreAttract, ScoreFluid);
         
     }

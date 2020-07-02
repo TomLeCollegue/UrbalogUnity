@@ -34,7 +34,8 @@ public class Game
     public void FillMarket()
     {
 
-        pioche = DeckBuildings;
+        pioche = GetPiocheFromJSON("/buildings.json"); //la pioche est elle ajustée quand un building est construit ?
+        Debug.Log("pioche1"+pioche[0].name);
         var randomMarket = new System.Random();
         for (int i = 0; i < 5; i++){
             int index = randomMarket.Next((pioche.Count)-1);
@@ -110,8 +111,8 @@ public class Game
 
     public void FillRoles()
     {
-        Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
-        Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        //Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+        //Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
         Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
         Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
         Roles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
@@ -143,6 +144,13 @@ public class Game
         }
     }
 
+
+    public List<Building> GetPiocheFromJSON(string _filename)
+    {
+        Building[] _jsonarray = JSONBuildings.loadBuildingsFromJSON(_filename);
+        List<Building> _BuildingsList = new List<Building>(_jsonarray);
+        return _BuildingsList;
+    }
 
 
 

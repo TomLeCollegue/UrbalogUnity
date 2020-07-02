@@ -60,8 +60,6 @@ public class CityScoreButton : MonoBehaviour
     {
         Game _game = GameManager.singleton.game;
 
-        Debug.Log("1CityScorePanel : Attract.text");
-
         Attract.text = _game.cityAttractiveness.ToString();
         Envi.text = _game.cityEnvironment.ToString();
         Fluid.text = _game.cityFluidity.ToString();

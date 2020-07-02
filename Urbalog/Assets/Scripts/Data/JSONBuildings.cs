@@ -8,13 +8,10 @@ public class JSONBuildings : MonoBehaviour
 
     public List<Building> Deck = new List<Building>();
 
-
-    
-
     // Start is called before the first frame update
     void Start()
     {
-        FillDeck2BuildingTest();
+        FillDeckBuildingTest();
         CreateBuildingsJSONWithDeck();
     }
 
@@ -39,15 +36,38 @@ public class JSONBuildings : MonoBehaviour
 
         //LOAD
 
-        string _stringFromJSON = File.ReadAllText(Application.dataPath + "/buildings.json");
-        Building[] _buildingsFromJSON = JsonHelper.FromJson<Building>(_stringFromJSON);
+        //string _stringFromJSON = File.ReadAllText(Application.dataPath + "/buildings.json");
+        //Building[] _buildingsFromJSON = JsonHelper.FromJson<Building>(_stringFromJSON);
 
+    }
+
+    public void resetDeckToDefault()
+    {
+        Building[] _DeckArray = Deck.ToArray();
+
+        string _jsonBuildings = JsonHelper.ToJson(_DeckArray, true);
+        File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuildings);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="_fileName"></param>
+    public static Building[] loadBuildingsFromJSON(string _fileName)
+    {
+        string _buildingsFromJSONInStrings = File.ReadAllText(Application.dataPath + _fileName);
+        Debug.Log("string test"+_buildingsFromJSONInStrings);
+
+        Building[] _buildingsFromJSON = JsonHelper.FromJson<Building>(_buildingsFromJSONInStrings);
+        Debug.Log("test load building"+_buildingsFromJSON);
+        
+        return _buildingsFromJSON;
     }
 
     /// <summary>
     /// All the urbalog buildings
     /// </summary>
-    public void FillDeck2BuildingTest()
+    public void FillDeckBuildingTest()
     {
         Deck.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0, 2,
             "Toute la voie étant protégée de la circulation, cet aménagement crée un obstacle pour la livraison en limitant l'accès au trottoir."));
