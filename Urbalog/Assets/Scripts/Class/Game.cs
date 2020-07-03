@@ -43,7 +43,6 @@ public class Game
      * */
     public void FillMarket()
     {
-        Debug.Log("taille_pioche"+pioche.Count);
         var randomMarket = new System.Random();
         for (int i = 0; i < 5; i++){
             int index = randomMarket.Next((pioche.Count)-1);
