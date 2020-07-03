@@ -27,15 +27,23 @@ public class Game
 
 
     #region Market management
+
+    /// <summary>
+    /// Fill pioche with all the buildings that are in the .json file
+    /// </summary>
+    public void FillPiocheAtTheBeginning()
+    {
+        pioche = GetPiocheFromJSON("/buildings.json");
+    }
+
+    
     /**
      * <summary>Fills market List with the appropriate Buildings.</summary>
      * TODO: This method has to fill the market with random buildings from the deck
      * */
     public void FillMarket()
     {
-
-        pioche = GetPiocheFromJSON("/buildings.json"); //la pioche est elle ajustée quand un building est construit ?
-        Debug.Log("pioche1"+pioche[0].name);
+        Debug.Log("taille_pioche"+pioche.Count);
         var randomMarket = new System.Random();
         for (int i = 0; i < 5; i++){
             int index = randomMarket.Next((pioche.Count)-1);
@@ -114,8 +122,8 @@ public class Game
         //Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
         //Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
         Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
-        Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
         Roles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
         Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
