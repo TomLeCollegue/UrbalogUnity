@@ -21,4 +21,15 @@ public class StartGame : NetworkBehaviour
     }
 
 
+     public void LogInit()
+    {
+        LogManager logManager = LogManager.singleton;
+        logManager.GetPlayers();
+        logManager.NewTurn();
+        logManager.GetDeckBuilding();
+
+        
+    }
+
+
 }

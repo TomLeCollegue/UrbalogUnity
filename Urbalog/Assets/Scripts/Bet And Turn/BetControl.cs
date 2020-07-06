@@ -92,7 +92,8 @@ public class BetControl : NetworkBehaviour
 
         if (betDoable)
         {
-            CmdBet(_value, _resource, numBuildingBet);
+            int idPlayer = Convert.ToInt32(GameObject.Find("playerLocal").GetComponent<Player>().ID);
+            CmdBet(idPlayer, _value, _resource, numBuildingBet);
             ChangeRessourcePlayer(_value, _resource);
             AddBetInPlayerBets(_value, FindIndexFromResource(_resource, _role));
             Debug.Log(playerBets.ToString());
@@ -177,9 +178,34 @@ public class BetControl : NetworkBehaviour
     /// <param name="Ressource">The resource the player chose to bet</param>
     /// <param name="num">The index of the building in the market</param>
     [Command]
-    public void CmdBet(int value, string Ressource, int num)
+    public void CmdBet(int idPlayer, int value, string Ressource, int num)
     {
+        BetLog(idPlayer, value, Ressource, num);
         RpcBet(value, Ressource, num);
+    }
+
+    public void BetLog(int playerId,int value, string Ressource, int num)
+    {
+        int turnNumber = GameManager.singleton.game.turnNumber - 1;
+        
+        string nameBuilding = GameManager.singleton.game.Market[num].name;
+        int social = 0;
+        int political = 0;
+        int economical = 0;
+        if (Ressource.Equals("Political"))
+        {
+            political = value;
+        }
+        else if (Ressource.Equals("Social"))
+        {
+            social = value;
+        }
+        else
+        {
+            economical = value;
+        }
+
+        LogManager.singleton.Turns[turnNumber].AddBet(playerId, political, economical, social,nameBuilding);
     }
 
     /// <summary>
