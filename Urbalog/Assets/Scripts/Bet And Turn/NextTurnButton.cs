@@ -70,6 +70,7 @@ public class NextTurnButton : NetworkBehaviour
         gameManager.game.ChangeMarket();         // Changer le marché
         betControl.CmdResetPlayersBet();         // Réinitialiser le tableau des mises de chaques joueurs
         UpdateTurnNumber();                      // Changer le numéro de tour
+        LogNextTurn();
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
         CallCityView();
@@ -85,6 +86,17 @@ public class NextTurnButton : NetworkBehaviour
             _game.Market[i].FinancePolitical = 0;
             _game.Market[i].FinanceSocial = 0;
         }
+    }
+
+
+    public void LogNextTurn()
+    {
+        LogManager.singleton.NewTurn();
+    }
+
+    public void EndGameLog()
+    {
+        LogManager.singleton.GetScoreCity();
     }
 
     /// <summary>
@@ -235,6 +247,7 @@ public class NextTurnButton : NetworkBehaviour
     private void CmdChangeSceneToEndGame()
     {
         NetworkManager.singleton.ServerChangeScene("EndGame");
+        EndGameLog();
     } 
 
 

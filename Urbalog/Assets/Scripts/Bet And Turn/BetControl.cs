@@ -296,10 +296,12 @@ public class BetControl : NetworkBehaviour
     public void BuildTheBuildings()
     {
         Game _game = GameManager.singleton.game;
+        Turn turn = LogManager.singleton.Turns[GameManager.singleton.game.turnNumber - 1];
         for (int i = 0; i < 5; i++)
         {
             if (IsFinanced(_game.Market[i]))
             {
+                turn.BuildingBuild.Add(_game.Market[i]);
                 AddBuildingInBuildingsBuilt(_game.Market[i]);
                 UpdateCityScores();
                 RemoveBuildingFromPioche(_game.Market[i]);

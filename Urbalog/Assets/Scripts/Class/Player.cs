@@ -5,7 +5,7 @@ using Mirror;
 using System;
 
 [Serializable]
-public class Player : NetworkBehaviour
+public class Player : NetworkBehaviour 
 {
     public Role role { get; set; }
 

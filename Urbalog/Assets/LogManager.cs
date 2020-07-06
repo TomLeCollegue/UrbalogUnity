@@ -1,9 +1,12 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class LogManager : MonoBehaviour
+
+public class LogManager : MonoBehaviour 
 {
 
     public static LogManager singleton;
@@ -11,6 +14,10 @@ public class LogManager : MonoBehaviour
     public List<Player> players = new List<Player>();
     public List<Building> DeckBuilding = new List<Building>();
     public List<Turn> Turns = new List<Turn>();
+
+    public int AttractScore;
+    public int FluidScore;
+    public int EnviScore;
 
     private void Awake()
     {
@@ -26,7 +33,7 @@ public class LogManager : MonoBehaviour
     }
 
 
-        public void SetUUID()
+    public void SetUUID()
     {
         uuidParty = Guid.NewGuid().ToString();
     }
@@ -34,13 +41,13 @@ public class LogManager : MonoBehaviour
     public void GetPlayers()
     {
 
-        players = new List<Player>(GameManager.singleton.players);
+        players = GameManager.singleton.players;
     }
 
 
     public void GetDeckBuilding()
     {
-        DeckBuilding = new List<Building>(GameManager.singleton.game.DeckBuildings);
+        DeckBuilding = GameManager.singleton.game.DeckBuildings.ToList();
     }
 
     private void Start()
@@ -50,7 +57,14 @@ public class LogManager : MonoBehaviour
 
     public List<Building> GetMarket()
     {
-        return GameManager.singleton.game.Market; 
+        return GameManager.singleton.game.Market.ToList(); 
+    }
+
+    public void GetScoreCity()
+    {
+        AttractScore = GameManager.singleton.game.cityAttractiveness;
+        EnviScore = GameManager.singleton.game.cityEnvironment;
+        FluidScore = GameManager.singleton.game.cityFluidity;
     }
 
 

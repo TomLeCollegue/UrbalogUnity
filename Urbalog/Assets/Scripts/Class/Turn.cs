@@ -8,20 +8,8 @@ public class Turn
     public int numTurn;
     public List<Building> Market;
     public List<Bet> Bets = new List<Bet>();
-    public List<Building> BuildingBuild;
+    public List<Building> BuildingBuild = new List<Building>();
     
-    public int AttractScore;
-    public int EnviScore;
-    public int FluidScore;
-
-
-    public void SetScore(int _AttractScore, int _EnviScore, int _FluidScore)
-    {
-        AttractScore = _AttractScore;
-        EnviScore = _EnviScore;
-        FluidScore = _FluidScore;
-    }
-
     public Turn(int _numTurn, List<Building> _Market)
     {
         numTurn = _numTurn;
