@@ -75,7 +75,7 @@ public class JSONBuildings : MonoBehaviour
         DefaultDeck.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0, 2,
             "Toute la voie étant protégée de la circulation, cet aménagement crée un obstacle pour la livraison en limitant l'accès au trottoir."));
         DefaultDeck.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service.", 1, 2, 2, 1, -1, 1, -1, "Ces structures créent des obstacles ponctuels pour la livraison en limitant l'accès au trottoir."));
-        DefaultDeck.Add(new Building("Terrasse", "Terasse de café ou de restaurant", 1, 2, 1, 1, -2, 1, -3, "Cet aménagement limite l'accès à l'établissement tout en empiétant sur le trottoir et sur le stationnement."));
+        DefaultDeck.Add(new Building("Terrasse", "Terrasse de café ou de restaurant", 1, 2, 1, 1, -2, 1, -3, "Cet aménagement limite l'accès à l'établissement tout en empiétant sur le trottoir et sur le stationnement."));
         DefaultDeck.Add(new Building("Petit magasin", "Petit commerce (-20 salariés)", 2, 4, 1, 0, 1, 2, -1, "Cet aménagement génère du trafic de marchandises : livraisons et déplacement d'achats."));
         DefaultDeck.Add(new Building("Poste", "Bureau de poste", 2, 1, 1, -1, 2, 0, 1, "Cet aménagement permet la livraison des colis en l'absence des destinataires, les flux sont donc consolidés, mais les horaires d'ouverture sont restreints."));
         DefaultDeck.Add(new Building("Grand magasin", "Supermarché ou grande surface spécialisée (+ de 20 salariés)", 3, 6, 2, -1, -2, 5, -2, "Ce lieu gènère du trafic de marchandises : livraisons et déplacements d'achats."));

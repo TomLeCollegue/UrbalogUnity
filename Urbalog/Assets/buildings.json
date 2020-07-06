@@ -32,7 +32,7 @@
         },
         {
             "name": "Terrasse",
-            "description": "Terasse de café ou de restaurant",
+            "description": "Terrasse de café ou de restaurant",
             "Economical": 1,
             "Social": 2,
             "Political": 1,

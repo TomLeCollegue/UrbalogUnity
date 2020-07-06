@@ -28,4 +28,5 @@ public class PopulateBuildingsSettingsList : MonoBehaviour
             _elementDisplay.transform.SetParent(targetTransform, false);
         }
     }
+
 }

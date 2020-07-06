@@ -59,6 +59,10 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
         return _building;
     }
 
+    public void OpenPanelBuilding()
+    {
+        Debug.Log("Boutton appuyé sur : " + building.name);
+    }
 
 
 
