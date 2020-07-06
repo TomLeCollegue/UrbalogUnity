@@ -9,17 +9,6 @@ public class SettingsMenu : MonoBehaviour
     public GameObject BuildingsSettingsMenu;
     public GameObject BuildingsListPanel;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void GoToSettingsScene()
     {
         SceneManager.LoadScene("SettingsScene");
