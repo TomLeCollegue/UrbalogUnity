@@ -2,29 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class DisplayFormView : MonoBehaviour
 {
-    public GameObject mainMenu;
-    public GameObject form1;
-    public GameObject form2;
-    public GameObject form3;
+    public GameObject MainMenu;
+    public GameObject Form1;
+    public GameObject Form2;
+    public GameObject Form3;
+
+    public void BackPressMenu()
+    {
+        //MainMenu.SetActive(true);
+        Form1.SetActive(false);
+        Form2.SetActive(false);
+        Form3.SetActive(false);
+    }
 
     public void DisplayForm1()
     {
-        mainMenu.SetActive(false);
-        form1.SetActive(true);
+        //MainMenu.SetActive(false);
+        Form1.SetActive(true);
+        Form2.SetActive(false);
+        Form3.SetActive(false);
     }
 
     public void DisplayForm2()
     {
-        form1.SetActive(false);
-        form2.SetActive(true);
+        //MainMenu.SetActive(false);
+        Form1.SetActive(false);
+        Form2.SetActive(true);
+        Form3.SetActive(false);
     }
 
     public void DisplayForm3()
     {
-        form2.SetActive(false);
-        form3.SetActive(true);
+        //MainMenu.SetActive(false);
+        Form1.SetActive(false);
+        Form2.SetActive(false);
+        Form3.SetActive(true);
     }
 
 }
