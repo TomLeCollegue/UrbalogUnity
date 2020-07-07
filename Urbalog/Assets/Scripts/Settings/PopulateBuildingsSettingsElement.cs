@@ -20,9 +20,7 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
 
     public Building building;
 
-
     public static int buildingNumber = 0;
-
 
 
     private void Start()
@@ -47,7 +45,6 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
             logisticDescription.text = building.logisticDescription;
         }
 
-
     }
 
     public Building ReturnBuildingFromJson()
@@ -55,13 +52,16 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
         Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
 
         Building _building = _buildingList[buildingNumber];
-        buildingNumber++;
+        if (buildingNumber<_buildingList.Length)
+        {
+            buildingNumber++;
+        }
         return _building;
     }
 
     public void OpenPanelBuilding()
     {
-        Debug.Log("Boutton appuyé sur : " + building.name);
+        GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().OpenBuildingSettingsPanel();
     }
 
 

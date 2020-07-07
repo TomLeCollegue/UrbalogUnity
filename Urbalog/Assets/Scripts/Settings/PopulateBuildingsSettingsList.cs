@@ -24,7 +24,7 @@ public class PopulateBuildingsSettingsList : MonoBehaviour
         Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
         for (int i = 0; i < _buildingList.Length; i++)
         {
-            PopulateBuildingsSettingsElement _elementDisplay = Instantiate(itemDisplay);
+            PopulateBuildingsSettingsElement _elementDisplay = (PopulateBuildingsSettingsElement)Instantiate(itemDisplay);
             _elementDisplay.transform.SetParent(targetTransform, false);
         }
     }

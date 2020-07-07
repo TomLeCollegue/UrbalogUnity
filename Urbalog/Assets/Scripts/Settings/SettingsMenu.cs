@@ -9,6 +9,8 @@ public class SettingsMenu : MonoBehaviour
     public GameObject BuildingsSettingsMenu;
     public GameObject BuildingsListPanel;
 
+    public GameObject panel;
+
     public void GoToSettingsScene()
     {
         SceneManager.LoadScene("SettingsScene");
@@ -39,6 +41,15 @@ public class SettingsMenu : MonoBehaviour
         BuildingsSettingsMenu.SetActive(false);
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    public void OpenBuildingSettingsPanel()
+    {
+        if (panel != null)
+        {
+            panel.SetActive(true);
+        }
+    }
 
 }

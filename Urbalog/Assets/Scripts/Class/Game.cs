@@ -34,6 +34,7 @@ public class Game
     public void FillPiocheAtTheBeginning()
     {
         pioche = GetPiocheFromJSON("/buildings.json");
+        DeckBuildings = GetPiocheFromJSON("/buildings.json"); //Is it useful for logs ?
     }
 
     
