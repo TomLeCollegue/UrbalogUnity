@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 3; //default value
+    public static int NumberBuildingsToEnd = 1; //default value
     public TextMeshProUGUI TextButton;
+    bool LogSend = false;
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -30,6 +31,7 @@ public class NextTurnButton : NetworkBehaviour
             if (CheckEndGameCondition())
             {
                 CmdChangeSceneToEndGame();
+                EndGameLog();
                 return;
             }
             if (CheckForNextTurn())
@@ -96,7 +98,13 @@ public class NextTurnButton : NetworkBehaviour
 
     public void EndGameLog()
     {
+        if (!LogSend)
+        {
+        Debug.Log("Log Game Upload");
         LogManager.singleton.GetScoreCity();
+        LogManager.singleton.SendInfo();
+        LogSend = true;
+        }
     }
 
     /// <summary>
@@ -247,7 +255,6 @@ public class NextTurnButton : NetworkBehaviour
     private void CmdChangeSceneToEndGame()
     {
         NetworkManager.singleton.ServerChangeScene("EndGame");
-        EndGameLog();
     } 
 
 
