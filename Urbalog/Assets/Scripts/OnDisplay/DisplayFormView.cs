@@ -41,4 +41,12 @@ public class DisplayFormView : MonoBehaviour
         Form3.SetActive(true);
     }
 
+    public void SkipForm()
+    {
+        //MainMenu.SetActive(false);
+        Form1.SetActive(false);
+        Form2.SetActive(false);
+        Form3.SetActive(false);
+    }
+
 }
