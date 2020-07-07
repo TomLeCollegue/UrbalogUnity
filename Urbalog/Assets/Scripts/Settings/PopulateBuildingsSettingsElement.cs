@@ -61,7 +61,8 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
 
     public void OpenPanelBuilding()
     {
-        GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().OpenBuildingSettingsPanel();
+        Building _building = building;
+        GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().OpenBuildingSettingsPanel(_building);
     }
 
 
