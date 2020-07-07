@@ -103,6 +103,13 @@ public class LogManager : MonoBehaviour
             StartCoroutine(SendBuildingInfo(DeckBuilding[i]));
         }
 
+        //Bet and Turn
+        for (int i = 0; i < Turns.Count-1; i++)
+        {
+            SendBetFromTurn(Turns[i]);
+            StartCoroutine(SendTurnInfo(Turns[i]));
+        }
+
     }
     IEnumerator SendGameInfos()
     {
@@ -157,7 +164,6 @@ public class LogManager : MonoBehaviour
         }
 
     }
-
     IEnumerator SendRoleInfo(Role role)
     {
         WWWForm infoRole = new WWWForm();
@@ -206,6 +212,103 @@ public class LogManager : MonoBehaviour
         }
 
     }
+
+    public void SendBetFromTurn(Turn turn)
+    {
+        for (int i = 0; i < turn.Bets.Count; i++)
+        {
+            StartCoroutine(SendBetInfo(turn.Bets[i], turn.numTurn));
+        }
+    }
+
+    IEnumerator SendBetInfo(Bet bet, int numTurn)
+    {
+        WWWForm infoBuilding = new WWWForm();
+        infoBuilding.AddField("game_key", uuidParty);
+        infoBuilding.AddField("player_id", bet.PlayerId);
+        infoBuilding.AddField("political_bet", bet.politic.ToString());
+        infoBuilding.AddField("social_bet", bet.social.ToString());
+        infoBuilding.AddField("economical_bet", bet.econommical.ToString());
+        infoBuilding.AddField("turn", numTurn.ToString());
+        infoBuilding.AddField("building", bet.BuildingName);
+        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfobet.php", infoBuilding);
+        yield return www;
+        if (www.text == "0")
+        {
+            Debug.Log("Bet upload success");
+        }
+        else
+        {
+            Debug.Log("building upload Failed");
+        }
+
+    }
+
+    IEnumerator SendTurnInfo(Turn turn)
+    {
+        WWWForm infoBuilding = new WWWForm();
+        infoBuilding.AddField("game_key", uuidParty);
+        infoBuilding.AddField("turn_number", turn.numTurn.ToString());
+        infoBuilding.AddField("building_market_1", turn.Market[0].name);
+        infoBuilding.AddField("building_market_2", turn.Market[1].name);
+        infoBuilding.AddField("building_market_3", turn.Market[2].name);
+        infoBuilding.AddField("building_market_4", turn.Market[3].name);
+        infoBuilding.AddField("building_market_5", turn.Market[4].name);
+        if(turn.BuildingBuild.Count >=1)
+        {
+            infoBuilding.AddField("building_completed_1", turn.BuildingBuild[0].name);
+        }
+        else
+        {
+            infoBuilding.AddField("building_completed_1", "");
+        }
+        if (turn.BuildingBuild.Count >= 2)
+        {
+            infoBuilding.AddField("building_completed_2", turn.BuildingBuild[1].name);
+        }
+        else
+        {
+            infoBuilding.AddField("building_completed_2", "");
+        }
+        if (turn.BuildingBuild.Count >= 3)
+        {
+            infoBuilding.AddField("building_completed_3", turn.BuildingBuild[2].name);
+        }
+        else
+        {
+            infoBuilding.AddField("building_completed_3", "");
+        }
+        if (turn.BuildingBuild.Count >= 4)
+        {
+            infoBuilding.AddField("building_completed_4", turn.BuildingBuild[3].name);
+        }
+        else
+        {
+            infoBuilding.AddField("building_completed_4", "");
+        }
+        if (turn.BuildingBuild.Count >= 5)
+        {
+            infoBuilding.AddField("building_completed_5", turn.BuildingBuild[4].name);
+        }
+        else
+        {
+            infoBuilding.AddField("building_completed_5", "");
+        }
+
+        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfoturn.php", infoBuilding);
+        yield return www;
+        if (www.text == "0")
+        {
+            Debug.Log("Turn upload success");
+        }
+        else
+        {
+            Debug.Log("turn upload Failed");
+        }
+    }
+
+
+
 
     #endregion
 }
