@@ -12,13 +12,14 @@ public class HostGame : NetworkBehaviour
 
 
     public string playerName = "nameplayer";
-    public string playerSurname = "surnameplayer";
+    public string playerSurname = "";
     public string gender = "";
     public string age = "";
     public string zipcode = "";
     public string company = "";
     public string jobStatus = "";
     public string field = "";
+
     private NetworkManager networkManager;
 
     void Start()
