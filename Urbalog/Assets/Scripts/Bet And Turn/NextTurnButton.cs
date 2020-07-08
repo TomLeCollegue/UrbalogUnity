@@ -54,9 +54,7 @@ public class NextTurnButton : NetworkBehaviour
         //}
         if (TimerEnded())
         {
-            TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
-            _timerManager.currentTurnTime = 60f;
-            _timerManager.alreadyStarted = false;
+            resetTimer();
         }
 
         if (!Turn && !NbBuildingFinancedTooHigh())
@@ -78,10 +76,15 @@ public class NextTurnButton : NetworkBehaviour
         }
         else
         {
-            TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
-            _timerManager.currentTurnTime = 60f;
-            _timerManager.alreadyStarted = false;
+            resetTimer();
         }
+    }
+
+    public void resetTimer()
+    {
+        TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+        _timerManager.currentTurnTime = 60f;
+        _timerManager.alreadyStarted = false;
     }
 
     private bool TimerEnded()
