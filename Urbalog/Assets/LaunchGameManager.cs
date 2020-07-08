@@ -49,6 +49,21 @@ public class LaunchGameManager : MonoBehaviour
     {
         GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge(_age);
     }
+    public void HandleAgeInputData(int _value)
+    {
+        if (_value == 0)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender("Homme");
+        }
+        if (_value == 1)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender("Femme");
+        }
+        if (_value == 2)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender("Ni l'un ni l'autre");
+        }
+    }
 
     public void ChangeZipcode(string _zipcode)
     {
