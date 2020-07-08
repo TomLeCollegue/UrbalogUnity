@@ -19,6 +19,7 @@ public class FillPlayerView : MonoBehaviour
     Color resourceFrameLightGrey = new Color(1f, 1f, 1f);
     Color buildingNameGreen = new Color(0.00f, 1.00f, 0.22f);
     Color NameBuildingNotFinanced = new Color(0.1764706f , 0.1686275f, 0.2470588f);
+    Color ResourcesTextNotFinanced = new Color(0.2745098f, 0.2705882f, 0.3372549f);
     #endregion
     #region Buildings
     [Space(10)]
@@ -667,7 +668,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding1.color = Color.black;
+                PoliticalBuilding1.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -680,7 +681,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding1.color = Color.black;
+                EcoBuilding1.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -693,7 +694,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding1.color = Color.black;
+                SocialBuilding1.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -707,7 +708,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding2.color = Color.black;
+                PoliticalBuilding2.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -720,7 +721,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding2.color = Color.black;
+                EcoBuilding2.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -733,7 +734,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding2.color = Color.black;
+                SocialBuilding2.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -747,7 +748,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding3.color = Color.black;
+                PoliticalBuilding3.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -760,7 +761,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding3.color = Color.black;
+                EcoBuilding3.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -773,7 +774,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding3.color = Color.black;
+                SocialBuilding3.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -787,7 +788,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding4.color = Color.black;
+                PoliticalBuilding4.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -800,7 +801,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding4.color = Color.black;
+                EcoBuilding4.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -813,7 +814,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding4.color = Color.black;
+                SocialBuilding4.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -827,7 +828,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding5.color = Color.black;
+                PoliticalBuilding5.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -840,7 +841,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding5.color = Color.black;
+                EcoBuilding5.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -853,7 +854,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding5.color = Color.black;
+                SocialBuilding5.color = ResourcesTextNotFinanced;
             }
         }
 

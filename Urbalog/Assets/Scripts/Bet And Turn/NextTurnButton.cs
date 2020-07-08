@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 1; //default value
+    public static int NumberBuildingsToEnd = 3; //default value
     public TextMeshProUGUI TextButton;
     bool LogSend = false;
 
@@ -46,14 +46,7 @@ public class NextTurnButton : NetworkBehaviour
             }
         }
         bool Turn = GameObject.Find("playerLocal").GetComponent<Player>().nextTurn;
-        //if (!Turn)
-        //{
-        //    TextButton.text = "Tour Suivant";
-        //}
-        //else
-        //{
-        //    TextButton.text = "Annuler";
-        //}
+        
         if (TimerEnded())
         {
             resetTimer();
@@ -61,6 +54,7 @@ public class NextTurnButton : NetworkBehaviour
 
         if (!Turn && !NbBuildingFinancedTooHigh())
         {
+            Debug.Log("Tour suivant suivant");
             TextButton.text = "Tour Suivant";
         }
         else if (NbBuildingFinancedTooHigh())
@@ -69,6 +63,7 @@ public class NextTurnButton : NetworkBehaviour
         }
         else if (Turn && !NbBuildingFinancedTooHigh())
         {
+            Debug.Log("Tour suivant annuler");
             TextButton.text = "Annuler";
         }
 
