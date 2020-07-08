@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 /// <summary>
 /// FillsPlayerView with all the informations about the current state of the game.
@@ -176,8 +177,10 @@ public class FillPlayerView : MonoBehaviour
 
     #endregion
 
+
     //For the actions that needs to be updated only once a turn
     public bool isAlreadyUpdated = false;
+
 
 
     // Update is called once per frame
@@ -198,6 +201,7 @@ public class FillPlayerView : MonoBehaviour
             isAlreadyUpdated = true;
         }
     }
+
 
     /// <summary>
     /// It Fills all player view, from buildings names, buildings scores and finance, also calls the <see cref="FillRole"/>

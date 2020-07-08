@@ -89,6 +89,11 @@ public class PlayerSetup : NetworkBehaviour
         GameManager.singleton.game = _gameReceived;
         Debug.Log("Received Game from Server");
         GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>().isAlreadyUpdated = false;
+
+        //resetTimer
+        TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+        _timerManager.currentTurnTime = 60f;
+        _timerManager.alreadyStarted = false;
     }
     #endregion
 
