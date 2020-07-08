@@ -28,10 +28,15 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
 
-        
-        game.FillDeckBuildings();
+        if (game.turnNumber<=1)
+        {
+            game.FillPiocheAtTheBeginning();
+        }
+            
+        //game.FillDeckBuildings();
         game.FillMarket();
         game.FillRoles();
+
     }
 
 

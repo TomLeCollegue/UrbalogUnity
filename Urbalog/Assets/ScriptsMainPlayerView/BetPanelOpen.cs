@@ -17,6 +17,7 @@ public class BetPanelOpen : MonoBehaviour
 
     public void ClosePanel()
     {
+        Debug.Log("test");
         if (Panel != null)
         {
             Panel.SetActive(false);

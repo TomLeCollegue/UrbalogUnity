@@ -7,23 +7,23 @@ using UnityEngine;
 [Serializable]
 public class Building
 {
-    public string name { get; set; }
-    public string description { get; set; }
+    public string name ;
+    public string description ;
 
-    public int Economical { get; set; }
-    public int Social { get; set; }
-    public int Political { get; set; }
-    public int FinanceEconomical { get; set; }
-    public int FinanceSocial { get; set; }
-    public int FinancePolitical { get; set; }
+    public int Economical ;
+    public int Social ;
+    public int Political ;
+    public int FinanceEconomical ;
+    public int FinanceSocial ;
+    public int FinancePolitical ;
 
-    public int enviScore { get; set; }
-    public int fluidScore { get; set; }
-    public int attractScore { get; set; }
+    public int enviScore ;
+    public int fluidScore ;
+    public int attractScore ;
 
-    public int logisticScore { get; set; }
+    public int logisticScore ;
 
-    public string logisticDescription { get; set; }
+    public string logisticDescription ;
 
 
     //Constructor
@@ -42,6 +42,32 @@ public class Building
         logisticScore = _logisticScore;
         logisticDescription = _logisticDescription;
 
+    }
+
+    /// <summary>
+    /// Can be use if you need to quickly print a building for a test in a Log
+    /// </summary>
+    /// <returns></returns>
+    public String ToStringForJSON()
+    {
+        String res = 
+                "    {\n" +
+                "      \"name\": \""+name+"\",\n" +
+                "      \"description\": \""+description+"\",\n" +
+                "      \"Couts\": {\n" +
+                "        \"politique\": "+Political+",\n" +
+                "        \"social\": "+Social+",\n" +
+                "        \"economique\": "+Economical+"\n" +
+                "      },\n" +
+                "      \"Effets\": {\n" +
+                "        \"attractivite\": "+attractScore+",\n" +
+                "        \"fluidite\": "+fluidScore+",\n" +
+                "        \"environnemental\": "+enviScore+"\n" +
+                "      },\n" +
+                "      \"scoreLogistique\": "+logisticScore+",\n" +
+                "      \"explicationLogistique\": \""+logisticDescription+"\"\n" +
+                "    }\n";
+        return res;
     }
 
 }

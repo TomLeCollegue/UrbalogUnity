@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class ChangeNumBuildingsToEnd : MonoBehaviour
 {
-    
 
-
-    public void ChangeNbBuildingsToEnd(String _NumBuilding)
+    public void ChangeNbBuildingsToEnd(string _NumBuilding)
     {
         
         NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);

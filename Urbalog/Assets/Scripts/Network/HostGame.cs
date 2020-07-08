@@ -1,16 +1,11 @@
 ﻿using Mirror;
+using Mirror.Discovery;
 using System;
 using UnityEngine;
 
 public class HostGame : NetworkBehaviour
 {
-    [SerializeField]
-    private uint roomSize = 6;
-
-    [SyncVar]
-    public string roomName = "En Attente des joueurs";
-
-
+   
     public string playerName = "nameplayer";
     public string playerSurname = "";
     public string gender = "";
@@ -71,21 +66,26 @@ public class HostGame : NetworkBehaviour
 
     public void CreateRoom()
     {
-        if(roomName != "" && roomName != null)
-        {
-            Debug.Log("Creating Room: " + roomName + ", Max player : " + roomSize);
-            networkManager.StartHost();
+        networkManager.StartHost();
+        GetComponent<NetworkDiscovery>().AdvertiseServer();
 
-        }
     }
 
     public void JoinGame()
     {
         GetComponent<NetworkManager>().StartClient();
+
+
     }
 
     public void SetPort(string _port)
     {
         GetComponent<TelepathyTransport>().port = Convert.ToUInt16(_port);
     }
+
+    public void Discover()
+    {
+        GetComponent<NetworkDiscovery>().StartDiscovery();
+    }
+
 }
