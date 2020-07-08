@@ -5,13 +5,29 @@ using Mirror;
 using System;
 
 [Serializable]
-public class Player : NetworkBehaviour
+public class Player : NetworkBehaviour 
 {
     public Role role { get; set; }
 
     [SerializeField]
     [SyncVar]
     public string namePlayer = "nom";
+
+    [SyncVar]
+    public string playerFamilyName = "";
+    [SyncVar]
+    public string gender = "";
+    [SyncVar]
+    public string age = "";
+    [SyncVar]
+    public string zipcode = "";
+    [SyncVar]
+    public string company = "";
+    [SyncVar]
+    public string jobStatus = "";
+    [SyncVar]
+    public string field = "";
+
     public string ID;
 
 
@@ -65,4 +81,18 @@ public class Player : NetworkBehaviour
         Debug.Log("Gagné");
         GameObject.Find("PlayerViewManager").GetComponent<PopUpScoreManager>().OpenPopUpWin();
     }
+
+
+    [Command]
+    public void CmdCityView()
+    {
+        RpcClientOnCityView();
+    }
+
+    [ClientRpc]
+    public void RpcClientOnCityView()
+    {
+        GameObject.Find("PlayerViewManager").GetComponent<CityScoreButton>().OpenPanel();
+    }
+
 }

@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject MainMenu;
     public GameObject PlayerMenu;
     public GameObject HostMenu;
+    public GameObject FormsMenu;
 
     public void DisplayPlayerMenu()
     {

@@ -47,7 +47,14 @@ public class PlayerSetup : NetworkBehaviour
         if (isLocalPlayer)
         {
             string namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
-            CmdSendInfoPlayer(_netID, namePlayer);
+            string age = GameObject.Find("NetworkManager").GetComponent<HostGame>().age;
+            string company = GameObject.Find("NetworkManager").GetComponent<HostGame>().company;
+            string gender = GameObject.Find("NetworkManager").GetComponent<HostGame>().gender;
+            string playerFamilyName = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerFamilyName;
+            string zipcode = GameObject.Find("NetworkManager").GetComponent<HostGame>().zipcode;
+            string jobStatus = GameObject.Find("NetworkManager").GetComponent<HostGame>().jobStatus;
+            string field = GameObject.Find("NetworkManager").GetComponent<HostGame>().field;
+            CmdSendInfoPlayer(_netID, namePlayer, age, company, gender, playerFamilyName, zipcode, jobStatus,field);
         }
         CmdGetRoleForPlayer(); 
         CmdSendActualGameManager(); 
@@ -89,6 +96,11 @@ public class PlayerSetup : NetworkBehaviour
         GameManager.singleton.game = _gameReceived;
         Debug.Log("Received Game from Server");
         GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>().isAlreadyUpdated = false;
+
+        //resetTimer
+        TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+        _timerManager.currentTurnTime = 60f;
+        _timerManager.alreadyStarted = false;
     }
     #endregion
 
@@ -122,7 +134,7 @@ public class PlayerSetup : NetworkBehaviour
     #region SendInfoOfPlayer   CmdSendInfoPlayer(string id, string namePlayer)  RpcGetInfoOfPlayer(string _id, string _namePlayer)
 
     [Command]
-    public void CmdSendInfoPlayer(string id, string namePlayer)
+    public void CmdSendInfoPlayer(string id, string namePlayer, string age, string compagny, string gender, string playerFamilyName,string zipCode, string jobStatus, string field)
     {
         GameManager gameManager = GameManager.singleton;
         for (int i = 0; i < gameManager.players.Count; i++)
@@ -130,6 +142,13 @@ public class PlayerSetup : NetworkBehaviour
             if (gameManager.players[i].ID.Equals(id))
             {
                 gameManager.players[i].namePlayer = namePlayer;
+                gameManager.players[i].age = age;
+                gameManager.players[i].company = compagny;
+                gameManager.players[i].gender = gender;
+                gameManager.players[i].playerFamilyName = playerFamilyName;
+                gameManager.players[i].zipcode = zipCode;
+                gameManager.players[i].jobStatus = jobStatus;
+                gameManager.players[i].field = field;
             }
         }
         //GameObject.Find("ListPlayerManager").GetComponent<FillListPlayer>().UpdateList();

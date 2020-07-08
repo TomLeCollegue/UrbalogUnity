@@ -92,7 +92,8 @@ public class BetControl : NetworkBehaviour
 
         if (betDoable)
         {
-            CmdBet(_value, _resource, numBuildingBet);
+            int idPlayer = Convert.ToInt32(GameObject.Find("playerLocal").GetComponent<Player>().ID);
+            CmdBet(idPlayer, _value, _resource, numBuildingBet);
             ChangeRessourcePlayer(_value, _resource);
             AddBetInPlayerBets(_value, FindIndexFromResource(_resource, _role));
             Debug.Log(playerBets.ToString());
@@ -177,9 +178,34 @@ public class BetControl : NetworkBehaviour
     /// <param name="Ressource">The resource the player chose to bet</param>
     /// <param name="num">The index of the building in the market</param>
     [Command]
-    public void CmdBet(int value, string Ressource, int num)
+    public void CmdBet(int idPlayer, int value, string Ressource, int num)
     {
+        BetLog(idPlayer, value, Ressource, num);
         RpcBet(value, Ressource, num);
+    }
+
+    public void BetLog(int playerId,int value, string Ressource, int num)
+    {
+        int turnNumber = GameManager.singleton.game.turnNumber - 1;
+        
+        string nameBuilding = GameManager.singleton.game.Market[num].name;
+        int social = 0;
+        int political = 0;
+        int economical = 0;
+        if (Ressource.Equals("Political"))
+        {
+            political = value;
+        }
+        else if (Ressource.Equals("Social"))
+        {
+            social = value;
+        }
+        else
+        {
+            economical = value;
+        }
+
+        LogManager.singleton.Turns[turnNumber].AddBet(playerId, political, economical, social,nameBuilding);
     }
 
     /// <summary>
@@ -218,7 +244,7 @@ public class BetControl : NetworkBehaviour
     public bool IsFinanced(Building _building)
     {
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
-            && _building.FinanceSocial >= _building.Social);
+            /*&& _building.FinanceSocial >= _building.Social*/);
     }
     /// <summary>
     /// Check how many buildings are financed and return it
@@ -270,10 +296,12 @@ public class BetControl : NetworkBehaviour
     public void BuildTheBuildings()
     {
         Game _game = GameManager.singleton.game;
+        Turn turn = LogManager.singleton.Turns[GameManager.singleton.game.turnNumber - 1];
         for (int i = 0; i < 5; i++)
         {
             if (IsFinanced(_game.Market[i]))
             {
+                turn.BuildingBuild.Add(_game.Market[i]);
                 AddBuildingInBuildingsBuilt(_game.Market[i]);
                 UpdateCityScores();
                 RemoveBuildingFromPioche(_game.Market[i]);

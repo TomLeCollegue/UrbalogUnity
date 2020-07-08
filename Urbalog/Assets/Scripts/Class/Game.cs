@@ -24,17 +24,27 @@ public class Game
 
     public int turnNumber = 1;
 
-
+    public float currentTurnTime = 0f;
+    public float turnTimeMax= 60f;
 
     #region Market management
+
+    /// <summary>
+    /// Fill pioche with all the buildings that are in the .json file
+    /// </summary>
+    public void FillPiocheAtTheBeginning()
+    {
+        pioche = GetPiocheFromJSON("/buildings.json");
+        DeckBuildings = GetPiocheFromJSON("/buildings.json"); //Is it useful for logs ?
+    }
+
+    
     /**
      * <summary>Fills market List with the appropriate Buildings.</summary>
      * TODO: This method has to fill the market with random buildings from the deck
      * */
     public void FillMarket()
     {
-
-        pioche = DeckBuildings;
         var randomMarket = new System.Random();
         for (int i = 0; i < 5; i++){
             int index = randomMarket.Next((pioche.Count)-1);
@@ -48,7 +58,11 @@ public class Game
             Market.Add(buildingToAdd);
         }
     }
-
+    /// <summary>
+    /// Shows if buildingpioché is in the market or not.
+    /// </summary>
+    /// <param name="buildingPioché"></param>
+    /// <returns></returns>
     public bool BuildingInMarket(Building buildingPioché)
     {
         for(int i=0;i<(Market.Count);i++)
@@ -106,11 +120,11 @@ public class Game
 
     public void FillRoles()
     {
-        Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
-        Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        //Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+        //Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
         Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
-        Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
         Roles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
         Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
@@ -139,6 +153,13 @@ public class Game
         }
     }
 
+
+    public List<Building> GetPiocheFromJSON(string _filename)
+    {
+        Building[] _jsonarray = JSONBuildings.loadBuildingsFromJSON(_filename);
+        List<Building> _BuildingsList = new List<Building>(_jsonarray);
+        return _BuildingsList;
+    }
 
 
 

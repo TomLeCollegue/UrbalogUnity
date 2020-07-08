@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 /// <summary>
 /// FillsPlayerView with all the informations about the current state of the game.
@@ -18,6 +19,7 @@ public class FillPlayerView : MonoBehaviour
     Color resourceFrameLightGrey = new Color(1f, 1f, 1f);
     Color buildingNameGreen = new Color(0.00f, 1.00f, 0.22f);
     Color NameBuildingNotFinanced = new Color(0.1764706f , 0.1686275f, 0.2470588f);
+    Color ResourcesTextNotFinanced = new Color(0.2745098f, 0.2705882f, 0.3372549f);
     #endregion
     #region Buildings
     [Space(10)]
@@ -152,10 +154,51 @@ public class FillPlayerView : MonoBehaviour
     public Sprite EnviImage;
 
 
+
+    public Image ressource1Market;
+    public Image ressource2Market;
+    public Image improveMarket;
+    public Image holdMarket;
+    public TextMeshProUGUI ressource1MarketText;
+    public TextMeshProUGUI ressource2MarketText;
+
+    public Image PicRole;
+    public Sprite Commercant;
+    public Sprite Transport;
+    public Sprite Mairie;
+    public Sprite Habitant;
+    public Sprite TransportPublic;
+
+    public TextMeshProUGUI NamePlayer;
+
+
+
+
+
+
+    #endregion
+
+    [Space(10)]
+    [Header("Bet Panel")]
+    #region BetBuilding
+    public TextMeshProUGUI BetNameBuilding;
+    public TextMeshProUGUI BetNameBuilding2;
+    public TextMeshProUGUI BetDescBuilding;
+    public TextMeshProUGUI ressource1;
+    public TextMeshProUGUI ressource2;
+    public TextMeshProUGUI attractScore;
+    public TextMeshProUGUI EnviScore;
+    public TextMeshProUGUI FluidScore;
+    public Image AttractImageBuilding;
+    public Image EnviImageBuilding;
+    public Image FluidImageBuilding;
+    public Image ressource1image;
+    public Image ressource2image;
     #endregion
 
     //For the actions that needs to be updated only once a turn
     public bool isAlreadyUpdated = false;
+
 
 
     // Update is called once per frame
@@ -166,16 +209,19 @@ public class FillPlayerView : MonoBehaviour
         SetResourceFramesInGreenWhenCompleted();
         SetBuildingNameInGreenWhenFinanced();
         ScorePlayer.text = "Score :" + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
+        ColorImpact();
+        FillBuildingsImpact();
+        turnNumberText.text = "Num Tour : " + GameManager.singleton.game.turnNumber.ToString();
 
         //is needed only once a turn
         if (!isAlreadyUpdated)
         {
-            ColorImpact();
-            FillBuildingsImpact();
-            turnNumberText.text = "Num Tour : " + GameManager.singleton.game.turnNumber.ToString();
             isAlreadyUpdated = true;
         }
+
+        FillBetPanel();
     }
+
 
     /// <summary>
     /// It Fills all player view, from buildings names, buildings scores and finance, also calls the <see cref="FillRole"/>
@@ -253,6 +299,9 @@ public class FillPlayerView : MonoBehaviour
         FluidBuilding5.text = _game.Market[4].fluidScore.ToString();
         EnviBuilding5.text = _game.Market[4].enviScore.ToString();
         building5Button.text = _game.Market[4].name;
+
+
+
     }
 
     
@@ -266,45 +315,86 @@ public class FillPlayerView : MonoBehaviour
     {
         Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
         NameRole.text = role.nameRole;
+        NamePlayer.text = GameObject.Find("playerLocal").GetComponent<Player>().namePlayer;
+
+        if (role.nameRole.Equals("Habitant"))
+        {
+            PicRole.GetComponent<Image>().sprite = Habitant;
+        }
+        else if (role.nameRole.Equals("Transporteur"))
+        {
+            PicRole.GetComponent<Image>().sprite = Transport;
+        }
+        else if (role.nameRole.Equals("Collectivité Locale"))
+        {
+            PicRole.GetComponent<Image>().sprite = Mairie;
+        }
+        else if (role.nameRole.Equals("Commerçant"))
+        {
+            PicRole.GetComponent<Image>().sprite = Commercant;
+
+        }
+        else
+        {
+            PicRole.GetComponent<Image>().sprite = TransportPublic;
+        }
+
+
+        
+
 
         #region Ressources
         if (role.ressource1.Equals("Economical"))
         {
             NombreRessource1.text = role.ressourceEconomical.ToString();
+            ressource1MarketText.text = role.ressourceEconomical.ToString();
+
             ressource1Img.GetComponent<Image>().sprite = EcoImage;
             ressource1betImage.GetComponent<Image>().sprite = EcoImage;
+            ressource1Market.GetComponent<Image>().sprite = EcoImage;
 
         }
         else if (role.ressource1.Equals("Political"))
         {
             NombreRessource1.text = role.ressourcePolitical.ToString();
+            ressource1MarketText.text = role.ressourcePolitical.ToString();
             ressource1Img.GetComponent<Image>().sprite = PoliImage;
             ressource1betImage.GetComponent<Image>().sprite = PoliImage;
+            ressource1Market.GetComponent<Image>().sprite = PoliImage;
         }
         else
         {
             NombreRessource1.text = role.ressourceSocial.ToString();
+            ressource1MarketText.text = role.ressourceSocial.ToString();
+
             ressource1Img.GetComponent<Image>().sprite = SocialImage;
             ressource1betImage.GetComponent<Image>().sprite = SocialImage;
+            ressource1Market.GetComponent<Image>().sprite = SocialImage;
         }
 
         if (role.ressource2.Equals("Economical"))
         {
             NombreRessource2.text = role.ressourceEconomical.ToString();
+            ressource2MarketText.text = role.ressourceEconomical.ToString();
             ressource2Img.GetComponent<Image>().sprite = EcoImage;
             ressource2betImage.GetComponent<Image>().sprite = EcoImage;
+            ressource2Market.GetComponent<Image>().sprite = EcoImage;
         }
         else if (role.ressource2.Equals("Political"))
         {
             NombreRessource2.text = role.ressourcePolitical.ToString();
+            ressource2MarketText.text = role.ressourcePolitical.ToString();
             ressource2Img.GetComponent<Image>().sprite = PoliImage;
             ressource2betImage.GetComponent<Image>().sprite = PoliImage;
+            ressource2Market.GetComponent<Image>().sprite = PoliImage;
         }
         else
         {
             NombreRessource2.text = role.ressourceSocial.ToString();
+            ressource2MarketText.text = role.ressourceSocial.ToString();
             ressource2Img.GetComponent<Image>().sprite = SocialImage;
             ressource2betImage.GetComponent<Image>().sprite = SocialImage;
+            ressource2Market.GetComponent<Image>().sprite = SocialImage;
         }
 
         #endregion
@@ -313,27 +403,33 @@ public class FillPlayerView : MonoBehaviour
         if (role.hold.Equals("Fluidity"))
         {
             holdImage.GetComponent<Image>().sprite = FluidImage;
+            holdMarket.GetComponent<Image>().sprite = FluidImage;
         }
         else if (role.hold.Equals("Attractiveness"))
         {
             holdImage.GetComponent<Image>().sprite = AttractImage;
+            holdMarket.GetComponent<Image>().sprite = AttractImage;
         }
         else
         {
             holdImage.GetComponent<Image>().sprite = EnviImage;
+            holdMarket.GetComponent<Image>().sprite = EnviImage;
         }
 
         if (role.improve.Equals("Fluidity"))
         {
             improveImage.GetComponent<Image>().sprite = FluidImage;
+            improveMarket.GetComponent<Image>().sprite = FluidImage;
         }
         else if (role.improve.Equals("Attractiveness"))
         {
             improveImage.GetComponent<Image>().sprite = AttractImage;
+            improveMarket.GetComponent<Image>().sprite = AttractImage;
         }
         else
         {
             improveImage.GetComponent<Image>().sprite = EnviImage;
+            improveMarket.GetComponent<Image>().sprite = EnviImage;
         }
         #endregion
     }
@@ -591,7 +687,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding1.color = Color.black;
+                PoliticalBuilding1.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -604,7 +700,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding1.color = Color.black;
+                EcoBuilding1.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -617,7 +713,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding1.color = Color.black;
+                SocialBuilding1.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -631,7 +727,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding2.color = Color.black;
+                PoliticalBuilding2.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -644,7 +740,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding2.color = Color.black;
+                EcoBuilding2.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -657,7 +753,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding2.color = Color.black;
+                SocialBuilding2.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -671,7 +767,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding3.color = Color.black;
+                PoliticalBuilding3.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -684,7 +780,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding3.color = Color.black;
+                EcoBuilding3.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -697,7 +793,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding3.color = Color.black;
+                SocialBuilding3.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -711,7 +807,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding4.color = Color.black;
+                PoliticalBuilding4.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -724,7 +820,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding4.color = Color.black;
+                EcoBuilding4.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -737,7 +833,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding4.color = Color.black;
+                SocialBuilding4.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -751,7 +847,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                PoliticalBuilding5.color = Color.black;
+                PoliticalBuilding5.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -764,7 +860,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                EcoBuilding5.color = Color.black;
+                EcoBuilding5.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -777,7 +873,7 @@ public class FillPlayerView : MonoBehaviour
             }
             else
             {
-                SocialBuilding5.color = Color.black;
+                SocialBuilding5.color = ResourcesTextNotFinanced;
             }
         }
 
@@ -1036,6 +1132,99 @@ public class FillPlayerView : MonoBehaviour
         else
         {
             buildingName5.color = NameBuildingNotFinanced;
+        }
+
+    }
+
+
+
+    public void FillBetPanel()
+    {
+        Building building = GameManager.singleton.game.Market[GameObject.Find("playerLocal").GetComponent<BetControl>().numBuildingBet];
+        Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
+        BetNameBuilding.text = building.name;
+        BetNameBuilding2.text = building.name;
+        BetDescBuilding.text = building.description;
+        attractScore.text = building.attractScore.ToString();
+        EnviScore.text = building.enviScore.ToString();
+        FluidScore.text = building.fluidScore.ToString();
+
+        #region Finance
+        if (role.ressource1.Equals("Economical"))
+        {
+            ressource1.text = building.FinanceEconomical + "/" + building.Economical;
+            ressource1image.GetComponent<Image>().sprite = EcoImage;
+        }
+        else if (role.ressource1.Equals("Political"))
+        {
+            ressource1.text = building.FinancePolitical + "/" + building.Political;
+            ressource1image.GetComponent<Image>().sprite = PoliImage;
+        }
+        else
+        {
+            ressource1.text = building.FinanceSocial + "/" + building.Social;
+            ressource1image.GetComponent<Image>().sprite = SocialImage;
+        }
+        if (role.ressource2.Equals("Economical"))
+        {
+            ressource2.text = building.FinanceEconomical + "/" + building.Economical;
+            ressource2image.GetComponent<Image>().sprite = EcoImage;
+        }
+        else if (role.ressource2.Equals("Political"))
+        {
+            ressource2.text = building.FinancePolitical + "/" + building.Political;
+            ressource2image.GetComponent<Image>().sprite = PoliImage;
+        }
+        else
+        {
+            ressource2.text = building.FinanceSocial + "/" + building.Social;
+            ressource2image.GetComponent<Image>().sprite = SocialImage;
+        }
+        #endregion
+        if (building.attractScore < 0)
+        {
+            AttractImageBuilding.GetComponent<Image>().color = urbaRed;
+            attractScore.color = urbaRed;
+        }
+        else if (building.attractScore == 0)
+        {
+            AttractImageBuilding.GetComponent<Image>().color = urbaGrey;
+            attractScore.color = urbaGrey;
+        }
+        else
+        {
+            AttractImageBuilding.GetComponent<Image>().color = urbaGreen;
+            attractScore.color = urbaGreen;
+        }
+        if (building.fluidScore < 0)
+        {
+            FluidImageBuilding.GetComponent<Image>().color = urbaRed;
+            FluidScore.color = urbaRed;
+        }
+        else if (building.fluidScore == 0)
+        {
+            FluidImageBuilding.GetComponent<Image>().color = urbaGrey;
+            FluidScore.color = urbaGrey;
+        }
+        else
+        {
+            FluidImageBuilding.GetComponent<Image>().color = urbaGreen;
+            FluidScore.color = urbaGreen;
+        }
+        if (building.enviScore < 0)
+        {
+            EnviImageBuilding.GetComponent<Image>().color = urbaRed;
+            EnviScore.color = urbaRed;
+        }
+        else if (building.enviScore == 0)
+        {
+            EnviImageBuilding.GetComponent<Image>().color = urbaGrey;
+            EnviScore.color = urbaGrey;
+        }
+        else
+        {
+            EnviImageBuilding.GetComponent<Image>().color = urbaGreen;
+            EnviScore.color = urbaGreen;
         }
 
     }
