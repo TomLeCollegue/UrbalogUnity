@@ -7,7 +7,7 @@ public class HostGame : NetworkBehaviour
 {
    
     public string playerName = "nameplayer";
-    public string playerSurname = "";
+    public string playerFamilyName = "";
     public string gender = "";
     public string age = "";
     public string zipcode = "";
@@ -24,11 +24,11 @@ public class HostGame : NetworkBehaviour
     }
     public void SetPlayerName (string _name)
     {
-        playerName = _name;
+        playerFamilyName = _name;
     }
     public void SetPlayerSurname(string _surname)
     {
-        playerSurname = _surname;
+        playerName = _surname;
     }
 
     public void SetGender(string _gender)

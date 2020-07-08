@@ -12,6 +12,22 @@ public class Player : NetworkBehaviour
     [SerializeField]
     [SyncVar]
     public string namePlayer = "nom";
+
+    [SyncVar]
+    public string playerFamilyName = "";
+    [SyncVar]
+    public string gender = "";
+    [SyncVar]
+    public string age = "";
+    [SyncVar]
+    public string zipcode = "";
+    [SyncVar]
+    public string company = "";
+    [SyncVar]
+    public string jobStatus = "";
+    [SyncVar]
+    public string field = "";
+
     public string ID;
 
 
