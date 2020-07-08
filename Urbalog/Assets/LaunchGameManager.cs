@@ -28,6 +28,10 @@ public class LaunchGameManager : MonoBehaviour
     {
         GameObject.Find("NetworkManager").GetComponent<HostGame>().SetPlayerSurname(_surname);
     }
+    public void ChangeGender(string _gender)
+    {
+        GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender(_gender);
+    }
 
     public void HandleGenderInputData(int _value)
     {
@@ -44,24 +48,44 @@ public class LaunchGameManager : MonoBehaviour
             GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender("Ni l'un ni l'autre");
         }
     }
-
     public void ChangeAge(string _age)
     {
         GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge(_age);
     }
+
     public void HandleAgeInputData(int _value)
     {
         if (_value == 0)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender("Homme");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("Moins de 15 ans");
         }
         if (_value == 1)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender("Femme");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 15 à 18 ans");
         }
         if (_value == 2)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetGender("Ni l'un ni l'autre");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 19 à 24 ans");
+        }
+        if (_value == 3)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 25 à 34 ans");
+        }
+        if (_value == 4)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 35 à 44 ans");
+        }
+        if (_value == 5)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 45 à 54 ans");
+        }
+        if (_value == 6)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 55 à 64 ans");
+        }
+        if (_value == 7)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
         }
     }
 
@@ -76,7 +100,31 @@ public class LaunchGameManager : MonoBehaviour
     }
     public void ChangeJobStatus(string _jobStatus)
     {
-        GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge(_jobStatus);
+        GameObject.Find("NetworkManager").GetComponent<HostGame>().SetJobStatus(_jobStatus);
+    }
+
+    public void HandleJobStatusInputData(int _value)
+    {
+        if (_value == 0)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetJobStatus("Salarié");
+        }
+        if (_value == 1)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetJobStatus("Indépendant");
+        }
+        if (_value == 2)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetJobStatus("Chômeur");
+        }
+        if (_value == 3)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetJobStatus("Retraité");
+        }
+        if (_value == 4)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetJobStatus("Autres inactifs (dont étudiants)");
+        }
     }
     public void ChangeField(string _field)
     {
