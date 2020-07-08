@@ -41,6 +41,12 @@ public class JSONBuildings : MonoBehaviour
 
     }
 
+    public static void CreateBuildingJSONWithBuildings(Building[] _buildings)
+    {
+        string _jsonBuilding = JsonHelper.ToJson(_buildings, true);
+        File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuilding);
+    }
+
     /// <summary>
     /// Takes the Deck List which is in this file and puts it in the JSON.
     /// So all the modifications the admin made on the buildings are gone.

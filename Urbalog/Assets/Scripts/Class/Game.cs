@@ -25,7 +25,6 @@ public class Game
     public int turnNumber = 1;
 
 
-
     #region Market management
 
     /// <summary>

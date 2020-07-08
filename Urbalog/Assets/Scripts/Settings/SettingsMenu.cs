@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,23 +12,25 @@ public class SettingsMenu : MonoBehaviour
     public GameObject BuildingsSettingsMenu;
     public GameObject BuildingsListPanel;
 
+    public Building currentBuilding;
+
 
     #region buildingSettingsPanel
     public GameObject panel;
 
-    public TextMeshProUGUI buildingName;
-    public TextMeshProUGUI descriptionPlaceholder;
-    
-    public TextMeshProUGUI ecoPlaceholder;
-    public TextMeshProUGUI socPlaceholder;
-    public TextMeshProUGUI poliPlaceholder;
-    
-    public TextMeshProUGUI enviPlaceholder;
-    public TextMeshProUGUI fluidPlaceholder;
-    public TextMeshProUGUI attractPlaceholder;
-    public TextMeshProUGUI logisticPlaceholder;
-    
-    public TextMeshProUGUI logisticDescriptionPlaceholder;
+    public TextMeshProUGUI buildingName; //public TextMeshProUGUI buildingInput;
+    public TextMeshProUGUI descriptionPlaceholder; public TextMeshProUGUI descriptionInput;
+
+    public TextMeshProUGUI ecoPlaceholder; public TextMeshProUGUI ecoInput;
+    public TextMeshProUGUI socPlaceholder; public TextMeshProUGUI socInput;
+    public TextMeshProUGUI poliPlaceholder; public TextMeshProUGUI poliInput;
+
+    public TextMeshProUGUI enviPlaceholder; public TextMeshProUGUI enviInput;
+    public TextMeshProUGUI fluidPlaceholder; public TextMeshProUGUI fluidInput;
+    public TextMeshProUGUI attractPlaceholder; public TextMeshProUGUI attractInput;
+    public TextMeshProUGUI logisticPlaceholder; public TextMeshProUGUI logiInput;
+
+    public TextMeshProUGUI logisticDescriptionPlaceholder; public TextMeshProUGUI logiDescriptionInput;
 
     #endregion
 
@@ -85,22 +89,156 @@ public class SettingsMenu : MonoBehaviour
             logisticPlaceholder.text = _building.logisticScore.ToString();
             
             logisticDescriptionPlaceholder.text = _building.logisticDescription;
-
         }
+        currentBuilding = _building;
     }
 
 
     /// <summary>
-    /// When som
+    /// When button validate is pressed, the building is saved and we return to buildingsList view
     /// </summary>
     /// <param name="_descBuilding"></param>
-    public void ChangeDescriptionBuilding(string _descBuilding)
+    public void ChangeBuildingSettings()
     {
-        Game _game = GameManager.singleton.game;
-        Building[] _buildings = _game.pioche.ToArray();
+        Building[] _buildings = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
+
+        Building _newBuilding = CreateNewBuildingWithInputFields();
+
+        for (int i = 0; i < _buildings.Length; i++)
+        {
+            if (_buildings[i].name.Equals(currentBuilding.name))
+            {
+                _buildings[i] = _newBuilding;
+                //savedansJSON (_buildings)
+                JSONBuildings.CreateBuildingJSONWithBuildings(_buildings);
+            }
+        }
+
+        CloseBuildingSettingsPanel();
 
 
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
+    }
+
+    public void CloseBuildingSettingsPanel()
+    {
+        panel.SetActive(false);
+    }
+
+    /// <summary>
+    /// Create new Building that we will save in our JSON
+    /// </summary>
+    /// <returns></returns>
+    private Building CreateNewBuildingWithInputFields()
+    {
+        string _buildingName = buildingName.text;
+        string _buildingDescription;
+
+        int _buildingEco;
+        int _buildingSoc;
+        int _buildingPoli;
+
+        int _buildingEnvi;
+        int _buildingFluid;
+        int _buildingAttract;
+        int _buildingLogi;
+
+        string _buildingLogiDescription;
+
+        //Description
+        if (descriptionPlaceholder.text != descriptionInput.text && descriptionInput.text != "")
+        {
+            _buildingDescription = descriptionInput.text;
+        }
+        else
+        {
+            _buildingDescription = descriptionPlaceholder.text;
+        }
+
+        //eco
+        if (ecoPlaceholder.text != ecoInput.text && ecoInput.text != "")
+        {
+            _buildingEco = Convert.ToInt16(ecoInput);
+        }
+        else
+        {
+            _buildingEco = Convert.ToInt16(ecoPlaceholder);
+        }
+
+        //social
+        if (socPlaceholder.text != socInput.text && socInput.text != "")
+        {
+            _buildingSoc = Convert.ToInt16(socInput);
+        }
+        else
+        {
+            _buildingSoc = Convert.ToInt16(socPlaceholder);
+        }
+
+        //poli
+        if (poliPlaceholder.text != poliInput.text && poliInput.text != "")
+        {
+            _buildingPoli = Convert.ToInt16(poliInput);
+        }
+        else
+        {
+            _buildingPoli = Convert.ToInt16(poliPlaceholder);
+        }
+
+        //Envi
+        if (enviPlaceholder.text != enviInput.text && enviInput.text != "")
+        {
+            _buildingEnvi = Convert.ToInt16(enviInput);
+        }
+        else
+        {
+            _buildingEnvi = Convert.ToInt16(enviPlaceholder);
+        }
+
+        //Fluid
+        if (fluidPlaceholder.text != fluidInput.text && fluidInput.text != "")
+        {
+            _buildingFluid = Convert.ToInt16(fluidInput);
+        }
+        else
+        {
+            _buildingFluid = Convert.ToInt16(fluidPlaceholder);
+        }
+
+        //Attract
+        if (attractPlaceholder.text != attractInput.text && attractInput.text != "")
+        {
+            _buildingAttract = Convert.ToInt16(attractInput);
+        }
+        else
+        {
+            _buildingAttract = Convert.ToInt16(attractPlaceholder);
+        }
+
+        //Logi
+        if (logisticPlaceholder.text != logiInput.text && logiInput.text != "")
+        {
+            _buildingLogi = Convert.ToInt16(logiInput);
+        }
+        else
+        {
+            _buildingLogi = Convert.ToInt16(logisticPlaceholder);
+        }
+
+        //logisticDesction
+        if (logisticDescriptionPlaceholder.text != logiDescriptionInput.text && logiDescriptionInput.text != "")
+        {
+            _buildingLogiDescription = logiDescriptionInput.text;
+        }
+        else
+        {
+            _buildingLogiDescription = logisticDescriptionPlaceholder.text;
+        }
+
+        Building _res = new Building(_buildingName,_buildingDescription,_buildingEco,_buildingSoc,_buildingPoli,_buildingEnvi
+            ,_buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);
+
+        return _res;
     }
 
 }
