@@ -1,9 +1,4 @@
-﻿using Mirror.Weaver;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DisplayFormView : MonoBehaviour
 {
@@ -14,7 +9,7 @@ public class DisplayFormView : MonoBehaviour
 
     public void BackPressMenu()
     {
-        //MainMenu.SetActive(true);
+        MainMenu.SetActive(true);
         Form1.SetActive(false);
         Form2.SetActive(false);
         Form3.SetActive(false);
@@ -22,7 +17,7 @@ public class DisplayFormView : MonoBehaviour
 
     public void DisplayForm1()
     {
-        //MainMenu.SetActive(false);
+        MainMenu.SetActive(false);
         Form1.SetActive(true);
         Form2.SetActive(false);
         Form3.SetActive(false);
@@ -30,7 +25,7 @@ public class DisplayFormView : MonoBehaviour
 
     public void DisplayForm2()
     {
-        //MainMenu.SetActive(false);
+        MainMenu.SetActive(false);
         Form1.SetActive(false);
         Form2.SetActive(true);
         Form3.SetActive(false);
@@ -38,7 +33,7 @@ public class DisplayFormView : MonoBehaviour
 
     public void DisplayForm3()
     {
-        //MainMenu.SetActive(false);
+        MainMenu.SetActive(false);
         Form1.SetActive(false);
         Form2.SetActive(false);
         Form3.SetActive(true);
@@ -46,7 +41,7 @@ public class DisplayFormView : MonoBehaviour
 
     public void SkipForm()
     {
-        //MainMenu.SetActive(false);
+        MainMenu.SetActive(false);
         Form1.SetActive(false);
         Form2.SetActive(false);
         Form3.SetActive(false);

@@ -141,15 +141,15 @@ public class LogManager : MonoBehaviour
         WWWForm infoPlayer = new WWWForm();
         infoPlayer.AddField("game_key", uuidParty);
         infoPlayer.AddField("game_id", player.ID);
-        infoPlayer.AddField("nom", player.namePlayer);
-        infoPlayer.AddField("prenom", "xx");
-        infoPlayer.AddField("sexe", "xx");
-        infoPlayer.AddField("age", 0.ToString());
-        infoPlayer.AddField("residence", "xx");
-        infoPlayer.AddField("statut_activite", "xx");
-        infoPlayer.AddField("job", "xx");
-        infoPlayer.AddField("secteur_activite", "xx");
-        infoPlayer.AddField("entreprise", "xx");
+        infoPlayer.AddField("nom", player.playerFamilyName);
+        infoPlayer.AddField("prenom", player.namePlayer);
+        infoPlayer.AddField("sexe", player.gender);
+        infoPlayer.AddField("age", player.age);
+        infoPlayer.AddField("residence", player.zipcode);
+        infoPlayer.AddField("statut_activite", player.jobStatus);
+        infoPlayer.AddField("job", player.jobStatus);
+        infoPlayer.AddField("secteur_activite", player.field);
+        infoPlayer.AddField("entreprise", player.company);
         infoPlayer.AddField("role", player.role.nameRole);
         WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfoplayer.php", infoPlayer);
         
