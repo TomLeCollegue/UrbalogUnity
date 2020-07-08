@@ -31,7 +31,7 @@ public class NextTurnButton : NetworkBehaviour
                 CmdChangeSceneToEndGame();
                 return;
             }
-            if (CheckForNextTurn())
+            if (CheckForNextTurn() || TimerEnded())
             {
                 if (!NbBuildingFinancedTooHigh())
                 {
@@ -52,6 +52,12 @@ public class NextTurnButton : NetworkBehaviour
         //{
         //    TextButton.text = "Annuler";
         //}
+        if (TimerEnded())
+        {
+            TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+            _timerManager.currentTurnTime = 60f;
+            _timerManager.alreadyStarted = false;
+        }
 
         if (!Turn && !NbBuildingFinancedTooHigh())
         {
@@ -65,6 +71,41 @@ public class NextTurnButton : NetworkBehaviour
         {
             TextButton.text = "Annuler";
         }
+
+        if (CheckForTimerStart())
+        {
+            GameObject.Find("TimerManager").GetComponent<TimerManager>().StartTimer();
+        }
+        else
+        {
+            TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+            _timerManager.currentTurnTime = 60f;
+            _timerManager.alreadyStarted = false;
+        }
+    }
+
+    private bool TimerEnded()
+    {
+        TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+
+
+
+        return (_timerManager.currentTurnTime <= 0);
+    }
+
+    private bool CheckForTimerStart()
+    {
+        GameManager gameManager = GameManager.singleton;
+        int countPlayersReady = 0;
+        for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
+        {
+            if (gameManager.players[i].nextTurn)
+            {
+                countPlayersReady++;
+            }
+        }
+        return ( gameManager.players.Count - countPlayersReady == 1 );
+
     }
 
 
@@ -146,7 +187,6 @@ public class NextTurnButton : NetworkBehaviour
             if (!gameManager.players[i].nextTurn)
             {
                 boolTurn = false;
-                
             }
         }
 

@@ -24,6 +24,8 @@ public class Game
 
     public int turnNumber = 1;
 
+    public float currentTurnTime = 0f;
+    public float turnTimeMax= 60f;
 
     #region Market management
 
