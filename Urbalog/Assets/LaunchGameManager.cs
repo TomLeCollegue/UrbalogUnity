@@ -130,6 +130,65 @@ public class LaunchGameManager : MonoBehaviour
     {
         GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField(_field);
     }
+    public void HandleFieldInputData(int _value)
+    {
+        if (_value == 0)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("Moins de 15 ans");
+        }
+        if (_value == 1)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 15 à 18 ans");
+        }
+        if (_value == 2)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 19 à 24 ans");
+        }
+        if (_value == 3)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 25 à 34 ans");
+        }
+        if (_value == 4)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 35 à 44 ans");
+        }
+        if (_value == 5)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 45 à 54 ans");
+        }
+        if (_value == 6)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 55 à 64 ans");
+        }
+        if (_value == 7)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+        }
+        if (_value == 8)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+        }
+        if (_value == 9)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+        }
+        if (_value == 10)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+        }
+        if (_value == 11)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+        }
+        if (_value == 12)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+        }
+        if (_value == 13)
+        {
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+        }
+    }
 
 
     public void ChangePort(string _port)
