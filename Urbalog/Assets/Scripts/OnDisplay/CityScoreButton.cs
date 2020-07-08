@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class CityScoreButton : MonoBehaviour
 {
     public GameObject Panel;
-    public GameObject MainFrame;
+    public GameObject RoleFrame;
     public GameObject ButtonBack;
     public GameObject TitleCity;
 
     public TextMeshProUGUI Attract;
     public TextMeshProUGUI Envi;
     public TextMeshProUGUI Fluid;
+    public GameObject Market;
 
     //public Button NextTurnButton;
     public void OpenPanel()
@@ -21,10 +22,11 @@ public class CityScoreButton : MonoBehaviour
         if (Panel != null)
         {
             Panel.SetActive(true);
-            MainFrame.SetActive(false);
+            RoleFrame.SetActive(false);
             ButtonBack.SetActive(true);
             TitleCity.SetActive(true);
             UpdateCityScorePanel();
+            Market.SetActive(false);
         }
     }
 
@@ -34,9 +36,22 @@ public class CityScoreButton : MonoBehaviour
         {
             Panel.SetActive(false);
             ButtonBack.SetActive(false);
-            MainFrame.SetActive(true);
+            RoleFrame.SetActive(true);
             TitleCity.SetActive(false);
+            Market.SetActive(false);
         }
+    }
+
+    public void GoToMarket()
+    {
+        Market.SetActive(true);
+        RoleFrame.SetActive(false);
+    }
+
+    public void GoToRole()
+    {
+        Market.SetActive(false);
+        RoleFrame.SetActive(true);
     }
 
     /// <summary>
@@ -65,5 +80,10 @@ public class CityScoreButton : MonoBehaviour
         Attract.text = _game.cityAttractiveness.ToString();
         Envi.text = _game.cityEnvironment.ToString();
         Fluid.text = _game.cityFluidity.ToString();
+    }
+
+    private void Update()
+    {
+        UpdateCityScorePanel();
     }
 }

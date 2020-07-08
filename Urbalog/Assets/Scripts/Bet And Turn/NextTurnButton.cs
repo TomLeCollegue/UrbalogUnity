@@ -7,10 +7,9 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 3;
+    public static int NumberBuildingsToEnd = 1; //default value
     public TextMeshProUGUI TextButton;
-
-
+    bool LogSend = false;
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -23,6 +22,8 @@ public class NextTurnButton : NetworkBehaviour
     }
 
 
+
+
     private void Update()
     {
         if (isServer)
@@ -30,6 +31,7 @@ public class NextTurnButton : NetworkBehaviour
             if (CheckEndGameCondition())
             {
                 CmdChangeSceneToEndGame();
+                EndGameLog();
                 return;
             }
             if (CheckForNextTurn())
@@ -64,13 +66,17 @@ public class NextTurnButton : NetworkBehaviour
 
         ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
         betControl.CmdGiveBackResourcesToPlayerWhenNextTurn();       // Rendre les ressources aux joueurs pour les aménagements pas financés entièrement.
+        DistribScorePlayer();
         betControl.BuildTheBuildings();          // Check les batiment construit, Les ajouter dans la list des batiments construit, Les supprimer du Deck
         ResetFinanceBuildingInMarket();
         gameManager.game.ChangeMarket();         // Changer le marché
         betControl.CmdResetPlayersBet();         // Réinitialiser le tableau des mises de chaques joueurs
         UpdateTurnNumber();                      // Changer le numéro de tour
+        LogNextTurn();
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
+        CallCityView();
+        Invoke("PopUpPlayer", 2);
     }
 
     private void ResetFinanceBuildingInMarket()
@@ -81,6 +87,23 @@ public class NextTurnButton : NetworkBehaviour
             _game.Market[i].FinanceEconomical = 0;
             _game.Market[i].FinancePolitical = 0;
             _game.Market[i].FinanceSocial = 0;
+        }
+    }
+
+
+    public void LogNextTurn()
+    {
+        LogManager.singleton.NewTurn();
+    }
+
+    public void EndGameLog()
+    {
+        if (!LogSend)
+        {
+        Debug.Log("Log Game Upload");
+        LogManager.singleton.GetScoreCity();
+        LogManager.singleton.SendInfo();
+        LogSend = true;
         }
     }
 
@@ -125,6 +148,89 @@ public class NextTurnButton : NetworkBehaviour
         _game.turnNumber += 1;
         FillPlayerView fillView = GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>();
         fillView.UpdateTurn();
+    }
+
+    #endregion
+
+
+    #region Score Player
+    public void DistribScorePlayer()
+    {
+        int ScoreEnvi = 0;
+        int ScoreAttract = 0;
+        int ScoreFluid = 0;
+        BetControl betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+        Game game = GameManager.singleton.game;
+        for (int i = 0; i < game.Market.Count; i++)
+        {
+            if (betControl.IsFinanced(game.Market[i]))
+            {
+                ScoreEnvi += game.Market[i].enviScore;
+                ScoreAttract += game.Market[i].attractScore;
+                ScoreFluid += game.Market[i].fluidScore;
+            }
+        }
+
+        Debug.Log("Score : " + ScoreEnvi + " " + ScoreAttract + " " + ScoreFluid);
+        CheckScorePlayers(ScoreEnvi, ScoreAttract, ScoreFluid);
+        
+    }
+
+    public void CheckScorePlayers(int envi, int attract, int fluid)
+    {
+        GameManager gameManager = GameManager.singleton;
+        for (int i = 0; i < gameManager.players.Count; i++)
+        {
+            if(CheckObjectifPlayer(gameManager.players[i], envi, fluid, attract))
+            {
+                gameManager.players[i].scorePlayer += 1;
+            }
+        }
+    }
+
+    public bool CheckObjectifPlayer(Player player, int envi, int fluid, int attract)
+    {
+        bool GainScore = true;
+        //Hold Check
+        if (player.role.hold.Equals("Environment") && envi < 0)
+        {
+            GainScore = false;
+        }
+        else if (player.role.hold.Equals("Attractiveness") && attract < 0)
+        {
+            GainScore = false;
+        }
+        else if (player.role.hold.Equals("Fluidity") && fluid < 0)
+        {
+            GainScore = false;
+        }
+
+
+
+        //Improve Check
+        if (player.role.improve.Equals("Environment") && envi < 1)
+        {
+            GainScore = false;
+        }
+        else if (player.role.improve.Equals("Attractiveness") && attract < 1)
+        {
+            GainScore = false;
+        }
+        else if (player.role.improve.Equals("Fluidity") && fluid < 1)
+        {
+            GainScore = false;
+        }
+
+        return GainScore;
+    }
+
+    public void PopUpPlayer()
+    {
+        GameObject.Find("playerLocal").GetComponent<Player>().CmdScore();
+    }
+
+    public void CallCityView() {
+        GameObject.Find("playerLocal").GetComponent<Player>().CmdCityView();
     }
 
     #endregion
