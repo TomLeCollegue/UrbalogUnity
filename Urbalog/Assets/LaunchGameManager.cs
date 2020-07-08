@@ -134,59 +134,59 @@ public class LaunchGameManager : MonoBehaviour
     {
         if (_value == 0)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("Moins de 15 ans");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Agriculture");
         }
         if (_value == 1)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 15 à 18 ans");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Industrie");
         }
         if (_value == 2)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 19 à 24 ans");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Construction");
         }
         if (_value == 3)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 25 à 34 ans");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Commerce");
         }
         if (_value == 4)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 35 à 44 ans");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Hébergement et restauration");
         }
         if (_value == 5)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 45 à 54 ans");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Information communication");
         }
         if (_value == 6)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("de 55 à 64 ans");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Finance, assurance, immobilier");
         }
         if (_value == 7)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Activités scientifiques, techniques, services administratifs");
         }
         if (_value == 8)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Administration publique");
         }
         if (_value == 9)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Enseignement");
         }
         if (_value == 10)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Activité pour la santé humaine");
         }
         if (_value == 11)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Hébergement médico-social et social et action sociale sans hébergement");
         }
         if (_value == 12)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Autres services");
         }
         if (_value == 13)
         {
-            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetAge("65 ans et plus");
+            GameObject.Find("NetworkManager").GetComponent<HostGame>().SetField("Activité indéterminée");
         }
     }
 
