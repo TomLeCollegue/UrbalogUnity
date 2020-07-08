@@ -40,7 +40,7 @@ namespace Mirror.Discovery
 
         void DrawGUI()
         {
-            GUILayout.BeginHorizontal();
+           /* GUILayout.BeginHorizontal();
 
             if (GUILayout.Button("Find Servers"))
             {
@@ -78,18 +78,24 @@ namespace Mirror.Discovery
                 if (GUILayout.Button(info.EndPoint.Address.ToString()))
                     Connect(info);
 
-            GUILayout.EndScrollView();
+            GUILayout.EndScrollView();*/
         }
 
         void Connect(ServerResponse info)
         {
-            NetworkManager.singleton.StartClient(info.uri);
+            NetworkManager.singleton.networkAddress = info.EndPoint.Address.ToString();
         }
 
         public void OnDiscoveredServer(ServerResponse info)
         {
             // Note that you can check the versioning to decide if you can connect to the server or not using this method
             discoveredServers[info.serverId] = info;
+        }
+
+
+        public Dictionary<long, ServerResponse> GetListServer()
+        {
+            return discoveredServers;
         }
     }
 }

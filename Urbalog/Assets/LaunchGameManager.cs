@@ -35,4 +35,10 @@ public class LaunchGameManager : MonoBehaviour
         GameObject.Find("NetworkManager").GetComponent<HostGame>().JoinGame();
     }
 
+    public void DiscoverServer()
+    {
+        
+        GameObject.Find("NetworkManager").GetComponent<HostGame>().Discover();
+    }
+
 }

@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 3; //default value
+    public static int NumberBuildingsToEnd = 1; //default value
     public TextMeshProUGUI TextButton;
+    bool LogSend = false;
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -29,6 +30,7 @@ public class NextTurnButton : NetworkBehaviour
             if (CheckEndGameCondition())
             {
                 CmdChangeSceneToEndGame();
+                EndGameLog();
                 return;
             }
             if (CheckForNextTurn() || TimerEnded())
@@ -161,8 +163,10 @@ public class NextTurnButton : NetworkBehaviour
         gameManager.game.ChangeMarket();         // Changer le marché
         betControl.CmdResetPlayersBet();         // Réinitialiser le tableau des mises de chaques joueurs
         UpdateTurnNumber();                      // Changer le numéro de tour
+        LogNextTurn();
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
+        CallCityView();
         Invoke("PopUpPlayer", 2);
     }
 
@@ -174,6 +178,23 @@ public class NextTurnButton : NetworkBehaviour
             _game.Market[i].FinanceEconomical = 0;
             _game.Market[i].FinancePolitical = 0;
             _game.Market[i].FinanceSocial = 0;
+        }
+    }
+
+
+    public void LogNextTurn()
+    {
+        LogManager.singleton.NewTurn();
+    }
+
+    public void EndGameLog()
+    {
+        if (!LogSend)
+        {
+        Debug.Log("Log Game Upload");
+        LogManager.singleton.GetScoreCity();
+        LogManager.singleton.SendInfo();
+        LogSend = true;
         }
     }
 
@@ -299,8 +320,9 @@ public class NextTurnButton : NetworkBehaviour
         GameObject.Find("playerLocal").GetComponent<Player>().CmdScore();
     }
 
-    
-
+    public void CallCityView() {
+        GameObject.Find("playerLocal").GetComponent<Player>().CmdCityView();
+    }
 
     #endregion
 

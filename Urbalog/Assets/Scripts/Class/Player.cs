@@ -5,7 +5,7 @@ using Mirror;
 using System;
 
 [Serializable]
-public class Player : NetworkBehaviour
+public class Player : NetworkBehaviour 
 {
     public Role role { get; set; }
 
@@ -65,4 +65,18 @@ public class Player : NetworkBehaviour
         Debug.Log("Gagné");
         GameObject.Find("PlayerViewManager").GetComponent<PopUpScoreManager>().OpenPopUpWin();
     }
+
+
+    [Command]
+    public void CmdCityView()
+    {
+        RpcClientOnCityView();
+    }
+
+    [ClientRpc]
+    public void RpcClientOnCityView()
+    {
+        GameObject.Find("PlayerViewManager").GetComponent<CityScoreButton>().OpenPanel();
+    }
+
 }
