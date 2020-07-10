@@ -17,6 +17,7 @@ public class TimerManager : MonoBehaviour
     {
         if (!alreadyStarted)
         {
+
             currentTurnTime = turnTimeMax;
             alreadyStarted = true;
         }
