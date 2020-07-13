@@ -55,9 +55,12 @@ public class PlayerSetup : NetworkBehaviour
             string jobStatus = GameObject.Find("NetworkManager").GetComponent<HostGame>().jobStatus;
             string field = GameObject.Find("NetworkManager").GetComponent<HostGame>().field;
             CmdSendInfoPlayer(_netID, namePlayer, age, company, gender, playerFamilyName, zipcode, jobStatus,field);
+            //Récupérer le turn time max CmdAskRulesToPlayer et rpcClient(turnTimeMax)
         }
         CmdGetRoleForPlayer(); 
         CmdSendActualGameManager(); 
+
+
     }
 
     #region getGameManager Fonction
@@ -99,7 +102,7 @@ public class PlayerSetup : NetworkBehaviour
 
         //resetTimer
         TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
-        _timerManager.currentTurnTime = 60f;
+        _timerManager.currentTurnTime = GameSettings.TurnTimeMax;
         _timerManager.alreadyStarted = false;
     }
     #endregion

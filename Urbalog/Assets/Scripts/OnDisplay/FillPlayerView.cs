@@ -200,7 +200,6 @@ public class FillPlayerView : MonoBehaviour
     public bool isAlreadyUpdated = false;
 
 
-
     // Update is called once per frame
     void Update()
     {

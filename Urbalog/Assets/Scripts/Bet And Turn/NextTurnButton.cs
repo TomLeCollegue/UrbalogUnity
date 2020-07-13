@@ -20,9 +20,6 @@ public class NextTurnButton : NetworkBehaviour
         GameObject.Find("playerLocal").GetComponent<PlayerSetup>().CmdChangeBoolNextTurn(_id);
     }
 
-
-
-
     private void Update()
     {
         if (isServer)
@@ -67,12 +64,14 @@ public class NextTurnButton : NetworkBehaviour
             TextButton.text = "Annuler";
         }
 
-        if (CheckForTimerStart())
+        
+        if (CheckForTimerStart()) //the timer has to start
         {
             GameObject.Find("TimerManager").GetComponent<TimerManager>().StartTimer();
         }
         else
         {
+            //here the timer either has to be reset or to be inactive due to the settings
             resetTimer();
         }
     }
@@ -80,7 +79,7 @@ public class NextTurnButton : NetworkBehaviour
     public void resetTimer()
     {
         TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
-        _timerManager.currentTurnTime = 60f;
+        _timerManager.currentTurnTime = GameSettings.TurnTimeMax;
         _timerManager.alreadyStarted = false;
     }
 
@@ -93,10 +92,16 @@ public class NextTurnButton : NetworkBehaviour
         return (_timerManager.currentTurnTime <= 0);
     }
 
+    /// <summary>
+    /// Checks if the timer can decrease or not depending on the numbers of players who are not ready
+    /// and what the admin chose in the settings
+    /// </summary>
+    /// <returns></returns>
     private bool CheckForTimerStart()
     {
         GameManager gameManager = GameManager.singleton;
         int countPlayersReady = 0;
+        bool _OnlyOnePlayerNotReady = false;
         for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
         {
             if (gameManager.players[i].nextTurn)
@@ -104,7 +109,10 @@ public class NextTurnButton : NetworkBehaviour
                 countPlayersReady++;
             }
         }
-        return ( gameManager.players.Count - countPlayersReady == 1 );
+        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == 1;
+        bool _res = _OnlyOnePlayerNotReady && GameSettings.isTimerActive;
+
+        return _res;
 
     }
 
