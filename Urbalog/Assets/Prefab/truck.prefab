@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5392076472083864720}
   - component: {fileID: 1866752563593289833}
   - component: {fileID: 2666262299339117906}
+  - component: {fileID: 5845526396388809675}
   m_Layer: 0
   m_Name: truck
   m_TagString: Untagged
@@ -100,6 +101,18 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &5845526396388809675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131976151703033013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e103578e9d10440a3df3c2db2452b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1258705039702289249
 GameObject:
   m_ObjectHideFlags: 0

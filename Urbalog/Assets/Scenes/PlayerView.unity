@@ -26919,6 +26919,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449502661}
   m_CullTransparentMesh: 0
+--- !u!1 &1449597402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1449597404}
+  - component: {fileID: 1449597403}
+  m_Layer: 0
+  m_Name: PlayerViewManager (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &1449597403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449597402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668279537f8d9824db8761ccc12faaa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PopUpWin: {fileID: 1486487814}
+  PopUpLose: {fileID: 2019984044}
+  HoldTextWin: {fileID: 38779317}
+  ImproveTextWin: {fileID: 486831910}
+  HoldImageWin: {fileID: 2115385326}
+  ImproveImageWin: {fileID: 1747038148}
+  HoldTextLose: {fileID: 195263764}
+  ImproveTextLose: {fileID: 2124202903}
+  HoldImageLose: {fileID: 1617390938}
+  ImproveImageLose: {fileID: 1374480450}
+  EnviSprite: {fileID: 21300000, guid: c3248b276cb26224e967ae2bf4cb76ec, type: 3}
+  AttractSprite: {fileID: 21300000, guid: c4dd81314a4ba264da75898368066aca, type: 3}
+  FluidSprite: {fileID: 21300000, guid: 0a7578104b667824f9fb375d6246bf2a, type: 3}
+--- !u!4 &1449597404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449597402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1450142280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 214dff5e7b3f7944d875ec2e40354a2e,

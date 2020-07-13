@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 6; //default value
+    public static int NumberBuildingsToEnd = 2; //default value
     public TextMeshProUGUI TextButton;
     bool LogSend = false;
 
@@ -163,7 +163,8 @@ public class NextTurnButton : NetworkBehaviour
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
         GameObject.Find("CityManager").GetComponent<FillTruckCity>().SpawnTrucks();
         CallCityView();
-        Invoke("PopUpPlayer", 2);
+        GameObject.Find("playerLocal").GetComponent<Player>().InvokePopUP();
+
     }
 
     private void ResetFinanceBuildingInMarket()
@@ -309,11 +310,6 @@ public class NextTurnButton : NetworkBehaviour
         }
 
         return GainScore;
-    }
-
-    public void PopUpPlayer()
-    {
-        GameObject.Find("playerLocal").GetComponent<Player>().CmdScore();
     }
 
     public void CallCityView() {
