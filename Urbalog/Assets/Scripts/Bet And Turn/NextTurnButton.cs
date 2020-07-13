@@ -161,6 +161,7 @@ public class NextTurnButton : NetworkBehaviour
         LogNextTurn();
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
+        GameObject.Find("CityManager").GetComponent<FillTruckCity>().SpawnTrucks();
         CallCityView();
         Invoke("PopUpPlayer", 2);
     }
