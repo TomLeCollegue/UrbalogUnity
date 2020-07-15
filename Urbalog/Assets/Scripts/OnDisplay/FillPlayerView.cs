@@ -224,7 +224,8 @@ public class FillPlayerView : MonoBehaviour
         FillPLayerViewInfo();
         ShowWherePlayerLocalBet();
         SetResourceFramesInGreenWhenCompleted();
-        SetBuildingNameInGreenWhenFinanced();
+        //SetBuildingNameInGreenWhenFinanced(); 
+        //probably not useful anymore because we color the resources frame when building is financed
 
         ColorBuildingsWhenFinanced();
 
@@ -1359,7 +1360,9 @@ public class FillPlayerView : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Fills the panel where the player can bet on a given building
+    /// </summary>
     public void FillBetPanel()
     {
         Building building = GameManager.singleton.game.Market[GameObject.Find("playerLocal").GetComponent<BetControl>().numBuildingBet];
