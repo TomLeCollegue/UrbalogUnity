@@ -87,8 +87,6 @@ public class NextTurnButton : NetworkBehaviour
     {
         TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
 
-
-
         return (_timerManager.currentTurnTime <= 0);
     }
 
@@ -101,7 +99,7 @@ public class NextTurnButton : NetworkBehaviour
     {
         GameManager gameManager = GameManager.singleton;
         int countPlayersReady = 0;
-        bool _OnlyOnePlayerNotReady = false;
+        bool _OnlyOnePlayerNotReady;
         for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
         {
             if (gameManager.players[i].nextTurn)

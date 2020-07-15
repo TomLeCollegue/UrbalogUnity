@@ -11,6 +11,7 @@ public class SettingsMenu : MonoBehaviour
     public GameObject MainSettingsMenu;
     public GameObject BuildingsSettingsMenu;
     public GameObject BuildingsListPanel;
+    public GameObject TimeLimitPanel;
 
     public Building currentBuilding;
 
@@ -34,6 +35,8 @@ public class SettingsMenu : MonoBehaviour
 
     #endregion
 
+    public TextMeshProUGUI timerPlaceholder;
+
 
 
     public void GoToSettingsScene()
@@ -50,20 +53,32 @@ public class SettingsMenu : MonoBehaviour
     {
         MainSettingsMenu.SetActive(false);
         BuildingsListPanel.SetActive(false);
+        TimeLimitPanel.SetActive(false);
         BuildingsSettingsMenu.SetActive(true);
     }
     public void DisplaySettingsMenu()
     {
         BuildingsListPanel.SetActive(false);
+        TimeLimitPanel.SetActive(false);
         MainSettingsMenu.SetActive(true);
         BuildingsSettingsMenu.SetActive(false);
     }
 
     public void DisplayBuildingsList()
     {
+        TimeLimitPanel.SetActive(false);
         BuildingsListPanel.SetActive(true);
         MainSettingsMenu.SetActive(false);
         BuildingsSettingsMenu.SetActive(false);
+    }
+
+    public void DisplayTimeLimitPanel()
+    {
+        TimeLimitPanel.SetActive(true);
+        BuildingsListPanel.SetActive(false);
+        MainSettingsMenu.SetActive(false);
+        BuildingsSettingsMenu.SetActive(false);
+        timerPlaceholder.text = GameSettings.TurnTimeMax.ToString();
     }
 
     /// <summary>
