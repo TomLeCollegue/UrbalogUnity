@@ -40,6 +40,7 @@ public class RenameBuilding : NetworkBehaviour
 
     public void DebugTest()
     {
-        Debug.Log("TestClickBuilding " + NameBuilding);
+        Debug.Log("Building "  + NameBuilding);
+        GameObject.Find("PlayerViewManager").GetComponent<PopUpBuildingDisplay>().DisplayPopUp(building); ;
     }
 }
