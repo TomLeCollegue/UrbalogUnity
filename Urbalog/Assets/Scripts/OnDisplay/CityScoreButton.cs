@@ -10,6 +10,7 @@ public class CityScoreButton : MonoBehaviour
     public GameObject RoleFrame;
     public GameObject ButtonBack;
     public GameObject TitleCity;
+    public GameObject GroupeLayout;
 
     public TextMeshProUGUI Attract;
     public TextMeshProUGUI Envi;
@@ -27,6 +28,7 @@ public class CityScoreButton : MonoBehaviour
             TitleCity.SetActive(true);
             UpdateCityScorePanel();
             Market.SetActive(false);
+            GroupeLayout.SetActive(true);
         }
     }
 
@@ -39,6 +41,8 @@ public class CityScoreButton : MonoBehaviour
             RoleFrame.SetActive(true);
             TitleCity.SetActive(false);
             Market.SetActive(false);
+            GroupeLayout.SetActive(false);
+
         }
     }
 

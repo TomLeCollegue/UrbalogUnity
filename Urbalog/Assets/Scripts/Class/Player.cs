@@ -27,6 +27,8 @@ public class Player : NetworkBehaviour
     public string jobStatus = "";
     [SyncVar]
     public string field = "";
+    [SyncVar]
+    public string nameRole = "";
 
     public string ID;
 

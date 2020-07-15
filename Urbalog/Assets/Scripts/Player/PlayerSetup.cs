@@ -112,6 +112,7 @@ public class PlayerSetup : NetworkBehaviour
         int numToSend = GameManager.singleton.NumPlayerForRole;
 
         Role role = GameManager.singleton.game.Roles[numToSend];
+        GameManager.singleton.players[GameManager.singleton.players.Count - 1].nameRole = role.nameRole;
         RpcSendRoleForPlayer(GetbyteFromObject(role));
         GameManager.singleton.NumPlayerForRole++;
 
