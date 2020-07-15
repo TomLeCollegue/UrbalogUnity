@@ -21,8 +21,24 @@ public class FillPlayerView : MonoBehaviour
     Color NameBuildingNotFinanced = new Color(0.1764706f , 0.1686275f, 0.2470588f);
     Color ResourcesTextNotFinanced = new Color(0.2745098f, 0.2705882f, 0.3372549f);
 
-    Color RedInsideBuilding = new Color(1f, 0.705f, 0.705f);
-    Color GreenInsideBuilding = new Color(0.698f, 0.964f, 0.713f);
+    
+    Color GreenInsideBuilding = new Color(0.854f, 0.905f, 0.788f);
+    Color RedInsideBuilding = new Color(0.976f, 0.698f, 0.713f);
+
+    Color GreenBorderBuilding = new Color(0.525f, 0.690f, 0.298f);
+    Color RedBorderBuilding = new Color(0.925f, 0f, 0.062f);
+
+    Color GreyInsideBuilding = new Color(0.917f, 0.952f, 0.964f);
+    Color GreyBorderBuilding = new Color(0.717f, 0.741f, 0.768f);
+    //yael green border 0.525, 0.690, 0.298
+    //yael green inside 0.854, 0.905, 0.788
+
+    //yael red border 0.925, 0, 0.062
+    //yael red inside 0.976, 0.698, 0.713
+
+    //yael grey border 0.717, 0.741, 0.768
+    //yael grey inside 0.917, 0.952, 0.964
+
     #endregion
     #region Buildings
     [Space(10)]
@@ -253,12 +269,12 @@ public class FillPlayerView : MonoBehaviour
         //check if the number of buildings financed is greater than the max allowed per turn
         if (tooManyBuildingsFinanced(_betControl.NbBuildingsFinanced()))
         {
-            ColorFinancedBuildingsBorder(urbaRed, _betControl, _game);
+            ColorFinancedBuildingsBorder(RedBorderBuilding, _betControl, _game);
             ColorFinancedBuildingsInside(RedInsideBuilding, _betControl, _game);
         }
         else //not too many buildings so you want it in green
         {
-            ColorFinancedBuildingsBorder(urbaGreen, _betControl, _game);
+            ColorFinancedBuildingsBorder(GreenBorderBuilding, _betControl, _game);
             ColorFinancedBuildingsInside(GreenInsideBuilding, _betControl, _game);
         }
     }
@@ -284,7 +300,7 @@ public class FillPlayerView : MonoBehaviour
     /// <param name="_game"></param>
     private void ColorFinancedBuildingsInside(Color _color, BetControl _betControl, Game _game)
     {
-        Color _defaultInsideColor = Color.white;
+        Color _defaultInsideColor = GreyInsideBuilding;
 
         //Building1
         if (_betControl.IsFinanced(_game.Market[0]))
@@ -344,7 +360,7 @@ public class FillPlayerView : MonoBehaviour
         /*0.5803922
         0.627451
         0.7098039*/
-        Color _defaultBorderColor = new Color(0.5803922f, 0.627451f, 0.7098039f);
+        Color _defaultBorderColor = GreyBorderBuilding;
 
         //Building1
         if (_betControl.IsFinanced(_game.Market[0]))
