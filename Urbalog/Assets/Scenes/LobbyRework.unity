@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 758281514}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1685314386}
@@ -976,7 +976,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 308066189}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2003404734}
@@ -5080,7 +5080,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 991097852}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1229990921}
@@ -5457,7 +5457,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 857431153}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2139337205}
@@ -12768,6 +12768,7 @@ MonoBehaviour:
   MainSettingsMenu: {fileID: 0}
   BuildingsSettingsMenu: {fileID: 0}
   BuildingsListPanel: {fileID: 0}
+  TimeLimitPanel: {fileID: 0}
   currentBuilding:
     name: 
     description: 
@@ -12802,6 +12803,7 @@ MonoBehaviour:
   logiInput: {fileID: 0}
   logisticDescriptionPlaceholder: {fileID: 0}
   logiDescriptionInput: {fileID: 0}
+  timerPlaceholder: {fileID: 0}
 --- !u!1 &1526576431
 GameObject:
   m_ObjectHideFlags: 0
