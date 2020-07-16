@@ -268,7 +268,10 @@ public class FillPlayerView : MonoBehaviour
         Game _game = GameManager.singleton.game;
         BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
         //check if the number of buildings financed is greater than the max allowed per turn
-        if (tooManyBuildingsFinanced(_betControl.NbBuildingsFinanced()))
+        if (tooManyBuildingsFinanced(_betControl.NbBuildingsFinanced()) || NextTurnButton.NbBuildingFinancedTooHighForEndGame())
+        /*ou (le nombre de bâtiments financés 
+        * + le nombre de bâtiments construits 
+        > nbBuildingsMaxGame*/
         {
             ColorFinancedBuildingsBorder(RedBorderBuilding, _betControl, _game);
             ColorFinancedBuildingsInside(RedInsideBuilding, _betControl, _game);
@@ -288,7 +291,7 @@ public class FillPlayerView : MonoBehaviour
     /// <returns>true if too much buildings</returns>
     public static bool tooManyBuildingsFinanced(int _nbBuildingsFinanced)
     {
-        int _numberMaxAllowedPerTurn = 1; //will be changed when settings menu is created
+        int _numberMaxAllowedPerTurn = GameSettings.nbBuildingsPerTurn; //will be changed when settings menu is created
         return (_nbBuildingsFinanced > _numberMaxAllowedPerTurn);
     }
 

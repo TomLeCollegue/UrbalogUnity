@@ -37,7 +37,7 @@ public class SettingsMenu : MonoBehaviour
 
     public TextMeshProUGUI timerPlaceholder;
 
-
+    public TextMeshProUGUI nbBuildingsMaxPerTurnPlaceholder;
 
     public void GoToSettingsScene()
     {
@@ -47,6 +47,11 @@ public class SettingsMenu : MonoBehaviour
     public void GoBackToLobby()
     {
         SceneManager.LoadScene("LobbyRework");
+    }
+
+    private void Update()
+    {
+        nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
     }
 
     public void DisplayBuildingsSettingsMenu()
@@ -62,6 +67,7 @@ public class SettingsMenu : MonoBehaviour
         TimeLimitPanel.SetActive(false);
         MainSettingsMenu.SetActive(true);
         BuildingsSettingsMenu.SetActive(false);
+        //nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
     }
 
     public void DisplayBuildingsList()

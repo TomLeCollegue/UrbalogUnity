@@ -136,7 +136,7 @@ public class NextTurnButton : NetworkBehaviour
     /// Checks if the number of buildings that are financed + those who are built exceeds
     /// the number of buildings required to end the game
     /// </summary>
-    private bool NbBuildingFinancedTooHighForEndGame()
+    public static bool NbBuildingFinancedTooHighForEndGame()
     {
         //Si le nombre de bâtiments financés + ceux déjà construits dépassent le nombre de bâtiments avant d'arriver
         // à la fin, return true

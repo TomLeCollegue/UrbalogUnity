@@ -10,6 +10,8 @@ public class GameSettings : MonoBehaviour
 
     public static bool isTimerActive = false;
 
+    public static int nbBuildingsPerTurn = 2;
+
     public void ChangeTimePerTurn(string _time)
     {
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
@@ -21,6 +23,10 @@ public class GameSettings : MonoBehaviour
         isTimerActive = _isTimerActive;
     }
 
+    public void ChangerNbBuildingsMaxPerTurn(string _nbMax)
+    {
+        nbBuildingsPerTurn = Convert.ToInt16(_nbMax);
+    }
 
 
 }
