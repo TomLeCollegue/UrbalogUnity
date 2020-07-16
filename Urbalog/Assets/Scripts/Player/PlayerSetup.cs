@@ -57,10 +57,28 @@ public class PlayerSetup : NetworkBehaviour
             CmdSendInfoPlayer(_netID, namePlayer, age, company, gender, playerFamilyName, zipcode, jobStatus,field);
         }
         CmdSendRulesToPlayer();
+        CmdSendNbBuildingsMax();
         CmdGetRoleForPlayer(); 
         CmdSendActualGameManager(); 
+    }
 
+    /// <summary>
+    /// Sends to all players the number max of buildings they can build in a full game
+    /// </summary>
+    [Command]
+    public void CmdSendNbBuildingsMax()
+    {
+        RpcGetNbBuildingsMax(NextTurnButton.NumberBuildingsToEnd);
+    }
 
+    /// <summary>
+    /// each players take from server the number max of buildings they can build in a full game
+    /// </summary>
+    /// <param name="_numberBuildingsToEnd"></param>
+    [ClientRpc]
+    public void RpcGetNbBuildingsMax(int _numberBuildingsToEnd)
+    {
+        NextTurnButton.NumberBuildingsToEnd = _numberBuildingsToEnd;
     }
 
     /// <summary>
@@ -69,7 +87,7 @@ public class PlayerSetup : NetworkBehaviour
     [Command]
     public void CmdSendRulesToPlayer()
     {
-        RpcGetRules(GameSettings.TurnTimeMax, GameSettings.isTimerActive);
+        RpcGetRules(GameSettings.TurnTimeMax, GameSettings.isTimerActive, GameSettings.nbBuildingsPerTurn);
     }
 
     /// <summary>
@@ -78,10 +96,11 @@ public class PlayerSetup : NetworkBehaviour
     /// <param name="_turnTimeMax"></param>
     /// <param name="_isTimerActive"></param>
     [ClientRpc]
-    public void RpcGetRules(float _turnTimeMax, bool _isTimerActive)
+    public void RpcGetRules(float _turnTimeMax, bool _isTimerActive, int _nbBuildingsPerTurn)
     {
         GameSettings.TurnTimeMax = _turnTimeMax;
         GameSettings.isTimerActive = _isTimerActive;
+        GameSettings.nbBuildingsPerTurn = _nbBuildingsPerTurn;
     }
 
 

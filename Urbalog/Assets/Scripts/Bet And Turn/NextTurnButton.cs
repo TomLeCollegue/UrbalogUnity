@@ -4,12 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NextTurnButton : NetworkBehaviour
 {
     public static int NumberBuildingsToEnd = 2; //default value
     public TextMeshProUGUI TextButton;
     bool LogSend = false;
+    public Button ButtonNextTurn;
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -51,21 +53,6 @@ public class NextTurnButton : NetworkBehaviour
 
         PrintTheGoodNextTurnButton(Turn, NbBuildingFinancedTooHighForEndGame(), NbBuildingFinancedTooHighForTurn());
 
-/*        if (!Turn && !NbBuildingFinancedTooHighForEndGame())
-        {
-            Debug.Log("Tour suivant suivant");
-            TextButton.text = "Tour Suivant";
-        }
-        else if (NbBuildingFinancedTooHighForEndGame())
-        {
-            TextButton.text = "TROP D'AMÉNAGEMENTS";
-        }
-        else if (Turn && !NbBuildingFinancedTooHighForEndGame())
-        {
-            Debug.Log("Tour suivant annuler");
-            TextButton.text = "Annuler";
-        }*/
-
         
         if (CheckForTimerStart()) //the timer has to start
         {
@@ -82,17 +69,21 @@ public class NextTurnButton : NetworkBehaviour
     {
         if (!_TurnPressed && !_NbBuildingFinancedTooHighForEndGame && !_NbBuildingFinancedTooHighForTurn)
         {
-            Debug.Log("Tour suivant suivant");
             TextButton.text = "Tour Suivant";
+            TextButton.color = Color.black;
+            ButtonNextTurn.interactable = true;
         }
         else if (_NbBuildingFinancedTooHighForEndGame || _NbBuildingFinancedTooHighForTurn)
         {
             TextButton.text = "TROP D'AMÉNAGEMENTS";
+            TextButton.color = new Color(0.83f, 0.19f, 0.11f);
+            ButtonNextTurn.interactable = false;
         }
         else if (_TurnPressed && (!_NbBuildingFinancedTooHighForEndGame || !_NbBuildingFinancedTooHighForEndGame))
         {
-            Debug.Log("Tour suivant annuler");
             TextButton.text = "Annuler";
+            TextButton.color = Color.black;
+            ButtonNextTurn.interactable = true;
         }
     }
 
@@ -145,7 +136,7 @@ public class NextTurnButton : NetworkBehaviour
     /// Checks if the number of buildings that are financed + those who are built exceeds
     /// the number of buildings required to end the game
     /// </summary>
-    private bool NbBuildingFinancedTooHighForEndGame()
+    public static bool NbBuildingFinancedTooHighForEndGame()
     {
         //Si le nombre de bâtiments financés + ceux déjà construits dépassent le nombre de bâtiments avant d'arriver
         // à la fin, return true
