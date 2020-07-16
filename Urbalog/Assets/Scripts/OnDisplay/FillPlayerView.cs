@@ -1398,45 +1398,41 @@ public class FillPlayerView : MonoBehaviour
         FluidScore.text = _building.fluidScore.ToString();
 
         #region Finance
-        //TODO: blue text when player bet on it
-        //regarder le bet du player dans playerBets[numBuilding,ressource]
-        //Si >0 ==> texte en bleu
-        //Sinon texte en gris
         if (_role.ressource1.Equals("Economical"))
         {
             ressource1.text = _building.FinanceEconomical + "/" + _building.Economical;
             ressource1image.GetComponent<Image>().sprite = EcoImage;
-            ColorResourceOnBetPanel(ressource1,_betControl,_building, _role, _role.ressource1);
+            ColorResourceOnBetPanel(ressource1,_betControl, _role, _role.ressource1);
         }
         else if (_role.ressource1.Equals("Political"))
         {
             ressource1.text = _building.FinancePolitical + "/" + _building.Political;
             ressource1image.GetComponent<Image>().sprite = PoliImage;
-            ColorResourceOnBetPanel(ressource1, _betControl, _building, _role, _role.ressource1);
+            ColorResourceOnBetPanel(ressource1, _betControl,  _role, _role.ressource1);
         }
         else
         {
             ressource1.text = _building.FinanceSocial + "/" + _building.Social;
             ressource1image.GetComponent<Image>().sprite = SocialImage;
-            ColorResourceOnBetPanel(ressource1, _betControl, _building, _role, _role.ressource1);
+            ColorResourceOnBetPanel(ressource1, _betControl,  _role, _role.ressource1);
         }
         if (_role.ressource2.Equals("Economical"))
         {
             ressource2.text = _building.FinanceEconomical + "/" + _building.Economical;
             ressource2image.GetComponent<Image>().sprite = EcoImage;
-            ColorResourceOnBetPanel(ressource2, _betControl, _building, _role, _role.ressource2);
+            ColorResourceOnBetPanel(ressource2, _betControl,  _role, _role.ressource2);
         }
         else if (_role.ressource2.Equals("Political"))
         {
             ressource2.text = _building.FinancePolitical + "/" + _building.Political;
             ressource2image.GetComponent<Image>().sprite = PoliImage;
-            ColorResourceOnBetPanel(ressource2, _betControl, _building, _role, _role.ressource2);
+            ColorResourceOnBetPanel(ressource2, _betControl,  _role, _role.ressource2);
         }
         else
         {
             ressource2.text = _building.FinanceSocial + "/" + _building.Social;
             ressource2image.GetComponent<Image>().sprite = SocialImage;
-            ColorResourceOnBetPanel(ressource2, _betControl, _building, _role, _role.ressource2);
+            ColorResourceOnBetPanel(ressource2, _betControl,  _role, _role.ressource2);
         }
         #endregion
         if (_building.attractScore < 0)
@@ -1487,28 +1483,24 @@ public class FillPlayerView : MonoBehaviour
 
     }
 
-    private void ColorResourceOnBetPanel(TextMeshProUGUI _ressourceText, BetControl _betControl, Building _building, Role _role, string _resourceInRole)
+    /// <summary>
+    /// When the player bets on a resource via the betPanel, the coresponding resource is displayed in blue
+    /// in the betPanel.
+    /// </summary>
+    /// <param name="_ressourceText">TMPro of the resource on betPanel</param>
+    /// <param name="_betControl">so we can access the methods and playerBets from playerLocal</param>
+    /// <param name="_role">player Role</param>
+    /// <param name="_resourceInRole">the resource we are looking at</param>
+    private void ColorResourceOnBetPanel(TextMeshProUGUI _ressourceText, BetControl _betControl, Role _role, string _resourceInRole)
     {
-        //TODO: blue text when player bet on it
-        //regarder le bet du player dans playerBets[numBuilding,index de la ressource dans playerBets]
-        //Si >0 ==> texte en bleu
-        //Sinon texte en gris
         int _indexResource = _betControl.FindIndexFromResource(_resourceInRole,_role);
-        //_betControl.FindIndexFromResource(_resource, _role)
-        if (_indexResource == -1)
+        if (_indexResource != -1 && _betControl.playerBets[_betControl.numBuildingBet,_indexResource] > 0)
         {
-            _ressourceText.color = urbaGrey;
+            _ressourceText.color = urbaBlue;
         }
         else
         {
-            if (_betControl.playerBets[_betControl.numBuildingBet,_indexResource] > 0)
-            {
-                _ressourceText.color = urbaBlue;
-            }
-            else
-            {
-                _ressourceText.color = urbaGrey;
-            }
+            _ressourceText.color = urbaGrey;
         }
     }
 }
