@@ -1387,53 +1387,64 @@ public class FillPlayerView : MonoBehaviour
     /// </summary>
     public void FillBetPanel()
     {
-        Building building = GameManager.singleton.game.Market[GameObject.Find("playerLocal").GetComponent<BetControl>().numBuildingBet];
-        Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
-        BetNameBuilding.text = building.name;
-        BetNameBuilding2.text = building.name;
-        BetDescBuilding.text = building.description;
-        attractScore.text = building.attractScore.ToString();
-        EnviScore.text = building.enviScore.ToString();
-        FluidScore.text = building.fluidScore.ToString();
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+        Building _building = GameManager.singleton.game.Market[_betControl.numBuildingBet];
+        Role _role = GameObject.Find("playerLocal").GetComponent<Player>().role;
+        BetNameBuilding.text = _building.name;
+        BetNameBuilding2.text = _building.name;
+        BetDescBuilding.text = _building.description;
+        attractScore.text = _building.attractScore.ToString();
+        EnviScore.text = _building.enviScore.ToString();
+        FluidScore.text = _building.fluidScore.ToString();
 
         #region Finance
-        if (role.ressource1.Equals("Economical"))
+        //TODO: blue text when player bet on it
+        //regarder le bet du player dans playerBets[numBuilding,ressource]
+        //Si >0 ==> texte en bleu
+        //Sinon texte en gris
+        if (_role.ressource1.Equals("Economical"))
         {
-            ressource1.text = building.FinanceEconomical + "/" + building.Economical;
+            ressource1.text = _building.FinanceEconomical + "/" + _building.Economical;
             ressource1image.GetComponent<Image>().sprite = EcoImage;
+            ColorResourceOnBetPanel(ressource1,_betControl,_building, _role, _role.ressource1);
         }
-        else if (role.ressource1.Equals("Political"))
+        else if (_role.ressource1.Equals("Political"))
         {
-            ressource1.text = building.FinancePolitical + "/" + building.Political;
+            ressource1.text = _building.FinancePolitical + "/" + _building.Political;
             ressource1image.GetComponent<Image>().sprite = PoliImage;
+            ColorResourceOnBetPanel(ressource1, _betControl, _building, _role, _role.ressource1);
         }
         else
         {
-            ressource1.text = building.FinanceSocial + "/" + building.Social;
+            ressource1.text = _building.FinanceSocial + "/" + _building.Social;
             ressource1image.GetComponent<Image>().sprite = SocialImage;
+            ColorResourceOnBetPanel(ressource1, _betControl, _building, _role, _role.ressource1);
         }
-        if (role.ressource2.Equals("Economical"))
+        if (_role.ressource2.Equals("Economical"))
         {
-            ressource2.text = building.FinanceEconomical + "/" + building.Economical;
+            ressource2.text = _building.FinanceEconomical + "/" + _building.Economical;
             ressource2image.GetComponent<Image>().sprite = EcoImage;
+            ColorResourceOnBetPanel(ressource2, _betControl, _building, _role, _role.ressource2);
         }
-        else if (role.ressource2.Equals("Political"))
+        else if (_role.ressource2.Equals("Political"))
         {
-            ressource2.text = building.FinancePolitical + "/" + building.Political;
+            ressource2.text = _building.FinancePolitical + "/" + _building.Political;
             ressource2image.GetComponent<Image>().sprite = PoliImage;
+            ColorResourceOnBetPanel(ressource2, _betControl, _building, _role, _role.ressource2);
         }
         else
         {
-            ressource2.text = building.FinanceSocial + "/" + building.Social;
+            ressource2.text = _building.FinanceSocial + "/" + _building.Social;
             ressource2image.GetComponent<Image>().sprite = SocialImage;
+            ColorResourceOnBetPanel(ressource2, _betControl, _building, _role, _role.ressource2);
         }
         #endregion
-        if (building.attractScore < 0)
+        if (_building.attractScore < 0)
         {
             AttractImageBuilding.GetComponent<Image>().color = urbaRed;
             attractScore.color = urbaRed;
         }
-        else if (building.attractScore == 0)
+        else if (_building.attractScore == 0)
         {
             AttractImageBuilding.GetComponent<Image>().color = urbaGrey;
             attractScore.color = urbaGrey;
@@ -1443,12 +1454,12 @@ public class FillPlayerView : MonoBehaviour
             AttractImageBuilding.GetComponent<Image>().color = urbaGreen;
             attractScore.color = urbaGreen;
         }
-        if (building.fluidScore < 0)
+        if (_building.fluidScore < 0)
         {
             FluidImageBuilding.GetComponent<Image>().color = urbaRed;
             FluidScore.color = urbaRed;
         }
-        else if (building.fluidScore == 0)
+        else if (_building.fluidScore == 0)
         {
             FluidImageBuilding.GetComponent<Image>().color = urbaGrey;
             FluidScore.color = urbaGrey;
@@ -1458,12 +1469,12 @@ public class FillPlayerView : MonoBehaviour
             FluidImageBuilding.GetComponent<Image>().color = urbaGreen;
             FluidScore.color = urbaGreen;
         }
-        if (building.enviScore < 0)
+        if (_building.enviScore < 0)
         {
             EnviImageBuilding.GetComponent<Image>().color = urbaRed;
             EnviScore.color = urbaRed;
         }
-        else if (building.enviScore == 0)
+        else if (_building.enviScore == 0)
         {
             EnviImageBuilding.GetComponent<Image>().color = urbaGrey;
             EnviScore.color = urbaGrey;
@@ -1474,5 +1485,30 @@ public class FillPlayerView : MonoBehaviour
             EnviScore.color = urbaGreen;
         }
 
+    }
+
+    private void ColorResourceOnBetPanel(TextMeshProUGUI _ressourceText, BetControl _betControl, Building _building, Role _role, string _resourceInRole)
+    {
+        //TODO: blue text when player bet on it
+        //regarder le bet du player dans playerBets[numBuilding,index de la ressource dans playerBets]
+        //Si >0 ==> texte en bleu
+        //Sinon texte en gris
+        int _indexResource = _betControl.FindIndexFromResource(_resourceInRole,_role);
+        //_betControl.FindIndexFromResource(_resource, _role)
+        if (_indexResource == -1)
+        {
+            _ressourceText.color = urbaGrey;
+        }
+        else
+        {
+            if (_betControl.playerBets[_betControl.numBuildingBet,_indexResource] > 0)
+            {
+                _ressourceText.color = urbaBlue;
+            }
+            else
+            {
+                _ressourceText.color = urbaGrey;
+            }
+        }
     }
 }
