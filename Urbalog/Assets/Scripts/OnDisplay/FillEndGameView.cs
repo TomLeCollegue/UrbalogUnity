@@ -7,45 +7,25 @@ using UnityEngine.UI;
 
 public class FillEndGameView : MonoBehaviour
 {
-    public GameObject buildingsBuiltItem;
-    public Transform buildingsListHolder;
     public TextMeshProUGUI AttractCity;
     public TextMeshProUGUI EnviCity;
     public TextMeshProUGUI FluidCity;
     public TextMeshProUGUI LogisticCity;
     public TextMeshProUGUI SentenceLogistic;
-    public TextMeshProUGUI Score;
 
-    public ScrollRect scrollRect;
+    public Image Envi;
+    public Image Attract;
+    public Image Fluid;
+    public Image Logi;
+
+    Color urbaGrey = new Color(0.58f, 0.63f, 0.71f);
+    Color urbaGreen = new Color(0.56f, 0.68f, 0.32f);
+    Color urbaRed = new Color(0.83f, 0.19f, 0.11f);
+
     // Start is called before the first frame update
     void Start()
     {
         FillEndGameScoreInfo();
-        FillBuildingsBuiltList();
-        scrollRect.verticalNormalizedPosition = 1;
-    }
-
-    private void Update()
-    {
-        Score.text = "Score : " + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
-    }
-
-
-    //awake is initialized after all objects are initialized
-    private void FillBuildingsBuiltList()
-    {
-        for (int i = 0; i < GameManager.singleton.game.BuildingsBuilt.Count; i++)
-        {
-            SpawnBuildingBuiltItem(GameManager.singleton.game.BuildingsBuilt[i]);
-        }
-    }
-    public void SpawnBuildingBuiltItem(Building _building)
-    {
-        GameObject Item = Instantiate(buildingsBuiltItem, buildingsListHolder);
-        Item.GetComponent<BuildingsBuiltListItem>().RenameBuilding(_building.name);
-        Item.GetComponent<BuildingsBuiltListItem>().RenameDescripLog(_building.logisticDescription);
-        Item.GetComponent<BuildingsBuiltListItem>().RenameScoreLogstring(_building.logisticScore);
-
     }
 
     private void FillEndGameScoreInfo()
@@ -57,6 +37,7 @@ public class FillEndGameView : MonoBehaviour
         FluidCity.text = _game.cityFluidity.ToString();
         LogisticCity.text = _game.cityLogistic.ToString();
         LogisticSentence();
+        ColorImpact();
 
     }
 
@@ -80,6 +61,65 @@ public class FillEndGameView : MonoBehaviour
         {
             SentenceLogistic.text = "Le transport de marchandises se fait très facilement dans votre ville.";
         }
+
+    }
+
+
+    public void ColorImpact()
+    {
+        Game game = GameManager.singleton.game;
+        if (game.cityAttractiveness < 0)
+        {
+            Attract.color = urbaRed;
+        }
+        else if (game.cityAttractiveness == 0)
+        {
+            Attract.color = urbaGrey;
+        }
+        else
+        {
+            Attract.color = urbaGreen;
+        }
+
+        if (game.cityEnvironment < 0)
+        {
+            Envi.color = urbaRed;
+        }
+        else if (game.cityEnvironment == 0)
+        {
+            Envi.color = urbaGrey;
+        }
+        else
+        {
+            Envi.color = urbaGreen;
+        }
+
+        if (game.cityFluidity < 0)
+        {
+            Fluid.color = urbaRed;
+        }
+        else if (game.cityFluidity == 0)
+        {
+            Fluid.color = urbaGrey;
+        }
+        else
+        {
+            Fluid.color = urbaGreen;
+        }
+
+        if (game.cityLogistic < 0)
+        {
+            Logi.color = urbaRed;
+        }
+        else if (game.cityLogistic == 0)
+        {
+            Logi.color = urbaGrey;
+        }
+        else
+        {
+            Logi.color = urbaGreen;
+        }
+
 
     }
 }

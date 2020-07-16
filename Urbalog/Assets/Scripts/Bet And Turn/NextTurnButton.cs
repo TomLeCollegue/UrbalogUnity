@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 6; //default value
+    public static int NumberBuildingsToEnd = 2; //default value
     public TextMeshProUGUI TextButton;
     bool LogSend = false;
     public Button ButtonNextTurn;

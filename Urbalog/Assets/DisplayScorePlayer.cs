@@ -27,7 +27,6 @@ public class DisplayScorePlayer : MonoBehaviour
 
     private void Update()
     {
-        TurnNumber.text = "Tour : " + GameManager.singleton.game.turnNumber.ToString();
         Debug.Log("DisplayScore");
         List<Player> Players = GameManager.singleton.players;
         TextScore1.text = Players[0].scorePlayer.ToString();
@@ -44,6 +43,8 @@ public class DisplayScorePlayer : MonoBehaviour
 
         TextScore5.text = Players[4].scorePlayer.ToString();
         ImageScore5.GetComponent<Image>().sprite = GetInfoPlayer(Players[4]);
+        
+        TurnNumber.text = "Tour : " + GameManager.singleton.game.turnNumber.ToString();
     }
 
     private Sprite GetInfoPlayer(Player player)

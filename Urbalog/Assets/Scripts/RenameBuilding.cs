@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RenameBuilding : NetworkBehaviour
 {
     public TextMeshProUGUI BuildingName;
     public Building building;
-
+    public GameObject LogistiqueButton;
+    public TextMeshProUGUI LogistiqueScore;
+    
     [SyncVar]
     public string NameBuilding;
 
@@ -38,9 +41,27 @@ public class RenameBuilding : NetworkBehaviour
         return buildings[0];
     }
 
-    public void DebugTest()
+    public void DisplayBuildingInfo()
     {
         Debug.Log("Building "  + NameBuilding);
-        GameObject.Find("PlayerViewManager").GetComponent<PopUpBuildingDisplay>().DisplayPopUp(building); ;
+        GameObject.Find("PlayerViewManager").GetComponent<PopUpBuildingDisplay>().DisplayPopUp(building);
+    }
+
+
+    public void DisplayLogisticBuildingInfo()
+    {
+        Debug.Log("Building Logistique " + NameBuilding);
+        GameObject.Find("PlayerViewManager").GetComponent<popUpLogistic>().DisplayPopUp(building);
+    }
+
+
+
+    public void Update()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("EndGame"))
+        {
+            LogistiqueButton.SetActive(true);
+            LogistiqueScore.text = building.logisticScore.ToString();
+        }
     }
 }
