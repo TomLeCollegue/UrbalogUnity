@@ -1,18 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    private RectTransform rectTransform;
+
+    private void Awake()
     {
-        
+        rectTransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        
+        Debug.Log("test begin drag");
     }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log("test begin drag");
+        rectTransform.anchoredPosition += eventData.delta;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("test clic");
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
+
 }
