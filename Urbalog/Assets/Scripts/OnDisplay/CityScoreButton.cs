@@ -34,9 +34,8 @@ public class CityScoreButton : MonoBehaviour
             RoleFrame.SetActive(false);
             ButtonBack.SetActive(true);
             TitleCity.SetActive(true);
-            UpdateCityScorePanel();
-            Market.SetActive(false);
             GroupeLayout.SetActive(true);
+            Market.SetActive(false);
         }
     }
 
