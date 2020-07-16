@@ -27,6 +27,8 @@ public class Player : NetworkBehaviour
     public string jobStatus = "";
     [SyncVar]
     public string field = "";
+    [SyncVar]
+    public string nameRole = "";
 
     public string ID;
 
@@ -52,7 +54,7 @@ public class Player : NetworkBehaviour
     public void RpcCheckScoreChange()
     {
         Player player = GameObject.Find("playerLocal").GetComponent<Player>();
-
+        Debug.Log("PopUp Win or Lose");
         if(player.role.nameRole.Equals("SERVEUR") || player.role.nameRole.Equals("PLATEAU"))
         {
             return;
@@ -93,6 +95,13 @@ public class Player : NetworkBehaviour
     public void RpcClientOnCityView()
     {
         GameObject.Find("PlayerViewManager").GetComponent<CityScoreButton>().OpenPanel();
+    }
+
+
+
+    public void InvokePopUP()
+    {
+        Invoke("CmdScore", 2);
     }
 
 }

@@ -20,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 0fc6f363a2551194480d5a989af5fd14
-  - enabled: 1
-    path: Assets/Scenes/PopUp.unity
-    guid: 192adff8057138d4da4ce5bf134763cf
   m_configObjects: {}

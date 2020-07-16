@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 758281514}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1685314386}
@@ -976,7 +976,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 308066189}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2003404734}
@@ -5080,7 +5080,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 991097852}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1229990921}
@@ -5457,7 +5457,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 857431153}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2139337205}
@@ -12768,6 +12768,7 @@ MonoBehaviour:
   MainSettingsMenu: {fileID: 0}
   BuildingsSettingsMenu: {fileID: 0}
   BuildingsListPanel: {fileID: 0}
+  TimeLimitPanel: {fileID: 0}
   currentBuilding:
     name: 
     description: 
@@ -12802,6 +12803,7 @@ MonoBehaviour:
   logiInput: {fileID: 0}
   logisticDescriptionPlaceholder: {fileID: 0}
   logiDescriptionInput: {fileID: 0}
+  timerPlaceholder: {fileID: 0}
 --- !u!1 &1526576431
 GameObject:
   m_ObjectHideFlags: 0
@@ -18279,7 +18281,7 @@ PrefabInstance:
     - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
       propertyPath: spawnPrefabs.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
@@ -18311,6 +18313,12 @@ PrefabInstance:
       propertyPath: spawnPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 8284877600998288032, guid: 1395087f23a23914087423a94b8bada8,
+        type: 3}
+    - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
+        type: 3}
+      propertyPath: spawnPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 131976151703033013, guid: 222906e953c719246a46b5c9405cd23b,
         type: 3}
     - target: {fileID: 518646868029173898, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
