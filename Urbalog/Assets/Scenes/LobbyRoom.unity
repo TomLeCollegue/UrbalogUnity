@@ -1291,6 +1291,7 @@ GameObject:
   - component: {fileID: 1487446522}
   - component: {fileID: 1487446524}
   - component: {fileID: 1487446525}
+  - component: {fileID: 1487446526}
   m_Layer: 0
   m_Name: ListPlayerManager
   m_TagString: Untagged
@@ -1359,3 +1360,16 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &1487446526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487446521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3058165ce70fa754fb4902d1b09a9a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LobbyRoomName: {fileID: 685796036}
