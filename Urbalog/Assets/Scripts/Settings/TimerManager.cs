@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    public float currentTurnTime = 60f;
-    public float turnTimeMax = 60f;
+    public float currentTurnTime = GameSettings.TurnTimeMax;
+    public float turnTimeMax = GameSettings.TurnTimeMax;
 
     public bool alreadyStarted = false;
 
@@ -17,8 +17,7 @@ public class TimerManager : MonoBehaviour
     {
         if (!alreadyStarted)
         {
-
-            currentTurnTime = turnTimeMax;
+            currentTurnTime = GameSettings.TurnTimeMax;
             alreadyStarted = true;
         }
     }
@@ -35,16 +34,23 @@ public class TimerManager : MonoBehaviour
 
     private void Awake()
     {
-        currentTurnTime = 60f;
+        if (GameSettings.isTimerActive)
+        {
+            currentTurnTime = GameSettings.TurnTimeMax;
+        }
     }
 
     private void Update()
     {
-        if (alreadyStarted)
+        if (alreadyStarted && GameSettings.isTimerActive)
         {
             DecreaseTime();
+            turnTimerText.text = "Temps : "+currentTurnTime.ToString("0");
         }
-        turnTimerText.text = currentTurnTime.ToString("0");
+        else
+        {
+            turnTimerText.text = "";
+        }
         if (currentTurnTime <= 20f)
         {
             turnTimerText.color = Color.red;
@@ -54,5 +60,7 @@ public class TimerManager : MonoBehaviour
             turnTimerText.color = Color.black;
         }
     }
+
+
 
 }
