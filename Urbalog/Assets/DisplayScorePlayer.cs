@@ -27,22 +27,23 @@ public class DisplayScorePlayer : MonoBehaviour
 
     private void Update()
     {
+        int PlayerServeur = 2;
         Debug.Log("DisplayScore");
         List<Player> Players = GameManager.singleton.players;
-        TextScore1.text = Players[0].scorePlayer.ToString();
+        TextScore1.text = Players[0 + PlayerServeur].scorePlayer.ToString();
         Debug.Log("DisplayScore2");
-        ImageScore1.GetComponent<Image>().sprite = GetInfoPlayer(Players[0]);
-        TextScore2.text = Players[1].scorePlayer.ToString();
-        ImageScore2.GetComponent<Image>().sprite = GetInfoPlayer(Players[1]);
+        ImageScore1.GetComponent<Image>().sprite = GetInfoPlayer(Players[0 + PlayerServeur]);
+        TextScore2.text = Players[1 + PlayerServeur].scorePlayer.ToString();
+        ImageScore2.GetComponent<Image>().sprite = GetInfoPlayer(Players[1 + PlayerServeur]);
 
-        TextScore3.text = Players[2].scorePlayer.ToString();
-        ImageScore3.GetComponent<Image>().sprite = GetInfoPlayer(Players[2]);
+        TextScore3.text = Players[2 + PlayerServeur].scorePlayer.ToString();
+        ImageScore3.GetComponent<Image>().sprite = GetInfoPlayer(Players[2 + PlayerServeur]);
 
-        TextScore4.text = Players[3].scorePlayer.ToString();
-        ImageScore4.GetComponent<Image>().sprite = GetInfoPlayer(Players[3]);
+        TextScore4.text = Players[3 + PlayerServeur].scorePlayer.ToString();
+        ImageScore4.GetComponent<Image>().sprite = GetInfoPlayer(Players[3 + PlayerServeur]);
 
-        TextScore5.text = Players[4].scorePlayer.ToString();
-        ImageScore5.GetComponent<Image>().sprite = GetInfoPlayer(Players[4]);
+        TextScore5.text = Players[4 + PlayerServeur].scorePlayer.ToString();
+        ImageScore5.GetComponent<Image>().sprite = GetInfoPlayer(Players[4 + PlayerServeur]);
         
         TurnNumber.text = "Tour : " + GameManager.singleton.game.turnNumber.ToString();
     }

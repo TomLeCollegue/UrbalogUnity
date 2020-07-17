@@ -94,7 +94,12 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     public void RpcClientOnCityView()
     {
-        GameObject.Find("PlayerViewManager").GetComponent<CityScoreButton>().OpenPanel();
+        Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+        if (player.role.nameRole.Equals("SERVEUR") || player.role.nameRole.Equals("PLATEAU"))
+        {
+            return;
+        }
+        GameObject.Find("PlayerViewManager").GetComponent<CityScoreButton>().CityViewNextTurn();
     }
 
 

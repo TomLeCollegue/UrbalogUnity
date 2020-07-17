@@ -3686,7 +3686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &145434162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8321,6 +8321,8 @@ MonoBehaviour:
   RoleFrame: {fileID: 1305461091}
   City: {fileID: 0}
   Market: {fileID: 612090398}
+  buttonNextTurn: {fileID: 0}
+  buttonRole: {fileID: 0}
   Attract: {fileID: 0}
   Envi: {fileID: 0}
   Fluid: {fileID: 0}
@@ -14644,7 +14646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &663473100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16865,6 +16867,8 @@ MonoBehaviour:
   RoleFrame: {fileID: 1305461091}
   City: {fileID: 39052273}
   Market: {fileID: 612090398}
+  buttonNextTurn: {fileID: 784941756}
+  buttonRole: {fileID: 2001448767}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
@@ -16915,7 +16919,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 784941758}
-        m_MethodName: ClosePanel
+        m_MethodName: ClosePanelNextTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18165,7 +18169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retour
+  m_text: "R\xF4le"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1edbebb788779c489717fbd91c25274, type: 2}
   m_sharedMaterial: {fileID: 9134218626922991563, guid: b1edbebb788779c489717fbd91c25274,
@@ -22819,7 +22823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1077295413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24138,7 +24142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1142671509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25282,6 +25286,8 @@ MonoBehaviour:
   RoleFrame: {fileID: 1305461091}
   City: {fileID: 0}
   Market: {fileID: 612090398}
+  buttonNextTurn: {fileID: 0}
+  buttonRole: {fileID: 0}
   Attract: {fileID: 0}
   Envi: {fileID: 0}
   Fluid: {fileID: 0}
@@ -28226,6 +28232,8 @@ MonoBehaviour:
   RoleFrame: {fileID: 1305461091}
   City: {fileID: 39052273}
   Market: {fileID: 612090398}
+  buttonNextTurn: {fileID: 0}
+  buttonRole: {fileID: 0}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
@@ -28802,6 +28810,8 @@ MonoBehaviour:
   RoleFrame: {fileID: 1305461091}
   City: {fileID: 39052273}
   Market: {fileID: 612090398}
+  buttonNextTurn: {fileID: 784941756}
+  buttonRole: {fileID: 2001448767}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
@@ -42290,6 +42300,8 @@ MonoBehaviour:
   RoleFrame: {fileID: 1305461091}
   City: {fileID: 39052273}
   Market: {fileID: 612090398}
+  buttonNextTurn: {fileID: 0}
+  buttonRole: {fileID: 0}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
