@@ -17,6 +17,14 @@ public class CityScoreButton : MonoBehaviour
     public TextMeshProUGUI Fluid;
     public GameObject Market;
 
+    public Image EnviImage;
+    public Image AttractImage;
+    public Image FluidImage;
+
+    Color urbaGrey = new Color(0.58f, 0.63f, 0.71f);
+    Color urbaGreen = new Color(0.56f, 0.68f, 0.32f);
+    Color urbaRed = new Color(0.83f, 0.19f, 0.11f);
+
     //public Button NextTurnButton;
     public void OpenPanel()
     {
@@ -26,9 +34,8 @@ public class CityScoreButton : MonoBehaviour
             RoleFrame.SetActive(false);
             ButtonBack.SetActive(true);
             TitleCity.SetActive(true);
-            UpdateCityScorePanel();
-            Market.SetActive(false);
             GroupeLayout.SetActive(true);
+            Market.SetActive(false);
         }
     }
 
@@ -84,10 +91,56 @@ public class CityScoreButton : MonoBehaviour
         Attract.text = _game.cityAttractiveness.ToString();
         Envi.text = _game.cityEnvironment.ToString();
         Fluid.text = _game.cityFluidity.ToString();
+        ColorImpact();
     }
 
     private void Update()
     {
         UpdateCityScorePanel();
+    }
+
+    public void ColorImpact()
+    {
+        Game game = GameManager.singleton.game;
+        if (game.cityAttractiveness < 0)
+        {
+            AttractImage.color = urbaRed;
+        }
+        else if (game.cityAttractiveness == 0)
+        {
+            AttractImage.color = urbaGrey;
+        }
+        else
+        {
+            AttractImage.color = urbaGreen;
+        }
+
+        if (game.cityEnvironment < 0)
+        {
+            EnviImage.color = urbaRed;
+        }
+        else if (game.cityEnvironment == 0)
+        {
+            EnviImage.color = urbaGrey;
+        }
+        else
+        {
+            EnviImage.color = urbaGreen;
+        }
+
+        if (game.cityFluidity < 0)
+        {
+            FluidImage.color = urbaRed;
+        }
+        else if (game.cityFluidity == 0)
+        {
+            FluidImage.color = urbaGrey;
+        }
+        else
+        {
+            FluidImage.color = urbaGreen;
+        }
+
+
     }
 }
