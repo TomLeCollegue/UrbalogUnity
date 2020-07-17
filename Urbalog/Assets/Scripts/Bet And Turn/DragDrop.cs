@@ -19,7 +19,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("test begin drag");
+        Debug.Log("test drag");
         rectTransform.anchoredPosition += eventData.delta;
     }
 
@@ -29,7 +29,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("test end drag");
     }
 
 }
