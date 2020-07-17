@@ -1262,7 +1262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &39052274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2763,7 +2763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &103231028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8318,15 +8318,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b4298dee402a4cbadbc3fc99086b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
   RoleFrame: {fileID: 1305461091}
-  ButtonBack: {fileID: 0}
-  TitleCity: {fileID: 0}
-  GroupeLayout: {fileID: 0}
+  City: {fileID: 0}
+  Market: {fileID: 612090398}
   Attract: {fileID: 0}
   Envi: {fileID: 0}
   Fluid: {fileID: 0}
-  Market: {fileID: 612090398}
   EnviImage: {fileID: 0}
   AttractImage: {fileID: 0}
   FluidImage: {fileID: 0}
@@ -10429,7 +10426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &480948533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16831,7 +16828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &784941757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16865,18 +16862,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b4298dee402a4cbadbc3fc99086b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 103231027}
   RoleFrame: {fileID: 1305461091}
-  ButtonBack: {fileID: 784941756}
-  TitleCity: {fileID: 1471418504}
-  GroupeLayout: {fileID: 0}
+  City: {fileID: 39052273}
+  Market: {fileID: 612090398}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
-  Market: {fileID: 0}
-  EnviImage: {fileID: 0}
-  AttractImage: {fileID: 0}
-  FluidImage: {fileID: 0}
+  EnviImage: {fileID: 1220853865}
+  AttractImage: {fileID: 1899369572}
+  FluidImage: {fileID: 1073028321}
 --- !u!114 &784941759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18171,7 +18165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "March\xE9"
+  m_text: Retour
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1edbebb788779c489717fbd91c25274, type: 2}
   m_sharedMaterial: {fileID: 9134218626922991563, guid: b1edbebb788779c489717fbd91c25274,
@@ -25285,15 +25279,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b4298dee402a4cbadbc3fc99086b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
   RoleFrame: {fileID: 1305461091}
-  ButtonBack: {fileID: 0}
-  TitleCity: {fileID: 0}
-  GroupeLayout: {fileID: 0}
+  City: {fileID: 0}
+  Market: {fileID: 612090398}
   Attract: {fileID: 0}
   Envi: {fileID: 0}
   Fluid: {fileID: 0}
-  Market: {fileID: 612090398}
   EnviImage: {fileID: 0}
   AttractImage: {fileID: 0}
   FluidImage: {fileID: 0}
@@ -28183,17 +28174,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1343722553}
-        m_MethodName: UpdateCityScorePanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1343722551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28243,18 +28223,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b4298dee402a4cbadbc3fc99086b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 103231027}
   RoleFrame: {fileID: 1305461091}
-  ButtonBack: {fileID: 2001448767}
-  TitleCity: {fileID: 1471418504}
-  GroupeLayout: {fileID: 480948532}
+  City: {fileID: 39052273}
+  Market: {fileID: 612090398}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
-  Market: {fileID: 612090398}
-  EnviImage: {fileID: 0}
-  AttractImage: {fileID: 0}
-  FluidImage: {fileID: 0}
+  EnviImage: {fileID: 1220853865}
+  AttractImage: {fileID: 1899369572}
+  FluidImage: {fileID: 1073028321}
 --- !u!1 &1353393941
 GameObject:
   m_ObjectHideFlags: 0
@@ -28822,15 +28799,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b4298dee402a4cbadbc3fc99086b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 103231027}
   RoleFrame: {fileID: 1305461091}
-  ButtonBack: {fileID: 2001448767}
-  TitleCity: {fileID: 1471418504}
-  GroupeLayout: {fileID: 480948532}
+  City: {fileID: 39052273}
+  Market: {fileID: 612090398}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
-  Market: {fileID: 612090398}
   EnviImage: {fileID: 1220853865}
   AttractImage: {fileID: 1899369572}
   FluidImage: {fileID: 1073028321}
@@ -31425,7 +31399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1471418505
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42188,7 +42162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2001448768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42313,18 +42287,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b4298dee402a4cbadbc3fc99086b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 103231027}
   RoleFrame: {fileID: 1305461091}
-  ButtonBack: {fileID: 2001448767}
-  TitleCity: {fileID: 1471418504}
-  GroupeLayout: {fileID: 0}
+  City: {fileID: 39052273}
+  Market: {fileID: 612090398}
   Attract: {fileID: 1105467660}
   Envi: {fileID: 945453934}
   Fluid: {fileID: 1028210246}
-  Market: {fileID: 0}
-  EnviImage: {fileID: 0}
-  AttractImage: {fileID: 0}
-  FluidImage: {fileID: 0}
+  EnviImage: {fileID: 1220853865}
+  AttractImage: {fileID: 1899369572}
+  FluidImage: {fileID: 1073028321}
 --- !u!1 &2004257425
 GameObject:
   m_ObjectHideFlags: 0

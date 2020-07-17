@@ -6,16 +6,13 @@ using UnityEngine.UI;
 
 public class CityScoreButton : MonoBehaviour
 {
-    public GameObject Panel;
     public GameObject RoleFrame;
-    public GameObject ButtonBack;
-    public GameObject TitleCity;
-    public GameObject GroupeLayout;
+    public GameObject City;
+    public GameObject Market;
 
     public TextMeshProUGUI Attract;
     public TextMeshProUGUI Envi;
     public TextMeshProUGUI Fluid;
-    public GameObject Market;
 
     public Image EnviImage;
     public Image AttractImage;
@@ -28,29 +25,17 @@ public class CityScoreButton : MonoBehaviour
     //public Button NextTurnButton;
     public void OpenPanel()
     {
-        if (Panel != null)
-        {
-            Panel.SetActive(true);
-            RoleFrame.SetActive(false);
-            ButtonBack.SetActive(true);
-            TitleCity.SetActive(true);
-            GroupeLayout.SetActive(true);
-            Market.SetActive(false);
-        }
+        RoleFrame.SetActive(false);
+        Market.SetActive(false);
+        City.SetActive(true);
+        
     }
 
     public void ClosePanel()
     {
-        if (Panel != null)
-        {
-            Panel.SetActive(false);
-            ButtonBack.SetActive(false);
-            RoleFrame.SetActive(true);
-            TitleCity.SetActive(false);
-            Market.SetActive(false);
-            GroupeLayout.SetActive(false);
-
-        }
+        RoleFrame.SetActive(true);
+        Market.SetActive(false);
+        City.SetActive(false);
     }
 
     public void GoToMarket()
@@ -65,19 +50,6 @@ public class CityScoreButton : MonoBehaviour
         RoleFrame.SetActive(true);
     }
 
-    /// <summary>
-    /// Opens the panel if closed and opens it if closed
-    /// </summary>
-    public void TogglePanel()
-    {
-        bool _isActive = Panel.activeSelf;
-
-        Panel.SetActive(!_isActive);
-        if (!_isActive)
-        {
-            UpdateCityScorePanel();
-        }
-    }
 
     /// <summary>
     /// Refresh city scores on panel when it is opened
