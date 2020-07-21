@@ -12,6 +12,8 @@ public class GameSettings : MonoBehaviour
 
     public static int nbBuildingsPerTurn = 2;
 
+    public static string Language = "French"; 
+
     public void ChangeTimePerTurn(string _time)
     {
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
@@ -26,6 +28,11 @@ public class GameSettings : MonoBehaviour
     public void ChangerNbBuildingsMaxPerTurn(string _nbMax)
     {
         nbBuildingsPerTurn = Convert.ToInt16(_nbMax);
+    }
+
+    public void ChangeLanguage(string _language)
+    {
+        Language = _language;
     }
 
 
