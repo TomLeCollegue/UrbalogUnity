@@ -20,6 +20,26 @@ public class FillPlayerView : MonoBehaviour
     Color buildingNameGreen = new Color(0.00f, 1.00f, 0.22f);
     Color NameBuildingNotFinanced = new Color(0.1764706f , 0.1686275f, 0.2470588f);
     Color ResourcesTextNotFinanced = new Color(0.2745098f, 0.2705882f, 0.3372549f);
+
+    
+    Color Green2 = new Color(0.686f, 0.792f, 0.549f);
+    Color GreenInsideBuilding = new Color(0.854f, 0.905f, 0.788f);
+    Color RedInsideBuilding = new Color(0.976f, 0.698f, 0.713f);
+
+    Color GreenBorderBuilding = new Color(0.525f, 0.690f, 0.298f);
+    Color RedBorderBuilding = new Color(0.925f, 0f, 0.062f);
+
+    Color GreyInsideBuilding = new Color(0.917f, 0.952f, 0.964f);
+    Color GreyBorderBuilding = new Color(0.717f, 0.741f, 0.768f);
+    //yael green border 0.525, 0.690, 0.298
+    //yael green inside 0.854, 0.905, 0.788
+
+    //yael red border 0.925, 0, 0.062
+    //yael red inside 0.976, 0.698, 0.713
+
+    //yael grey border 0.717, 0.741, 0.768
+    //yael grey inside 0.917, 0.952, 0.964
+
     #endregion
     #region Buildings
     [Space(10)]
@@ -196,9 +216,23 @@ public class FillPlayerView : MonoBehaviour
     public Image ressource2image;
     #endregion
 
+    [Space(10)]
+    [Header("When Building is financed")]
+    #region FullBuildingFrame
+    public Image Building1FullBorder;
+    public Image Building1FullInside;
+    public Image Building2FullBorder;
+    public Image Building2FullInside;
+    public Image Building3FullBorder;
+    public Image Building3FullInside;
+    public Image Building4FullBorder;
+    public Image Building4FullInside;
+    public Image Building5FullBorder;
+    public Image Building5FullInside;
+    #endregion
+
     //For the actions that needs to be updated only once a turn
     public bool isAlreadyUpdated = false;
-
 
 
     // Update is called once per frame
@@ -207,7 +241,11 @@ public class FillPlayerView : MonoBehaviour
         FillPLayerViewInfo();
         ShowWherePlayerLocalBet();
         SetResourceFramesInGreenWhenCompleted();
-        SetBuildingNameInGreenWhenFinanced();
+        //SetBuildingNameInGreenWhenFinanced(); 
+        //probably not useful anymore because we color the resources frame when building is financed
+
+        ColorBuildingsWhenFinanced();
+
         ScorePlayer.text = "Score :" + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
         ColorImpact();
         FillBuildingsImpact();
@@ -221,6 +259,163 @@ public class FillPlayerView : MonoBehaviour
 
         FillBetPanel();
     }
+
+    /// <summary>
+    /// Color the buildings depending if they are financed and if there are too many buildings financed
+    /// </summary>
+    public void ColorBuildingsWhenFinanced()
+    {
+        Game _game = GameManager.singleton.game;
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+        //check if the number of buildings financed is greater than the max allowed per turn
+        if (tooManyBuildingsFinanced(_betControl.NbBuildingsFinanced()) || NextTurnButton.NbBuildingFinancedTooHighForEndGame())
+        /*ou (le nombre de bâtiments financés 
+        * + le nombre de bâtiments construits 
+        > nbBuildingsMaxGame*/
+        {
+            ColorFinancedBuildingsBorder(RedBorderBuilding, _betControl, _game);
+            ColorFinancedBuildingsInside(RedInsideBuilding, _betControl, _game);
+        }
+        else //not too many buildings so you want it in green
+        {
+            ColorFinancedBuildingsBorder(GreenBorderBuilding, _betControl, _game);
+            ColorFinancedBuildingsInside(GreenInsideBuilding, _betControl, _game);
+        }
+    }
+
+    /// <summary>
+    /// checks if there is too many buildings financed for a given turn
+    /// (not counting the end of the game)
+    /// </summary>
+    /// <param name="_nbBuildingsFinanced"></param>
+    /// <returns>true if too much buildings</returns>
+    public static bool tooManyBuildingsFinanced(int _nbBuildingsFinanced)
+    {
+        int _numberMaxAllowedPerTurn = GameSettings.nbBuildingsPerTurn; //will be changed when settings menu is created
+        return (_nbBuildingsFinanced > _numberMaxAllowedPerTurn);
+    }
+
+    /// <summary>
+    /// colors the buildings inside with a Color when they are financed.
+    /// gets it back to defaut color if not financed
+    /// </summary>
+    /// <param name="_color"></param>
+    /// <param name="_betControl"></param>
+    /// <param name="_game"></param>
+    private void ColorFinancedBuildingsInside(Color _color, BetControl _betControl, Game _game)
+    {
+        Color _defaultInsideColor = GreyInsideBuilding;
+
+        //Building1
+        if (_betControl.IsFinanced(_game.Market[0]))
+        {
+            Building1FullInside.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building1FullInside.GetComponent<Image>().color = _defaultInsideColor;
+        }
+        //Building2
+        if (_betControl.IsFinanced(_game.Market[1]))
+        {
+            Building2FullInside.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building2FullInside.GetComponent<Image>().color = _defaultInsideColor;
+        }
+        //Building3
+        if (_betControl.IsFinanced(_game.Market[2]))
+        {
+            Building3FullInside.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building3FullInside.GetComponent<Image>().color = _defaultInsideColor;
+        }
+        //Building4
+        if (_betControl.IsFinanced(_game.Market[3]))
+        {
+            Building4FullInside.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building4FullInside.GetComponent<Image>().color = _defaultInsideColor;
+        }
+        //Building5
+        if (_betControl.IsFinanced(_game.Market[4]))
+        {
+            Building5FullInside.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building5FullInside.GetComponent<Image>().color = _defaultInsideColor;
+        }
+
+    }
+
+    /// <summary>
+    /// colors the buildings border with a Color when they are financed.
+    /// gets it back to defaut color if not financed
+    /// </summary>
+    /// <param name="_color"></param>
+    private void ColorFinancedBuildingsBorder(Color _color, BetControl _betControl, Game _game)
+    {
+        /*0.5803922
+        0.627451
+        0.7098039*/
+        Color _defaultBorderColor = GreyBorderBuilding;
+
+        //Building1
+        if (_betControl.IsFinanced(_game.Market[0]))
+        {
+            Building1FullBorder.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building1FullBorder.GetComponent<Image>().color = _defaultBorderColor;
+        }
+        //Building2
+        if (_betControl.IsFinanced(_game.Market[1]))
+        {
+            Building2FullBorder.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building2FullBorder.GetComponent<Image>().color = _defaultBorderColor;
+        }
+        //Building3
+        if (_betControl.IsFinanced(_game.Market[2]))
+        {
+            Building3FullBorder.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building3FullBorder.GetComponent<Image>().color = _defaultBorderColor;
+        }
+        //Building4
+        if (_betControl.IsFinanced(_game.Market[3]))
+        {
+            Building4FullBorder.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building4FullBorder.GetComponent<Image>().color = _defaultBorderColor;
+        }
+        //Building5
+        if (_betControl.IsFinanced(_game.Market[4]))
+        {
+            Building5FullBorder.GetComponent<Image>().color = _color;
+        }
+        else
+        {
+            Building5FullBorder.GetComponent<Image>().color = _defaultBorderColor;
+        }
+
+
+    }
+
+
 
 
     /// <summary>
@@ -913,172 +1108,222 @@ public class FillPlayerView : MonoBehaviour
 
     /// <summary>
     /// When a resource on a building is fully completed, its layout is in green.
+    /// But if a building is fully financed, then it's transparent.
     /// </summary>
     public void SetResourceFramesInGreenWhenCompleted()
     {
-        //fluidBuilding3Image.GetComponent<Image>().color = Color.black;
         Game _game = GameManager.singleton.game;
         BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
 
+        Color _transparent = new Color(0f, 0f, 0f, 0f);
+
         //Building1
-        //Political
-        if (_betControl.ResourceIsCompleted(_game.Market[0].FinancePolitical, _game.Market[0].Political ))
+        
+        if (_betControl.IsFinanced(_game.Market[0])) //the buildings is fully financed
         {
-            PoliticalFrameBuilding1.GetComponent<Image>().color = resourceFrameLightGreen;
+            PoliticalFrameBuilding1.GetComponent<Image>().color = _transparent;
+            EcoFrameBuilding1.GetComponent<Image>().color = _transparent;
+            SocialFrameBuilding1.GetComponent<Image>().color = _transparent;
         }
         else
         {
-            PoliticalFrameBuilding1.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Political
+            if (_betControl.ResourceIsCompleted(_game.Market[0].FinancePolitical, _game.Market[0].Political ))
+            {
+                PoliticalFrameBuilding1.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                PoliticalFrameBuilding1.GetComponent<Image>().color = _transparent;
+            }
 
-        //Economical
-        if (_betControl.ResourceIsCompleted(_game.Market[0].FinanceEconomical, _game.Market[0].Economical))
-        {
-            EcoFrameBuilding1.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            EcoFrameBuilding1.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Economical
+            if (_betControl.ResourceIsCompleted(_game.Market[0].FinanceEconomical, _game.Market[0].Economical))
+            {
+                EcoFrameBuilding1.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                EcoFrameBuilding1.GetComponent<Image>().color = _transparent;
+            }
 
-        //Social
-        if (_betControl.ResourceIsCompleted(_game.Market[0].FinanceSocial, _game.Market[0].Social))
-        {
-            SocialFrameBuilding1.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            SocialFrameBuilding1.GetComponent<Image>().color = resourceFrameLightGrey;
+            //Social
+            if (_betControl.ResourceIsCompleted(_game.Market[0].FinanceSocial, _game.Market[0].Social))
+            {
+                SocialFrameBuilding1.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                SocialFrameBuilding1.GetComponent<Image>().color = _transparent;
+            }
         }
 
         //Building2
-        //Political
-        if (_betControl.ResourceIsCompleted(_game.Market[1].FinancePolitical, _game.Market[1].Political))
+        if (_betControl.IsFinanced(_game.Market[1]))
         {
-            PoliticalFrameBuilding2.GetComponent<Image>().color = resourceFrameLightGreen;
+            PoliticalFrameBuilding2.GetComponent<Image>().color = _transparent;
+            EcoFrameBuilding2.GetComponent<Image>().color = _transparent;
+            SocialFrameBuilding2.GetComponent<Image>().color = _transparent;
         }
         else
         {
-            PoliticalFrameBuilding2.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Political
+            if (_betControl.ResourceIsCompleted(_game.Market[1].FinancePolitical, _game.Market[1].Political))
+            {
+                PoliticalFrameBuilding2.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                PoliticalFrameBuilding2.GetComponent<Image>().color = _transparent;
+            }
 
-        //Economical
-        if (_betControl.ResourceIsCompleted(_game.Market[1].FinanceEconomical, _game.Market[1].Economical))
-        {
-            EcoFrameBuilding2.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            EcoFrameBuilding2.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Economical
+            if (_betControl.ResourceIsCompleted(_game.Market[1].FinanceEconomical, _game.Market[1].Economical))
+            {
+                EcoFrameBuilding2.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                EcoFrameBuilding2.GetComponent<Image>().color = _transparent;
+            }
 
-        //Social
-        if (_betControl.ResourceIsCompleted(_game.Market[1].FinanceSocial, _game.Market[1].Social))
-        {
-            SocialFrameBuilding2.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            SocialFrameBuilding2.GetComponent<Image>().color = resourceFrameLightGrey;
+            //Social
+            if (_betControl.ResourceIsCompleted(_game.Market[1].FinanceSocial, _game.Market[1].Social))
+            {
+                SocialFrameBuilding2.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                SocialFrameBuilding2.GetComponent<Image>().color = _transparent;
+            }
         }
 
         //Building3
-        //Political
-        if (_betControl.ResourceIsCompleted(_game.Market[2].FinancePolitical, _game.Market[2].Political))
+        if (_betControl.IsFinanced(_game.Market[2]))
         {
-            PoliticalFrameBuilding3.GetComponent<Image>().color = resourceFrameLightGreen;
+            PoliticalFrameBuilding3.GetComponent<Image>().color = _transparent;
+            EcoFrameBuilding3.GetComponent<Image>().color = _transparent;
+            SocialFrameBuilding3.GetComponent<Image>().color = _transparent;
         }
         else
         {
-            PoliticalFrameBuilding3.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Political
+            if (_betControl.ResourceIsCompleted(_game.Market[2].FinancePolitical, _game.Market[2].Political))
+            {
+                PoliticalFrameBuilding3.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                PoliticalFrameBuilding3.GetComponent<Image>().color = _transparent;
+            }
 
-        //Economical
-        if (_betControl.ResourceIsCompleted(_game.Market[2].FinanceEconomical, _game.Market[2].Economical))
-        {
-            EcoFrameBuilding3.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            EcoFrameBuilding3.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Economical
+            if (_betControl.ResourceIsCompleted(_game.Market[2].FinanceEconomical, _game.Market[2].Economical))
+            {
+                EcoFrameBuilding3.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                EcoFrameBuilding3.GetComponent<Image>().color = _transparent;
+            }
 
-        //Social
-        if (_betControl.ResourceIsCompleted(_game.Market[2].FinanceSocial, _game.Market[2].Social))
-        {
-            SocialFrameBuilding3.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            SocialFrameBuilding3.GetComponent<Image>().color = resourceFrameLightGrey;
+            //Social
+            if (_betControl.ResourceIsCompleted(_game.Market[2].FinanceSocial, _game.Market[2].Social))
+            {
+                SocialFrameBuilding3.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                SocialFrameBuilding3.GetComponent<Image>().color = _transparent;
+            }
         }
 
         //Building4
-        //Political
-        if (_betControl.ResourceIsCompleted(_game.Market[3].FinancePolitical, _game.Market[3].Political))
+        if (_betControl.IsFinanced(_game.Market[3]))
         {
-            PoliticalFrameBuilding4.GetComponent<Image>().color = resourceFrameLightGreen;
+            PoliticalFrameBuilding4.GetComponent<Image>().color = _transparent;
+            EcoFrameBuilding4.GetComponent<Image>().color = _transparent;
+            SocialFrameBuilding4.GetComponent<Image>().color = _transparent;
         }
         else
         {
-            PoliticalFrameBuilding4.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Political
+            if (_betControl.ResourceIsCompleted(_game.Market[3].FinancePolitical, _game.Market[3].Political))
+            {
+                PoliticalFrameBuilding4.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                PoliticalFrameBuilding4.GetComponent<Image>().color = _transparent;
+            }
 
-        //Economical
-        if (_betControl.ResourceIsCompleted(_game.Market[3].FinanceEconomical, _game.Market[3].Economical))
-        {
-            EcoFrameBuilding4.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            EcoFrameBuilding4.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Economical
+            if (_betControl.ResourceIsCompleted(_game.Market[3].FinanceEconomical, _game.Market[3].Economical))
+            {
+                EcoFrameBuilding4.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                EcoFrameBuilding4.GetComponent<Image>().color = _transparent;
+            }
 
-        //Social
-        if (_betControl.ResourceIsCompleted(_game.Market[3].FinanceSocial, _game.Market[3].Social))
-        {
-            SocialFrameBuilding4.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            SocialFrameBuilding4.GetComponent<Image>().color = resourceFrameLightGrey;
+            //Social
+            if (_betControl.ResourceIsCompleted(_game.Market[3].FinanceSocial, _game.Market[3].Social))
+            {
+                SocialFrameBuilding4.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                SocialFrameBuilding4.GetComponent<Image>().color = _transparent;
+            }
         }
 
         //Building5
-        //Political
-        if (_betControl.ResourceIsCompleted(_game.Market[4].FinancePolitical, _game.Market[4].Political))
+        if (_betControl.IsFinanced(_game.Market[4]))
         {
-            PoliticalFrameBuilding5.GetComponent<Image>().color = resourceFrameLightGreen;
+            PoliticalFrameBuilding5.GetComponent<Image>().color = _transparent;
+            EcoFrameBuilding5.GetComponent<Image>().color = _transparent;
+            SocialFrameBuilding5.GetComponent<Image>().color = _transparent;
         }
         else
         {
-            PoliticalFrameBuilding5.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Political
+            if (_betControl.ResourceIsCompleted(_game.Market[4].FinancePolitical, _game.Market[4].Political))
+            {
+                PoliticalFrameBuilding5.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                PoliticalFrameBuilding5.GetComponent<Image>().color = _transparent;
+            }
 
-        //Economical
-        if (_betControl.ResourceIsCompleted(_game.Market[4].FinanceEconomical, _game.Market[4].Economical))
-        {
-            EcoFrameBuilding5.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            EcoFrameBuilding5.GetComponent<Image>().color = resourceFrameLightGrey;
-        }
+            //Economical
+            if (_betControl.ResourceIsCompleted(_game.Market[4].FinanceEconomical, _game.Market[4].Economical))
+            {
+                EcoFrameBuilding5.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                EcoFrameBuilding5.GetComponent<Image>().color = _transparent;
+            }
 
-        //Social
-        if (_betControl.ResourceIsCompleted(_game.Market[4].FinanceSocial, _game.Market[4].Social))
-        {
-            SocialFrameBuilding5.GetComponent<Image>().color = resourceFrameLightGreen;
-        }
-        else
-        {
-            SocialFrameBuilding5.GetComponent<Image>().color = resourceFrameLightGrey;
+            //Social
+            if (_betControl.ResourceIsCompleted(_game.Market[4].FinanceSocial, _game.Market[4].Social))
+            {
+                SocialFrameBuilding5.GetComponent<Image>().color = Green2;
+            }
+            else
+            {
+                SocialFrameBuilding5.GetComponent<Image>().color = _transparent;
+            }
         }
 
 
     }
 
-
+    /// <summary>
+    /// Sets the name of the building in green if it is financed
+    /// </summary>
     public void SetBuildingNameInGreenWhenFinanced()
     {
         Game _game = GameManager.singleton.game;
@@ -1137,56 +1382,65 @@ public class FillPlayerView : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Fills the panel where the player can bet on a given building
+    /// </summary>
     public void FillBetPanel()
     {
-        Building building = GameManager.singleton.game.Market[GameObject.Find("playerLocal").GetComponent<BetControl>().numBuildingBet];
-        Role role = GameObject.Find("playerLocal").GetComponent<Player>().role;
-        BetNameBuilding.text = building.name;
-        BetNameBuilding2.text = building.name;
-        BetDescBuilding.text = building.description;
-        attractScore.text = building.attractScore.ToString();
-        EnviScore.text = building.enviScore.ToString();
-        FluidScore.text = building.fluidScore.ToString();
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+        Building _building = GameManager.singleton.game.Market[_betControl.numBuildingBet];
+        Role _role = GameObject.Find("playerLocal").GetComponent<Player>().role;
+        BetNameBuilding.text = _building.name;
+        BetNameBuilding2.text = _building.name;
+        BetDescBuilding.text = _building.description;
+        attractScore.text = _building.attractScore.ToString();
+        EnviScore.text = _building.enviScore.ToString();
+        FluidScore.text = _building.fluidScore.ToString();
 
         #region Finance
-        if (role.ressource1.Equals("Economical"))
+        if (_role.ressource1.Equals("Economical"))
         {
-            ressource1.text = building.FinanceEconomical + "/" + building.Economical;
+            ressource1.text = _building.FinanceEconomical + "/" + _building.Economical;
             ressource1image.GetComponent<Image>().sprite = EcoImage;
+            ColorResourceOnBetPanel(ressource1,_betControl, _role, _role.ressource1);
         }
-        else if (role.ressource1.Equals("Political"))
+        else if (_role.ressource1.Equals("Political"))
         {
-            ressource1.text = building.FinancePolitical + "/" + building.Political;
+            ressource1.text = _building.FinancePolitical + "/" + _building.Political;
             ressource1image.GetComponent<Image>().sprite = PoliImage;
+            ColorResourceOnBetPanel(ressource1, _betControl,  _role, _role.ressource1);
         }
         else
         {
-            ressource1.text = building.FinanceSocial + "/" + building.Social;
+            ressource1.text = _building.FinanceSocial + "/" + _building.Social;
             ressource1image.GetComponent<Image>().sprite = SocialImage;
+            ColorResourceOnBetPanel(ressource1, _betControl,  _role, _role.ressource1);
         }
-        if (role.ressource2.Equals("Economical"))
+        if (_role.ressource2.Equals("Economical"))
         {
-            ressource2.text = building.FinanceEconomical + "/" + building.Economical;
+            ressource2.text = _building.FinanceEconomical + "/" + _building.Economical;
             ressource2image.GetComponent<Image>().sprite = EcoImage;
+            ColorResourceOnBetPanel(ressource2, _betControl,  _role, _role.ressource2);
         }
-        else if (role.ressource2.Equals("Political"))
+        else if (_role.ressource2.Equals("Political"))
         {
-            ressource2.text = building.FinancePolitical + "/" + building.Political;
+            ressource2.text = _building.FinancePolitical + "/" + _building.Political;
             ressource2image.GetComponent<Image>().sprite = PoliImage;
+            ColorResourceOnBetPanel(ressource2, _betControl,  _role, _role.ressource2);
         }
         else
         {
-            ressource2.text = building.FinanceSocial + "/" + building.Social;
+            ressource2.text = _building.FinanceSocial + "/" + _building.Social;
             ressource2image.GetComponent<Image>().sprite = SocialImage;
+            ColorResourceOnBetPanel(ressource2, _betControl,  _role, _role.ressource2);
         }
         #endregion
-        if (building.attractScore < 0)
+        if (_building.attractScore < 0)
         {
             AttractImageBuilding.GetComponent<Image>().color = urbaRed;
             attractScore.color = urbaRed;
         }
-        else if (building.attractScore == 0)
+        else if (_building.attractScore == 0)
         {
             AttractImageBuilding.GetComponent<Image>().color = urbaGrey;
             attractScore.color = urbaGrey;
@@ -1196,12 +1450,12 @@ public class FillPlayerView : MonoBehaviour
             AttractImageBuilding.GetComponent<Image>().color = urbaGreen;
             attractScore.color = urbaGreen;
         }
-        if (building.fluidScore < 0)
+        if (_building.fluidScore < 0)
         {
             FluidImageBuilding.GetComponent<Image>().color = urbaRed;
             FluidScore.color = urbaRed;
         }
-        else if (building.fluidScore == 0)
+        else if (_building.fluidScore == 0)
         {
             FluidImageBuilding.GetComponent<Image>().color = urbaGrey;
             FluidScore.color = urbaGrey;
@@ -1211,12 +1465,12 @@ public class FillPlayerView : MonoBehaviour
             FluidImageBuilding.GetComponent<Image>().color = urbaGreen;
             FluidScore.color = urbaGreen;
         }
-        if (building.enviScore < 0)
+        if (_building.enviScore < 0)
         {
             EnviImageBuilding.GetComponent<Image>().color = urbaRed;
             EnviScore.color = urbaRed;
         }
-        else if (building.enviScore == 0)
+        else if (_building.enviScore == 0)
         {
             EnviImageBuilding.GetComponent<Image>().color = urbaGrey;
             EnviScore.color = urbaGrey;
@@ -1227,5 +1481,26 @@ public class FillPlayerView : MonoBehaviour
             EnviScore.color = urbaGreen;
         }
 
+    }
+
+    /// <summary>
+    /// When the player bets on a resource via the betPanel, the coresponding resource is displayed in blue
+    /// in the betPanel.
+    /// </summary>
+    /// <param name="_ressourceText">TMPro of the resource on betPanel</param>
+    /// <param name="_betControl">so we can access the methods and playerBets from playerLocal</param>
+    /// <param name="_role">player Role</param>
+    /// <param name="_resourceInRole">the resource we are looking at</param>
+    private void ColorResourceOnBetPanel(TextMeshProUGUI _ressourceText, BetControl _betControl, Role _role, string _resourceInRole)
+    {
+        int _indexResource = _betControl.FindIndexFromResource(_resourceInRole,_role);
+        if (_indexResource != -1 && _betControl.playerBets[_betControl.numBuildingBet,_indexResource] > 0)
+        {
+            _ressourceText.color = urbaBlue;
+        }
+        else
+        {
+            _ressourceText.color = urbaGrey;
+        }
     }
 }

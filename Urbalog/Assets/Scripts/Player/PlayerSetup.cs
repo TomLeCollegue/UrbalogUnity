@@ -42,7 +42,7 @@ public class PlayerSetup : NetworkBehaviour
         Player _player = GetComponent<Player>();
         GameManager.singleton.RegisterPlayer(_player);
 
-        //assigne to the local player his name and ID
+        //assign to the local player his name and ID
         _player.ID = _netID;
         if (isLocalPlayer)
         {
@@ -56,9 +56,53 @@ public class PlayerSetup : NetworkBehaviour
             string field = GameObject.Find("NetworkManager").GetComponent<HostGame>().field;
             CmdSendInfoPlayer(_netID, namePlayer, age, company, gender, playerFamilyName, zipcode, jobStatus,field);
         }
+        CmdSendRulesToPlayer();
+        CmdSendNbBuildingsMax();
         CmdGetRoleForPlayer(); 
         CmdSendActualGameManager(); 
     }
+
+    /// <summary>
+    /// Sends to all players the number max of buildings they can build in a full game
+    /// </summary>
+    [Command]
+    public void CmdSendNbBuildingsMax()
+    {
+        RpcGetNbBuildingsMax(NextTurnButton.NumberBuildingsToEnd);
+    }
+
+    /// <summary>
+    /// each players take from server the number max of buildings they can build in a full game
+    /// </summary>
+    /// <param name="_numberBuildingsToEnd"></param>
+    [ClientRpc]
+    public void RpcGetNbBuildingsMax(int _numberBuildingsToEnd)
+    {
+        NextTurnButton.NumberBuildingsToEnd = _numberBuildingsToEnd;
+    }
+
+    /// <summary>
+    /// Takes the turnTimeMax and isTimerActive in GameSettings.cs from server and sends it to all players
+    /// </summary>
+    [Command]
+    public void CmdSendRulesToPlayer()
+    {
+        RpcGetRules(GameSettings.TurnTimeMax, GameSettings.isTimerActive, GameSettings.nbBuildingsPerTurn);
+    }
+
+    /// <summary>
+    /// All the players take the gamesettings from the server
+    /// </summary>
+    /// <param name="_turnTimeMax"></param>
+    /// <param name="_isTimerActive"></param>
+    [ClientRpc]
+    public void RpcGetRules(float _turnTimeMax, bool _isTimerActive, int _nbBuildingsPerTurn)
+    {
+        GameSettings.TurnTimeMax = _turnTimeMax;
+        GameSettings.isTimerActive = _isTimerActive;
+        GameSettings.nbBuildingsPerTurn = _nbBuildingsPerTurn;
+    }
+
 
     #region getGameManager Fonction
     [Command]
@@ -98,11 +142,13 @@ public class PlayerSetup : NetworkBehaviour
         GameObject.Find("PlayerViewManager").GetComponent<FillPlayerView>().isAlreadyUpdated = false;
 
         //resetTimer
-        TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
-        _timerManager.currentTurnTime = 60f;
-        _timerManager.alreadyStarted = false;
+        //TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+        //_timerManager.currentTurnTime = GameSettings.TurnTimeMax;
+        //_timerManager.alreadyStarted = false;
     }
     #endregion
+
+
 
 
     #region DistribRole
@@ -112,6 +158,7 @@ public class PlayerSetup : NetworkBehaviour
         int numToSend = GameManager.singleton.NumPlayerForRole;
 
         Role role = GameManager.singleton.game.Roles[numToSend];
+        GameManager.singleton.players[GameManager.singleton.players.Count - 1].nameRole = role.nameRole;
         RpcSendRoleForPlayer(GetbyteFromObject(role));
         GameManager.singleton.NumPlayerForRole++;
 

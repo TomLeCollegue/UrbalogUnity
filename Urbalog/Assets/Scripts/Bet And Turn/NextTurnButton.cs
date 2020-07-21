@@ -1,15 +1,17 @@
-﻿using Mirror;
+﻿﻿using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 3; //default value
+    public static int NumberBuildingsToEnd = 2; //default value
     public TextMeshProUGUI TextButton;
     bool LogSend = false;
+    public Button ButtonNextTurn;
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -19,9 +21,6 @@ public class NextTurnButton : NetworkBehaviour
         string _id = GameObject.Find("playerLocal").GetComponent<Player>().ID.ToString();
         GameObject.Find("playerLocal").GetComponent<PlayerSetup>().CmdChangeBoolNextTurn(_id);
     }
-
-
-
 
     private void Update()
     {
@@ -35,7 +34,7 @@ public class NextTurnButton : NetworkBehaviour
             }
             if (CheckForNextTurn() || TimerEnded())
             {
-                if (!NbBuildingFinancedTooHigh())
+                if (!NbBuildingFinancedTooHighForEndGame() && !NbBuildingFinancedTooHighForTurn())
                 {
                     NextTurn();
                 }
@@ -52,35 +51,52 @@ public class NextTurnButton : NetworkBehaviour
             resetTimer();
         }
 
-        if (!Turn && !NbBuildingFinancedTooHigh())
-        {
-            Debug.Log("Tour suivant suivant");
-            TextButton.text = "Tour Suivant";
-        }
-        else if (NbBuildingFinancedTooHigh())
-        {
-            TextButton.text = "TROP D'AMÉNAGEMENTS";
-        }
-        else if (Turn && !NbBuildingFinancedTooHigh())
-        {
-            Debug.Log("Tour suivant annuler");
-            TextButton.text = "Annuler";
-        }
+        PrintTheGoodNextTurnButton(Turn, NbBuildingFinancedTooHighForEndGame(), NbBuildingFinancedTooHighForTurn());
 
-        if (CheckForTimerStart())
+        
+        if (CheckForTimerStart()) //the timer has to start
         {
             GameObject.Find("TimerManager").GetComponent<TimerManager>().StartTimer();
         }
         else
         {
+            //here the timer either has to be reset or to be inactive due to the settings
             resetTimer();
         }
+    }
+
+    private void PrintTheGoodNextTurnButton(bool _TurnPressed, bool _NbBuildingFinancedTooHighForEndGame, bool _NbBuildingFinancedTooHighForTurn)
+    {
+        if (!_TurnPressed && !_NbBuildingFinancedTooHighForEndGame && !_NbBuildingFinancedTooHighForTurn)
+        {
+            TextButton.text = "Tour Suivant";
+            TextButton.color = Color.black;
+            ButtonNextTurn.interactable = true;
+        }
+        else if (_NbBuildingFinancedTooHighForEndGame || _NbBuildingFinancedTooHighForTurn)
+        {
+            TextButton.text = "TROP D'AMÉNAGEMENTS";
+            TextButton.color = new Color(0.83f, 0.19f, 0.11f);
+            ButtonNextTurn.interactable = false;
+        }
+        else if (_TurnPressed && (!_NbBuildingFinancedTooHighForEndGame || !_NbBuildingFinancedTooHighForEndGame))
+        {
+            TextButton.text = "Annuler";
+            TextButton.color = Color.black;
+            ButtonNextTurn.interactable = true;
+        }
+    }
+
+    private bool NbBuildingFinancedTooHighForTurn()
+    {
+        BetControl _betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
+        return FillPlayerView.tooManyBuildingsFinanced(_betControl.NbBuildingsFinanced());
     }
 
     public void resetTimer()
     {
         TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
-        _timerManager.currentTurnTime = 60f;
+        _timerManager.currentTurnTime = GameSettings.TurnTimeMax;
         _timerManager.alreadyStarted = false;
     }
 
@@ -88,23 +104,30 @@ public class NextTurnButton : NetworkBehaviour
     {
         TimerManager _timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
 
-
-
         return (_timerManager.currentTurnTime <= 0);
     }
 
+    /// <summary>
+    /// Checks if the timer can decrease or not depending on the numbers of players who are not ready
+    /// and what the admin chose in the settings
+    /// </summary>
+    /// <returns></returns>
     private bool CheckForTimerStart()
     {
         GameManager gameManager = GameManager.singleton;
         int countPlayersReady = 0;
-        for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
+        bool _OnlyOnePlayerNotReady;
+        for (int i = 0; i < gameManager.players.Count; i++)
         {
             if (gameManager.players[i].nextTurn)
             {
                 countPlayersReady++;
             }
         }
-        return ( gameManager.players.Count - countPlayersReady == 1 );
+        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == 3;  //int i = 3 quand on joue avec le serveur et le plateau
+        bool _res = _OnlyOnePlayerNotReady && GameSettings.isTimerActive;
+
+        return _res;
 
     }
 
@@ -113,7 +136,7 @@ public class NextTurnButton : NetworkBehaviour
     /// Checks if the number of buildings that are financed + those who are built exceeds
     /// the number of buildings required to end the game
     /// </summary>
-    private bool NbBuildingFinancedTooHigh()
+    public static bool NbBuildingFinancedTooHighForEndGame()
     {
         //Si le nombre de bâtiments financés + ceux déjà construits dépassent le nombre de bâtiments avant d'arriver
         // à la fin, return true
@@ -136,6 +159,7 @@ public class NextTurnButton : NetworkBehaviour
     private void DisplayErrorTooMuchBuildings()
     {
         TextButton.text = "TROP D'AMÉNAGEMENTS";
+        //TextButton.fontSize = 25f;
     }
 
 
@@ -161,8 +185,9 @@ public class NextTurnButton : NetworkBehaviour
         LogNextTurn();
         playerSetup.CmdSendActualGameManager();  // Envoyer le nouveau game avec la fonction dans le PlayerSetup
         GameObject.Find("CityManager").GetComponent<FillCity>().SpawnBuildingsBuilt();
+        GameObject.Find("CityManager").GetComponent<FillTruckCity>().SpawnTrucks();
         CallCityView();
-        Invoke("PopUpPlayer", 2);
+        GameObject.Find("playerLocal").GetComponent<Player>().InvokePopUP();
     }
 
     private void ResetFinanceBuildingInMarket()
@@ -201,7 +226,7 @@ public class NextTurnButton : NetworkBehaviour
     { 
         GameManager gameManager = GameManager.singleton;
         bool boolTurn = true;
-        for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
+        for (int i = 2; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
         {    
             if (!gameManager.players[i].nextTurn)
             {
@@ -308,11 +333,6 @@ public class NextTurnButton : NetworkBehaviour
         }
 
         return GainScore;
-    }
-
-    public void PopUpPlayer()
-    {
-        GameObject.Find("playerLocal").GetComponent<Player>().CmdScore();
     }
 
     public void CallCityView() {

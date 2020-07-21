@@ -44,15 +44,15 @@ public class FillCity : NetworkBehaviour
 
         for (int i = 0; i < _game.BuildingsBuilt.Count; i++)
         {
-            Spawn(_game.BuildingsBuilt[i].name, SpawnPoints[i]);
+            Spawn(_game.BuildingsBuilt[i], SpawnPoints[i]);
         }
     }
 
     
-    public void Spawn(string NameBuilding, Transform spawnPoint)
+    public void Spawn(Building _building, Transform spawnPoint)
     {
         GameObject building = (GameObject)Instantiate(Building, spawnPoint.position, spawnPoint.rotation);
-        building.GetComponent<RenameBuilding>().Rename(NameBuilding);
+        building.GetComponent<RenameBuilding>().Rename(_building);
         NetworkServer.Spawn(building);
         Buildings.Add(building);
     }
