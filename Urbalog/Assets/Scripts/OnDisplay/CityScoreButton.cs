@@ -9,6 +9,8 @@ public class CityScoreButton : MonoBehaviour
     public GameObject RoleFrame;
     public GameObject City;
     public GameObject Market;
+    public GameObject buttonNextTurn;
+    public GameObject buttonRole;
 
     public TextMeshProUGUI Attract;
     public TextMeshProUGUI Envi;
@@ -31,12 +33,34 @@ public class CityScoreButton : MonoBehaviour
         
     }
 
+    public void CityViewNextTurn()
+    {
+        RoleFrame.SetActive(false);
+        Market.SetActive(false);
+        City.SetActive(true);
+        buttonNextTurn.SetActive(true);
+        buttonRole.SetActive(false);
+
+    }
+
     public void ClosePanel()
     {
         RoleFrame.SetActive(true);
         Market.SetActive(false);
         City.SetActive(false);
+      
     }
+    
+    public void ClosePanelNextTurn()
+    {
+        RoleFrame.SetActive(true);
+        Market.SetActive(false);
+        buttonRole.SetActive(true);
+        buttonNextTurn.SetActive(false);
+        City.SetActive(false);
+    }
+
+
 
     public void GoToMarket()
     {
@@ -69,6 +93,15 @@ public class CityScoreButton : MonoBehaviour
     private void Update()
     {
         UpdateCityScorePanel();
+    }
+
+    private void Start()
+    {
+        Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+        if (player.role.nameRole.Equals("PLATEAU"))
+        {
+            OpenPanel();
+        }
     }
 
     public void ColorImpact()

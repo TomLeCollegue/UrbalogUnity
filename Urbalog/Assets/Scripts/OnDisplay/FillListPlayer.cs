@@ -20,7 +20,10 @@ public class FillListPlayer : MonoBehaviour
 
         for (int i = 0; i < GameManager.singleton.players.Count; i++)
         {
-            SpawnPlayerItem(GameManager.singleton.players[i]);
+            if (i >= 2)
+            {
+                SpawnPlayerItem(GameManager.singleton.players[i]);
+            }
         }
 
     }
