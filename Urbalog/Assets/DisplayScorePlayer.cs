@@ -27,7 +27,7 @@ public class DisplayScorePlayer : MonoBehaviour
 
     private void Update()
     {
-        int PlayerServeur = 2;
+        int PlayerServeur = 0;
         Debug.Log("DisplayScore");
         List<Player> Players = GameManager.singleton.players;
         TextScore1.text = Players[0 + PlayerServeur].scorePlayer.ToString();
