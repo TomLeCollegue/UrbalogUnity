@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Language
+﻿public class Language
 {
     #region MainMenu
         public static string FR_JOUEUR = "JOUEUR";
@@ -69,21 +65,85 @@ public class Language
         public static string FR_ATTRACT = "Attractivité";
         public static string EN_ATTRACT = "Attractivity";
 
-        public static string FR_ENVI = "Environnement";
-        public static string EN_ENVI = "Environment";
+        public static string FR_ENVI = "Qualité environnementale";
+        public static string EN_ENVI = "Environment quality";
 
-        public static string FR_FLUID = "Fluidité";
+        public static string FR_FLUID = "Fluidité du trafic";
         public static string EN_FLUID = "Fluidity";
 
         public static string FR_CANCEL = "ANNULER";
         public static string EN_CANCEL = "Cancel";
+
+
+
+        public static string FR_IMPROVE_ENVI = "Environnement Amélioré";
+        public static string EN_IMPROVE_ENVI = "Environment Improved";
+        
+        public static string FR_IMPROVE_FLUID = "Fluidité Améliorée";
+        public static string EN_IMPROVE_FLUID = "Fluidity Improved";
+
+        public static string FR_IMPROVE_ATTRACT = "Attractivité Améliorée";
+        public static string EN_IMPROVE_ATTRACT = "Attractivity Improved";
+
+        public static string FR_HELD_ENVI = "Environnement Maitrisé";
+        public static string EN_HELD_ENVI = "Environment held";
+
+        public static string FR_HELD_FLUID = "Fluidité Maitrisée";
+        public static string EN_HELD_FLUID = "Fluidity held";
+
+        public static string FR_HELD_ATTRACT = "Attractivité maitrisée";
+        public static string EN_HELD_ATTRACT = "Attractivity held";
+
+        public static string FR_IMPROVE_ENVI_LOSE = "Améliorer Environnement";
+        public static string EN_IMPROVE_ENVI_LOSE = " Improve Environment";
+
+        public static string FR_IMPROVE_FLUID_LOSE = "Améliorer Fluidité";
+        public static string EN_IMPROVE_FLUID_LOSE = "Improve fluidity";
+
+        public static string FR_IMPROVE_ATTRACT_LOSE = "Améliorer Attractivité";
+        public static string EN_IMPROVE_ATTRACT_LOSE = "Improve Attractivity";
+
+        public static string FR_HELD_ENVI_LOSE = "Maitriser Environnement";
+        public static string EN_HELD_ENVI_LOSE = "Hold Environment";
+
+        public static string FR_HELD_FLUID_LOSE = "Maitriser Fluidité";
+        public static string EN_HELD_FLUID_LOSE = "Hold Fluidity";
+
+        public static string FR_HELD_ATTRACT_LOSE = "Maitriser Attractivité";
+        public static string EN_HELD_ATTRACT_LOSE = "Hold Attractivity";
+
+        public static string FR_BRAVO = "Bravo !";
+        public static string EN_BRAVO = "Congrats !";
+        public static string FR_DOMMAGE = "DOMMAGE !";
+        public static string EN_DOMMAGE = "SORRY !";
+        public static string FR_TEXT_WIN = "Objectif atteint. \n Vous gagnez un point !";
+        public static string EN_TEXT_WIN = "Objectives Completed. \n You get a point !";
+        public static string FR_TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
+        public static string EN_TEXT_LOSE = "One of the 2 conditions were not completed. \n You dont get a point";
+
+        public static string FR_TIMER_TURN = "Temps restant : ";
+        public static string EN_TIMER_TURN = "Time left : ";
+
+
+
+
+
+
     #endregion
     #region EndGame
     public static string FR_END_GAME_TITLE = "Bilan logistique de la ville";
-        public static string EN_END_GAME_TITLE = "City's Logistic report";
+    public static string EN_END_GAME_TITLE = "City's Logistic report";
 
-        public static string FR_END = "Fin";
-        public static string EN_END = "End";
+    public static string FR_END = "Fin";
+    public static string EN_END = "End";
+    #endregion
+    #region Lobby
+    public static string FR_LIST_PLAYER = "Liste des joueurs";
+    public static string EN_LIST_PLAYER = "Player list";
+
+    public static string FR_BEGIN_PARTY = "Commencer la partie";
+    public static string EN_BEGIN_PARTY = "Start the game";
+
     #endregion
 
     #region MainMenu
@@ -110,14 +170,38 @@ public class Language
     public static string ROLE = "Rôle";
     public static string NEXT_TURN = "Tour suivant";
     public static string ATTRACT = "Attractivité";
-    public static string ENVI = "Environnement";
-    public static string FLUID = "Fluidité";
+    public static string ENVI = "Qualité environnementale";
+    public static string FLUID = "Fluidité du trafic";
     public static string CANCEL = "ANNULER";
+    public static string IMPROVE_ENVI = "Environnement Amélioré";
+    public static string IMPROVE_FLUID = "Fluidité Améliorée";
+    public static string IMPROVE_ATTRACT = "Attractivité Améliorée";
+    public static string HELD_ENVI = "Environnement Maitrisé";
+    public static string HELD_FLUID = "Fluidité Maitrisée";
+    public static string HELD_ATTRACT = "Attractivité maitrisée";
+    public static string IMPROVE_ENVI_LOSE = "Améliorer Environnement";
+    public static string IMPROVE_FLUID_LOSE = "Améliorer Fluidité";
+    public static string IMPROVE_ATTRACT_LOSE = "Améliorer Attractivité";
+    public static string HELD_ENVI_LOSE = "Maitriser Environnement";
+    public static string HELD_FLUID_LOSE = "Maitriser Fluidité";
+    public static string HELD_ATTRACT_LOSE = "Maitriser Attractivité";
+    public static string BRAVO = "Bravo !";
+    public static string DOMMAGE = "DOMMAGE !";
+    public static string TEXT_WIN = "Objectif atteint. \n Vous gagnez un point !";
+    public static string TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
+    public static string TIMER_TURN = "Temps restant : ";
+
 
     #endregion
     #region EndGame
     public static string END_GAME_TITLE = "Bilan logistique de la ville";
     public static string END = "Fin";
+
+    #endregion
+    #region Lobby
+    public static string LIST_PLAYER = "Liste des joueurs";
+    public static string BEGIN_PARTY = "Commencer la partie";
+
 
     #endregion
 
@@ -152,7 +236,26 @@ public class Language
             END_GAME_TITLE = FR_END_GAME_TITLE;
             END = FR_END;
             CANCEL = FR_CANCEL;
-        }
+            IMPROVE_ENVI = FR_IMPROVE_ENVI;
+            IMPROVE_FLUID = FR_IMPROVE_FLUID;
+            IMPROVE_ATTRACT = FR_IMPROVE_ATTRACT;
+            HELD_ENVI = FR_HELD_ENVI;
+            HELD_FLUID = FR_HELD_FLUID;
+            HELD_ATTRACT = FR_HELD_ATTRACT;
+            IMPROVE_ENVI_LOSE = FR_IMPROVE_ENVI_LOSE;
+            IMPROVE_FLUID_LOSE = FR_IMPROVE_FLUID_LOSE;
+            IMPROVE_ATTRACT_LOSE = FR_IMPROVE_ATTRACT_LOSE;
+            HELD_ENVI_LOSE = FR_HELD_ENVI_LOSE;
+            HELD_FLUID_LOSE = FR_HELD_FLUID_LOSE;
+            HELD_ATTRACT_LOSE = FR_HELD_ATTRACT_LOSE;
+            BRAVO = FR_BRAVO;
+            DOMMAGE = FR_DOMMAGE;
+            TEXT_WIN = FR_TEXT_WIN;
+            TEXT_LOSE = FR_TEXT_LOSE;
+            LIST_PLAYER = FR_LIST_PLAYER;
+            BEGIN_PARTY = FR_BEGIN_PARTY;
+            TIMER_TURN = FR_TIMER_TURN;
+}
         if (language.Equals("En"))
         {
             JOUEUR = EN_JOUEUR;
@@ -181,9 +284,26 @@ public class Language
             END_GAME_TITLE = EN_END_GAME_TITLE;
             END = EN_END;
             CANCEL = EN_CANCEL;
+            IMPROVE_ENVI = EN_IMPROVE_ENVI;
+            IMPROVE_FLUID = EN_IMPROVE_FLUID;
+            IMPROVE_ATTRACT = EN_IMPROVE_ATTRACT;
+            HELD_ENVI = EN_HELD_ENVI;
+            HELD_FLUID = EN_HELD_FLUID;
+            HELD_ATTRACT = EN_HELD_ATTRACT;
+            IMPROVE_ENVI_LOSE = EN_IMPROVE_ENVI_LOSE;
+            IMPROVE_FLUID_LOSE = EN_IMPROVE_FLUID_LOSE;
+            IMPROVE_ATTRACT_LOSE = EN_IMPROVE_ATTRACT_LOSE;
+            HELD_ENVI_LOSE = EN_HELD_ENVI_LOSE;
+            HELD_FLUID_LOSE = EN_HELD_FLUID_LOSE;
+            HELD_ATTRACT_LOSE = EN_HELD_ATTRACT_LOSE;
+            BRAVO = EN_BRAVO;
+            DOMMAGE = EN_DOMMAGE;
+            TEXT_WIN = EN_TEXT_WIN;
+            TEXT_LOSE = EN_TEXT_LOSE;
+            LIST_PLAYER = EN_LIST_PLAYER;
+            BEGIN_PARTY = EN_BEGIN_PARTY;
+            TIMER_TURN = EN_TIMER_TURN;
         }
-
-
     }
     
 }

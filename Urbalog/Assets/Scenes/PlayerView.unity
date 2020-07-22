@@ -30176,6 +30176,13 @@ MonoBehaviour:
   next_turn_button: {fileID: 1781957602}
   resources_market: {fileID: 2040037158}
   objectif_market: {fileID: 1128761910}
+  envi: {fileID: 326261226}
+  fluid: {fileID: 170234631}
+  attract: {fileID: 1386192487}
+  Bravo: {fileID: 2127250561}
+  TextPopUpWin: {fileID: 1825268347}
+  TextPopUpLose: {fileID: 1060543573}
+  Dommage: {fileID: 1919384197}
 --- !u!4 &1430701564
 Transform:
   m_ObjectHideFlags: 0

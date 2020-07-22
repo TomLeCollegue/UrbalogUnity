@@ -11,6 +11,7 @@ public class LanguageLobby : MonoBehaviour
     
     void Start()
     {
-        // 
+        List_Player.text = Language.LIST_PLAYER;
+        Begin_Party.text = Language.BEGIN_PARTY;
     }
 }

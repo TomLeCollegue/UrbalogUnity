@@ -29,6 +29,18 @@ public class LanguagePlayer : MonoBehaviour
     public TextMeshProUGUI resources_market;
     public TextMeshProUGUI objectif_market;
 
+    public TextMeshProUGUI envi;
+    public TextMeshProUGUI fluid;
+    public TextMeshProUGUI attract;
+
+
+    public TextMeshProUGUI Bravo;
+    public TextMeshProUGUI TextPopUpWin;
+    public TextMeshProUGUI TextPopUpLose;
+    public TextMeshProUGUI Dommage;
+
+
+
 
     
 
@@ -46,6 +58,8 @@ public class LanguagePlayer : MonoBehaviour
         FillRole();
         FillCity();
         FillMarket();
+        FillPopUpBuilding();
+        PopUp();
     }
 
     public void FillRole()
@@ -68,6 +82,21 @@ public class LanguagePlayer : MonoBehaviour
         turn_city.text = Language.TURNS + GameManager.singleton.game.turnNumber;
         next_turn_button_city.text = Language.NEXT_TURN;
         titleCity.text = Language.CITY;
+    }
+
+    public void FillPopUpBuilding()
+    {
+        envi.text = Language.ENVI;
+        fluid.text = Language.FLUID;
+        attract.text = Language.ATTRACT;
+    }
+
+    public void PopUp()
+    {
+        Bravo.text = Language.BRAVO;
+        Dommage.text = Language.DOMMAGE;
+        TextPopUpWin.text = Language.TEXT_WIN;
+        TextPopUpLose.text = Language.TEXT_LOSE;
     }
 
 

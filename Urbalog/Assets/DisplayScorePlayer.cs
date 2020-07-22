@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DisplayScorePlayer : MonoBehaviour
@@ -28,7 +29,10 @@ public class DisplayScorePlayer : MonoBehaviour
     private void Update()
     {
         int PlayerServeur = 0;
+        if (!SceneManager.GetActiveScene().name.Equals("EndGame"))
+        {
         TurnNumber.text = Language.TURNS + GameManager.singleton.game.turnNumber;
+        }
         Debug.Log("DisplayScore");
         List<Player> Players = GameManager.singleton.players;
         TextScore1.text = Players[0 + PlayerServeur].scorePlayer.ToString();

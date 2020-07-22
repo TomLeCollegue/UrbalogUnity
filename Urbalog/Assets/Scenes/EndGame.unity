@@ -1642,6 +1642,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256628869}
   m_CullTransparentMesh: 0
+--- !u!1 &314469635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314469637}
+  - component: {fileID: 314469636}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &314469636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314469635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af825e195f691da439553e2a8de33f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score_player: {fileID: 452092996}
+  Score_city: {fileID: 38418472}
+  titleCity: {fileID: 146724376}
+  Bravo: {fileID: 1439283907}
+  TextPopUpWin: {fileID: 2068439474}
+  TextPopUpLose: {fileID: 1183447232}
+  Dommage: {fileID: 1423523968}
+--- !u!4 &314469637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314469635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 432.69632, y: 341.5048, z: -1290.6011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &334861392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,15 +3699,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b4298dee402a4cbadbc3fc99086b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 66841305}
   RoleFrame: {fileID: 0}
-  ButtonBack: {fileID: 981316164}
-  TitleCity: {fileID: 146724375}
-  GroupeLayout: {fileID: 0}
+  City: {fileID: 0}
+  Market: {fileID: 0}
+  buttonNextTurn: {fileID: 0}
+  buttonRole: {fileID: 0}
   Attract: {fileID: 467092609}
   Envi: {fileID: 334861395}
   Fluid: {fileID: 392995683}
-  Market: {fileID: 0}
   EnviImage: {fileID: 0}
   AttractImage: {fileID: 0}
   FluidImage: {fileID: 0}
