@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -20,24 +21,40 @@ public class SettingsMenu : MonoBehaviour
     public GameObject panel;
 
     public TextMeshProUGUI buildingName; //public TextMeshProUGUI buildingInput;
-    public TextMeshProUGUI descriptionPlaceholder; public TextMeshProUGUI descriptionInput;
+    //public TextMeshProUGUI descriptionPlaceholder; public TextMeshProUGUI descriptionInput;
 
-    public TextMeshProUGUI ecoPlaceholder; public TextMeshProUGUI ecoInput;
-    public TextMeshProUGUI socPlaceholder; public TextMeshProUGUI socInput;
-    public TextMeshProUGUI poliPlaceholder; public TextMeshProUGUI poliInput;
+    //public TextMeshProUGUI ecoPlaceholder; public TextMeshProUGUI ecoInput;
+    //public TextMeshProUGUI socPlaceholder; public TextMeshProUGUI socInput;
+    //public TextMeshProUGUI poliPlaceholder; public TextMeshProUGUI poliInput;
 
-    public TextMeshProUGUI enviPlaceholder; public TextMeshProUGUI enviInput;
-    public TextMeshProUGUI fluidPlaceholder; public TextMeshProUGUI fluidInput;
-    public TextMeshProUGUI attractPlaceholder; public TextMeshProUGUI attractInput;
-    public TextMeshProUGUI logisticPlaceholder; public TextMeshProUGUI logiInput;
+    //public TextMeshProUGUI enviPlaceholder; public TextMeshProUGUI enviInput;
+    //public TextMeshProUGUI fluidPlaceholder; public TextMeshProUGUI fluidInput;
+    //public TextMeshProUGUI attractPlaceholder; public TextMeshProUGUI attractInput;
+    //public TextMeshProUGUI logisticPlaceholder; public TextMeshProUGUI logiInput;
 
-    public TextMeshProUGUI logisticDescriptionPlaceholder; public TextMeshProUGUI logiDescriptionInput;
+    //public TextMeshProUGUI logisticDescriptionPlaceholder; public TextMeshProUGUI logiDescriptionInput;
 
+    //testing with input field attributes instead of textMeshPro
+
+    public InputField descriptionInput;
+    public InputField ecoInput;
+    public InputField socInput;
+    public InputField poliInput;
+
+    public InputField enviInput;
+    public InputField fluidInput;
+    public InputField attractInput;
+
+    public InputField logiInput;
+
+    public InputField LogisticDescriptionInput;
     #endregion
 
     public TextMeshProUGUI timerPlaceholder;
 
     public TextMeshProUGUI nbBuildingsMaxPerTurnPlaceholder;
+
+    public PopulateBuildingsSettingsList displayList;
 
     public void GoToSettingsScene()
     {
@@ -98,18 +115,20 @@ public class SettingsMenu : MonoBehaviour
         {
             panel.SetActive(true);
             buildingName.text = _building.name;
-            descriptionPlaceholder.text = _building.description;
-            
-            ecoPlaceholder.text = _building.Economical.ToString();
-            socPlaceholder.text = _building.Social.ToString();
-            poliPlaceholder.text = _building.Political.ToString();
 
-            enviPlaceholder.text = _building.enviScore.ToString();
-            fluidPlaceholder.text = _building.fluidScore.ToString();
-            attractPlaceholder.text = _building.attractScore.ToString();
-            logisticPlaceholder.text = _building.logisticScore.ToString();
+            descriptionInput.text = _building.description ;
+            ecoInput.text = _building.Economical.ToString();
+            socInput.text = _building.Social.ToString();
+            poliInput.text = _building.Political.ToString();
+
+            enviInput.text = _building.enviScore.ToString();
+            fluidInput.text = _building.fluidScore.ToString();
+            attractInput.text = _building.attractScore.ToString();
+
+            logiInput.text = _building.logisticScore.ToString();
+
+            LogisticDescriptionInput.text = _building.logisticDescription;
             
-            logisticDescriptionPlaceholder.text = _building.logisticDescription;
         }
         currentBuilding = _building;
     }
@@ -118,7 +137,6 @@ public class SettingsMenu : MonoBehaviour
     /// <summary>
     /// When button validate is pressed, the building is saved and we return to buildingsList view
     /// </summary>
-    /// <param name="_descBuilding"></param>
     public void ChangeBuildingSettings()
     {
         Building[] _buildings = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
@@ -134,8 +152,11 @@ public class SettingsMenu : MonoBehaviour
                 JSONBuildings.CreateBuildingJSONWithBuildings(_buildings);
             }
         }
-
         CloseBuildingSettingsPanel();
+
+        displayList.destroyListe();
+        displayList.Init();
+
 
 
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
@@ -153,108 +174,32 @@ public class SettingsMenu : MonoBehaviour
     private Building CreateNewBuildingWithInputFields()
     {
         string _buildingName = buildingName.text;
-        string _buildingDescription;
+        string _buildingDescription = "";
 
-        int _buildingEco;
-        int _buildingSoc;
-        int _buildingPoli;
+        int _buildingEco = 98;
+        int _buildingSoc = 98;
+        int _buildingPoli = 98;
 
-        int _buildingEnvi;
-        int _buildingFluid;
-        int _buildingAttract;
-        int _buildingLogi;
+        int _buildingEnvi = 98;
+        int _buildingFluid = 98;
+        int _buildingAttract = 98;
+        int _buildingLogi = 98;
 
-        string _buildingLogiDescription;
+        string _buildingLogiDescription = "";
 
-        //Description
-        if (descriptionPlaceholder.text != descriptionInput.text && descriptionInput.text != "")
-        {
-            _buildingDescription = descriptionInput.text;
-        }
-        else
-        {
-            _buildingDescription = descriptionPlaceholder.text;
-        }
+        _buildingDescription = descriptionInput.text;
 
-        //eco
-        if (ecoPlaceholder.text != ecoInput.text && ecoInput.text != "")
-        {
-            _buildingEco = Convert.ToInt16(ecoInput);
-        }
-        else
-        {
-            _buildingEco = Convert.ToInt16(ecoPlaceholder);
-        }
+        _buildingEco = Convert.ToInt16(ecoInput.text);
+        _buildingSoc = Convert.ToInt16(socInput.text);
+        _buildingPoli = Convert.ToInt16(poliInput.text);
+        
+        _buildingEnvi = Convert.ToInt16(enviInput.text);
+        _buildingFluid = Convert.ToInt16(fluidInput.text);
+        _buildingAttract = Convert.ToInt16(attractInput.text);
+        
+        _buildingLogi = Convert.ToInt16(logiInput.text);
 
-        //social
-        if (socPlaceholder.text != socInput.text && socInput.text != "")
-        {
-            _buildingSoc = Convert.ToInt16(socInput);
-        }
-        else
-        {
-            _buildingSoc = Convert.ToInt16(socPlaceholder);
-        }
-
-        //poli
-        if (poliPlaceholder.text != poliInput.text && poliInput.text != "")
-        {
-            _buildingPoli = Convert.ToInt16(poliInput);
-        }
-        else
-        {
-            _buildingPoli = Convert.ToInt16(poliPlaceholder);
-        }
-
-        //Envi
-        if (enviPlaceholder.text != enviInput.text && enviInput.text != "")
-        {
-            _buildingEnvi = Convert.ToInt16(enviInput);
-        }
-        else
-        {
-            _buildingEnvi = Convert.ToInt16(enviPlaceholder);
-        }
-
-        //Fluid
-        if (fluidPlaceholder.text != fluidInput.text && fluidInput.text != "")
-        {
-            _buildingFluid = Convert.ToInt16(fluidInput);
-        }
-        else
-        {
-            _buildingFluid = Convert.ToInt16(fluidPlaceholder);
-        }
-
-        //Attract
-        if (attractPlaceholder.text != attractInput.text && attractInput.text != "")
-        {
-            _buildingAttract = Convert.ToInt16(attractInput);
-        }
-        else
-        {
-            _buildingAttract = Convert.ToInt16(attractPlaceholder);
-        }
-
-        //Logi
-        if (logisticPlaceholder.text != logiInput.text && logiInput.text != "")
-        {
-            _buildingLogi = Convert.ToInt16(logiInput);
-        }
-        else
-        {
-            _buildingLogi = Convert.ToInt16(logisticPlaceholder);
-        }
-
-        //logisticDesction
-        if (logisticDescriptionPlaceholder.text != logiDescriptionInput.text && logiDescriptionInput.text != "")
-        {
-            _buildingLogiDescription = logiDescriptionInput.text;
-        }
-        else
-        {
-            _buildingLogiDescription = logisticDescriptionPlaceholder.text;
-        }
+        _buildingLogiDescription = LogisticDescriptionInput.text;
 
         Building _res = new Building(_buildingName,_buildingDescription,_buildingEco,_buildingSoc,_buildingPoli,_buildingEnvi
             ,_buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);

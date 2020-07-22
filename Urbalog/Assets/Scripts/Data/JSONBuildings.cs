@@ -12,7 +12,24 @@ public class JSONBuildings : MonoBehaviour
     void Start()
     {
         FillDeckBuildingTest();
-        CreateBuildingsJSONWithDeck();
+        if (!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")) //On vérifie si le buildings.json existe
+        {
+            CreateBuildingsJSONWithDeck();
+            Debug.Log("fichier Créé");
+        }
+        else
+        {
+            Debug.Log("On ne crée pas le fichier");
+        }
+
+
+        //Debug.Log(File.Exists("/buildings.json") + " json avant");
+        //     //public static bool Exists(string path);
+        //CreateBuildingsJSONWithDeck();
+        //Debug.Log(File.Exists("/buildings.json") + " json après");
+        //Debug.Log(Directory.GetCurrentDirectory());
+        //Debug.Log(File.Exists(Directory.GetCurrentDirectory()+ "\\Assets\\buildings.json") + " json après absolute : "
+        //    + Directory.GetCurrentDirectory()+"\\Assets\\buildings.json");
     }
 
     // Update is called once per frame

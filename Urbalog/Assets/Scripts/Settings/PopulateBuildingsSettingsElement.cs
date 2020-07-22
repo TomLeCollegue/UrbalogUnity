@@ -50,9 +50,8 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
     public Building ReturnBuildingFromJson()
     {
         Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
-
         Building _building = _buildingList[buildingNumber];
-        if (buildingNumber<_buildingList.Length)
+        if (buildingNumber<_buildingList.Length-1)
         {
             buildingNumber++;
         }
