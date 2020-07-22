@@ -75,9 +75,11 @@ public class Language
         public static string FR_FLUID = "Fluidité";
         public static string EN_FLUID = "Fluidity";
 
+        public static string FR_CANCEL = "ANNULER";
+        public static string EN_CANCEL = "Cancel";
     #endregion
     #region EndGame
-        public static string FR_END_GAME_TITLE = "Bilan logistique de la ville";
+    public static string FR_END_GAME_TITLE = "Bilan logistique de la ville";
         public static string EN_END_GAME_TITLE = "City's Logistic report";
 
         public static string FR_END = "Fin";
@@ -110,7 +112,8 @@ public class Language
     public static string ATTRACT = "Attractivité";
     public static string ENVI = "Environnement";
     public static string FLUID = "Fluidité";
- 
+    public static string CANCEL = "ANNULER";
+
     #endregion
     #region EndGame
     public static string END_GAME_TITLE = "Bilan logistique de la ville";
@@ -119,9 +122,9 @@ public class Language
     #endregion
 
 
-    public void ChangeLanguage(string language)
+    public static void ChangeLanguage(string language)
     {
-        if (language.Equals("French"))
+        if (language.Equals("Fr"))
         {
             JOUEUR = FR_JOUEUR;
             ADMIN = FR_ADMIN;
@@ -148,8 +151,9 @@ public class Language
             FLUID = FR_FLUID;
             END_GAME_TITLE = FR_END_GAME_TITLE;
             END = FR_END;
+            CANCEL = FR_CANCEL;
         }
-        if (language.Equals("English"))
+        if (language.Equals("En"))
         {
             JOUEUR = EN_JOUEUR;
             ADMIN = EN_ADMIN;
@@ -176,8 +180,10 @@ public class Language
             FLUID = EN_FLUID;
             END_GAME_TITLE = EN_END_GAME_TITLE;
             END = EN_END;
-
-
+            CANCEL = EN_CANCEL;
         }
+
+
     }
+    
 }
