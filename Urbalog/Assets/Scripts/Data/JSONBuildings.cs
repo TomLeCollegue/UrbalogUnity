@@ -51,11 +51,6 @@ public class JSONBuildings : MonoBehaviour
         _jsonBuilding = JsonHelper.ToJson(_DeckArray, true);
         File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuilding);
 
-        //LOAD
-
-        //string _stringFromJSON = File.ReadAllText(Application.dataPath + "/buildings.json");
-        //Building[] _buildingsFromJSON = JsonHelper.FromJson<Building>(_stringFromJSON);
-
     }
 
     public static void CreateBuildingJSONWithBuildings(Building[] _buildings)

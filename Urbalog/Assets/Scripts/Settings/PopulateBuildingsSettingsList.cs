@@ -23,6 +23,9 @@ public class PopulateBuildingsSettingsList : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Loads the buildings in the JSON file and display them in the building display list
+    /// </summary>
     public void Init()
     {
         PopulateBuildingsSettingsElement.buildingNumber = 0;
@@ -35,6 +38,9 @@ public class PopulateBuildingsSettingsList : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deletes the buildings that are in the buildings settings list
+    /// </summary>
     public void destroyListe()
     {
         for (int i = 0; i < liste.Count; i++)

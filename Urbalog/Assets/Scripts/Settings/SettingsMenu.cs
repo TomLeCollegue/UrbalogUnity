@@ -20,7 +20,7 @@ public class SettingsMenu : MonoBehaviour
     #region buildingSettingsPanel
     public GameObject panel;
 
-    public TextMeshProUGUI buildingName; //public TextMeshProUGUI buildingInput;
+    //public TextMeshProUGUI buildingName; //public TextMeshProUGUI buildingInput;
     //public TextMeshProUGUI descriptionPlaceholder; public TextMeshProUGUI descriptionInput;
 
     //public TextMeshProUGUI ecoPlaceholder; public TextMeshProUGUI ecoInput;
@@ -35,6 +35,7 @@ public class SettingsMenu : MonoBehaviour
     //public TextMeshProUGUI logisticDescriptionPlaceholder; public TextMeshProUGUI logiDescriptionInput;
 
     //testing with input field attributes instead of textMeshPro
+    public InputField NameInput;
 
     public InputField descriptionInput;
     public InputField ecoInput;
@@ -114,7 +115,7 @@ public class SettingsMenu : MonoBehaviour
         if (panel != null)
         {
             panel.SetActive(true);
-            buildingName.text = _building.name;
+            NameInput.text = _building.name;
 
             descriptionInput.text = _building.description ;
             ecoInput.text = _building.Economical.ToString();
@@ -173,7 +174,7 @@ public class SettingsMenu : MonoBehaviour
     /// <returns></returns>
     private Building CreateNewBuildingWithInputFields()
     {
-        string _buildingName = buildingName.text;
+        string _buildingName = NameInput.text;
         string _buildingDescription = "";
 
         int _buildingEco = 98;
@@ -205,6 +206,14 @@ public class SettingsMenu : MonoBehaviour
             ,_buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);
 
         return _res;
+    }
+
+    /// <summary>
+    /// Resets all the buildings info to the IceBreaker rules
+    /// </summary>
+    public void ResetBuildingsToDefault()
+    {
+        //CreateBuildingsJSONWithDeck()
     }
 
 }

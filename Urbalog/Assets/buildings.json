@@ -1,11 +1,11 @@
 {
     "Items": [
         {
-            "name": "Piste cyclable",
+            "name": "nouveau nom PC",
             "description": "cette description de test avec Tom Kubasik",
             "Economical": 12,
             "Social": 2,
-            "Political": 3,
+            "Political": 8,
             "FinanceEconomical": 0,
             "FinanceSocial": 0,
             "FinancePolitical": 0,
