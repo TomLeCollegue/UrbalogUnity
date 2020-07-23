@@ -1,19 +1,19 @@
 {
     "Items": [
         {
-            "name": "nouveau nom PC",
-            "description": "cette description de test avec Tom Kubasik",
-            "Economical": 12,
+            "name": "Piste cyclable",
+            "description": "Voie réservée aux cyclistes et protégée du reste de la circulation",
+            "Economical": 2,
             "Social": 2,
-            "Political": 8,
+            "Political": 3,
             "FinanceEconomical": 0,
             "FinanceSocial": 0,
             "FinancePolitical": 0,
             "enviScore": 1,
-            "fluidScore": 10,
-            "attractScore": 8585,
-            "logisticScore": 5,
-            "logisticDescription": "Tom Kubasik & Holyana"
+            "fluidScore": 1,
+            "attractScore": 0,
+            "logisticScore": 2,
+            "logisticDescription": "Toute la voie étant protégée de la circulation, cet aménagement crée un obstacle pour la livraison en limitant l'accès au trottoir."
         },
         {
             "name": "Borne vélo",

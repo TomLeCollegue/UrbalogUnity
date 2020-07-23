@@ -155,12 +155,20 @@ public class SettingsMenu : MonoBehaviour
         }
         CloseBuildingSettingsPanel();
 
-        displayList.destroyListe();
-        displayList.Init();
+        RefreshBuildingsList();
 
 
 
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
+    }
+
+    /// <summary>
+    /// When called, refreshes the buildings list with values up to date with buildings.json
+    /// </summary>
+    public void RefreshBuildingsList()
+    {
+        displayList.destroyListe();
+        displayList.Init();
     }
 
     public void CloseBuildingSettingsPanel()
@@ -209,11 +217,13 @@ public class SettingsMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets all the buildings info to the IceBreaker rules
+    /// Resets all the buildings info to the IceBreaker rules in buildings.json and
+    /// refreshes the building settings list.
     /// </summary>
     public void ResetBuildingsToDefault()
     {
-        //CreateBuildingsJSONWithDeck()
+        JSONBuildings.CreateBuildingsJSONWithDeck(JSONBuildings.DefaultDeck);
+        RefreshBuildingsList();
     }
 
 }

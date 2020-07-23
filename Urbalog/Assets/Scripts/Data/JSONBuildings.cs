@@ -6,7 +6,7 @@ using System.IO;
 public class JSONBuildings : MonoBehaviour
 {
 
-    public List<Building> DefaultDeck = new List<Building>();
+    public static List<Building> DefaultDeck = new List<Building>();
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,7 @@ public class JSONBuildings : MonoBehaviour
         FillDeckBuildingTest();
         if (!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")) //On vérifie si le buildings.json existe
         {
-            CreateBuildingsJSONWithDeck();
+            CreateBuildingsJSONWithDeck(DefaultDeck);
             Debug.Log("fichier Créé");
         }
         else
@@ -42,11 +42,11 @@ public class JSONBuildings : MonoBehaviour
     /// Takes the Deck List and puts it in a JSON File.
     /// Will be useful when the admin wants to reset his modifications on all the buildings.
     /// </summary>
-    public void CreateBuildingsJSONWithDeck()
+    public static void CreateBuildingsJSONWithDeck(List<Building> _defaultDeck)
     {
         string _jsonBuilding = "";
 
-        Building[] _DeckArray = DefaultDeck.ToArray();
+        Building[] _DeckArray = _defaultDeck.ToArray();
 
         _jsonBuilding = JsonHelper.ToJson(_DeckArray, true);
         File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuilding);
