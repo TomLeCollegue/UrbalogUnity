@@ -146,6 +146,36 @@
 
     #endregion
 
+
+    #region Form
+    public static string FR_PREVIOUS = "Précédent";
+    public static string EN_PREVIOUS = "Previous";
+    public static string FR_NEXT = "Suivant";
+    public static string EN_NEXT = "Next";
+    public static string FR_PASS = "Passer";
+    public static string EN_PASS = "Pass";
+    public static string FR_NAME = "Votre Nom";
+    public static string EN_NAME = "Your Name";
+    public static string FR_FIRSTNAME = "Votre Prénom";
+    public static string EN_FIRSTNAME = "Your Firstname";
+    public static string FR_SEXE = "Votre sexe";
+    public static string EN_SEXE = "Your gender";
+    public static string FR_AGE = "Votre âge";
+    public static string EN_AGE = "Your age";
+    public static string FR_PLACE_RESIDENCE = "Lieu de résidence";
+    public static string EN_PLACE_RESIDENCE = "Place of résidence";
+    public static string FR_COMPAGNY = "Votre entreprise";
+    public static string EN_COMPAGNY = "Your compagny";
+    public static string FR_ACT_STATUS = "Votre statut d'activité";
+    public static string EN_ACT_STATUS = "Your activity status";
+    public static string FR_ACTIVITY = "Votre secteur d'activité";
+    public static string EN_ACTIVITY = "Your Activity";
+    public static string FR_FINISH = "Terminer";
+    public static string EN_FINISH = "Finish";
+
+
+    #endregion
+
     #region MainMenu
     public static string JOUEUR = "JOUEUR";
     public static string ADMIN = "ADMINISTRATEUR";
@@ -204,6 +234,22 @@
 
 
     #endregion
+    #region Form
+    public static string PREVIOUS = "Précédent";
+    public static string NEXT = "Suivant";
+    public static string PASS = "Passer";
+    public static string NAME = "Votre Nom";
+    public static string FIRSTNAME = "Votre Prénom";
+    public static string SEXE = "Votre sexe";
+    public static string AGE = "Votre âge";
+    public static string PLACE_RESIDENCE = "Lieu de résidence"; 
+    public static string COMPAGNY = "Votre entreprise";   
+    public static string ACT_STATUS = "Votre statut d'activité";
+    public static string ACTIVITY = "Votre secteur d'activité";
+    public static string FINISH = "Terminer";
+
+
+    #endregion
 
 
     public static void ChangeLanguage(string language)
@@ -255,6 +301,19 @@
             LIST_PLAYER = FR_LIST_PLAYER;
             BEGIN_PARTY = FR_BEGIN_PARTY;
             TIMER_TURN = FR_TIMER_TURN;
+            PREVIOUS = FR_PREVIOUS;
+            NEXT = FR_NEXT;
+            PASS = FR_PASS;
+            NAME = FR_NAME;
+            FIRSTNAME = FR_FIRSTNAME;
+            SEXE = FR_SEXE;
+            AGE = FR_AGE;
+            PLACE_RESIDENCE = FR_PLACE_RESIDENCE;
+            COMPAGNY = FR_COMPAGNY;
+            ACT_STATUS = FR_ACT_STATUS;
+            ACTIVITY = FR_ACTIVITY;
+            FINISH = FR_FINISH;
+
 }
         if (language.Equals("En"))
         {
@@ -303,6 +362,18 @@
             LIST_PLAYER = EN_LIST_PLAYER;
             BEGIN_PARTY = EN_BEGIN_PARTY;
             TIMER_TURN = EN_TIMER_TURN;
+            PREVIOUS = EN_PREVIOUS;
+            NEXT = EN_NEXT;
+            PASS = EN_PASS;
+            NAME = EN_NAME;
+            FIRSTNAME = EN_FIRSTNAME;
+            SEXE = EN_SEXE;
+            AGE = EN_AGE;
+            PLACE_RESIDENCE = EN_PLACE_RESIDENCE;
+            COMPAGNY = EN_COMPAGNY;
+            ACT_STATUS = EN_ACT_STATUS;
+            ACTIVITY = EN_ACTIVITY;
+            FINISH = EN_FINISH;
         }
     }
     
