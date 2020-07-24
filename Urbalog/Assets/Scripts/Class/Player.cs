@@ -39,10 +39,10 @@ public class Player : NetworkBehaviour
     [SerializeField]
     [SyncVar]
     public int scorePlayer = 0;
-    private int OldScore = 0;
+    public int OldScore = 0;
 
     [SerializeField]
-    private int num;
+    public int num;
 
     [Command]
     public void CmdScore()

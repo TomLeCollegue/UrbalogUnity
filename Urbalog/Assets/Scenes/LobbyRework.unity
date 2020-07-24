@@ -15146,6 +15146,21 @@ MonoBehaviour:
   Host_a_Game: {fileID: 1779232614}
   CreateGame: {fileID: 139472072}
   Pseudo: {fileID: 314774441}
+  Previous1: {fileID: 2016686923}
+  Previous2: {fileID: 1952017131}
+  Previous3: {fileID: 1602545776}
+  Next1: {fileID: 1190663280}
+  Next2: {fileID: 1718665682}
+  Next3: {fileID: 955865656}
+  Pass: {fileID: 834454992}
+  nameForm: {fileID: 8370423}
+  firstname: {fileID: 756244616}
+  gender: {fileID: 752297639}
+  age: {fileID: 1903142222}
+  residence: {fileID: 1215848243}
+  compagny: {fileID: 1662649052}
+  status: {fileID: 491941248}
+  activity: {fileID: 1224886297}
 --- !u!4 &1743353261
 Transform:
   m_ObjectHideFlags: 0
