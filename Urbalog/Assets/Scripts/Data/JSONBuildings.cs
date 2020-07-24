@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Linq;
+using System;
+using UnityEditor.PackageManager;
 
 public class JSONBuildings : MonoBehaviour
 {
@@ -85,6 +88,88 @@ public class JSONBuildings : MonoBehaviour
         return _buildingsFromJSON;
     }
 
+    public static string BuildingArrayToString(Building[] _buildings)
+    {
+        string result = "";
+        for (int i = 0; i < _buildings.Length; i++)
+        {
+            result = result + _buildings[i].name + "\n";
+        }
+        return result + "\n";
+    }
+
+    /// <summary>
+    /// takes a building in argument and deletes it from JSON
+    /// </summary>
+    /// <param name="_building"></param>
+    public static void DeleteBuildingFromJSON(Building _building)
+    {
+        Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+        Building[] _newBuildingsFromJson;
+        int index;
+
+        index = findIndexInArray(_buildingsFromJson,_building);
+
+        _newBuildingsFromJson = DeleteBuildingFromIndex(_buildingsFromJson, index);
+
+        Debug.Log("delete index :" + index);
+
+        Debug.Log("new array + " + BuildingArrayToString(_newBuildingsFromJson));
+
+
+        CreateBuildingJSONWithBuildings(_newBuildingsFromJson); //recreate json file with the new array
+
+    }
+
+
+    /// <summary>
+    /// Takes a building and deletes it from an array
+    /// </summary>
+    /// <param name="buildingsFromJson"></param>
+    /// <returns></returns>
+    private static Building[] DeleteBuildingFromIndex(Building[] _buildingsFromJson, int _indexOfBuilding)
+    {
+        Building[] _result = new Building[_buildingsFromJson.Length - 1];
+        Debug.Log("base array length" + _buildingsFromJson.Length);
+        Debug.Log("res array length" + _result.Length);
+
+        for (int i = 0; i < _result.Length ; i++)
+        {
+            if (i < _indexOfBuilding)
+            {
+                _result[i] = _buildingsFromJson[i];
+            }
+            else if (i >= _indexOfBuilding)
+            {
+                _result[i] = _buildingsFromJson[i + 1];
+            }
+        }
+        Debug.Log("json"+BuildingArrayToString(_buildingsFromJson));
+        Debug.Log("après delete"+BuildingArrayToString(_result));
+        return _result;
+    }
+
+    /// <summary>
+    /// Find the index of a building in a given array
+    /// returns -1 if not in the array
+    /// </summary>
+    /// <param name="buildingsFromJson"></param>
+    /// <param name="building"></param>
+    /// <returns></returns>
+    private static int findIndexInArray(Building[] _buildingsFromJson, Building _building)
+    {
+        for (int i = 0; i < _buildingsFromJson.Length ; i++)
+        {
+            if (_building.name == _buildingsFromJson[i].name)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+
     /// <summary>
     /// All the urbalog buildings
     /// </summary>
@@ -114,6 +199,7 @@ public class JSONBuildings : MonoBehaviour
         DefaultDeck.Add(new Building("Banc", "2 Bancs", 1, 1, 1, 1, -1, 0, -1, "Cet aménagement constitue un obstacle ponctuel pour la livraison en limitant l'accès au trottoir."));
         DefaultDeck.Add(new Building("Zone végétalisée", "Espace vert", 1, 2, 2, 4, -4, 1, -2, "Cette zone, non franchissable avec des outils de manutention, gêne la livraison."));
     }
+
 
 }
 

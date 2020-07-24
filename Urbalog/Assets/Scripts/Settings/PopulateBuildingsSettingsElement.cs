@@ -58,16 +58,23 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
         return _building;
     }
 
+    /// <summary>
+    /// Opens the building settings panel
+    /// </summary>
     public void OpenPanelBuilding()
     {
         GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().OpenBuildingSettingsPanel(building);
     }
 
+    /// <summary>
+    /// If changes are made, they are saved in buildings.json
+    /// </summary>
     public void SaveSettingsOnBuilding()
     {
         GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().ChangeBuildingSettings();
         
     }
+
 
 
 }

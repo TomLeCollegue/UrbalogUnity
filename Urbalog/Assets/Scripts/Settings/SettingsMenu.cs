@@ -226,4 +226,14 @@ public class SettingsMenu : MonoBehaviour
         RefreshBuildingsList();
     }
 
+    /// <summary>
+    /// Delete the current building when called from json and refreshes the list
+    /// </summary>
+    public void DeleteBuilding()
+    {
+        Debug.Log("delete settings menu building " + currentBuilding.name);
+        JSONBuildings.DeleteBuildingFromJSON(currentBuilding);
+        RefreshBuildingsList();
+        CloseBuildingSettingsPanel();
+    }
 }
