@@ -20,21 +20,6 @@ public class SettingsMenu : MonoBehaviour
     #region buildingSettingsPanel
     public GameObject panel;
 
-    //public TextMeshProUGUI buildingName; //public TextMeshProUGUI buildingInput;
-    //public TextMeshProUGUI descriptionPlaceholder; public TextMeshProUGUI descriptionInput;
-
-    //public TextMeshProUGUI ecoPlaceholder; public TextMeshProUGUI ecoInput;
-    //public TextMeshProUGUI socPlaceholder; public TextMeshProUGUI socInput;
-    //public TextMeshProUGUI poliPlaceholder; public TextMeshProUGUI poliInput;
-
-    //public TextMeshProUGUI enviPlaceholder; public TextMeshProUGUI enviInput;
-    //public TextMeshProUGUI fluidPlaceholder; public TextMeshProUGUI fluidInput;
-    //public TextMeshProUGUI attractPlaceholder; public TextMeshProUGUI attractInput;
-    //public TextMeshProUGUI logisticPlaceholder; public TextMeshProUGUI logiInput;
-
-    //public TextMeshProUGUI logisticDescriptionPlaceholder; public TextMeshProUGUI logiDescriptionInput;
-
-    //testing with input field attributes instead of textMeshPro
     public InputField NameInput;
 
     public InputField descriptionInput;
@@ -49,6 +34,26 @@ public class SettingsMenu : MonoBehaviour
     public InputField logiInput;
 
     public InputField LogisticDescriptionInput;
+    #endregion
+
+    #region addBuildingPanel
+    public GameObject addPanel;
+
+    public InputField addNameInput;
+
+    public InputField AddDescriptionInput;
+    public InputField AddEcoInput;
+    public InputField AddSocInput;
+    public InputField AddPoliInput;
+
+    public InputField AddEnviInput;
+    public InputField AddFluidInput;
+    public InputField AddAttractInput;
+
+    public InputField AddLogiInput;
+
+    public InputField AddLogisticDescriptionInput;
+
     #endregion
 
     public TextMeshProUGUI timerPlaceholder;
@@ -105,6 +110,7 @@ public class SettingsMenu : MonoBehaviour
         timerPlaceholder.text = GameSettings.TurnTimeMax.ToString();
     }
 
+
     /// <summary>
     /// When a building in the buildings list is clicked, a panel opens so we can change its infos
     /// It prints the current infos in the placeholder.
@@ -132,6 +138,22 @@ public class SettingsMenu : MonoBehaviour
             
         }
         currentBuilding = _building;
+    }
+
+    /// <summary>
+    /// open the panel to add a building in json
+    /// </summary>
+    public void OpenAddBuildingPanel()
+    {
+        if (addPanel != null)
+        {
+            addPanel.SetActive(true);
+        }
+    }
+
+    public void CloseAddBuildingPanel()
+    {
+        addPanel.SetActive(false);
     }
 
 
@@ -217,6 +239,48 @@ public class SettingsMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Very similar to CreateNewBuildingWithInputFields() but does it in the add panel
+    /// Return a building with all the informations on AddPanel Input Fields
+    /// </summary>
+    /// <returns></returns>
+    private Building CreateNewBuildingWithInputFieldsInAddPanel()
+    {
+        string _buildingName = "";
+        string _buildingDescription = "";
+
+        int _buildingEco = 0;
+        int _buildingSoc = 0;
+        int _buildingPoli = 0;
+
+        int _buildingEnvi = 0;
+        int _buildingFluid = 0;
+        int _buildingAttract = 0;
+        int _buildingLogi = 0;
+
+        string _buildingLogiDescription = "";
+
+        _buildingName = addNameInput.text;
+        _buildingDescription = AddDescriptionInput.text;
+
+        _buildingEco = Convert.ToInt16(AddEcoInput.text);
+        _buildingSoc = Convert.ToInt16(AddSocInput.text);
+        _buildingPoli = Convert.ToInt16(AddPoliInput.text);
+
+        _buildingEnvi = Convert.ToInt16(AddEnviInput.text);
+        _buildingFluid = Convert.ToInt16(AddFluidInput.text);
+        _buildingAttract = Convert.ToInt16(AddAttractInput.text);
+
+        _buildingLogi = Convert.ToInt16(AddLogiInput.text);
+
+        _buildingLogiDescription = AddLogisticDescriptionInput.text;
+
+        Building _res = new Building(_buildingName, _buildingDescription, _buildingEco, _buildingSoc, _buildingPoli, _buildingEnvi
+    , _buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);
+
+        return _res;
+    }
+
+    /// <summary>
     /// Resets all the buildings info to the IceBreaker rules in buildings.json and
     /// refreshes the building settings list.
     /// </summary>
@@ -236,4 +300,17 @@ public class SettingsMenu : MonoBehaviour
         RefreshBuildingsList();
         CloseBuildingSettingsPanel();
     }
+
+    /// <summary>
+    /// takes the information in all "add building panel" inputs and adds the building created in the json file
+    /// </summary>
+    public void AddBuilding()
+    {
+        Building _buildingToAdd = CreateNewBuildingWithInputFieldsInAddPanel();
+        JSONBuildings.AddInJson(_buildingToAdd);
+        RefreshBuildingsList();
+        CloseAddBuildingPanel();
+    }
+
+
 }

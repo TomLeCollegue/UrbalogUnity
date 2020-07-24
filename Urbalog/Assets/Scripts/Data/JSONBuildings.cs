@@ -121,6 +121,25 @@ public class JSONBuildings : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Find the index of a building in a given array
+    /// returns -1 if not in the array
+    /// </summary>
+    /// <param name="buildingsFromJson"></param>
+    /// <param name="building"></param>
+    /// <returns></returns>
+    private static int findIndexInArray(Building[] _buildingsFromJson, Building _building)
+    {
+        for (int i = 0; i < _buildingsFromJson.Length; i++)
+        {
+            if (_building.name == _buildingsFromJson[i].name)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
     /// <summary>
     /// Takes a building and deletes it from an array
@@ -144,29 +163,48 @@ public class JSONBuildings : MonoBehaviour
                 _result[i] = _buildingsFromJson[i + 1];
             }
         }
-        Debug.Log("json"+BuildingArrayToString(_buildingsFromJson));
-        Debug.Log("après delete"+BuildingArrayToString(_result));
+        Debug.Log("json "+BuildingArrayToString(_buildingsFromJson));
+        Debug.Log("après delete "+BuildingArrayToString(_result));
         return _result;
     }
 
     /// <summary>
-    /// Find the index of a building in a given array
-    /// returns -1 if not in the array
+    /// takes a building and adds it to the json file
     /// </summary>
-    /// <param name="buildingsFromJson"></param>
-    /// <param name="building"></param>
-    /// <returns></returns>
-    private static int findIndexInArray(Building[] _buildingsFromJson, Building _building)
+    /// <param name="_buildingToAdd"></param>
+    internal static void AddInJson(Building _buildingToAdd)
     {
-        for (int i = 0; i < _buildingsFromJson.Length ; i++)
-        {
-            if (_building.name == _buildingsFromJson[i].name)
-            {
-                return i;
-            }
-        }
-        return -1;
+        //load the current list
+        Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+
+        //Create a new list with _buildingToAdd at the end
+        Building[] _newBuildings = AddBuildingToArray(_buildingsFromJson,_buildingToAdd);
+
+        //Create a new JSON file with the new list
+        CreateBuildingJSONWithBuildings(_newBuildings);
     }
+
+    /// <summary>
+    /// add the building to an array and return the array created
+    /// </summary>
+    /// <param name="_buildingsFromJson"></param>
+    /// <param name="_buildingToAdd"></param>
+    /// <returns></returns>
+    private static Building[] AddBuildingToArray(Building[] _buildingsFromJson, Building _buildingToAdd)
+    {
+        Building[] _result = new Building[_buildingsFromJson.Length + 1];
+
+        for (int i = 0; i < _buildingsFromJson.Length; i++)
+        {
+            _result[i] = _buildingsFromJson[i];
+        }
+        _result[_result.Length - 1] = _buildingToAdd;
+
+        return _result;
+    }
+
+
+
 
 
 
