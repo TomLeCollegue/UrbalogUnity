@@ -8756,7 +8756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1073c254f1c86fc4f9a7eb8dbf434f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultDeck: []
 --- !u!1 &955865654
 GameObject:
   m_ObjectHideFlags: 0
@@ -11111,6 +11110,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247476882}
   m_CullTransparentMesh: 0
+--- !u!1 &1255491994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255491996}
+  - component: {fileID: 1255491995}
+  m_Layer: 0
+  m_Name: JSONRolesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1255491995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255491994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6f7abc649af3647a2b231951706d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultRoles: []
+--- !u!4 &1255491996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255491994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 267.68253, y: 165.17084, z: -463.8251}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1274509492
 GameObject:
   m_ObjectHideFlags: 0
@@ -12849,6 +12892,7 @@ MonoBehaviour:
   BuildingsSettingsMenu: {fileID: 0}
   BuildingsListPanel: {fileID: 0}
   TimeLimitPanel: {fileID: 0}
+  RolePanel: {fileID: 0}
   currentBuilding:
     name: 
     description: 
@@ -12864,26 +12908,30 @@ MonoBehaviour:
     logisticScore: 0
     logisticDescription: 
   panel: {fileID: 0}
-  buildingName: {fileID: 0}
-  descriptionPlaceholder: {fileID: 0}
+  NameInput: {fileID: 0}
   descriptionInput: {fileID: 0}
-  ecoPlaceholder: {fileID: 0}
   ecoInput: {fileID: 0}
-  socPlaceholder: {fileID: 0}
   socInput: {fileID: 0}
-  poliPlaceholder: {fileID: 0}
   poliInput: {fileID: 0}
-  enviPlaceholder: {fileID: 0}
   enviInput: {fileID: 0}
-  fluidPlaceholder: {fileID: 0}
   fluidInput: {fileID: 0}
-  attractPlaceholder: {fileID: 0}
   attractInput: {fileID: 0}
-  logisticPlaceholder: {fileID: 0}
   logiInput: {fileID: 0}
-  logisticDescriptionPlaceholder: {fileID: 0}
-  logiDescriptionInput: {fileID: 0}
+  LogisticDescriptionInput: {fileID: 0}
+  addPanel: {fileID: 0}
+  addNameInput: {fileID: 0}
+  AddDescriptionInput: {fileID: 0}
+  AddEcoInput: {fileID: 0}
+  AddSocInput: {fileID: 0}
+  AddPoliInput: {fileID: 0}
+  AddEnviInput: {fileID: 0}
+  AddFluidInput: {fileID: 0}
+  AddAttractInput: {fileID: 0}
+  AddLogiInput: {fileID: 0}
+  AddLogisticDescriptionInput: {fileID: 0}
   timerPlaceholder: {fileID: 0}
+  nbBuildingsMaxPerTurnPlaceholder: {fileID: 0}
+  displayList: {fileID: 0}
 --- !u!1 &1526576431
 GameObject:
   m_ObjectHideFlags: 0

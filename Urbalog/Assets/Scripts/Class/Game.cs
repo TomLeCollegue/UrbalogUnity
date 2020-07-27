@@ -129,27 +129,35 @@ public class Game
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
 
+    /// <summary>
+    /// Takes the roles used from JSON File to fill the Roles List
+    /// </summary>
+    public void fillRolesFromJson()
+    {
+        JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson("/roles.json"), Roles);
+    }
+
     /**
      * <summary>Add valueBet to the correct ressource on the correct building</summary>
-     * <param name="numBuilding">The index of the building that you want to bet on</param>
-     * <param name="ressource">String which is the name of the ressource the bet has been made</param>
-     * <param name="ValueBet">How much we bet</param>
+     * <param name="_numBuilding">The index of the building that you want to bet on</param>
+     * <param name="_ressource">String which is the name of the ressource the bet has been made</param>
+     * <param name="_ValueBet">How much we bet</param>
      */
-    public void BetOnBuilding(int numBuilding, string ressource, int ValueBet)
+    public void BetOnBuilding(int _numBuilding, string _ressource, int _ValueBet)
     {
-        Building building = Market[numBuilding];
+        Building building = Market[_numBuilding];
 
-        if (ressource.Equals("Economical"))
+        if (_ressource.Equals("Economical"))
         {
-            building.FinanceEconomical += ValueBet;
+            building.FinanceEconomical += _ValueBet;
         }
-        else if (ressource.Equals("Political"))
+        else if (_ressource.Equals("Political"))
         {
-            building.FinancePolitical += ValueBet;
+            building.FinancePolitical += _ValueBet;
         }
         else
         {
-            building.FinanceSocial += ValueBet;
+            building.FinanceSocial += _ValueBet;
         }
     }
 

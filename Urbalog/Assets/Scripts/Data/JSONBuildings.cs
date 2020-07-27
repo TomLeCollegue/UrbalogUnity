@@ -125,8 +125,8 @@ public class JSONBuildings : MonoBehaviour
     /// Find the index of a building in a given array
     /// returns -1 if not in the array
     /// </summary>
-    /// <param name="buildingsFromJson"></param>
-    /// <param name="building"></param>
+    /// <param name="_buildingsFromJson"></param>
+    /// <param name="_building"></param>
     /// <returns></returns>
     private static int findIndexInArray(Building[] _buildingsFromJson, Building _building)
     {
@@ -144,7 +144,7 @@ public class JSONBuildings : MonoBehaviour
     /// <summary>
     /// Takes a building and deletes it from an array
     /// </summary>
-    /// <param name="buildingsFromJson"></param>
+    /// <param name="_buildingsFromJson"></param>
     /// <returns></returns>
     private static Building[] DeleteBuildingFromIndex(Building[] _buildingsFromJson, int _indexOfBuilding)
     {
