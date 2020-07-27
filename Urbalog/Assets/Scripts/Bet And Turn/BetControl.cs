@@ -181,7 +181,45 @@ public class BetControl : NetworkBehaviour
     public void CmdBet(int idPlayer, int value, string Ressource, int num)
     {
         BetLog(idPlayer, value, Ressource, num);
+        BackupPlayer(idPlayer, value, Ressource);
         RpcBet(value, Ressource, num);
+    }
+
+    public void BackupPlayer(int idPlayer, int value, string Ressource)
+    {
+        Player player = SearchPlayer(idPlayer);
+        string ID = GameObject.Find("playerLocal").GetComponent<Player>().ID;
+        if (!player.ID.Equals(ID)) {
+        
+            if (Ressource.Equals("Political"))
+            {
+                player.role.ressourcePolitical -= value;
+
+            }
+            else if (Ressource.Equals("Social"))
+            {
+                player.role.ressourceSocial -= value;
+            }
+            else
+            {
+                player.role.ressourceEconomical -= value;
+            }
+
+    }
+        
+    }
+
+
+    public Player SearchPlayer(int idPlayer)
+    {
+        for (int i = 0; i < GameManager.singleton.players.Count; i++)
+        {
+            if (GameManager.singleton.players[i].ID.Equals(idPlayer.ToString()))
+            {
+                return GameManager.singleton.players[i];
+            }
+        }
+        return GameManager.singleton.players[0];
     }
 
     public void BetLog(int playerId,int value, string Ressource, int num)
