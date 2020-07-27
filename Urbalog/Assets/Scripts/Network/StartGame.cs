@@ -17,7 +17,7 @@ public class StartGame : NetworkBehaviour
     [Server]
     void CmdChangeScene()
     {
-        NetworkManager.singleton.ServerChangeScene("PlayerView");
+        NetworkManager.singleton.ServerChangeScene("DragDropScene");
     }
 
 

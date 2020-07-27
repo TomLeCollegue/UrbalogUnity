@@ -15961,6 +15961,7 @@ MonoBehaviour:
     type: 3}
   holder: {fileID: 2093642783}
   transformtest: {fileID: 739237857}
+  canvas: {fileID: 2093642782}
 --- !u!114 &739237863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26318,6 +26319,7 @@ GameObject:
   - component: {fileID: 1277864711}
   - component: {fileID: 1277864710}
   - component: {fileID: 1277864709}
+  - component: {fileID: 1277864712}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -26401,6 +26403,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277864707}
   m_CullTransparentMesh: 0
+--- !u!114 &1277864712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277864707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc3b04aab58268479692dcf753693d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  num: 0
+  ressource: 
 --- !u!1 &1278903423
 GameObject:
   m_ObjectHideFlags: 0
@@ -38632,6 +38648,7 @@ GameObject:
   - component: {fileID: 1860958196}
   - component: {fileID: 1860958195}
   - component: {fileID: 1860958200}
+  - component: {fileID: 1860958201}
   m_Layer: 5
   m_Name: white
   m_TagString: Untagged
@@ -38803,6 +38820,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1860958201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860958193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc3b04aab58268479692dcf753693d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  num: 0
+  ressource: 
 --- !u!1001 &1863173419
 PrefabInstance:
   m_ObjectHideFlags: 0
