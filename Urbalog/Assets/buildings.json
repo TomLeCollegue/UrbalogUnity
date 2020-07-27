@@ -196,21 +196,6 @@
             "logisticDescription": "Ce dispositif permet aux véhicules au gaz de se recharger et aux transporteurs de rouler même lors des pics de pollution."
         },
         {
-            "name": "Banc",
-            "description": "2 Bancs",
-            "Economical": 1,
-            "Social": 1,
-            "Political": 1,
-            "FinanceEconomical": 0,
-            "FinanceSocial": 0,
-            "FinancePolitical": 0,
-            "enviScore": 1,
-            "fluidScore": -1,
-            "attractScore": 0,
-            "logisticScore": -1,
-            "logisticDescription": "Cet aménagement constitue un obstacle ponctuel pour la livraison en limitant l'accès au trottoir."
-        },
-        {
             "name": "Zone végétalisée",
             "description": "Espace vert",
             "Economical": 1,
@@ -224,6 +209,36 @@
             "attractScore": 1,
             "logisticScore": -2,
             "logisticDescription": "Cette zone, non franchissable avec des outils de manutention, gêne la livraison."
+        },
+        {
+            "name": "bancos",
+            "description": "fsf",
+            "Economical": 2,
+            "Social": 2,
+            "Political": 2,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 2,
+            "fluidScore": 2,
+            "attractScore": 2,
+            "logisticScore": 2,
+            "logisticDescription": "nsdjsgjsgfj"
+        },
+        {
+            "name": "Yves Dumont",
+            "description": "Oui, il s'agit bien de mobilier urbain. Apport positif sur la fluidité car ses CM sont vides.",
+            "Economical": 1,
+            "Social": 6,
+            "Political": 6,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 5,
+            "attractScore": -4,
+            "logisticScore": 9,
+            "logisticDescription": "Très bon impact sur les livraisons car toute sa promo va en info-com."
         }
     ]
 }
