@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonDragDrop : MonoBehaviour, IPointerDownHandler
+public class ButtonDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     public GameObject resource;
     public Transform holder;
+    public RectTransform transformtest;
 
-    public void SpawnResourceItem()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        GameObject item = Instantiate(resource, holder);
+        GameObject item = Instantiate(resource, eventData.position, Quaternion.identity);
+        item.transform.SetParent(holder, false);
+        eventData.pointerDrag = item;
+   
     }
 
-    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData)
     {
-        SpawnResourceItem();
+        
     }
-    
+
 }
