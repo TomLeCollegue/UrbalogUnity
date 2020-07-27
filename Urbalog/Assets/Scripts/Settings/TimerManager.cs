@@ -45,7 +45,7 @@ public class TimerManager : MonoBehaviour
         if (alreadyStarted && GameSettings.isTimerActive)
         {
             DecreaseTime();
-            turnTimerText.text = "Temps : "+currentTurnTime.ToString("0");
+            turnTimerText.text = Language.TIMER_TURN +currentTurnTime.ToString("0");
         }
         else
         {

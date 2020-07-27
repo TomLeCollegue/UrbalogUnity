@@ -69,7 +69,7 @@ public class NextTurnButton : NetworkBehaviour
     {
         if (!_TurnPressed && !_NbBuildingFinancedTooHighForEndGame && !_NbBuildingFinancedTooHighForTurn)
         {
-            TextButton.text = "Tour Suivant";
+            TextButton.text = Language.NEXT_TURN;
             TextButton.color = Color.black;
             ButtonNextTurn.interactable = true;
         }
@@ -81,7 +81,7 @@ public class NextTurnButton : NetworkBehaviour
         }
         else if (_TurnPressed && (!_NbBuildingFinancedTooHighForEndGame || !_NbBuildingFinancedTooHighForEndGame))
         {
-            TextButton.text = "Annuler";
+            TextButton.text = Language.CANCEL;
             TextButton.color = Color.black;
             ButtonNextTurn.interactable = true;
         }

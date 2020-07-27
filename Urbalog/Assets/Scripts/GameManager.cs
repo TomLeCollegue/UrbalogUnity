@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int NumPlayerForRole { get; set; } = 0;
 
     public List<Player> players  = new List<Player>();
+    public List<PlayerBackUp> playersBackup = new List<PlayerBackUp>();
 
     private void Awake()
     {
@@ -66,7 +67,10 @@ public class GameManager : MonoBehaviour
     public void RegisterPlayer(Player player)
     {
         players.Add(player);
-        GameObject.Find("ListPlayerManager").GetComponent<FillListPlayer>().UpdateList();
+        if (SceneManager.GetActiveScene().name.Equals("LobbyRoom"))
+        {
+            GameObject.Find("ListPlayerManager").GetComponent<FillListPlayer>().UpdateList();
+        }
     }
 
     #endregion
