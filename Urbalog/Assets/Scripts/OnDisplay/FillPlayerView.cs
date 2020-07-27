@@ -249,7 +249,7 @@ public class FillPlayerView : MonoBehaviour
         ScorePlayer.text = "Score :" + GameObject.Find("playerLocal").GetComponent<Player>().scorePlayer;
         ColorImpact();
         FillBuildingsImpact();
-        turnNumberText.text = "Num Tour : " + GameManager.singleton.game.turnNumber.ToString();
+        turnNumberText.text = Language.TURNS + GameManager.singleton.game.turnNumber.ToString();
 
         //is needed only once a turn
         if (!isAlreadyUpdated)

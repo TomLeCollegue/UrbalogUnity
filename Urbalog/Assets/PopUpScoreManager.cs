@@ -51,38 +51,38 @@ public class PopUpScoreManager : MonoBehaviour
         if (role.hold.Equals("Environment"))
         {
             HoldImageWin.GetComponent<Image>().sprite = EnviSprite;
-            HoldTextWin.text = "Environnement Maitrisé";
+            HoldTextWin.text = Language.HELD_ENVI;
             Debug.Log("Environment");
         }
         else if (role.hold.Equals("Fluidity"))
         {
             HoldImageWin.GetComponent<Image>().sprite = FluidSprite;
-            HoldTextWin.text = "Fluidité Maitrisée";
+            HoldTextWin.text = Language.HELD_FLUID;
             Debug.Log("Fluid");
         }
         else
         {
             HoldImageWin.GetComponent<Image>().sprite = AttractSprite;
-            HoldTextWin.text = "Attractivité Maitrisée";
+            HoldTextWin.text = Language.HELD_ATTRACT;
             Debug.Log("Attract");
         }
         
         if (role.improve.Equals("Environment"))
         {
             ImproveImageWin.GetComponent<Image>().sprite = EnviSprite;
-            ImproveTextWin.text = "Environnement Amélioré";
+            ImproveTextWin.text = Language.IMPROVE_ENVI;
             Debug.Log("Environment");
         }
         else if(role.improve.Equals("Fluidity"))
         {
             ImproveImageWin.GetComponent<Image>().sprite = FluidSprite;
-            ImproveTextWin.text = "Fluidité Améliorée";
+            ImproveTextWin.text = Language.IMPROVE_FLUID;
             Debug.Log("Fluid");
         }
         else
         {
             ImproveImageWin.GetComponent<Image>().sprite = AttractSprite;
-            ImproveTextWin.text = "Attractivité Améliorée";
+            ImproveTextWin.text = Language.IMPROVE_ATTRACT;
             Debug.Log("Attract");
         }
         
@@ -94,33 +94,33 @@ public class PopUpScoreManager : MonoBehaviour
         if (role.hold.Equals("Environment"))
         {
             HoldImageLose.GetComponent<Image>().sprite = EnviSprite;
-            HoldTextLose.text = "Maitriser Environnement";
+            HoldTextLose.text = Language.HELD_ENVI_LOSE;
         }
         else if (role.hold.Equals("Fluidity"))
         {
             HoldImageLose.GetComponent<Image>().sprite = FluidSprite;
-            HoldTextLose.text = "Maitriser Fluidité";
+            HoldTextLose.text = Language.HELD_FLUID_LOSE;
         }
         else
         {
             HoldImageLose.GetComponent<Image>().sprite = AttractSprite;
-            HoldTextLose.text = " Maitriser Attractivité";
+            HoldTextLose.text = Language.HELD_ATTRACT_LOSE;
         }
 
         if (role.improve.Equals("Environment"))
         {
             ImproveImageLose.GetComponent<Image>().sprite = EnviSprite;
-            ImproveTextLose.text = "Améliorer Environnement";
+            ImproveTextLose.text = Language.IMPROVE_ENVI_LOSE;
         }
         else if (role.improve.Equals("Fluidity"))
         {
             ImproveImageLose.GetComponent<Image>().sprite = FluidSprite;
-            ImproveTextLose.text = "Améliorer Fluidité";
+            ImproveTextLose.text = Language.IMPROVE_FLUID_LOSE;
         }
         else
         {
             ImproveImageLose.GetComponent<Image>().sprite = AttractSprite;
-            ImproveTextLose.text = "Améliorer Attractivité";
+            ImproveTextLose.text = Language.HELD_ATTRACT_LOSE;
         }
 
     }

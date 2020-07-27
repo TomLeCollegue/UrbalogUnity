@@ -40,12 +40,13 @@ public class PlayerSetup : NetworkBehaviour
         base.OnStartClient();
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
+        CmdCheckifPlayerExisted(GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName);
         GameManager.singleton.RegisterPlayer(_player);
-
         //assign to the local player his name and ID
         _player.ID = _netID;
         if (isLocalPlayer)
         {
+            Debug.Log("OnstartClinetFonction IsLocalPlayer");
             string namePlayer = GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName;
             string age = GameObject.Find("NetworkManager").GetComponent<HostGame>().age;
             string company = GameObject.Find("NetworkManager").GetComponent<HostGame>().company;
@@ -54,12 +55,14 @@ public class PlayerSetup : NetworkBehaviour
             string zipcode = GameObject.Find("NetworkManager").GetComponent<HostGame>().zipcode;
             string jobStatus = GameObject.Find("NetworkManager").GetComponent<HostGame>().jobStatus;
             string field = GameObject.Find("NetworkManager").GetComponent<HostGame>().field;
-            CmdSendInfoPlayer(_netID, namePlayer, age, company, gender, playerFamilyName, zipcode, jobStatus,field);
+            CmdSendInfoPlayer(_netID, namePlayer, age, company, gender, playerFamilyName, zipcode, jobStatus, field);
+
+
         }
         CmdSendRulesToPlayer();
         CmdSendNbBuildingsMax();
-        CmdGetRoleForPlayer(); 
-        CmdSendActualGameManager(); 
+        CmdGetRoleForPlayer();
+        CmdSendActualGameManager();
     }
 
     /// <summary>
@@ -181,7 +184,7 @@ public class PlayerSetup : NetworkBehaviour
     #region SendInfoOfPlayer   CmdSendInfoPlayer(string id, string namePlayer)  RpcGetInfoOfPlayer(string _id, string _namePlayer)
 
     [Command]
-    public void CmdSendInfoPlayer(string id, string namePlayer, string age, string compagny, string gender, string playerFamilyName,string zipCode, string jobStatus, string field)
+    public void CmdSendInfoPlayer(string id, string namePlayer, string age, string compagny, string gender, string playerFamilyName, string zipCode, string jobStatus, string field)
     {
         GameManager gameManager = GameManager.singleton;
         for (int i = 0; i < gameManager.players.Count; i++)
@@ -212,12 +215,53 @@ public class PlayerSetup : NetworkBehaviour
             Debug.Log("nextTurn Boucle " + i);
             if (gameManager.players[i].ID.Equals(_id))
             {
-                Debug.Log("nextTurn Boucle " + i + " Trouvé" );
+                Debug.Log("nextTurn Boucle " + i + " Trouvé");
                 gameManager.players[i].nextTurn = !gameManager.players[i].nextTurn;
             }
         }
     }
 
+
+    #region RecupPlayerIfReco
+    [Command]
+    public void CmdCheckifPlayerExisted(string namePlayer)
+    {
+        for (int i = 0; i < GameManager.singleton.playersBackup.Count; i++)
+        {
+            if (GameManager.singleton.playersBackup[i].namePlayer.Equals(namePlayer))
+            {
+                byte[] playerBackupByte = GetbyteFromObject(GameManager.singleton.playersBackup[i]);
+                RpcClient(playerBackupByte);
+                return;
+            }
+        }
+    }
+
+    [ClientRpc]
+    public void RpcClient(byte[] playerBackupByte)
+    {
+        PlayerBackUp playerBackup = (PlayerBackUp)ByteArrayToObject2(playerBackupByte);
+        Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+        if (GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName.Equals(playerBackup.namePlayer))
+        {
+            player.namePlayer = playerBackup.namePlayer;
+            player.playerFamilyName = playerBackup.playerFamilyName;
+            player.gender = playerBackup.gender;
+            player.age = playerBackup.age;
+            player.zipcode = playerBackup.company;
+            player.jobStatus = playerBackup.jobStatus;
+            player.field = playerBackup.field;
+            player.nameRole = playerBackup.nameRole;
+            player.ID = playerBackup.ID;
+            player.nextTurn = playerBackup.nextTurn;
+            player.scorePlayer = playerBackup.scorePlayer;
+            player.OldScore = playerBackup.OldScore;
+            player.num = playerBackup.num;
+            player.role = playerBackup.role;
+
+        }
+    }
+    #endregion
 
 
     #region Fonction Serialization      GetbyteFromObject()    ByteArrayToObject2()
