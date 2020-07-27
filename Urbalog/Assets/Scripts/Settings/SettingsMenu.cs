@@ -13,6 +13,7 @@ public class SettingsMenu : MonoBehaviour
     public GameObject BuildingsSettingsMenu;
     public GameObject BuildingsListPanel;
     public GameObject TimeLimitPanel;
+    public GameObject RolePanel;
 
     public Building currentBuilding;
 
@@ -83,6 +84,7 @@ public class SettingsMenu : MonoBehaviour
         BuildingsListPanel.SetActive(false);
         TimeLimitPanel.SetActive(false);
         BuildingsSettingsMenu.SetActive(true);
+        RolePanel.SetActive(false);
     }
     public void DisplaySettingsMenu()
     {
@@ -90,6 +92,7 @@ public class SettingsMenu : MonoBehaviour
         TimeLimitPanel.SetActive(false);
         MainSettingsMenu.SetActive(true);
         BuildingsSettingsMenu.SetActive(false);
+        RolePanel.SetActive(false);
         //nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
     }
 
@@ -99,6 +102,7 @@ public class SettingsMenu : MonoBehaviour
         BuildingsListPanel.SetActive(true);
         MainSettingsMenu.SetActive(false);
         BuildingsSettingsMenu.SetActive(false);
+        RolePanel.SetActive(false);
     }
 
     public void DisplayTimeLimitPanel()
@@ -107,9 +111,18 @@ public class SettingsMenu : MonoBehaviour
         BuildingsListPanel.SetActive(false);
         MainSettingsMenu.SetActive(false);
         BuildingsSettingsMenu.SetActive(false);
+        RolePanel.SetActive(false);
         timerPlaceholder.text = GameSettings.TurnTimeMax.ToString();
     }
 
+    public void DisplayRolePanel()
+    {
+        TimeLimitPanel.SetActive(false);
+        BuildingsListPanel.SetActive(false);
+        MainSettingsMenu.SetActive(false);
+        BuildingsSettingsMenu.SetActive(false);
+        RolePanel.SetActive(true);
+    }
 
     /// <summary>
     /// When a building in the buildings list is clicked, a panel opens so we can change its infos
