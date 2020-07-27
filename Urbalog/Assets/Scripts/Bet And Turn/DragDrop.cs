@@ -10,6 +10,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        transform.position = Input.mousePosition;
+    }
+    private void Update()
+    {
+        if ()
+        {
+
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
