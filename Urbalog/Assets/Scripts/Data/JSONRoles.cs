@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class JSONRoles : MonoBehaviour
 {
-    public List<Role> DefaultRoles = new List<Role>();
+    public static List<Role> DefaultRoles = new List<Role>();
 
     // Start is called before the first frame update
     void Start()

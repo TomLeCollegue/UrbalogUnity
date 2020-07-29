@@ -769,6 +769,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3696007cacea14642bb4528faaf0560a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roleName: {fileID: 1797976843176877389}
+  holdObjective: {fileID: 1797976843220581144}
+  improveObjective: {fileID: 895117390156860953}
+  poliResources: {fileID: 1797976844360735034}
+  ecoResources: {fileID: 2481186401860865181}
+  socialResources: {fileID: 6589677660183429894}
 --- !u!1 &1797976844063622917
 GameObject:
   m_ObjectHideFlags: 0

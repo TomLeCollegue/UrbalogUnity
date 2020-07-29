@@ -7,6 +7,13 @@ public class NameRoleInList : MonoBehaviour
 {
     public TextMeshProUGUI roleName;
 
+    public TextMeshProUGUI holdObjective;
+    public TextMeshProUGUI improveObjective;
+
+    public TextMeshProUGUI poliResources;
+    public TextMeshProUGUI ecoResources;
+    public TextMeshProUGUI socialResources;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +30,15 @@ public class NameRoleInList : MonoBehaviour
     /// Take all the informations of _role and print them in the prefab
     /// </summary>
     /// <param name="_role"></param>
-    public void Rename(Role _role)
+    public void FillDisplay(Role _role)
     {
         roleName.text = _role.nameRole;
+
+        holdObjective.text = _role.hold;
+        improveObjective.text = _role.improve;
+
+        poliResources.text = _role.ressourcePolitical.ToString();
+        ecoResources.text = _role.ressourceEconomical.ToString();
+        socialResources.text = _role.ressourceSocial.ToString();
     }
 }

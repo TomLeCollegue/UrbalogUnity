@@ -45,7 +45,6 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
             logNumberText.text = building.logisticScore.ToString();
             logisticDescription.text = building.logisticDescription;
         }
-
     }
 
     public Building ReturnBuildingFromJson()
