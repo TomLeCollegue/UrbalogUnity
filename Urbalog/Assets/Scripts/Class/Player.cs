@@ -29,7 +29,7 @@ public class Player : NetworkBehaviour
     public string field = "";
     [SyncVar]
     public string nameRole = "";
-
+    [SyncVar]
     public string ID;
 
 

@@ -25,8 +25,10 @@ public class backupplayerManager : NetworkBehaviour
                 if (GameManager.singleton.players[j].namePlayer.Equals(GameManager.singleton.playersBackup[i].namePlayer))
                 {
                     Player player = GameManager.singleton.players[j];
-                    GameManager.singleton.playersBackup.RemoveAt(i);
-                    GameManager.singleton.playersBackup.Add(new PlayerBackUp(player.role, player.namePlayer, player.playerFamilyName, player.gender, player.age, player.zipcode, player.company, player.jobStatus, player.field, player.nameRole, player.ID, player.nextTurn, player.scorePlayer, player.OldScore, player.num));
+                    GameManager.singleton.playersBackup[i].role.ressourcePolitical = player.role.ressourcePolitical;
+                    GameManager.singleton.playersBackup[i].role.ressourceEconomical = player.role.ressourceEconomical;
+                    GameManager.singleton.playersBackup[i].role.ressourceSocial = player.role.ressourceSocial;
+                    
                 }
             }
             
