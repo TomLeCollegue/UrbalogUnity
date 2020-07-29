@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -50,6 +51,7 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
     public Building ReturnBuildingFromJson()
     {
         Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
+        //Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
         Building _building = _buildingList[buildingNumber];
         if (buildingNumber<_buildingList.Length-1)
         {
@@ -72,7 +74,6 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
     public void SaveSettingsOnBuilding()
     {
         GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().ChangeBuildingSettings();
-        
     }
 
 

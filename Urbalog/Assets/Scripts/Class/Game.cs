@@ -47,11 +47,11 @@ public class Game
     {
         var randomMarket = new System.Random();
         for (int i = 0; i < 5; i++){
-            int index = randomMarket.Next((pioche.Count)-1);
+            int index = randomMarket.Next((pioche.Count));
             Debug.Log(index);
             while (BuildingInMarket(pioche[index]))
             {
-                index = randomMarket.Next((pioche.Count)-1);
+                index = randomMarket.Next((pioche.Count));
             
             }
             Building buildingToAdd = pioche[index];
@@ -166,9 +166,9 @@ public class Game
     {
         Building[] _jsonarray = JSONBuildings.loadBuildingsFromJSON(_filename);
         List<Building> _BuildingsList = new List<Building>(_jsonarray);
+
         return _BuildingsList;
     }
-
 
 
 }

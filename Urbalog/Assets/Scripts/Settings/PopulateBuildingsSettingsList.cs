@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class PopulateBuildingsSettingsList : MonoBehaviour
@@ -30,6 +31,7 @@ public class PopulateBuildingsSettingsList : MonoBehaviour
     {
         PopulateBuildingsSettingsElement.buildingNumber = 0;
         Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
+        //Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
         for (int i = 0; i < _buildingList.Length; i++)
         {
             GameObject _elementDisplay = Instantiate(itemDisplay, targetTransform);
