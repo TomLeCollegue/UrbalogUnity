@@ -216,11 +216,6 @@ public class JSONBuildings : MonoBehaviour
         return _result;
     }
 
-
-
-
-
-
     /// <summary>
     /// All the urbalog buildings
     /// </summary>

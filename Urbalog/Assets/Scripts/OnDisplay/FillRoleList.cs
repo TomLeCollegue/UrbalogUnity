@@ -33,9 +33,9 @@ public class FillRoleList : MonoBehaviour
     /// </summary>
     public void SpawnAllRoles()
     {
-        for (int i = 0; i < JSONRoles.DefaultRoles.Count; i++)
+        for (int i = 0; i < JSONRoles.CurrentRoles.Count; i++)
         {
-            SpawnRoleItem(JSONRoles.DefaultRoles[i]);
+            SpawnRoleItem(JSONRoles.CurrentRoles[i]);
         }
     }
 
@@ -62,5 +62,6 @@ public class FillRoleList : MonoBehaviour
         SpawnAllRoles();
         Debug.Log("updated");
     }
+
 
 }

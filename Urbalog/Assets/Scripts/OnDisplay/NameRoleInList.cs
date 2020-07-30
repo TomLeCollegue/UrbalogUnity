@@ -14,7 +14,6 @@ public class NameRoleInList : MonoBehaviour
     public TextMeshProUGUI ecoResources;
     public TextMeshProUGUI socialResources;
 
-
     public Role currentRole;
 
     // Start is called before the first frame update
@@ -65,6 +64,14 @@ public class NameRoleInList : MonoBehaviour
     public void CloseRoleSettingsPanel()
     {
         GameObject.Find("RoleListManager").GetComponent<RoleSettingsPanel>().CloseRoleSettingsPanel();
+    }
+
+    /// <summary>
+    /// On validate button on role settings panel
+    /// </summary>
+    public void SaveRoleModification()
+    {
+        //GameObject.Find("RoleListManager").GetComponent<RoleSettingsPanel>().ValidateRoleChanges();
     }
 
 }

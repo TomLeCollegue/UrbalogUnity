@@ -357,7 +357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.6999512, y: -86}
+  m_AnchoredPosition: {x: -1.7001953, y: -86}
   m_SizeDelta: {x: -107.0376, y: -171.98688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &22812838
@@ -879,7 +879,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 78896213}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888678571}
+        m_MethodName: SelectImproveFluid
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &78896213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2932,7 +2943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -697.4792, y: -201.92406}
+  m_AnchoredPosition: {x: -697.4792, y: -201.92383}
   m_SizeDelta: {x: 306.66315, y: 72.22084}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234565412
@@ -4302,7 +4313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020996, y: -220.13399}
+  m_AnchoredPosition: {x: 55.021484, y: -220.13399}
   m_SizeDelta: {x: 436.03156, y: 59.283997}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &374583750
@@ -5598,7 +5609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020996, y: -289.41397}
+  m_AnchoredPosition: {x: 55.021484, y: -289.41397}
   m_SizeDelta: {x: 436.03156, y: 59.283997}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &495882083
@@ -6069,7 +6080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 151.1, y: 975.5}
+  m_AnchoredPosition: {x: 151.09961, y: 975.5}
   m_SizeDelta: {x: 302.2199, y: 209.0604}
   m_Pivot: {x: 0.5000005, y: 0.5}
 --- !u!114 &541225196
@@ -6277,7 +6288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.6999512, y: -86}
+  m_AnchoredPosition: {x: -1.7001953, y: -86}
   m_SizeDelta: {x: -107.0376, y: -171.98688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557880754
@@ -6352,7 +6363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.9, y: -94.1}
+  m_AnchoredPosition: {x: 140.90039, y: -94.1001}
   m_SizeDelta: {x: 308.91333, y: 188.21027}
   m_Pivot: {x: 0.5000005, y: 0.5}
 --- !u!114 &560977382
@@ -6502,7 +6513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: "Fluidit\xE9\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b2d56e49cc6b434d92316970eb7e66c, type: 2}
   m_sharedMaterial: {fileID: 814458562197375951, guid: 3b2d56e49cc6b434d92316970eb7e66c,
@@ -6572,9 +6583,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 565172037}
-    characterCount: 6
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 0
+    spaceCount: 1
     wordCount: 1
     linkCount: 0
     lineCount: 1
@@ -6637,7 +6648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020996, y: -370}
+  m_AnchoredPosition: {x: 55.021484, y: -370}
   m_SizeDelta: {x: 436.03156, y: 59.283997}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &570113707
@@ -7962,7 +7973,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0020751953, y: 0.00012207031}
+  m_AnchoredPosition: {x: -0.001953125, y: 0}
   m_SizeDelta: {x: 8249.311, y: 4637.615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679026865
@@ -8244,7 +8255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020752, y: -35.81202}
+  m_AnchoredPosition: {x: 55.020508, y: -35.81202}
   m_SizeDelta: {x: 306.66315, y: 72.220825}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &727437435
@@ -8481,7 +8492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -46.80005, y: -48.400024}
+  m_AnchoredPosition: {x: -46.799805, y: -48.399902}
   m_SizeDelta: {x: 93.54492, y: 96.86987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811372680
@@ -8612,7 +8623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -46.80005, y: -48.400024}
+  m_AnchoredPosition: {x: -46.799805, y: -48.399902}
   m_SizeDelta: {x: 93.54492, y: 96.86987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816397996
@@ -8775,7 +8786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: "Attractivit\xE9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b2d56e49cc6b434d92316970eb7e66c, type: 2}
   m_sharedMaterial: {fileID: 814458562197375951, guid: 3b2d56e49cc6b434d92316970eb7e66c,
@@ -8845,7 +8856,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 836009433}
-    characterCount: 6
+    characterCount: 12
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -12573,7 +12584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.9, y: -94.1}
+  m_AnchoredPosition: {x: 140.90039, y: -94.1001}
   m_SizeDelta: {x: 308.91333, y: 188.21027}
   m_Pivot: {x: 0.5000005, y: 0.5}
 --- !u!114 &1069974116
@@ -12801,7 +12812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: "Fluidit\xE9\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b2d56e49cc6b434d92316970eb7e66c, type: 2}
   m_sharedMaterial: {fileID: 814458562197375951, guid: 3b2d56e49cc6b434d92316970eb7e66c,
@@ -12871,9 +12882,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1085344064}
-    characterCount: 6
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 0
+    spaceCount: 1
     wordCount: 1
     linkCount: 0
     lineCount: 1
@@ -13078,7 +13089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.6999512, y: -86}
+  m_AnchoredPosition: {x: -1.7001953, y: -86}
   m_SizeDelta: {x: -107.0376, y: -171.98688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103792318
@@ -13528,7 +13539,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1116735529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888678571}
+        m_MethodName: SelectHoldAttract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1116735529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13855,7 +13877,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1132758872}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888678571}
+        m_MethodName: ValidateRoleChanges
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1132758872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15296,7 +15329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: "Attractivit\xE9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b2d56e49cc6b434d92316970eb7e66c, type: 2}
   m_sharedMaterial: {fileID: 814458562197375951, guid: 3b2d56e49cc6b434d92316970eb7e66c,
@@ -15366,7 +15399,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1449536615}
-    characterCount: 6
+    characterCount: 12
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -15825,7 +15858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020996, y: -289.41397}
+  m_AnchoredPosition: {x: 55.021484, y: -289.41397}
   m_SizeDelta: {x: 436.03156, y: 59.283997}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1515896607
@@ -16450,7 +16483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.015014648}
+  m_AnchoredPosition: {x: 0, y: 0.015136719}
   m_SizeDelta: {x: 0, y: 0.030029297}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594486707
@@ -16814,7 +16847,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606638739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888678571}
+        m_MethodName: SelectHoldEnvi
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1606638739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17018,7 +17062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -46.80005, y: -48.400024}
+  m_AnchoredPosition: {x: -46.799805, y: -48.399902}
   m_SizeDelta: {x: 93.54492, y: 96.86987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626385148
@@ -17632,7 +17676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020996, y: -370}
+  m_AnchoredPosition: {x: 55.021484, y: -370}
   m_SizeDelta: {x: 436.03156, y: 59.283997}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1664308996
@@ -19022,7 +19066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020752, y: -35.81202}
+  m_AnchoredPosition: {x: 55.020508, y: -35.81202}
   m_SizeDelta: {x: 306.66315, y: 72.220825}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1769852785
@@ -19785,7 +19829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Environnement
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b2d56e49cc6b434d92316970eb7e66c, type: 2}
   m_sharedMaterial: {fileID: 814458562197375951, guid: 3b2d56e49cc6b434d92316970eb7e66c,
@@ -19855,7 +19899,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1831139741}
-    characterCount: 6
+    characterCount: 13
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -20596,6 +20640,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 557880752}
   RoleName: {fileID: 1844838048}
+  HoldAttractButton: {fileID: 1116735528}
+  HoldEnviButton: {fileID: 1606638738}
+  HoldFluidButton: {fileID: 1957374015}
+  HoldAttractIsPressed: 0
+  HoldEnviIsPressed: 0
+  HoldFluidIsPressed: 0
+  ImproveAttractButton: {fileID: 1935054680}
+  ImproveEnviButton: {fileID: 2040308925}
+  ImproveFluidButton: {fileID: 78896212}
+  ImproveAttractIsPressed: 0
+  ImproveEnviIsPressed: 0
+  ImproveFluidIsPressed: 0
+  HoldAttractButtonText: {fileID: 1449536615}
+  HoldEnviButtonText: {fileID: 1831139741}
+  HoldFluidButtonText: {fileID: 565172037}
+  ImproveAttractButtonText: {fileID: 836009433}
+  ImproveEnviButtonText: {fileID: 1992324342}
+  ImproveFluidButtonText: {fileID: 1085344064}
+  PoliNumberInput: {fileID: 1666984745}
+  EcoNumberInput: {fileID: 117698102}
+  SocialNumberInput: {fileID: 1990513121}
+  currentRole:
+    nameRole: 
+    hold: 
+    improve: 
+    ressourceSocial: 0
+    ressourcePolitical: 0
+    ressourceEconomical: 0
+    ressource1: 
+    ressource2: 
 --- !u!1 &1892587457
 GameObject:
   m_ObjectHideFlags: 0
@@ -20995,7 +21069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55.020996, y: -220.13399}
+  m_AnchoredPosition: {x: 55.021484, y: -220.13399}
   m_SizeDelta: {x: 436.03156, y: 59.283997}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1920112265
@@ -21434,7 +21508,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1935054681}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888678571}
+        m_MethodName: SelectImproveAttract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1935054681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21940,7 +22025,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1957374016}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888678571}
+        m_MethodName: SelectHoldFluid
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1957374016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22326,7 +22422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -697.4792, y: -201.92406}
+  m_AnchoredPosition: {x: -697.4792, y: -201.92383}
   m_SizeDelta: {x: 306.66315, y: 72.22084}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989355703
@@ -22645,7 +22741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Environnement
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b2d56e49cc6b434d92316970eb7e66c, type: 2}
   m_sharedMaterial: {fileID: 814458562197375951, guid: 3b2d56e49cc6b434d92316970eb7e66c,
@@ -22715,7 +22811,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1992324342}
-    characterCount: 6
+    characterCount: 13
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -22781,7 +22877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.9, y: -94.1}
+  m_AnchoredPosition: {x: 140.90039, y: -94.1001}
   m_SizeDelta: {x: 308.91333, y: 188.21027}
   m_Pivot: {x: 0.5000005, y: 0.5}
 --- !u!114 &1994099231
@@ -23517,7 +23613,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2040308926}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1888678571}
+        m_MethodName: SelectImproveEnvi
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2040308926
 MonoBehaviour:
   m_ObjectHideFlags: 0

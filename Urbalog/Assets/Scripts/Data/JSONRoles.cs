@@ -7,11 +7,22 @@ public class JSONRoles : MonoBehaviour
 {
     public static List<Role> DefaultRoles = new List<Role>();
 
+    public static List<Role> CurrentRoles = new List<Role>();
+
     // Start is called before the first frame update
     void Start()
     {
         FillRoles();
-        CreateRoleJSONWithDefaultRoles(DefaultRoles);
+        if (/*!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")*/
+            !File.Exists(Application.dataPath + "\\roles.json")) //On vérifie si le buildings.json existe
+        {
+            CreateRoleJSONWithRolesList(CurrentRoles);
+            Debug.Log("fichier role Créé");
+        }
+        else
+        {
+            Debug.Log("On ne crée pas le fichier role");
+        }
     }
 
     // Update is called once per frame
@@ -25,7 +36,7 @@ public class JSONRoles : MonoBehaviour
     /// Will be useful when we will want to reset role modifications to default.
     /// </summary>
     /// <param name="_roles"></param>
-    public static void CreateRoleJSONWithDefaultRoles(List<Role> _roles)
+    public static void CreateRoleJSONWithRolesList(List<Role> _roles)
     {
         string _jsonRoles = "";
 
@@ -67,13 +78,30 @@ public class JSONRoles : MonoBehaviour
     /// </summary>
     public void FillRoles()
     {
-        //DefaultRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
-        //DefaultRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
-        DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
-        DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
-        DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
-        DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
-        DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+        //CurrentRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+        //CurrentRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        CurrentRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
+        CurrentRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        CurrentRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
+        CurrentRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
+        CurrentRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+    }
+
+    /// <summary>
+    /// Takes a roles list and transforms it into a string so we can Log it for example
+    /// </summary>
+    /// <param name="_roles"></param>
+    /// <returns></returns>
+    public static string RoleListToString(List<Role> _roles)
+    {
+        string _result = "";
+
+        for (int i = 0; i < _roles.Count; i++)
+        {
+            _result += _roles[i].nameRole + "\n";
+        }
+
+        return _result + "\n";
     }
 
 }
