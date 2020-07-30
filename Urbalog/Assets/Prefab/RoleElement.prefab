@@ -756,7 +756,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1797976843252145981}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7529640184533977706}
+        m_MethodName: OpenRoleSettingPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7529640184533977706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,6 +786,16 @@ MonoBehaviour:
   poliResources: {fileID: 1797976844360735034}
   ecoResources: {fileID: 2481186401860865181}
   socialResources: {fileID: 6589677660183429894}
+  modifyPanel: {fileID: 0}
+  currentRole:
+    nameRole: 
+    hold: 
+    improve: 
+    ressourceSocial: 0
+    ressourcePolitical: 0
+    ressourceEconomical: 0
+    ressource1: 
+    ressource2: 
 --- !u!1 &1797976844063622917
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,16 +14,28 @@ public class NameRoleInList : MonoBehaviour
     public TextMeshProUGUI ecoResources;
     public TextMeshProUGUI socialResources;
 
+
+    public Role currentRole;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    /// <summary>
+    /// Takes the role from the fill role list
+    /// </summary>
+    /// <param name="_role"></param>
+    public void getCurrentRole(Role _role)
+    {
+        currentRole = _role;
     }
 
     /// <summary>
@@ -41,4 +53,18 @@ public class NameRoleInList : MonoBehaviour
         ecoResources.text = _role.ressourceEconomical.ToString();
         socialResources.text = _role.ressourceSocial.ToString();
     }
+
+    /// <summary>
+    /// When clicked, the role panel is opened so you can modify the role
+    /// </summary>
+    public void OpenRoleSettingPanel()
+    {
+        GameObject.Find("RoleListManager").GetComponent<RoleSettingsPanel>().OpenRoleSettingsPanel(currentRole);
+    }
+
+    public void CloseRoleSettingsPanel()
+    {
+        GameObject.Find("RoleListManager").GetComponent<RoleSettingsPanel>().CloseRoleSettingsPanel();
+    }
+
 }

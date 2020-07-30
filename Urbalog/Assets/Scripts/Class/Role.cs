@@ -16,7 +16,6 @@ public class Role
     public string ressource1;
     public string ressource2;
     
-
     public Role(string _nameRole, string _hold, string _improve, int _ressourceSocial, int _ressourcePolitical, int _ressourceEconomical)
     {
         nameRole = _nameRole;

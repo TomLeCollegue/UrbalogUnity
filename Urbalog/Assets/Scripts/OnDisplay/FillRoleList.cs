@@ -16,17 +16,21 @@ public class FillRoleList : MonoBehaviour
     }
 
     /// <summary>
-    /// Spawn a role in the list
+    /// Spawn a role in the list and gives it its role
     /// </summary>
     /// <param name="_role"></param>
     public void SpawnRoleItem(Role _role)
     {
         GameObject Item = Instantiate(RoleItem, listHolder);
+        Item.GetComponent<NameRoleInList>().getCurrentRole(_role);
         Item.GetComponent<NameRoleInList>().FillDisplay(_role);
 
         RoleItemInList.Add(Item);
     }
 
+    /// <summary>
+    /// Spawn all the items
+    /// </summary>
     public void SpawnAllRoles()
     {
         for (int i = 0; i < JSONRoles.DefaultRoles.Count; i++)
@@ -35,16 +39,28 @@ public class FillRoleList : MonoBehaviour
         }
     }
 
-/*    public void UpdateList()
+    /// <summary>
+    /// Destroy the list so we can update it later
+    /// </summary>
+    public void DestroyList()
     {
-        DestroyList();
-
-        for (int i = 0; i < GameManager.singleton.players.Count; i++)
+        for (int i = 0; i < RoleItemInList.Count; i++)
         {
-            if (i >= 0) // 2 if server and tablet non player
-            {
-                SpawnPlayerItem(GameManager.singleton.players[i]);
-            }
+            Destroy(RoleItemInList[i]);
         }
-    }*/
+        RoleItemInList.Clear();
+    }
+
+    /// <summary>
+    /// Update the role settings list
+    /// </summary>
+    public void UpdateList()
+    {
+
+        Debug.Log("not updated");
+        DestroyList();
+        SpawnAllRoles();
+        Debug.Log("updated");
+    }
+
 }
