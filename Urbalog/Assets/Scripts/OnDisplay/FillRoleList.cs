@@ -12,10 +12,7 @@ public class FillRoleList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < JSONRoles.DefaultRoles.Count; i++)
-        {
-            SpawnRoleItem(JSONRoles.DefaultRoles[i]);
-        }
+        SpawnAllRoles();
     }
 
     /// <summary>
@@ -28,6 +25,14 @@ public class FillRoleList : MonoBehaviour
         Item.GetComponent<NameRoleInList>().FillDisplay(_role);
 
         RoleItemInList.Add(Item);
+    }
+
+    public void SpawnAllRoles()
+    {
+        for (int i = 0; i < JSONRoles.DefaultRoles.Count; i++)
+        {
+            SpawnRoleItem(JSONRoles.DefaultRoles[i]);
+        }
     }
 
 /*    public void UpdateList()
