@@ -8,10 +8,14 @@ using UnityEngine.UI;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 2; //default value
+    public static int NumberBuildingsToEnd = 4; //default value
     public TextMeshProUGUI TextButton;
     bool LogSend = false;
     public Button ButtonNextTurn;
+
+    public TextMeshProUGUI CityTitle;
+
+    public bool EndWarmup = false;
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -26,10 +30,26 @@ public class NextTurnButton : NetworkBehaviour
     {
         if (isServer)
         {
+            if (EndWarmup)
+            {
+                return;
+            }
             if (CheckEndGameCondition())
             {
-                CmdChangeSceneToEndGame();
-                EndGameLog();
+
+                if (!GameSettings.Warmup)
+                {
+                    CmdChangeSceneToEndGame();
+                    EndGameLog();
+                }
+                else
+                {
+                    Debug.Log("end tour de chauffe");
+                    EndWarmup = true;
+                    Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+                    player.CmdChangeTitleCity();
+
+                }
                 return;
             }
             if (CheckForNextTurn() || TimerEnded())
@@ -65,11 +85,12 @@ public class NextTurnButton : NetworkBehaviour
         }
     }
 
+
     private void PrintTheGoodNextTurnButton(bool _TurnPressed, bool _NbBuildingFinancedTooHighForEndGame, bool _NbBuildingFinancedTooHighForTurn)
     {
         if (!_TurnPressed && !_NbBuildingFinancedTooHighForEndGame && !_NbBuildingFinancedTooHighForTurn)
         {
-            TextButton.text = "Tour Suivant";
+            TextButton.text = Language.NEXT_TURN;
             TextButton.color = Color.black;
             ButtonNextTurn.interactable = true;
         }
@@ -81,7 +102,7 @@ public class NextTurnButton : NetworkBehaviour
         }
         else if (_TurnPressed && (!_NbBuildingFinancedTooHighForEndGame || !_NbBuildingFinancedTooHighForEndGame))
         {
-            TextButton.text = "Annuler";
+            TextButton.text = Language.CANCEL;
             TextButton.color = Color.black;
             ButtonNextTurn.interactable = true;
         }
@@ -124,7 +145,7 @@ public class NextTurnButton : NetworkBehaviour
                 countPlayersReady++;
             }
         }
-        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == 3;  //int i = 3 quand on joue avec le serveur et le plateau
+        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == 1;  //int i = 3 quand on joue avec le serveur et le plateau
         bool _res = _OnlyOnePlayerNotReady && GameSettings.isTimerActive;
 
         return _res;
@@ -226,7 +247,7 @@ public class NextTurnButton : NetworkBehaviour
     { 
         GameManager gameManager = GameManager.singleton;
         bool boolTurn = true;
-        for (int i = 2; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
+        for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
         {    
             if (!gameManager.players[i].nextTurn)
             {

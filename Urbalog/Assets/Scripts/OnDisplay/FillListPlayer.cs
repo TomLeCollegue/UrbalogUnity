@@ -20,7 +20,7 @@ public class FillListPlayer : MonoBehaviour
 
         for (int i = 0; i < GameManager.singleton.players.Count; i++)
         {
-            if (i >= 2)
+            if (i >= 0) // 2 if server and tablet non player
             {
                 SpawnPlayerItem(GameManager.singleton.players[i]);
             }

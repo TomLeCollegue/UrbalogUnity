@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -44,31 +45,36 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
             logNumberText.text = building.logisticScore.ToString();
             logisticDescription.text = building.logisticDescription;
         }
-
     }
 
     public Building ReturnBuildingFromJson()
     {
         Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
-
+        //Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
         Building _building = _buildingList[buildingNumber];
-        if (buildingNumber<_buildingList.Length)
+        if (buildingNumber<_buildingList.Length-1)
         {
             buildingNumber++;
         }
         return _building;
     }
 
+    /// <summary>
+    /// Opens the building settings panel
+    /// </summary>
     public void OpenPanelBuilding()
     {
         GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().OpenBuildingSettingsPanel(building);
     }
 
+    /// <summary>
+    /// If changes are made, they are saved in buildings.json
+    /// </summary>
     public void SaveSettingsOnBuilding()
     {
         GameObject.Find("SettingsMenuManager").GetComponent<SettingsMenu>().ChangeBuildingSettings();
-        
     }
+
 
 
 }

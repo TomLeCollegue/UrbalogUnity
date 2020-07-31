@@ -224,6 +224,51 @@
             "attractScore": 1,
             "logisticScore": -2,
             "logisticDescription": "Cette zone, non franchissable avec des outils de manutention, gêne la livraison."
+        },
+        {
+            "name": "cest tres bien ",
+            "description": "erere",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "oui"
+        },
+        {
+            "name": "coolos",
+            "description": "eee",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "lnbvc"
+        },
+        {
+            "name": "Cest un test",
+            "description": "test",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "1"
         }
     ]
 }

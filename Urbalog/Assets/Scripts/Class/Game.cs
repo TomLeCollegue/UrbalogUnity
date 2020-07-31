@@ -47,11 +47,11 @@ public class Game
     {
         var randomMarket = new System.Random();
         for (int i = 0; i < 5; i++){
-            int index = randomMarket.Next((pioche.Count)-1);
+            int index = randomMarket.Next((pioche.Count));
             Debug.Log(index);
             while (BuildingInMarket(pioche[index]))
             {
-                index = randomMarket.Next((pioche.Count)-1);
+                index = randomMarket.Next((pioche.Count));
             
             }
             Building buildingToAdd = pioche[index];
@@ -120,36 +120,44 @@ public class Game
 
     public void FillRoles()
     {
-        Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
-        Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
-        Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
+        //Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+        //Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 20, 20));
         Roles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
         Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
         Roles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
         Roles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
 
+    /// <summary>
+    /// Takes the roles used from JSON File to fill the Roles List
+    /// </summary>
+    public void fillRolesFromJson()
+    {
+        JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson("/roles.json"), Roles);
+    }
+
     /**
      * <summary>Add valueBet to the correct ressource on the correct building</summary>
-     * <param name="numBuilding">The index of the building that you want to bet on</param>
-     * <param name="ressource">String which is the name of the ressource the bet has been made</param>
-     * <param name="ValueBet">How much we bet</param>
+     * <param name="_numBuilding">The index of the building that you want to bet on</param>
+     * <param name="_ressource">String which is the name of the ressource the bet has been made</param>
+     * <param name="_ValueBet">How much we bet</param>
      */
-    public void BetOnBuilding(int numBuilding, string ressource, int ValueBet)
+    public void BetOnBuilding(int _numBuilding, string _ressource, int _ValueBet)
     {
-        Building building = Market[numBuilding];
+        Building building = Market[_numBuilding];
 
-        if (ressource.Equals("Economical"))
+        if (_ressource.Equals("Economical"))
         {
-            building.FinanceEconomical += ValueBet;
+            building.FinanceEconomical += _ValueBet;
         }
-        else if (ressource.Equals("Political"))
+        else if (_ressource.Equals("Political"))
         {
-            building.FinancePolitical += ValueBet;
+            building.FinancePolitical += _ValueBet;
         }
         else
         {
-            building.FinanceSocial += ValueBet;
+            building.FinanceSocial += _ValueBet;
         }
     }
 
@@ -158,9 +166,9 @@ public class Game
     {
         Building[] _jsonarray = JSONBuildings.loadBuildingsFromJSON(_filename);
         List<Building> _BuildingsList = new List<Building>(_jsonarray);
+
         return _BuildingsList;
     }
-
 
 
 }
