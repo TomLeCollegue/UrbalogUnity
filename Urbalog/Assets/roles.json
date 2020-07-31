@@ -1,6 +1,16 @@
 {
     "Items": [
         {
+            "nameRole": "Transporteur",
+            "hold": "Environment",
+            "improve": "Fluidity",
+            "ressourceSocial": 0,
+            "ressourcePolitical": 20,
+            "ressourceEconomical": 20,
+            "ressource1": "Economical",
+            "ressource2": "Political"
+        },
+        {
             "nameRole": "Habitant",
             "hold": "Fluidity",
             "improve": "Environment",
@@ -11,6 +21,16 @@
             "ressource2": "Social"
         },
         {
+            "nameRole": "Collectivité Locale",
+            "hold": "Environment",
+            "improve": "Attractiveness",
+            "ressourceSocial": 0,
+            "ressourcePolitical": 4,
+            "ressourceEconomical": 6,
+            "ressource1": "Economical",
+            "ressource2": "Political"
+        },
+        {
             "nameRole": "Commerçant",
             "hold": "Fluidity",
             "improve": "Attractiveness",
@@ -19,6 +39,16 @@
             "ressourceEconomical": 4,
             "ressource1": "Economical",
             "ressource2": "Social"
+        },
+        {
+            "nameRole": "Opérateur de transport public",
+            "hold": "Environment",
+            "improve": "Fluidity",
+            "ressourceSocial": 0,
+            "ressourcePolitical": 6,
+            "ressourceEconomical": 4,
+            "ressource1": "Economical",
+            "ressource2": "Political"
         }
     ]
 }

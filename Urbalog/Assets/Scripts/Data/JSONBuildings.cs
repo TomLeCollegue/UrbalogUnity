@@ -221,6 +221,8 @@ public class JSONBuildings : MonoBehaviour
     /// </summary>
     public void FillDeckBuildingTest()
     {
+
+        DefaultDeck.Clear();
         DefaultDeck.Add(new Building("Piste cyclable", "Voie réservée aux cyclistes et protégée du reste de la circulation", 2, 2, 3, 1, 1, 0, 2,
             "Toute la voie étant protégée de la circulation, cet aménagement crée un obstacle pour la livraison en limitant l'accès au trottoir."));
         DefaultDeck.Add(new Building("Borne vélo", "Borne permettant d'emprunter un vélo en libre service.", 1, 2, 2, 1, -1, 1, -1, "Ces structures créent des obstacles ponctuels pour la livraison en limitant l'accès au trottoir."));
