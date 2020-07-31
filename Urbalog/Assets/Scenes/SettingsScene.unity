@@ -726,7 +726,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 119.4
+  m_fontSize: 119.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9069,6 +9069,7 @@ MonoBehaviour:
   AddLogisticDescriptionInput: {fileID: 1360782949}
   timerPlaceholder: {fileID: 1913823498}
   nbBuildingsMaxPerTurnPlaceholder: {fileID: 1626891388}
+  nbbuildingsForEnding: {fileID: 1002326500}
   displayList: {fileID: 1831361528}
 --- !u!4 &850263144
 Transform:
@@ -16506,7 +16507,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 130.2
+  m_fontSize: 130.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

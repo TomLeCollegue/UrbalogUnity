@@ -51,7 +51,7 @@ public class GameSettings : MonoBehaviour
     {
         TurnTimeMax = 90f;
         isTimerActive = true;
-        nbBuildingsPerTurn = 2;
+        nbBuildingsPerTurn = 1;
         NextTurnButton.NumberBuildingsToEnd = 2;
         Warmup = true;
     }

@@ -4707,7 +4707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA9 Version Beta 1.0"
+  m_Text: "\xA9 Version Beta 1.4"
 --- !u!222 &389707545
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5472,10 +5472,10 @@ RectTransform:
   m_Father: {fileID: 748296245}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -477.2, y: -257.7}
-  m_SizeDelta: {x: 77.73491, y: 49.903656}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 55.799988, y: -257.7}
+  m_SizeDelta: {x: 77.734924, y: 49.903656}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440294672
 MonoBehaviour:
@@ -5550,7 +5550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 87730ddf192d41e4195ae39c8661dc09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e366fbabaf5575f4980f6aaee255cee6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10910,10 +10910,10 @@ RectTransform:
   m_Father: {fileID: 748296245}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -392.7, y: -257.7}
-  m_SizeDelta: {x: 77.73491, y: 49.903656}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 140.29999, y: -257.7}
+  m_SizeDelta: {x: 77.734924, y: 49.903656}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024185318
 MonoBehaviour:
@@ -10988,7 +10988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a6dbaf3d4fecce49b38dde793398f25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43a5d7d44452bc74e9b953941e325534, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

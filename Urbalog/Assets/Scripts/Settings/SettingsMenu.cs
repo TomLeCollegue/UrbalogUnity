@@ -61,6 +61,7 @@ public class SettingsMenu : MonoBehaviour
     public TextMeshProUGUI timerPlaceholder;
 
     public TextMeshProUGUI nbBuildingsMaxPerTurnPlaceholder;
+    public TextMeshProUGUI nbbuildingsForEnding;
 
     public PopulateBuildingsSettingsList displayList;
 
@@ -77,6 +78,7 @@ public class SettingsMenu : MonoBehaviour
     private void Update()
     {
         nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
+        nbbuildingsForEnding.text = NextTurnButton.NumberBuildingsToEnd.ToString();
     }
 
     public void DisplayBuildingsSettingsMenu()
