@@ -1,12 +1,12 @@
 ﻿using Mirror;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class backupplayerManager : NetworkBehaviour
 {
     
-
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +28,7 @@ public class backupplayerManager : NetworkBehaviour
                     GameManager.singleton.playersBackup[i].role.ressourcePolitical = player.role.ressourcePolitical;
                     GameManager.singleton.playersBackup[i].role.ressourceEconomical = player.role.ressourceEconomical;
                     GameManager.singleton.playersBackup[i].role.ressourceSocial = player.role.ressourceSocial;
-                    
+                    GameManager.singleton.playersBackup[i].scorePlayer = player.scorePlayer;
                 }
             }
             

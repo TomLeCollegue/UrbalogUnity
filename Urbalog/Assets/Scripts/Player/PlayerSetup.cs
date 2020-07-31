@@ -240,7 +240,7 @@ public class PlayerSetup : NetworkBehaviour
     {
         for (int i = 0; i < GameManager.singleton.playersBackup.Count; i++)
         {
-            if (GameManager.singleton.playersBackup[i].namePlayer.Equals(namePlayer))
+            if (GameManager.singleton.playersBackup[i].namePlayer.Equals(namePlayer, StringComparison.OrdinalIgnoreCase))
             {
 
                 byte[] playerBackupByte = GetbyteFromObject(GameManager.singleton.playersBackup[i]);
@@ -258,7 +258,7 @@ public class PlayerSetup : NetworkBehaviour
         Debug.Log("Distribue le role et les infos RPC");
         PlayerBackUp playerBackup = (PlayerBackUp)ByteArrayToObject2(playerBackupByte);
         Debug.Log("Distribue le role et les infos bYTETOarray");
-        if (GetComponent<Player>().namePlayer.Equals(namePlayer))
+        if (GetComponent<Player>().namePlayer.Equals(namePlayer, StringComparison.OrdinalIgnoreCase))
         {
             Debug.Log("Distribue le role et les infos");
             Player player = GetComponent<Player>();
