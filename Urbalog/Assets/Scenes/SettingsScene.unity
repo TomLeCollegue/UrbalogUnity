@@ -9336,7 +9336,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1888678569}
-        m_MethodName: UpdateList
+        m_MethodName: ResetListToDefault
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -49,7 +49,6 @@ public class RoleSettingsPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     /// <summary>
@@ -69,6 +68,7 @@ public class RoleSettingsPanel : MonoBehaviour
             SocialNumberInput.text = _role.ressourceSocial.ToString();
 
             currentRole = _role;
+
         }
     }
 

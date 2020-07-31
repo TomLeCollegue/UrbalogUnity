@@ -16,12 +16,16 @@ public class JSONRoles : MonoBehaviour
         if (/*!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")*/
             !File.Exists(Application.dataPath + "\\roles.json")) //On vérifie si le buildings.json existe
         {
-            CreateRoleJSONWithRolesList(CurrentRoles);
+            CreateRoleJSONWithRolesList(DefaultRoles);
             Debug.Log("fichier role Créé");
+            CurrentRoles = new List<Role>(DefaultRoles);
         }
         else
         {
             Debug.Log("On ne crée pas le fichier role");
+            //récupérer les roles provenant du json
+            putRolesArrayInRolesList(loadRoleFromJson("/roles.json"), CurrentRoles);
+
         }
     }
 
@@ -65,11 +69,29 @@ public class JSONRoles : MonoBehaviour
     /// <param name="_rolesArray"></param>
     public static void putRolesArrayInRolesList(Role[] _rolesArray, List<Role> _Roles)
     {
+        _Roles.Clear();
         for (int i = 0; i < _rolesArray.Length; i++)
         {
             _Roles.Add(new Role(_rolesArray[i].nameRole, _rolesArray[i].hold, _rolesArray[i].improve, 
                 _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical));
         }
+    }
+
+    /// <summary>
+    /// takes the rolesArray in parameter and puts all the buildings in the roles list in game.
+    /// </summary>
+    /// <param name="_rolesArray"></param>
+    public static List<Role> returnRolesArrayInRolesList(Role[] _rolesArray)
+    {
+        List<Role> _newRolesList = new List<Role>();
+
+        for (int i = 0; i < _rolesArray.Length; i++)
+        {
+            _newRolesList.Add(new Role(_rolesArray[i].nameRole, _rolesArray[i].hold, _rolesArray[i].improve,
+                _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical));
+        }
+
+        return _newRolesList;
     }
 
 
@@ -78,13 +100,14 @@ public class JSONRoles : MonoBehaviour
     /// </summary>
     public void FillRoles()
     {
-        //CurrentRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
-        //CurrentRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
-        CurrentRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
-        CurrentRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
-        CurrentRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
-        CurrentRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
-        CurrentRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+        DefaultRoles.Clear();
+        //DefaultRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+        //DefaultRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
+        DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
+        DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
+        DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
     }
 
     /// <summary>
