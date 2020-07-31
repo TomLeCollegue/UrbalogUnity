@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -176,6 +177,7 @@ public class SettingsMenu : MonoBehaviour
     public void ChangeBuildingSettings()
     {
         Building[] _buildings = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
+        //Building[] _buildings = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
 
         Building _newBuilding = CreateNewBuildingWithInputFields();
 
@@ -191,8 +193,6 @@ public class SettingsMenu : MonoBehaviour
         CloseBuildingSettingsPanel();
 
         RefreshBuildingsList();
-
-
 
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
     }

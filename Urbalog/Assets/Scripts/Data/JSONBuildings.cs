@@ -13,8 +13,12 @@ public class JSONBuildings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("file : " + Application.dataPath);
+        Debug.Log("exists : " + File.Exists(Application.dataPath + "\\buildings.json"));
+
         FillDeckBuildingTest();
-        if (!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")) //On vérifie si le buildings.json existe
+        if (/*!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")*/
+            !File.Exists(Application.dataPath + "\\buildings.json")) //On vérifie si le buildings.json existe
         {
             CreateBuildingsJSONWithDeck(DefaultDeck);
             Debug.Log("fichier Créé");
@@ -23,16 +27,7 @@ public class JSONBuildings : MonoBehaviour
         {
             Debug.Log("On ne crée pas le fichier");
         }
-
-
-        //Debug.Log(File.Exists("/buildings.json") + " json avant");
-        //     //public static bool Exists(string path);
-        //CreateBuildingsJSONWithDeck();
-        //Debug.Log(File.Exists("/buildings.json") + " json après");
-        //Debug.Log(Directory.GetCurrentDirectory());
-        //Debug.Log(File.Exists(Directory.GetCurrentDirectory()+ "\\Assets\\buildings.json") + " json après absolute : "
-        //    + Directory.GetCurrentDirectory()+"\\Assets\\buildings.json");
-    }
+}
 
     // Update is called once per frame
     void Update()
@@ -89,12 +84,29 @@ public class JSONBuildings : MonoBehaviour
 
     public static string BuildingArrayToString(Building[] _buildings)
     {
-        string result = "";
+        string _result = "";
         for (int i = 0; i < _buildings.Length; i++)
         {
-            result = result + _buildings[i].name + "\n";
+            _result = _result + _buildings[i].name + "\n";
         }
-        return result + "\n";
+        return _result + "\n";
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="_buildings"></param>
+    /// <returns></returns>
+    public static string BuildingListToString(List<Building> _buildings)
+    {
+        string _result = "";
+
+        for (int i = 0; i < _buildings.Count; i++)
+        {
+            _result += _buildings[i].name + "\n";
+        }
+
+        return _result + "\n";
     }
 
     /// <summary>
@@ -104,6 +116,7 @@ public class JSONBuildings : MonoBehaviour
     public static void DeleteBuildingFromJSON(Building _building)
     {
         Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+        //Building[] _buildingsFromJson = loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
         Building[] _newBuildingsFromJson;
         int index;
 
@@ -175,6 +188,7 @@ public class JSONBuildings : MonoBehaviour
     {
         //load the current list
         Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+        //Building[] _buildingsFromJson = loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
 
         //Create a new list with _buildingToAdd at the end
         Building[] _newBuildings = AddBuildingToArray(_buildingsFromJson,_buildingToAdd);
@@ -201,11 +215,6 @@ public class JSONBuildings : MonoBehaviour
 
         return _result;
     }
-
-
-
-
-
 
     /// <summary>
     /// All the urbalog buildings

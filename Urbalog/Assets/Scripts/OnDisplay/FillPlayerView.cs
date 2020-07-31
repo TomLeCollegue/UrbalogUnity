@@ -534,10 +534,6 @@ public class FillPlayerView : MonoBehaviour
             PicRole.GetComponent<Image>().sprite = TransportPublic;
         }
 
-
-        
-
-
         #region Ressources
         if (role.ressource1.Equals("Economical"))
         {
