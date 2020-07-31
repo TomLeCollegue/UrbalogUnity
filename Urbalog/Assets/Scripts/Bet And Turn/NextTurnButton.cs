@@ -8,10 +8,14 @@ using UnityEngine.UI;
 
 public class NextTurnButton : NetworkBehaviour
 {
-    public static int NumberBuildingsToEnd = 2; //default value
+    public static int NumberBuildingsToEnd = 4; //default value
     public TextMeshProUGUI TextButton;
     bool LogSend = false;
     public Button ButtonNextTurn;
+
+    public TextMeshProUGUI CityTitle;
+
+    public bool EndWarmup = false;
 
     /// <summary>
     /// Change your Next turn bool from a state to an other
@@ -26,10 +30,26 @@ public class NextTurnButton : NetworkBehaviour
     {
         if (isServer)
         {
+            if (EndWarmup)
+            {
+                return;
+            }
             if (CheckEndGameCondition())
             {
-                CmdChangeSceneToEndGame();
-                EndGameLog();
+
+                if (!GameSettings.Warmup)
+                {
+                    CmdChangeSceneToEndGame();
+                    EndGameLog();
+                }
+                else
+                {
+                    Debug.Log("end tour de chauffe");
+                    EndWarmup = true;
+                    Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+                    player.CmdChangeTitleCity();
+
+                }
                 return;
             }
             if (CheckForNextTurn() || TimerEnded())
@@ -64,6 +84,7 @@ public class NextTurnButton : NetworkBehaviour
             resetTimer();
         }
     }
+
 
     private void PrintTheGoodNextTurnButton(bool _TurnPressed, bool _NbBuildingFinancedTooHighForEndGame, bool _NbBuildingFinancedTooHighForTurn)
     {

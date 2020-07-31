@@ -40,10 +40,13 @@ public class PlayerSetup : NetworkBehaviour
         base.OnStartClient();
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
-        CmdCheckifPlayerExisted(GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName);
         GameManager.singleton.RegisterPlayer(_player);
         //assign to the local player his name and ID
-        _player.ID = _netID;
+        if(_player.role == null) 
+        {
+            _player.ID = _netID;
+        }
+      
         if (isLocalPlayer)
         {
             Debug.Log("OnstartClinetFonction IsLocalPlayer");
@@ -63,6 +66,15 @@ public class PlayerSetup : NetworkBehaviour
         CmdSendNbBuildingsMax();
         CmdGetRoleForPlayer();
         CmdSendActualGameManager();
+        if (isLocalPlayer)
+        {
+            Invoke("DelayCheckPlayerBackup", 2);
+        }
+    }
+
+    void DelayCheckPlayerBackup()
+    {
+        CmdCheckifPlayerExisted(GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName);
     }
 
     /// <summary>
@@ -228,22 +240,29 @@ public class PlayerSetup : NetworkBehaviour
     {
         for (int i = 0; i < GameManager.singleton.playersBackup.Count; i++)
         {
-            if (GameManager.singleton.playersBackup[i].namePlayer.Equals(namePlayer))
+            if (GameManager.singleton.playersBackup[i].namePlayer.Equals(namePlayer, StringComparison.OrdinalIgnoreCase))
             {
+
                 byte[] playerBackupByte = GetbyteFromObject(GameManager.singleton.playersBackup[i]);
-                RpcClient(playerBackupByte);
+                RpcClient(playerBackupByte, namePlayer);
                 return;
             }
         }
+
+
     }
 
     [ClientRpc]
-    public void RpcClient(byte[] playerBackupByte)
+    public void RpcClient(byte[] playerBackupByte, string namePlayer)
     {
+        Debug.Log("Distribue le role et les infos RPC");
         PlayerBackUp playerBackup = (PlayerBackUp)ByteArrayToObject2(playerBackupByte);
-        Player player = GameObject.Find("playerLocal").GetComponent<Player>();
-        if (GameObject.Find("NetworkManager").GetComponent<HostGame>().playerName.Equals(playerBackup.namePlayer))
+        Debug.Log("Distribue le role et les infos bYTETOarray");
+        if (GetComponent<Player>().namePlayer.Equals(namePlayer, StringComparison.OrdinalIgnoreCase))
         {
+            Debug.Log("Distribue le role et les infos");
+            Player player = GetComponent<Player>();
+        
             player.namePlayer = playerBackup.namePlayer;
             player.playerFamilyName = playerBackup.playerFamilyName;
             player.gender = playerBackup.gender;
@@ -252,7 +271,7 @@ public class PlayerSetup : NetworkBehaviour
             player.jobStatus = playerBackup.jobStatus;
             player.field = playerBackup.field;
             player.nameRole = playerBackup.nameRole;
-            player.ID = playerBackup.ID;
+            //player.ID = playerBackup.ID;
             player.nextTurn = playerBackup.nextTurn;
             player.scorePlayer = playerBackup.scorePlayer;
             player.OldScore = playerBackup.OldScore;
@@ -260,6 +279,8 @@ public class PlayerSetup : NetworkBehaviour
             player.role = playerBackup.role;
 
         }
+
+        
     }
     #endregion
 

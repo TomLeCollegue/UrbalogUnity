@@ -100,4 +100,11 @@ public class LanguagePlayer : MonoBehaviour
     }
 
 
+
+    public void ChangeCityTitle()
+    {
+        Debug.Log("ChangeCityTitle");
+        titleCity.text = Language.END_WARMUP;
+    }
+
 }

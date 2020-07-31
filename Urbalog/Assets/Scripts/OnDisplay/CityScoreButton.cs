@@ -43,6 +43,16 @@ public class CityScoreButton : MonoBehaviour
 
     }
 
+    public void CityViewEndWarmup()
+    {
+        RoleFrame.SetActive(false);
+        Market.SetActive(false);
+        City.SetActive(true);
+        buttonNextTurn.SetActive(false);
+        buttonRole.SetActive(false);
+
+    }
+
     public void ClosePanel()
     {
         RoleFrame.SetActive(true);

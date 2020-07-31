@@ -124,6 +124,11 @@
         public static string FR_TIMER_TURN = "Temps restant : ";
         public static string EN_TIMER_TURN = "Time left : ";
 
+        public static string FR_END_WARMUP = "Fin du Tour de chauffe";
+        public static string EN_END_WARMUP = "End of Warmup";
+
+
+
 
 
 
@@ -248,6 +253,8 @@
     public static string ACTIVITY = "Votre secteur d'activité";
     public static string FINISH = "Terminer";
 
+    public static string END_WARMUP = "Fin du Tour de chauffe";
+
 
     #endregion
 
@@ -313,6 +320,7 @@
             ACT_STATUS = FR_ACT_STATUS;
             ACTIVITY = FR_ACTIVITY;
             FINISH = FR_FINISH;
+            END_WARMUP = FR_END_WARMUP;
 
 }
         if (language.Equals("En"))
@@ -374,6 +382,7 @@
             ACT_STATUS = EN_ACT_STATUS;
             ACTIVITY = EN_ACTIVITY;
             FINISH = EN_FINISH;
+            END_WARMUP = EN_END_WARMUP;
         }
     }
     

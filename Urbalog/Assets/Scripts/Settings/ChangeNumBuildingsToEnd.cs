@@ -10,5 +10,6 @@ public class ChangeNumBuildingsToEnd : MonoBehaviour
     {
         
         NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
+        PlayerPrefs.SetInt("BuildingsToEnd", NextTurnButton.NumberBuildingsToEnd);
     }
 }

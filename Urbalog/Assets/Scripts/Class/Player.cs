@@ -29,7 +29,7 @@ public class Player : NetworkBehaviour
     public string field = "";
     [SyncVar]
     public string nameRole = "";
-
+    [SyncVar]
     public string ID;
 
 
@@ -107,6 +107,29 @@ public class Player : NetworkBehaviour
     public void InvokePopUP()
     {
         Invoke("CmdScore", 2);
+    }
+
+
+    [Command]
+    public void CmdChangeTitleCity()
+    {
+        Debug.Log("end tour de chauffe 3");
+
+        RpcChangeTitleCity();
+    }
+
+    [ClientRpc]
+    public void RpcChangeTitleCity()
+    {
+        Debug.Log("end tour de chauffe 4");
+        GameObject.Find("LanguageManager").GetComponent<LanguagePlayer>().ChangeCityTitle();
+
+        Player player = GameObject.Find("playerLocal").GetComponent<Player>();
+        if (player.role.nameRole.Equals("SERVEUR") || player.role.nameRole.Equals("PLATEAU"))
+        {
+            return;
+        }
+        GameObject.Find("PlayerViewManager").GetComponent<CityScoreButton>().CityViewEndWarmup();
     }
 
 }
