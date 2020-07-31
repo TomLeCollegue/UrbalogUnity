@@ -254,6 +254,21 @@
             "attractScore": 1,
             "logisticScore": 1,
             "logisticDescription": "lnbvc"
+        },
+        {
+            "name": "Cest un test",
+            "description": "test",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "1"
         }
     ]
 }
