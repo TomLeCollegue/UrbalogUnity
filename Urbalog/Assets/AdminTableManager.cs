@@ -23,6 +23,15 @@ public class AdminTableManager : MonoBehaviour
     public Sprite GreenBox;
 
 
+    public TextMeshProUGUI buildingsEnd;
+    public TextMeshProUGUI buildingsTurn;
+    public TextMeshProUGUI TimerTurnBool;
+    public TextMeshProUGUI TimerTurn;
+    public TextMeshProUGUI TimerGameBool;
+    public TextMeshProUGUI TimerGame;
+
+
+
     void Update()
     {
         Table1.color = urbaBlack;
@@ -62,5 +71,16 @@ public class AdminTableManager : MonoBehaviour
             Table5I.GetComponent<Image>().sprite = GreenBox;
             Table5.color = urbaGreen;
         }
+        FillRules();
     }
+
+    void FillRules()
+    {
+        buildingsEnd.text = NextTurnButton.NumberBuildingsToEnd.ToString();
+        buildingsTurn.text = GameSettings.nbBuildingsPerTurn.ToString();
+        TimerTurnBool.text = "Timer Turn: " +  GameSettings.isTimerActive.ToString();
+        TimerTurn.text = GameSettings.TurnTimeMax.ToString();
+        //TimerGameBool;
+        //TimerGame;
+}
 }

@@ -2,11 +2,11 @@
     "Items": [
         {
             "nameRole": "Transporteur",
-            "hold": "Attractiveness",
+            "hold": "Environment",
             "improve": "Fluidity",
             "ressourceSocial": 0,
-            "ressourcePolitical": 3,
-            "ressourceEconomical": 7,
+            "ressourcePolitical": 20,
+            "ressourceEconomical": 20,
             "ressource1": "Economical",
             "ressource2": "Political"
         },

@@ -1,7 +1,7 @@
 {
     "Items": [
         {
-            "name": "bonjour",
+            "name": "Piste cyclable",
             "description": "Voie réservée aux cyclistes et protégée du reste de la circulation",
             "Economical": 2,
             "Social": 2,
@@ -31,7 +31,7 @@
             "logisticDescription": "Ces structures créent des obstacles ponctuels pour la livraison en limitant l'accès au trottoir."
         },
         {
-            "name": "cancel",
+            "name": "Terrasse",
             "description": "Terrasse de café ou de restaurant",
             "Economical": 1,
             "Social": 2,
@@ -46,7 +46,7 @@
             "logisticDescription": "Cet aménagement limite l'accès à l'établissement tout en empiétant sur le trottoir et sur le stationnement."
         },
         {
-            "name": "21",
+            "name": "Petit magasin",
             "description": "Petit commerce (-20 salariés)",
             "Economical": 2,
             "Social": 4,
@@ -106,19 +106,19 @@
             "logisticDescription": "L'absence de trottoirs facilite l'accès aux établissements pour les véhicules de livraisons, mais la vitesse limitée réduit l'accessibilité."
         },
         {
-            "name": "test",
-            "description": "batiment de test",
-            "Economical": 5,
-            "Social": 7,
-            "Political": 1,
+            "name": "Réseau de consignes",
+            "description": "Un réseau de consignes automatiques est composé de boites sécurisées permettant le retrait de colis à toute heure",
+            "Economical": 2,
+            "Social": 3,
+            "Political": 2,
             "FinanceEconomical": 0,
             "FinanceSocial": 0,
             "FinancePolitical": 0,
-            "enviScore": -2,
-            "fluidScore": 4,
-            "attractScore": 6,
-            "logisticScore": 1,
-            "logisticDescription": "description logistique de test"
+            "enviScore": 0,
+            "fluidScore": 2,
+            "attractScore": 0,
+            "logisticScore": 2,
+            "logisticDescription": "Accessible à toute heure, cet aménagement permet la livraison des colis en l'absence des destinataires. Il limite le nombre de véhicules de livraison grâce à la consolidation permise."
         },
         {
             "name": "Dispositif anti-bélier",
@@ -136,19 +136,34 @@
             "logisticDescription": "Ce système interdit l'accès des véhicules aux établissements économiques et aux logements des particuliers."
         },
         {
-            "name": "Je ne comprends pas",
-            "description": "allo",
-            "Economical": 4,
-            "Social": 5,
+            "name": "Aire de livraison",
+            "description": "Emplacement réservé à l'arrêt des véhicules pour réaliser une livraison ou un enlèvement de marchandise.",
+            "Economical": 3,
+            "Social": 1,
             "Political": 2,
             "FinanceEconomical": 0,
             "FinanceSocial": 0,
             "FinancePolitical": 0,
-            "enviScore": -8,
-            "fluidScore": 4,
-            "attractScore": 6,
+            "enviScore": -1,
+            "fluidScore": 2,
+            "attractScore": -1,
             "logisticScore": 1,
             "logisticDescription": "Cet aménagement offre aux véhicules de livraison la possibilité de stationner. Tout en décongestionnant la voirie, il facilite le travail du livreur."
+        },
+        {
+            "name": "CDU",
+            "description": "Un Centre de Distribution Urbaine est un entrepôt situé en ville qui facilite les livraisons.",
+            "Economical": 3,
+            "Social": 2,
+            "Political": 2,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 2,
+            "fluidScore": 4,
+            "attractScore": -1,
+            "logisticScore": 1,
+            "logisticDescription": "Cet aménagement permet la mutualisation des flux des particuliers et des activités. La livraison finale est réalisée avec des véhicules propres. Peut s'articuler avec les autres espaces logistiques (PAV, consignes)."
         },
         {
             "name": "PAV",
@@ -181,6 +196,21 @@
             "logisticDescription": "Ce dispositif permet aux véhicules au gaz de se recharger et aux transporteurs de rouler même lors des pics de pollution."
         },
         {
+            "name": "Banc",
+            "description": "2 Bancs",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": -1,
+            "attractScore": 0,
+            "logisticScore": -1,
+            "logisticDescription": "Cet aménagement constitue un obstacle ponctuel pour la livraison en limitant l'accès au trottoir."
+        },
+        {
             "name": "Zone végétalisée",
             "description": "Espace vert",
             "Economical": 1,
@@ -196,19 +226,49 @@
             "logisticDescription": "Cette zone, non franchissable avec des outils de manutention, gêne la livraison."
         },
         {
-            "name": "oui",
-            "description": "44",
-            "Economical": 4,
-            "Social": 4,
-            "Political": 4,
+            "name": "cest tres bien ",
+            "description": "erere",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
             "FinanceEconomical": 0,
             "FinanceSocial": 0,
             "FinancePolitical": 0,
-            "enviScore": 4,
-            "fluidScore": 4,
-            "attractScore": 4,
-            "logisticScore": 4,
-            "logisticDescription": "4444"
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "oui"
+        },
+        {
+            "name": "coolos",
+            "description": "eee",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "lnbvc"
+        },
+        {
+            "name": "Cest un test",
+            "description": "test",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "1"
         }
     ]
 }
