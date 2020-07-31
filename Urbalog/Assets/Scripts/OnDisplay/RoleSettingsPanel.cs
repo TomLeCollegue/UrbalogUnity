@@ -201,6 +201,24 @@ public class RoleSettingsPanel : MonoBehaviour
 
         return _result;
     }
+    /// <summary>
+    /// Delete Role from JSON and then refresh display list
+    /// </summary>
+    public void DeleteRole()
+    {
+        //Delete currentRole from JSONRoles.CurrentRoles
+        int _indexCurRole = JSONRoles.CurrentRoles.IndexOf(currentRole);
+        JSONRoles.CurrentRoles.RemoveAt(_indexCurRole);
+
+        //Create the new JSON file with CurrentRoles
+        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles);
+
+        //close settings panel
+        CloseRoleSettingsPanel();
+
+        //refresh display list
+        GameObject.Find("RoleListManager").GetComponent<FillRoleList>().UpdateList();
+    }
 
     internal void CloseRoleSettingsPanel()
     {
