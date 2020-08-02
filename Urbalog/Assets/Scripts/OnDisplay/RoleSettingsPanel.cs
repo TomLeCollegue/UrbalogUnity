@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -279,9 +280,33 @@ public class RoleSettingsPanel : MonoBehaviour
             Debug.Log("error in RoleSettingsPanel : CreateNewRoleWithInputValuesInAddPanel");
         }
 
-        _resSocial = Convert.ToInt16(addSocialNumberInput.text);
-        _resPoli = Convert.ToInt16(addPoliNumberInput.text);
-        _resEco = Convert.ToInt16(addEcoNumberInput.text);
+
+        if (addSocialNumberInput.text == "" || !(addSocialNumberInput.text.All(char.IsDigit)))
+        {
+            _resSocial = 0;
+        }
+        else
+        {
+            _resSocial = Convert.ToInt16(addSocialNumberInput.text);
+        }
+        if (addPoliNumberInput.text == "" || !(addPoliNumberInput.text.All(char.IsDigit)))
+        {
+            _resPoli = 0;
+        }
+        else
+        {
+            _resPoli = Convert.ToInt16(addPoliNumberInput.text);
+        }
+        if (addEcoNumberInput.text == "" || !(addEcoNumberInput.text.All(char.IsDigit)))
+        {
+            _resEco = 0;
+        }
+        else
+        {
+            _resEco = Convert.ToInt16(addEcoNumberInput.text);
+        }
+
+        
 
         Role _result = new Role(_name, _hold, _improve, _resSocial, _resPoli, _resEco);
 
@@ -332,9 +357,30 @@ public class RoleSettingsPanel : MonoBehaviour
             Debug.Log("error in RoleSettingsPanel : CreateNewRoleWithInputValues");
         }
 
-        _resSocial = Convert.ToInt16(SocialNumberInput.text);
-        _resPoli = Convert.ToInt16(PoliNumberInput.text);
-        _resEco = Convert.ToInt16(EcoNumberInput.text);
+        if (SocialNumberInput.text == "" || !(SocialNumberInput.text.All(char.IsDigit)))
+        {
+            _resSocial = 0;
+        }
+        else
+        {
+            _resSocial = Convert.ToInt16(SocialNumberInput.text);
+        }
+        if (PoliNumberInput.text == "" || !(PoliNumberInput.text.All(char.IsDigit)))
+        {
+            _resPoli = 0;
+        }
+        else
+        {
+            _resPoli = Convert.ToInt16(PoliNumberInput.text);
+        }
+        if (EcoNumberInput.text == "" || !(EcoNumberInput.text.All(char.IsDigit)))
+        {
+            _resEco = 0;
+        }
+        else
+        {
+            _resEco = Convert.ToInt16(EcoNumberInput.text);
+        }
 
         Role _result = new Role(_name, _hold, _improve,_resSocial, _resPoli, _resEco );
 

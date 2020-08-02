@@ -9,6 +9,26 @@
             "ressourceEconomical": 0,
             "ressource1": "Political",
             "ressource2": "Social"
+        },
+        {
+            "nameRole": "testin",
+            "hold": "Attractiveness",
+            "improve": "Fluidity",
+            "ressourceSocial": 4,
+            "ressourcePolitical": 0,
+            "ressourceEconomical": 2,
+            "ressource1": "Economical",
+            "ressource2": "Social"
+        },
+        {
+            "nameRole": "testgfffff",
+            "hold": "Attractiveness",
+            "improve": "Attractiveness",
+            "ressourceSocial": 0,
+            "ressourcePolitical": 0,
+            "ressourceEconomical": 1,
+            "ressource1": "Economical",
+            "ressource2": "Social"
         }
     ]
 }
