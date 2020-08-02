@@ -39,7 +39,7 @@ public class SettingsMenu : MonoBehaviour
     #endregion
 
     #region addBuildingPanel
-    public GameObject addPanel;
+    public GameObject addBuildingPanel;
 
     public InputField addNameInput;
 
@@ -56,6 +56,10 @@ public class SettingsMenu : MonoBehaviour
 
     public InputField AddLogisticDescriptionInput;
 
+    #endregion
+
+    #region addRolePanel
+    public GameObject addRolePanel;
     #endregion
 
     public TextMeshProUGUI timerPlaceholder;
@@ -159,15 +163,15 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void OpenAddBuildingPanel()
     {
-        if (addPanel != null)
+        if (addBuildingPanel != null)
         {
-            addPanel.SetActive(true);
+            addBuildingPanel.SetActive(true);
         }
     }
 
     public void CloseAddBuildingPanel()
     {
-        addPanel.SetActive(false);
+        addBuildingPanel.SetActive(false);
     }
 
 
