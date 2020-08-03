@@ -63,6 +63,7 @@ public class SettingsMenu : MonoBehaviour
     #endregion
 
     public TextMeshProUGUI timerPlaceholder;
+    //public TextMeshProUGUI GameTimerPlaceholder;
 
     public TextMeshProUGUI nbBuildingsMaxPerTurnPlaceholder;
 
