@@ -120,8 +120,14 @@ public class Game
 
     public void FillRoles()
     {
-        //Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
-        //Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        if (GameSettings.ServeurNonPlayer)
+        {
+            Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+        }
+        if (GameSettings.CentralTablet)
+        {
+            Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        }
         Roles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 20, 20));
         Roles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
         Roles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));

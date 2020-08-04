@@ -136,16 +136,27 @@ public class NextTurnButton : NetworkBehaviour
     private bool CheckForTimerStart()
     {
         GameManager gameManager = GameManager.singleton;
+
+        int boucle = 1;
+        if (GameSettings.ServeurNonPlayer)
+        {
+            boucle = 2;
+        }
+        if (GameSettings.CentralTablet)
+        {
+            boucle = 3;
+        }
+
         int countPlayersReady = 0;
         bool _OnlyOnePlayerNotReady;
-        for (int i = 0; i < gameManager.players.Count; i++)
+        for (int i = boucle; i < gameManager.players.Count; i++)
         {
             if (gameManager.players[i].nextTurn)
             {
                 countPlayersReady++;
             }
         }
-        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == 1;  //int i = 3 quand on joue avec le serveur et le plateau
+        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == boucle;  //int i = 3 quand on joue avec le serveur et le plateau
         bool _res = _OnlyOnePlayerNotReady && GameSettings.isTimerActive;
 
         return _res;
@@ -247,7 +258,16 @@ public class NextTurnButton : NetworkBehaviour
     { 
         GameManager gameManager = GameManager.singleton;
         bool boolTurn = true;
-        for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
+        int boucle = 0;
+        if (GameSettings.ServeurNonPlayer)
+        {
+            boucle = 1;
+        }
+        if (GameSettings.CentralTablet)
+        {
+            boucle = 2;
+        }
+        for (int i = boucle; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
         {    
             if (!gameManager.players[i].nextTurn)
             {

@@ -12,6 +12,10 @@ public class GameSettings : MonoBehaviour
     public static string Language;
     public static bool Warmup = false;
 
+    public static bool ServeurNonPlayer = false;
+    public static bool CentralTablet = false;
+
+
     public void ChangeTimePerTurn(string _time)
     {
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
@@ -24,6 +28,20 @@ public class GameSettings : MonoBehaviour
         isTimerActive = _isTimerActive;
         int boolInt = isTimerActive ? 1 : 0;
         PlayerPrefs.SetInt("isTimerActive", boolInt);
+    }
+
+    public void ToggleServeur(bool _isSeveurJoueur)
+    {
+        ServeurNonPlayer = _isSeveurJoueur;
+        int boolInt = ServeurNonPlayer ? 1 : 0;
+        PlayerPrefs.SetInt("ServeurNonPlayer", boolInt);
+    }
+    public void ToggleTabletteCentral(bool _isTabletCentral)
+    {
+        ServeurNonPlayer = _isTabletCentral;
+        CentralTablet = _isTabletCentral;
+        //int boolInt = ServeurNonPlayer ? 1 : 0;
+        //PlayerPrefs.SetInt("ServeurNonPlayer", boolInt);
     }
 
     public void ChangerNbBuildingsMaxPerTurn(string _nbMax)
