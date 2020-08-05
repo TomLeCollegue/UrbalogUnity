@@ -20,6 +20,7 @@ public class LogManager : MonoBehaviour
     public int FluidScore;
     public int EnviScore;
     public int LogiScore;
+    public string dateTime;
 
     private void Awake()
     {
@@ -55,6 +56,7 @@ public class LogManager : MonoBehaviour
     private void Start()
     {
         SetUUID();
+        dateTime = DateTime.Now.ToString();
         Roles = GameManager.singleton.game.Roles.ToList();
     }
 
@@ -118,12 +120,13 @@ public class LogManager : MonoBehaviour
         infoGame.AddField("nb_player", players.Count.ToString());
         infoGame.AddField("nb_buildings", GameManager.singleton.game.BuildingsBuilt.Count.ToString());
         infoGame.AddField("game_timer", 0.ToString());
-        infoGame.AddField("turn_timer", 0.ToString());
+        infoGame.AddField("turn_timer", GameSettings.TurnTimeMax.ToString());
         infoGame.AddField("envi_score", EnviScore.ToString());
         infoGame.AddField("attract_score", AttractScore.ToString());
         infoGame.AddField("fluid_score", FluidScore.ToString());
         infoGame.AddField("logi_score", LogiScore.ToString());
         infoGame.AddField("nb_turn", Turns.Count.ToString());
+        infoGame.AddField("created_at", dateTime);
         WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfogame.php", infoGame);
         yield return www;
         if(www.text == "0")
@@ -231,6 +234,7 @@ public class LogManager : MonoBehaviour
         infoBuilding.AddField("economical_bet", bet.econommical.ToString());
         infoBuilding.AddField("turn", numTurn.ToString());
         infoBuilding.AddField("building", bet.BuildingName);
+        infoBuilding.AddField("created_at", bet.dateTime);
         WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfobet.php", infoBuilding);
         yield return www;
         if (www.text == "0")
@@ -254,6 +258,7 @@ public class LogManager : MonoBehaviour
         infoBuilding.AddField("building_market_3", turn.Market[2].name);
         infoBuilding.AddField("building_market_4", turn.Market[3].name);
         infoBuilding.AddField("building_market_5", turn.Market[4].name);
+        infoBuilding.AddField("created_at", turn.dateTime);
         if(turn.BuildingBuild.Count >=1)
         {
             infoBuilding.AddField("building_completed_1", turn.BuildingBuild[0].name);

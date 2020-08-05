@@ -6,7 +6,7 @@ using UnityEngine;
 public class FillCity : NetworkBehaviour
 {
     [SerializeField]
-    private Transform[] SpawnPoints;
+    private Transform[] SpawnPoints; // 3 
     public GameObject Building;
     public GameObject bikeRoad;
     public GameObject Poste;
@@ -23,6 +23,7 @@ public class FillCity : NetworkBehaviour
     public GameObject meeting;
     public GameObject delivery;
     public GameObject antiram;
+    public int nbSpawnPointUsed = 0; 
 
     //Stock la liste des buildings contruits sur la map
     [SerializeField]
@@ -36,12 +37,12 @@ public class FillCity : NetworkBehaviour
 
         for (int i = 0; i < _game.BuildingsBuilt.Count; i++)
         {
-            Spawn(_game.BuildingsBuilt[i], SpawnPoints[i]);
+            Spawn(_game.BuildingsBuilt[i]);
         }
     }
 
     
-    public void Spawn(Building _building, Transform spawnPoint)
+    public void Spawn(Building _building)
     {
         if(_building.name.Equals("Piste cyclable"))
         {
@@ -143,18 +144,20 @@ public class FillCity : NetworkBehaviour
         }
         else if (_building.name.Equals("Terrasse"))
         {
-            GameObject building = (GameObject)Instantiate(antiram);
+            GameObject building = (GameObject)Instantiate(terrasse);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else
         {
-            GameObject building = (GameObject)Instantiate(Building, spawnPoint.position, spawnPoint.rotation);
+            GameObject building = (GameObject)Instantiate(Building, SpawnPoints[nbSpawnPointUsed].position, SpawnPoints[nbSpawnPointUsed].rotation);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
+            nbSpawnPointUsed++; // We used a spawn point
         }
+
     }
 
     public void DestroyBuildings()

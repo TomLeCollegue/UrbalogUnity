@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class Bet
     public int econommical;
     public int social;
     public string BuildingName;
+    public string dateTime;
 
     public Bet(int playerId, int politic, int econommical, int social, string buildingName)
     {
@@ -18,5 +20,6 @@ public class Bet
         this.econommical = econommical;
         this.social = social;
         BuildingName = buildingName;
+        dateTime = DateTime.Now.ToString();
     }
 }
