@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PopUpBuildingDisplay : MonoBehaviour
@@ -13,6 +14,9 @@ public class PopUpBuildingDisplay : MonoBehaviour
     public TextMeshProUGUI scoreAttract;
     public TextMeshProUGUI scoreEnvi;
     public TextMeshProUGUI scoreFluid;
+    public TextMeshProUGUI scoreLogi;
+    public TextMeshProUGUI descLogi;
+    public Image Logi;
 
     public Image Attract;
     public Image Envi;
@@ -36,6 +40,11 @@ public class PopUpBuildingDisplay : MonoBehaviour
         scoreEnvi.text = building.enviScore.ToString();
         scoreFluid.text = building.fluidScore.ToString();
 
+        if (SceneManager.GetActiveScene().name.Equals("EndGame"))
+        {
+            scoreLogi.text = building.logisticScore.ToString();
+            descLogi.text = building.logisticDescription;
+        }
 
         ColorScore(building);
     }
@@ -80,9 +89,26 @@ public class PopUpBuildingDisplay : MonoBehaviour
         {
             Envi.color = urbaGreen;
         }
-    }
 
-    public void DismissPopUP()
+        if (SceneManager.GetActiveScene().name.Equals("EndGame"))
+        {
+            if (building.logisticScore < 0)
+            {
+                Logi.color = urbaRed;
+            }
+            else if ((building.logisticScore == 0))
+            {
+                Logi.color = urbaGrey;
+            }
+            else
+            {
+                Logi.color = urbaGreen;
+            }
+        }
+
+        }
+
+        public void DismissPopUP()
     {
         PopUp.SetActive(false);
     }

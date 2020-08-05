@@ -51,8 +51,8 @@ public class RenameBuilding : NetworkBehaviour
 
     public void DisplayLogisticBuildingInfo()
     {
-        Debug.Log("Building Logistique " + NameBuilding);
-        GameObject.Find("PlayerViewManager").GetComponent<popUpLogistic>().DisplayPopUp(building);
+        Debug.Log("Building " + NameBuilding);
+        GameObject.Find("PlayerViewManager").GetComponent<PopUpBuildingDisplay>().DisplayPopUp(building);
     }
 
 
