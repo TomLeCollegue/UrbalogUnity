@@ -44,6 +44,8 @@ public class Player : NetworkBehaviour
     [SerializeField]
     public int num;
 
+    public int[,] playerBets = new int[5, 2];
+
     [Command]
     public void CmdScore()
     {

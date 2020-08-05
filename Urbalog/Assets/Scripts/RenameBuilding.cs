@@ -12,6 +12,7 @@ public class RenameBuilding : NetworkBehaviour
     public GameObject LogistiqueButton;
     public TextMeshProUGUI LogistiqueScore;
     
+    
     [SyncVar]
     public string NameBuilding;
 

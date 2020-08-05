@@ -279,6 +279,9 @@ public class PlayerSetup : NetworkBehaviour
             player.OldScore = playerBackup.OldScore;
             player.num = playerBackup.num;
             player.role = playerBackup.role;
+            player.playerBets = playerBackup.playerBets;
+            BetControl betControl = GetComponent<BetControl>();
+            betControl.playerBets = playerBackup.playerBets;
 
         }
 

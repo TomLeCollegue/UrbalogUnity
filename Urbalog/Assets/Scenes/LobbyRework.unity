@@ -14872,6 +14872,7 @@ MonoBehaviour:
   AddLogisticDescriptionInput: {fileID: 0}
   timerPlaceholder: {fileID: 0}
   nbBuildingsMaxPerTurnPlaceholder: {fileID: 0}
+  nbbuildingsForEnding: {fileID: 0}
   displayList: {fileID: 0}
 --- !u!1 &1526576431
 GameObject:
@@ -21169,7 +21170,7 @@ PrefabInstance:
     - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
       propertyPath: spawnPrefabs.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
@@ -21231,6 +21232,12 @@ PrefabInstance:
       propertyPath: spawnPrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 8284877600998288032, guid: e361e0f5d8e39ac4ebfde8bcb306fbba,
+        type: 3}
+    - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
+        type: 3}
+      propertyPath: spawnPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 8284877600998288032, guid: 47f4791af0eb49d49961c2ce0b8d6d96,
         type: 3}
     - target: {fileID: 518646868029173898, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}

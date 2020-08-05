@@ -205,7 +205,7 @@ public class NextTurnButton : NetworkBehaviour
         BetControl betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
         PlayerSetup playerSetup = GameObject.Find("playerLocal").GetComponent<PlayerSetup>();
         GameManager gameManager = GameManager.singleton;
-
+        ResetTableBetPlayers();
         ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
         betControl.CmdGiveBackResourcesToPlayerWhenNextTurn();       // Rendre les ressources aux joueurs pour les aménagements pas financés entièrement.
         DistribScorePlayer();
@@ -220,6 +220,14 @@ public class NextTurnButton : NetworkBehaviour
         GameObject.Find("CityManager").GetComponent<FillTruckCity>().SpawnTrucks();
         CallCityView();
         GameObject.Find("playerLocal").GetComponent<Player>().InvokePopUP();
+    }
+
+    private void ResetTableBetPlayers()
+    {
+        for (int i = 0; i < GameManager.singleton.players.Count; i++)
+        {
+            GameManager.singleton.players[i].playerBets = new int[5, 2];
+        }
     }
 
     private void ResetFinanceBuildingInMarket()

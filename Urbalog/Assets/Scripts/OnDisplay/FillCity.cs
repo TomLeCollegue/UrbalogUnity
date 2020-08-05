@@ -12,10 +12,8 @@ public class FillCity : NetworkBehaviour
     public GameObject Poste;
     public GameObject BorneVelo;
     public GameObject petitMagasin;
-    public Transform SpawnPoste;
-    public Transform SpawnBikeRoad;
-    public Transform SpawnBorneVelo;
-    public Transform SpawnPetitMagasin;
+    public GameObject CDU;
+
 
     //Stock la liste des buildings contruits sur la map
     [SerializeField]
@@ -38,28 +36,35 @@ public class FillCity : NetworkBehaviour
     {
         if(_building.name.Equals("Piste cyclable"))
         {
-            GameObject building = (GameObject)Instantiate(bikeRoad, SpawnBikeRoad.position, SpawnBikeRoad.rotation);
+            GameObject building = (GameObject)Instantiate(bikeRoad);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else if (_building.name.Equals("Borne vélo"))
         {
-            GameObject building = (GameObject)Instantiate(BorneVelo, SpawnBorneVelo.position, SpawnBorneVelo.rotation);
+            GameObject building = (GameObject)Instantiate(BorneVelo);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else if (_building.name.Equals("Poste"))
         {
-            GameObject building = (GameObject)Instantiate(Poste, SpawnPoste.position, SpawnPoste.rotation);
+            GameObject building = (GameObject)Instantiate(Poste);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else if (_building.name.Equals("Petit magasin"))
         {
-            GameObject building = (GameObject)Instantiate(petitMagasin, SpawnPetitMagasin.position, SpawnPetitMagasin.rotation);
+            GameObject building = (GameObject)Instantiate(petitMagasin);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("CDU"))
+        {
+            GameObject building = (GameObject)Instantiate(CDU);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
