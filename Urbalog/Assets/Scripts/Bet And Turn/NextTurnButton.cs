@@ -14,6 +14,7 @@ public class NextTurnButton : NetworkBehaviour
     public Button ButtonNextTurn;
 
     public TextMeshProUGUI CityTitle;
+    public TextMeshProUGUI nbNextTurn;
 
     public bool EndWarmup = false;
 
@@ -36,7 +37,6 @@ public class NextTurnButton : NetworkBehaviour
             }
             if (CheckEndGameCondition())
             {
-
                 if (!GameSettings.Warmup)
                 {
                     CmdChangeSceneToEndGame();
@@ -88,6 +88,15 @@ public class NextTurnButton : NetworkBehaviour
 
     private void PrintTheGoodNextTurnButton(bool _TurnPressed, bool _NbBuildingFinancedTooHighForEndGame, bool _NbBuildingFinancedTooHighForTurn)
     {
+        int nbTurnVote = 0; 
+        for (int i = 0; i < GameManager.singleton.players.Count; i++)
+        {
+            nbTurnVote += (GameManager.singleton.players[i].nextTurn) ? 1:0;
+        }
+
+
+        String DisplayNbTurnVote = nbTurnVote + "/" + GameManager.singleton.players.Count;
+        nbNextTurn.text = DisplayNbTurnVote;
         if (!_TurnPressed && !_NbBuildingFinancedTooHighForEndGame && !_NbBuildingFinancedTooHighForTurn)
         {
             TextButton.text = Language.NEXT_TURN;
