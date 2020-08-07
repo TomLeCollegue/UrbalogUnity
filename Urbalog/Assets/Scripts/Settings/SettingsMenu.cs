@@ -63,7 +63,10 @@ public class SettingsMenu : MonoBehaviour
     #endregion
 
     public TextMeshProUGUI timerPlaceholder;
-    //public TextMeshProUGUI GameTimerPlaceholder;
+    public Toggle turnTimerToggle;
+
+    public TextMeshProUGUI GameTimerPlaceholder;
+    public Toggle gameTimerToggle;
 
     public TextMeshProUGUI nbBuildingsMaxPerTurnPlaceholder;
 
@@ -118,7 +121,26 @@ public class SettingsMenu : MonoBehaviour
         MainSettingsMenu.SetActive(false);
         BuildingsSettingsMenu.SetActive(false);
         RolePanel.SetActive(false);
+
         timerPlaceholder.text = GameSettings.TurnTimeMax.ToString();
+        GameTimerPlaceholder.text = (GameSettings.GameTimerMax/60).ToString();
+        if (GameSettings.isTimerActive)
+        {
+            turnTimerToggle.isOn = true;
+        }
+        else
+        {
+            turnTimerToggle.isOn = false;
+        }
+
+        if (GameSettings.isGameTimerActive)
+        {
+            gameTimerToggle.isOn = true;
+        }
+        else
+        {
+            gameTimerToggle.isOn = false;
+        }
     }
 
     public void DisplayRolePanel()

@@ -74,6 +74,9 @@ public class AdminTableManager : MonoBehaviour
         FillRules();
     }
 
+    /// <summary>
+    /// Shows the rules to the admin when he creates a game.
+    /// </summary>
     void FillRules()
     {
         buildingsEnd.text = NextTurnButton.NumberBuildingsToEnd.ToString();
@@ -81,6 +84,8 @@ public class AdminTableManager : MonoBehaviour
         TimerTurnBool.text = "Timer Turn: " +  GameSettings.isTimerActive.ToString();
         TimerTurn.text = GameSettings.TurnTimeMax.ToString();
         //TimerGameBool;
+        TimerGameBool.text = GameSettings.isGameTimerActive.ToString();
         //TimerGame;
-}
+        TimerGame.text = (GameSettings.GameTimerMax / 60).ToString();
+    }
 }

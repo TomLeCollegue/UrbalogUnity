@@ -39,10 +39,18 @@ public class LanguagePlayer : MonoBehaviour
     public TextMeshProUGUI TextPopUpLose;
     public TextMeshProUGUI Dommage;
 
+    //Game Timer PopUp
+    public TextMeshProUGUI GameTimerWarningTitle;
+    public TextMeshProUGUI GameTimerEndTitle;
+    public TextMeshProUGUI GameTimerEndText;
 
 
-
-    
+    public void FillGameTimerPopUps()
+    {
+        GameTimerWarningTitle.text = Language.GAME_TIMER_WARNING_POPUP_TITLE;
+        GameTimerEndTitle.text = Language.GAME_TIMER_END_POPUP_TITLE;
+        GameTimerEndText.text = Language.GAME_TIMER_END_POPUP_TEXT;
+    }
 
     public void FillMarket()
     {
@@ -60,6 +68,7 @@ public class LanguagePlayer : MonoBehaviour
         FillMarket();
         FillPopUpBuilding();
         PopUp();
+        FillGameTimerPopUps();
     }
 
     public void FillRole()
@@ -98,8 +107,6 @@ public class LanguagePlayer : MonoBehaviour
         TextPopUpWin.text = Language.TEXT_WIN;
         TextPopUpLose.text = Language.TEXT_LOSE;
     }
-
-
 
     public void ChangeCityTitle()
     {

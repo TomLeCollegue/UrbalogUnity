@@ -28,7 +28,8 @@ public class GameSettings : MonoBehaviour
         isTimerActive = _isTimerActive;
         int _boolInt = isTimerActive ? 1 : 0;
         PlayerPrefs.SetInt("isTimerActive", _boolInt);
-        Debug.Log("Test du toggle du timer : " + (PlayerPrefs.GetInt("isTimerActive") == 1));
+        //Debug.Log("Test du toggle du timer : " + (PlayerPrefs.GetInt("isTimerActive") == 1));
+        Debug.Log("Test du toggle du timer : " + isTimerActive);
     }
 
     /// <summary>
@@ -38,9 +39,10 @@ public class GameSettings : MonoBehaviour
     public void ToggleGameTimer(bool _isGameTimerActive)
     {
         isGameTimerActive = _isGameTimerActive;
-        int _boolint = isTimerActive ? 1 : 0;
+        int _boolint = isGameTimerActive ? 1 : 0;
         PlayerPrefs.SetInt("isGameTimerActive", _boolint);
-        Debug.Log("Test du toggle du timer : " + (PlayerPrefs.GetInt("isGameTimerActive") == 1));
+        //Debug.Log("Test du toggle du timer : " + (PlayerPrefs.GetInt("isGameTimerActive") == 1));
+        Debug.Log("Test du toggle du timer : " + isGameTimerActive);
     }
 
     /// <summary>
@@ -49,7 +51,7 @@ public class GameSettings : MonoBehaviour
     /// <param name="_gameTime"></param>
     public void ChangeGameTimer(string _gameTime)
     {
-        GameTimerMax = Convert.ToInt16(_gameTime);
+        GameTimerMax = Convert.ToInt16(_gameTime) * 60; //*60 so the input works in minutes, not in seconds
         PlayerPrefs.SetFloat("GameTimerMax", GameTimerMax);
         Debug.Log("Test de la save du timer : " + PlayerPrefs.GetFloat("GameTimerMax"));
 
@@ -74,7 +76,8 @@ public class GameSettings : MonoBehaviour
         isTimerActive = PlayerPrefs.GetInt("isTimerActive") == 1;
         nbBuildingsPerTurn = PlayerPrefs.GetInt("nbBuildingperTurn");
         NextTurnButton.NumberBuildingsToEnd = PlayerPrefs.GetInt("BuildingsToEnd");
-        //GameTimerMax = PlayerPrefs.GetFloat("GameTimerMax");
+        GameTimerMax = PlayerPrefs.GetFloat("GameTimerMax");
+        isGameTimerActive = PlayerPrefs.GetInt("isGameTimerActive") == 1;
     }
 
 

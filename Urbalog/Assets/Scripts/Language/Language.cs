@@ -127,12 +127,17 @@
         public static string FR_END_WARMUP = "Fin du Tour de chauffe";
         public static string EN_END_WARMUP = "End of Warmup";
 
-
-
-
-
-
-
+    //GameTimerPopUp
+    public static string FR_GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TITLE = "Be Careful !";
+    public static string FR_GAME_TIMER_WARNING_POPUP_TEXT_1 = "Il ne vous reste plus que ";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TEXT_1 = "Only ";
+    public static string FR_GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn avant la fin de la partie.";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn left before the game ends";
+    public static string FR_GAME_TIMER_END_POPUP_TITLE = "Dommage !";
+    public static string EN_GAME_TIMER_END_POPUP_TITLE = "Sorry !";
+    public static string FR_GAME_TIMER_END_POPUP_TEXT = "La partie est terminée car le temps est écoulé.";
+    public static string EN_GAME_TIMER_END_POPUP_TEXT = "The game ended because there is no time left.";
 
     #endregion
     #region EndGame
@@ -225,6 +230,13 @@
     public static string TEXT_WIN = "Objectif atteint. \n Vous gagnez un point !";
     public static string TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
     public static string TIMER_TURN = "Temps restant : ";
+
+    //Game Timer PopUp
+    public static string GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
+    public static string GAME_TIMER_WARNING_POPUP_TEXT_1 = "Il ne vous reste plus que ";
+    public static string GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn avant la fin de la partie.";
+    public static string GAME_TIMER_END_POPUP_TITLE = "Dommage !";
+    public static string GAME_TIMER_END_POPUP_TEXT = "La partie est terminée car le temps est écoulé.";
 
 
     #endregion
@@ -322,6 +334,13 @@
             FINISH = FR_FINISH;
             END_WARMUP = FR_END_WARMUP;
 
+            //game popup
+            GAME_TIMER_WARNING_POPUP_TITLE = FR_GAME_TIMER_WARNING_POPUP_TITLE;
+            GAME_TIMER_WARNING_POPUP_TEXT_1 = FR_GAME_TIMER_WARNING_POPUP_TEXT_1;
+            GAME_TIMER_WARNING_POPUP_TEXT_2 = FR_GAME_TIMER_WARNING_POPUP_TEXT_2;
+            GAME_TIMER_END_POPUP_TITLE = FR_GAME_TIMER_END_POPUP_TITLE;
+            GAME_TIMER_END_POPUP_TEXT = FR_GAME_TIMER_END_POPUP_TEXT;
+
 }
         if (language.Equals("En"))
         {
@@ -383,6 +402,13 @@
             ACTIVITY = EN_ACTIVITY;
             FINISH = EN_FINISH;
             END_WARMUP = EN_END_WARMUP;
+
+            //game popup
+            GAME_TIMER_WARNING_POPUP_TITLE = EN_GAME_TIMER_WARNING_POPUP_TITLE;
+            GAME_TIMER_WARNING_POPUP_TEXT_1 = EN_GAME_TIMER_WARNING_POPUP_TEXT_1;
+            GAME_TIMER_WARNING_POPUP_TEXT_2 = EN_GAME_TIMER_WARNING_POPUP_TEXT_2;
+            GAME_TIMER_END_POPUP_TITLE = EN_GAME_TIMER_END_POPUP_TITLE;
+            GAME_TIMER_END_POPUP_TEXT = EN_GAME_TIMER_END_POPUP_TEXT;
         }
     }
     

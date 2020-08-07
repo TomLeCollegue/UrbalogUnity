@@ -866,7 +866,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 119.6
+  m_fontSize: 119.65
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5854,8 +5854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 479.2085, y: -810}
-  m_SizeDelta: {x: 958.417, y: 540}
+  m_AnchoredPosition: {x: 479.43854, y: -810}
+  m_SizeDelta: {x: 958.8771, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &454862499
 MonoBehaviour:
@@ -10477,14 +10477,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 838755089}
         m_MethodName: ToggleTurnTimer
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   m_IsOn: 0
 --- !u!114 &838755089
@@ -10572,6 +10572,9 @@ MonoBehaviour:
   AddLogisticDescriptionInput: {fileID: 1360782949}
   addRolePanel: {fileID: 0}
   timerPlaceholder: {fileID: 1913823498}
+  turnTimerToggle: {fileID: 838755088}
+  GameTimerPlaceholder: {fileID: 1952910516}
+  gameTimerToggle: {fileID: 1535033608}
   nbBuildingsMaxPerTurnPlaceholder: {fileID: 1626891388}
   displayList: {fileID: 1831361528}
 --- !u!4 &850263144
@@ -14381,8 +14384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1442.6255, y: -540}
-  m_SizeDelta: {x: 958.417, y: 1080}
+  m_AnchoredPosition: {x: 1443.3157, y: -540}
+  m_SizeDelta: {x: 958.8771, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019924642
 MonoBehaviour:
@@ -14659,8 +14662,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 479.2085, y: -270}
-  m_SizeDelta: {x: 958.417, y: 540}
+  m_AnchoredPosition: {x: 479.43854, y: -270}
+  m_SizeDelta: {x: 958.8771, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041267862
 MonoBehaviour:
@@ -16290,8 +16293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 479.2085, y: -270}
-  m_SizeDelta: {x: 958.417, y: 540}
+  m_AnchoredPosition: {x: 479.43854, y: -270}
+  m_SizeDelta: {x: 958.8771, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114200276
 MonoBehaviour:
@@ -20414,7 +20417,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1535033607}
         m_MethodName: ToggleGameTimer
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20661,7 +20664,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 130.4
+  m_fontSize: 130.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23886,8 +23889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 479.2085, y: -540}
-  m_SizeDelta: {x: 958.417, y: 1080}
+  m_AnchoredPosition: {x: 479.43854, y: -540}
+  m_SizeDelta: {x: 958.8771, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705932825
 MonoBehaviour:
@@ -26669,8 +26672,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 479.2085, y: -810}
-  m_SizeDelta: {x: 958.417, y: 540}
+  m_AnchoredPosition: {x: 479.43854, y: -810}
+  m_SizeDelta: {x: 958.8771, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893181271
 MonoBehaviour:

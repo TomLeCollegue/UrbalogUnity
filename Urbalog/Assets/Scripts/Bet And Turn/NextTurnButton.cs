@@ -85,7 +85,12 @@ public class NextTurnButton : NetworkBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Changes how the next turn button is displayed
+    /// </summary>
+    /// <param name="_TurnPressed"></param>
+    /// <param name="_NbBuildingFinancedTooHighForEndGame"></param>
+    /// <param name="_NbBuildingFinancedTooHighForTurn"></param>
     private void PrintTheGoodNextTurnButton(bool _TurnPressed, bool _NbBuildingFinancedTooHighForEndGame, bool _NbBuildingFinancedTooHighForTurn)
     {
         if (!_TurnPressed && !_NbBuildingFinancedTooHighForEndGame && !_NbBuildingFinancedTooHighForTurn)
@@ -383,7 +388,7 @@ public class NextTurnButton : NetworkBehaviour
 
 
     [Server]
-    private void CmdChangeSceneToEndGame()
+    public void CmdChangeSceneToEndGame()
     {
         NetworkManager.singleton.ServerChangeScene("EndGame");
     } 
