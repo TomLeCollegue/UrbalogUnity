@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Accessibility;
 
-public class LogManager : MonoBehaviour 
+public class LogManager : MonoBehaviour
 {
 
     public static LogManager singleton;
@@ -62,7 +62,7 @@ public class LogManager : MonoBehaviour
 
     public List<Building> GetMarket()
     {
-        return GameManager.singleton.game.Market.ToList(); 
+        return GameManager.singleton.game.Market.ToList();
     }
 
     public void GetScoreCity()
@@ -106,7 +106,7 @@ public class LogManager : MonoBehaviour
         }
 
         //Bet and Turn
-        for (int i = 0; i < Turns.Count-1; i++)
+        for (int i = 0; i < Turns.Count - 1; i++)
         {
             SendBetFromTurn(Turns[i]);
             StartCoroutine(SendTurnInfo(Turns[i]));
@@ -129,7 +129,7 @@ public class LogManager : MonoBehaviour
         infoGame.AddField("created_at", dateTime);
         WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfogame.php", infoGame);
         yield return www;
-        if(www.text == "0")
+        if (www.text == "0")
         {
             Debug.Log("GameUpload success");
         }
@@ -137,7 +137,7 @@ public class LogManager : MonoBehaviour
         {
             Debug.Log("Game upload Failed");
         }
-       
+
     }
     IEnumerator SendPlayerInfo(Player player)
     {
@@ -155,7 +155,7 @@ public class LogManager : MonoBehaviour
         infoPlayer.AddField("entreprise", player.company);
         infoPlayer.AddField("role", player.role.nameRole);
         WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfoplayer.php", infoPlayer);
-        
+
         yield return www;
         if (www.text == "0")
         {
@@ -248,6 +248,8 @@ public class LogManager : MonoBehaviour
 
     }
 
+
+
     IEnumerator SendTurnInfo(Turn turn)
     {
         WWWForm infoBuilding = new WWWForm();
@@ -259,7 +261,7 @@ public class LogManager : MonoBehaviour
         infoBuilding.AddField("building_market_4", turn.Market[3].name);
         infoBuilding.AddField("building_market_5", turn.Market[4].name);
         infoBuilding.AddField("created_at", turn.dateTime);
-        if(turn.BuildingBuild.Count >=1)
+        if (turn.BuildingBuild.Count >= 1)
         {
             infoBuilding.AddField("building_completed_1", turn.BuildingBuild[0].name);
         }
@@ -316,4 +318,25 @@ public class LogManager : MonoBehaviour
 
 
     #endregion
+
+
+
+    public void getLog()
+    {
+        // Game
+        StartCoroutine(GetAllLOG());
+    }
+    IEnumerator GetAllLOG()
+    {
+        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendInfoToServerUrbalog.php");
+        yield return www;
+        if (www.text != "0")
+        {
+            Debug.Log(www.bytes.ToString());
+        }
+        else
+        {
+            Debug.Log("Failed");
+        }
+    }
 }
