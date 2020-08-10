@@ -56,7 +56,6 @@ public class LanguageMenu : MonoBehaviour
     }
     
 
-
     void Update()
     {
         if (MainMenu.activeSelf)

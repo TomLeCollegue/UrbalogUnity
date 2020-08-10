@@ -156,6 +156,28 @@
 
     #endregion
 
+    #region SettingsMenu
+    //Main Menu
+    public static string FR_BUILDING_MENU_BUTTON = "Aménagements";
+    public static string EN_BUILDING_MENU_BUTTON = "Buildings";
+    public static string FR_ROLES_MENU_BUTTON = "Rôles";
+    public static string EN_ROLES_MENU_BUTTON = "Roles";
+    public static string FR_DATABASE_MENU_BUTTON = "Base de données";
+    public static string EN_DATABASE_MENU_BUTTON = "Database";
+    public static string FR_TIME_MENU_BUTTON = "Limite de temps";
+    public static string EN_TIME_MENU_BUTTON = "Time Limit";
+
+
+    //Timer Menu
+    public static string FR_TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
+    public static string EN_TURN_TIMER_TEXT = "Time per turn in seconds :";
+    public static string FR_GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
+    public static string EN_GAME_TIMER_TEXT = "Time before the game ends in minutes :";
+    public static string FR_TURN_TIMER_TOGGLE = "Activation du timer de tour.";
+    public static string EN_TURN_TIMER_TOGGLE = "Turn Timer Activation";
+    public static string FR_GAME_TIMER_TOGGLE = "Activation du timer de partie.";
+    public static string EN_GAME_TIMER_TOGGLE = "Game Timer Activation";
+    #endregion
 
     #region Form
     public static string FR_PREVIOUS = "Précédent";
@@ -237,9 +259,24 @@
     public static string GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn avant la fin de la partie.";
     public static string GAME_TIMER_END_POPUP_TITLE = "Dommage !";
     public static string GAME_TIMER_END_POPUP_TEXT = "La partie est terminée car le temps est écoulé.";
+    #endregion
 
+
+    #region Settings
+    //Main Menu
+    public static string BUILDING_MENU_BUTTON = "Aménagements";
+    public static string ROLES_MENU_BUTTON = "Rôles";
+    public static string TIME_MENU_BUTTON = "Limite de temps";
+    public static string DATABASE_MENU_BUTTON = "Base de données";
+
+    //Timer Menu
+    public static string TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
+    public static string GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
+    public static string TURN_TIMER_TOGGLE = "Activation du timer de tour.";
+    public static string GAME_TIMER_TOGGLE = "Activation du timer de partie.";
 
     #endregion
+
     #region EndGame
     public static string END_GAME_TITLE = "Bilan logistique de la ville";
     public static string END = "Fin";
@@ -341,6 +378,18 @@
             GAME_TIMER_END_POPUP_TITLE = FR_GAME_TIMER_END_POPUP_TITLE;
             GAME_TIMER_END_POPUP_TEXT = FR_GAME_TIMER_END_POPUP_TEXT;
 
+            //timer menu
+            TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
+            TURN_TIMER_TEXT = FR_TURN_TIMER_TEXT;
+            GAME_TIMER_TEXT = FR_GAME_TIMER_TEXT;
+            TURN_TIMER_TOGGLE = FR_TURN_TIMER_TOGGLE;
+            GAME_TIMER_TOGGLE = FR_GAME_TIMER_TOGGLE;
+
+            //Main Menu
+            BUILDING_MENU_BUTTON = FR_BUILDING_MENU_BUTTON;
+            ROLES_MENU_BUTTON = FR_ROLES_MENU_BUTTON;
+            TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
+            DATABASE_MENU_BUTTON = FR_DATABASE_MENU_BUTTON;
 }
         if (language.Equals("En"))
         {
@@ -409,6 +458,19 @@
             GAME_TIMER_WARNING_POPUP_TEXT_2 = EN_GAME_TIMER_WARNING_POPUP_TEXT_2;
             GAME_TIMER_END_POPUP_TITLE = EN_GAME_TIMER_END_POPUP_TITLE;
             GAME_TIMER_END_POPUP_TEXT = EN_GAME_TIMER_END_POPUP_TEXT;
+
+            //timer menu
+            TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
+            TURN_TIMER_TEXT = EN_TURN_TIMER_TEXT;
+            GAME_TIMER_TEXT = EN_GAME_TIMER_TEXT;
+            TURN_TIMER_TOGGLE = EN_TURN_TIMER_TOGGLE;
+            GAME_TIMER_TOGGLE = EN_GAME_TIMER_TOGGLE;
+
+            //Main Menu
+            BUILDING_MENU_BUTTON = EN_BUILDING_MENU_BUTTON;
+            ROLES_MENU_BUTTON = EN_ROLES_MENU_BUTTON;
+            TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
+            DATABASE_MENU_BUTTON = EN_DATABASE_MENU_BUTTON;
         }
     }
     
