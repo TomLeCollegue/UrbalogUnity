@@ -239,6 +239,7 @@ public class FillPlayerView : MonoBehaviour
     void Update()
     {
         FillPLayerViewInfo();
+        ShowGameTimer();
         ShowWherePlayerLocalBet();
         SetResourceFramesInGreenWhenCompleted();
         //SetBuildingNameInGreenWhenFinanced(); 
@@ -258,6 +259,15 @@ public class FillPlayerView : MonoBehaviour
         }
 
         FillBetPanel();
+    }
+
+    /// <summary>
+    /// Shows an updated timer on role card
+    /// </summary>
+    private void ShowGameTimer()
+    {
+        GameObject.Find("TimerManager").GetComponent<TimerManager>().StartGameTimer();
+        //TODO:
     }
 
     /// <summary>

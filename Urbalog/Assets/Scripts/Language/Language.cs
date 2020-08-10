@@ -127,12 +127,17 @@
         public static string FR_END_WARMUP = "Fin du Tour de chauffe";
         public static string EN_END_WARMUP = "End of Warmup";
 
-
-
-
-
-
-
+    //GameTimerPopUp
+    public static string FR_GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TITLE = "Be Careful !";
+    public static string FR_GAME_TIMER_WARNING_POPUP_TEXT_1 = "Il ne vous reste plus que ";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TEXT_1 = "Only ";
+    public static string FR_GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn avant la fin de la partie.";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn left before the game ends";
+    public static string FR_GAME_TIMER_END_POPUP_TITLE = "Dommage !";
+    public static string EN_GAME_TIMER_END_POPUP_TITLE = "Sorry !";
+    public static string FR_GAME_TIMER_END_POPUP_TEXT = "La partie est terminée car le temps est écoulé.";
+    public static string EN_GAME_TIMER_END_POPUP_TEXT = "The game ended because there is no time left.";
 
     #endregion
     #region EndGame
@@ -151,6 +156,52 @@
 
     #endregion
 
+    #region SettingsMenu
+    //Main Menu
+    public static string FR_SETTINGS_TITLE = "Réglages";
+    public static string EN_SETTINGS_TITLE = "Settings";
+    public static string FR_BUILDING_MENU_BUTTON = "Aménagements";
+    public static string EN_BUILDING_MENU_BUTTON = "Buildings";
+    public static string FR_ROLES_MENU_BUTTON = "Rôles";
+    public static string EN_ROLES_MENU_BUTTON = "Roles";
+    public static string FR_DATABASE_MENU_BUTTON = "Base de données";
+    public static string EN_DATABASE_MENU_BUTTON = "Database";
+    public static string FR_TIME_MENU_BUTTON = "Limite de temps";
+    public static string EN_TIME_MENU_BUTTON = "Time Limit";
+
+    //Buildings Menu
+    public static string FR_BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
+    public static string EN_BUILDINGSTOEND_TEXT = "How many buildings are built before the game ends";
+    public static string FR_CONFIRM_NBBUILDINGS_BUTTON = "Valider";
+    public static string EN_CONFIRM_NBBUILDINGS_BUTTON = "Confirm";
+    public static string FR_BUILDINGS_LIST_BUTTON = "Liste des aménagements";
+    public static string EN_BUILDINGS_LIST_BUTTON = "Buildings list";
+    public static string FR_BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
+    public static string EN_BUILDINGSPERTURN_TEXT = "How many buildings can be built per turn";
+
+    //Timer Menu
+    public static string FR_TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
+    public static string EN_TURN_TIMER_TEXT = "Time per turn in seconds :";
+    public static string FR_GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
+    public static string EN_GAME_TIMER_TEXT = "Time before the game ends in minutes :";
+    public static string FR_TURN_TIMER_TOGGLE = "Activation du timer de tour.";
+    public static string EN_TURN_TIMER_TOGGLE = "Turn Timer Activation";
+    public static string FR_GAME_TIMER_TOGGLE = "Activation du timer de partie.";
+    public static string EN_GAME_TIMER_TOGGLE = "Game Timer Activation";
+
+    //Role Menu
+    public static string FR_ADD_ROLE_BUTTON = "Ajouter un rôle";
+    public static string EN_ADD_ROLE_BUTTON = "Add a role";
+    public static string FR_RESET_ROLES_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string EN_RESET_ROLES_BUTTON = "Reset to default values";
+    public static string FR_DELETE_ROLE_BUTTON = "Supprimer le rôle";
+    public static string EN_DELETE_ROLE_BUTTON = "Delete role";
+    public static string FR_APPLY_CHANGES_ROLE_BUTTON = "Modifier le rôle";
+    public static string EN_APPLY_CHANGES_ROLE_BUTTON = "Apply Changes";
+    public static string FR_ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
+    public static string EN_ADD_ROLE_IN_JSON_BUTTON = "Add role in the list";
+
+    #endregion
 
     #region Form
     public static string FR_PREVIOUS = "Précédent";
@@ -226,8 +277,44 @@
     public static string TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
     public static string TIMER_TURN = "Temps restant : ";
 
+    //Game Timer PopUp
+    public static string GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
+    public static string GAME_TIMER_WARNING_POPUP_TEXT_1 = "Il ne vous reste plus que ";
+    public static string GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn avant la fin de la partie.";
+    public static string GAME_TIMER_END_POPUP_TITLE = "Dommage !";
+    public static string GAME_TIMER_END_POPUP_TEXT = "La partie est terminée car le temps est écoulé.";
+    #endregion
+
+
+    #region Settings
+    //Main Menu
+    public static string SETTINGS_TITLE = "Réglages";
+    public static string BUILDING_MENU_BUTTON = "Aménagements";
+    public static string ROLES_MENU_BUTTON = "Rôles";
+    public static string TIME_MENU_BUTTON = "Limite de temps";
+    public static string DATABASE_MENU_BUTTON = "Base de données";
+
+    //Buildings Menu
+    public static string BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
+    public static string CONFIRM_NBBUILDINGS_BUTTON = "Valider";
+    public static string BUILDINGS_LIST_BUTTON = "Liste des aménagements";
+    public static string BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
+
+    //Timer Menu
+    public static string TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
+    public static string GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
+    public static string TURN_TIMER_TOGGLE = "Activation du timer de tour.";
+    public static string GAME_TIMER_TOGGLE = "Activation du timer de partie.";
+
+    //Role Menu
+    public static string ADD_ROLE_BUTTON = "Ajouter un rôle";
+    public static string RESET_ROLES_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string DELETE_ROLE_BUTTON = "Supprimer le rôle";
+    public static string APPLY_CHANGES_ROLE_BUTTON = "Modifier le rôle";
+    public static string ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
 
     #endregion
+
     #region EndGame
     public static string END_GAME_TITLE = "Bilan logistique de la ville";
     public static string END = "Fin";
@@ -322,6 +409,39 @@
             FINISH = FR_FINISH;
             END_WARMUP = FR_END_WARMUP;
 
+            //game popup
+            GAME_TIMER_WARNING_POPUP_TITLE = FR_GAME_TIMER_WARNING_POPUP_TITLE;
+            GAME_TIMER_WARNING_POPUP_TEXT_1 = FR_GAME_TIMER_WARNING_POPUP_TEXT_1;
+            GAME_TIMER_WARNING_POPUP_TEXT_2 = FR_GAME_TIMER_WARNING_POPUP_TEXT_2;
+            GAME_TIMER_END_POPUP_TITLE = FR_GAME_TIMER_END_POPUP_TITLE;
+            GAME_TIMER_END_POPUP_TEXT = FR_GAME_TIMER_END_POPUP_TEXT;
+
+            //timer menu
+            TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
+            TURN_TIMER_TEXT = FR_TURN_TIMER_TEXT;
+            GAME_TIMER_TEXT = FR_GAME_TIMER_TEXT;
+            TURN_TIMER_TOGGLE = FR_TURN_TIMER_TOGGLE;
+            GAME_TIMER_TOGGLE = FR_GAME_TIMER_TOGGLE;
+
+            //Main Menu
+            SETTINGS_TITLE = FR_SETTINGS_TITLE;
+            BUILDING_MENU_BUTTON = FR_BUILDING_MENU_BUTTON;
+            ROLES_MENU_BUTTON = FR_ROLES_MENU_BUTTON;
+            TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
+            DATABASE_MENU_BUTTON = FR_DATABASE_MENU_BUTTON;
+
+            //Buildings Menu
+            BUILDINGSTOEND_TEXT = FR_BUILDINGSTOEND_TEXT;
+            CONFIRM_NBBUILDINGS_BUTTON = FR_CONFIRM_NBBUILDINGS_BUTTON;
+            BUILDINGS_LIST_BUTTON = FR_BUILDINGS_LIST_BUTTON;
+            BUILDINGSPERTURN_TEXT = FR_BUILDINGSPERTURN_TEXT;
+
+            //Role Menu
+            ADD_ROLE_BUTTON = FR_ADD_ROLE_BUTTON;
+            RESET_ROLES_BUTTON = FR_RESET_ROLES_BUTTON;
+            DELETE_ROLE_BUTTON = FR_DELETE_ROLE_BUTTON;
+            APPLY_CHANGES_ROLE_BUTTON = FR_APPLY_CHANGES_ROLE_BUTTON;
+            ADD_ROLE_IN_JSON_BUTTON = FR_ADD_ROLE_IN_JSON_BUTTON;
 }
         if (language.Equals("En"))
         {
@@ -383,6 +503,40 @@
             ACTIVITY = EN_ACTIVITY;
             FINISH = EN_FINISH;
             END_WARMUP = EN_END_WARMUP;
+
+            //game popup
+            GAME_TIMER_WARNING_POPUP_TITLE = EN_GAME_TIMER_WARNING_POPUP_TITLE;
+            GAME_TIMER_WARNING_POPUP_TEXT_1 = EN_GAME_TIMER_WARNING_POPUP_TEXT_1;
+            GAME_TIMER_WARNING_POPUP_TEXT_2 = EN_GAME_TIMER_WARNING_POPUP_TEXT_2;
+            GAME_TIMER_END_POPUP_TITLE = EN_GAME_TIMER_END_POPUP_TITLE;
+            GAME_TIMER_END_POPUP_TEXT = EN_GAME_TIMER_END_POPUP_TEXT;
+
+            //timer menu
+            TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
+            TURN_TIMER_TEXT = EN_TURN_TIMER_TEXT;
+            GAME_TIMER_TEXT = EN_GAME_TIMER_TEXT;
+            TURN_TIMER_TOGGLE = EN_TURN_TIMER_TOGGLE;
+            GAME_TIMER_TOGGLE = EN_GAME_TIMER_TOGGLE;
+
+            //Main Menu
+            SETTINGS_TITLE = EN_SETTINGS_TITLE;
+            BUILDING_MENU_BUTTON = EN_BUILDING_MENU_BUTTON;
+            ROLES_MENU_BUTTON = EN_ROLES_MENU_BUTTON;
+            TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
+            DATABASE_MENU_BUTTON = EN_DATABASE_MENU_BUTTON;
+
+            //Buildings Menu
+            BUILDINGSTOEND_TEXT = EN_BUILDINGSTOEND_TEXT;
+            CONFIRM_NBBUILDINGS_BUTTON = EN_CONFIRM_NBBUILDINGS_BUTTON;
+            BUILDINGS_LIST_BUTTON = EN_BUILDINGS_LIST_BUTTON;
+            BUILDINGSPERTURN_TEXT = EN_BUILDINGSPERTURN_TEXT;
+
+            //Role Menu
+            ADD_ROLE_BUTTON = EN_ADD_ROLE_BUTTON;
+            RESET_ROLES_BUTTON = EN_RESET_ROLES_BUTTON;
+            DELETE_ROLE_BUTTON = EN_DELETE_ROLE_BUTTON;
+            APPLY_CHANGES_ROLE_BUTTON = EN_APPLY_CHANGES_ROLE_BUTTON;
+            ADD_ROLE_IN_JSON_BUTTON = EN_ADD_ROLE_IN_JSON_BUTTON;
         }
     }
     
