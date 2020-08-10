@@ -44,105 +44,105 @@ public class FillCity : NetworkBehaviour
     
     public void Spawn(Building _building)
     {
-        if(_building.name.Equals("Piste cyclable"))
+        if(_building.nameForSprite.Equals("Piste cyclable"))
         {
             GameObject building = (GameObject)Instantiate(bikeRoad);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Borne vélo"))
+        else if (_building.nameForSprite.Equals("Borne vélo"))
         {
             GameObject building = (GameObject)Instantiate(BorneVelo);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Poste"))
+        else if (_building.nameForSprite.Equals("Poste"))
         {
             GameObject building = (GameObject)Instantiate(Poste);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Petit magasin"))
+        else if (_building.nameForSprite.Equals("Petit magasin"))
         {
             GameObject building = (GameObject)Instantiate(petitMagasin);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("CDU"))
+        else if (_building.nameForSprite.Equals("CDU"))
         {
             GameObject building = (GameObject)Instantiate(CDU);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Banc"))
+        else if (_building.nameForSprite.Equals("Banc"))
         {
             GameObject building = (GameObject)Instantiate(banc);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("PAV"))
+        else if (_building.nameForSprite.Equals("PAV"))
         {
             GameObject building = (GameObject)Instantiate(PAV);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Grand magasin"))
+        else if (_building.nameForSprite.Equals("Grand magasin"))
         {
             GameObject building = (GameObject)Instantiate(bigMarket);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Réseau de consignes"))
+        else if (_building.nameForSprite.Equals("Réseau de consignes"))
         {
             GameObject building = (GameObject)Instantiate(consigne);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Zone végétalisée"))
+        else if (_building.nameForSprite.Equals("Zone végétalisée"))
         {
             GameObject building = (GameObject)Instantiate(garden);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Stations GAZ GNV"))
+        else if (_building.nameForSprite.Equals("Stations GAZ GNV"))
         {
             GameObject building = (GameObject)Instantiate(gazStation);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Zone de rencontre"))
+        else if (_building.nameForSprite.Equals("Zone de rencontre"))
         {
             GameObject building = (GameObject)Instantiate(meeting);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Aire de livraison"))
+        else if (_building.nameForSprite.Equals("Aire de livraison"))
         {
             GameObject building = (GameObject)Instantiate(delivery);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Dispositif anti-bélier"))
+        else if (_building.nameForSprite.Equals("Dispositif anti-bélier"))
         {
             GameObject building = (GameObject)Instantiate(antiram);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
-        else if (_building.name.Equals("Terrasse"))
+        else if (_building.nameForSprite.Equals("Terrasse"))
         {
             GameObject building = (GameObject)Instantiate(terrasse);
             building.GetComponent<RenameBuilding>().Rename(_building);

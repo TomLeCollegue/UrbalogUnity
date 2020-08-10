@@ -73,6 +73,10 @@ public class SettingsMenu : MonoBehaviour
 
     public PopulateBuildingsSettingsList displayList;
 
+    public Toggle ServerToggle;
+    public Toggle TabletToggle;
+
+
     public void GoToSettingsScene()
     {
         SceneManager.LoadScene("SettingsScene");
@@ -87,6 +91,18 @@ public class SettingsMenu : MonoBehaviour
     {
         nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
         nbbuildingsForEnding.text = NextTurnButton.NumberBuildingsToEnd.ToString();
+        ServerToggle.isOn = GameSettings.ServeurNonPlayer;
+    }
+
+    private void Start()
+    {
+        ServerToggle.isOn = GameSettings.ServeurNonPlayer;
+        TabletToggle.isOn = GameSettings.CentralTablet;
+    }
+
+    public bool ServerToggled()
+    {
+        return GameSettings.ServeurNonPlayer || GameSettings.CentralTablet;
     }
 
     public void DisplayBuildingsSettingsMenu()
@@ -275,7 +291,7 @@ public class SettingsMenu : MonoBehaviour
         _buildingLogiDescription = LogisticDescriptionInput.text;
 
         Building _res = new Building(_buildingName,_buildingDescription,_buildingEco,_buildingSoc,_buildingPoli,_buildingEnvi
-            ,_buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);
+            ,_buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription,currentBuilding.nameForSprite);
 
         return _res;
     }
@@ -317,7 +333,7 @@ public class SettingsMenu : MonoBehaviour
         _buildingLogiDescription = AddLogisticDescriptionInput.text;
 
         Building _res = new Building(_buildingName, _buildingDescription, _buildingEco, _buildingSoc, _buildingPoli, _buildingEnvi
-    , _buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);
+    , _buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription, "DEFAULT");
 
         return _res;
     }

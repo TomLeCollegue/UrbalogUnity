@@ -13,7 +13,9 @@ public class LanguageSettings : MonoBehaviour
     public TextMeshProUGUI BuildingsMenuButton;
     public TextMeshProUGUI RolesMenuButton;
     public TextMeshProUGUI TimeMenuButton;
-    public TextMeshProUGUI DataBaseMenuButton;
+    public TextMeshProUGUI ServerPlayerToggleText;
+    public TextMeshProUGUI CentralTabletToggleText;
+    public TextMeshProUGUI CentralTabletWarning;
     #endregion
 
     [Space(10)]
@@ -85,7 +87,9 @@ public class LanguageSettings : MonoBehaviour
         BuildingsMenuButton.text = Language.BUILDING_MENU_BUTTON;
         RolesMenuButton.text = Language.ROLES_MENU_BUTTON;
         TimeMenuButton.text = Language.TIME_MENU_BUTTON;
-        DataBaseMenuButton.text = Language.DATABASE_MENU_BUTTON;
+        ServerPlayerToggleText.text = Language.SERVER_TOGGLE_TEXT;
+        CentralTabletToggleText.text = Language.CENTRAL_TABLET_TOGGLE;
+        CentralTabletWarning.text = Language.CENTRAL_TABLET_WARNING;
     }
 
 }
