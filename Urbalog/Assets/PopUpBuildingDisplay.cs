@@ -141,63 +141,63 @@ public class PopUpBuildingDisplay : MonoBehaviour
 
     public void FillSprite(Building _building)
     {
-        if (_building.name.Equals("Piste cyclable"))
+        if (_building.nameForSprite.Equals("Piste cyclable"))
         {
             BuildingImage.GetComponent<Image>().sprite = bikeRoad;
         }
-        else if (_building.name.Equals("Borne vélo"))
+        else if (_building.nameForSprite.Equals("Borne vélo"))
         {
             BuildingImage.GetComponent<Image>().sprite = BorneVelo;
         }
-        else if (_building.name.Equals("Poste"))
+        else if (_building.nameForSprite.Equals("Poste"))
         {
             BuildingImage.GetComponent<Image>().sprite = Poste;
         }
-        else if (_building.name.Equals("Petit magasin"))
+        else if (_building.nameForSprite.Equals("Petit magasin"))
         {
             BuildingImage.GetComponent<Image>().sprite = petitMagasin;
         }
-        else if (_building.name.Equals("CDU"))
+        else if (_building.nameForSprite.Equals("CDU"))
         {
             BuildingImage.GetComponent<Image>().sprite = CDU;
         }
-        else if (_building.name.Equals("Banc"))
+        else if (_building.nameForSprite.Equals("Banc"))
         {
             BuildingImage.GetComponent<Image>().sprite = banc;
         }
-        else if (_building.name.Equals("PAV"))
+        else if (_building.nameForSprite.Equals("PAV"))
         {
             BuildingImage.GetComponent<Image>().sprite = PAV;
         }
-        else if (_building.name.Equals("Grand magasin"))
+        else if (_building.nameForSprite.Equals("Grand magasin"))
         {
             BuildingImage.GetComponent<Image>().sprite = bigMarket;
         }
-        else if (_building.name.Equals("Réseau de consignes"))
+        else if (_building.nameForSprite.Equals("Réseau de consignes"))
         {
             BuildingImage.GetComponent<Image>().sprite = consigne;
         }
-        else if (_building.name.Equals("Zone végétalisée"))
+        else if (_building.nameForSprite.Equals("Zone végétalisée"))
         {
             BuildingImage.GetComponent<Image>().sprite = garden;
         }
-        else if (_building.name.Equals("Stations GAZ GNV"))
+        else if (_building.nameForSprite.Equals("Stations GAZ GNV"))
         {
             BuildingImage.GetComponent<Image>().sprite = gazStation;
         }
-        else if (_building.name.Equals("Zone de rencontre"))
+        else if (_building.nameForSprite.Equals("Zone de rencontre"))
         {
             BuildingImage.GetComponent<Image>().sprite = meeting;
         }
-        else if (_building.name.Equals("Aire de livraison"))
+        else if (_building.nameForSprite.Equals("Aire de livraison"))
         {
             BuildingImage.GetComponent<Image>().sprite = delivery;
         }
-        else if (_building.name.Equals("Dispositif anti-bélier"))
+        else if (_building.nameForSprite.Equals("Dispositif anti-bélier"))
         {
             BuildingImage.GetComponent<Image>().sprite = antiram;
         }
-        else if (_building.name.Equals("Terrasse"))
+        else if (_building.nameForSprite.Equals("Terrasse"))
         {
             BuildingImage.GetComponent<Image>().sprite = terrasse;
         }
