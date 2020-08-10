@@ -14,6 +14,14 @@ public class LanguageSettings : MonoBehaviour
     public TextMeshProUGUI DataBaseMenuButton;
     #endregion
 
+    #region buildings settings
+    public TextMeshProUGUI BuildingsMenuTitle;
+    public TextMeshProUGUI NbBuildingsToEndGameText;
+    public TextMeshProUGUI ConfirmButton;
+    public TextMeshProUGUI BuildingsListButton;
+    public TextMeshProUGUI NbBuildingsPerTurnText;
+    #endregion
+
     #region timer settings
 
     public TextMeshProUGUI TurnTimeLimitText;
@@ -28,6 +36,16 @@ public class LanguageSettings : MonoBehaviour
     {
         FillMainMenu();
         FillTimerMenu();
+        FillBuildingsMenu();
+    }
+
+    private void FillBuildingsMenu()
+    {
+        BuildingsMenuTitle.text = Language.BUILDING_MENU_BUTTON;   
+        NbBuildingsToEndGameText.text = Language.BUILDINGSTOEND_TEXT;
+        ConfirmButton.text = Language.CONFIRM_NBBUILDINGS_BUTTON;
+        BuildingsListButton.text = Language.BUILDINGS_LIST_BUTTON;
+        NbBuildingsPerTurnText.text = Language.BUILDINGSPERTURN_TEXT;
     }
 
     private void FillTimerMenu()
@@ -41,7 +59,6 @@ public class LanguageSettings : MonoBehaviour
 
     private void FillMainMenu()
     {
-
         BuildingsMenuButton.text = Language.BUILDING_MENU_BUTTON;
         RolesMenuButton.text = Language.ROLES_MENU_BUTTON;
         TimeMenuButton.text = Language.TIME_MENU_BUTTON;

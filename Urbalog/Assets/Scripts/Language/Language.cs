@@ -167,6 +167,16 @@
     public static string FR_TIME_MENU_BUTTON = "Limite de temps";
     public static string EN_TIME_MENU_BUTTON = "Time Limit";
 
+    //Buildings Menu
+    public static string FR_BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
+    public static string EN_BUILDINGSTOEND_TEXT = "How many buildings are built before the game ends";
+    public static string FR_CONFIRM_NBBUILDINGS_BUTTON = "Valider";
+    public static string EN_CONFIRM_NBBUILDINGS_BUTTON = "Confirm";
+    public static string FR_BUILDINGS_LIST_BUTTON = "Liste des aménagements";
+    public static string EN_BUILDINGS_LIST_BUTTON = "Buildings list";
+    public static string FR_BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
+    public static string EN_BUILDINGSPERTURN_TEXT = "How many buildings can be built per turn";
+
 
     //Timer Menu
     public static string FR_TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
@@ -268,6 +278,12 @@
     public static string ROLES_MENU_BUTTON = "Rôles";
     public static string TIME_MENU_BUTTON = "Limite de temps";
     public static string DATABASE_MENU_BUTTON = "Base de données";
+
+    //Buildings Menu
+    public static string BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
+    public static string CONFIRM_NBBUILDINGS_BUTTON = "Valider";
+    public static string BUILDINGS_LIST_BUTTON = "Liste des aménagements";
+    public static string BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
 
     //Timer Menu
     public static string TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
@@ -390,6 +406,12 @@
             ROLES_MENU_BUTTON = FR_ROLES_MENU_BUTTON;
             TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
             DATABASE_MENU_BUTTON = FR_DATABASE_MENU_BUTTON;
+
+            //Buildings Menu
+            BUILDINGSTOEND_TEXT = FR_BUILDINGSTOEND_TEXT;
+            CONFIRM_NBBUILDINGS_BUTTON = FR_CONFIRM_NBBUILDINGS_BUTTON;
+            BUILDINGS_LIST_BUTTON = FR_BUILDINGS_LIST_BUTTON;
+            BUILDINGSPERTURN_TEXT = FR_BUILDINGSPERTURN_TEXT;
 }
         if (language.Equals("En"))
         {
@@ -471,6 +493,12 @@
             ROLES_MENU_BUTTON = EN_ROLES_MENU_BUTTON;
             TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
             DATABASE_MENU_BUTTON = EN_DATABASE_MENU_BUTTON;
+
+            //Buildings Menu
+            BUILDINGSTOEND_TEXT = EN_BUILDINGSTOEND_TEXT;
+            CONFIRM_NBBUILDINGS_BUTTON = EN_CONFIRM_NBBUILDINGS_BUTTON;
+            BUILDINGS_LIST_BUTTON = EN_BUILDINGS_LIST_BUTTON;
+            BUILDINGSPERTURN_TEXT = EN_BUILDINGSPERTURN_TEXT;
         }
     }
     
