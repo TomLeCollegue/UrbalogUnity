@@ -26,6 +26,9 @@ public class PlayerBackUp
     public int OldScore = 0;
 
 
+    public int[,] playerBets = new int[5, 2];
+
+
     public int num;
 
     public PlayerBackUp(Role role, string namePlayer, string playerFamilyName, string gender, string age, string zipcode, string company, string jobStatus, string field, string nameRole, string iD, bool nextTurn, int scorePlayer, int oldScore, int num)

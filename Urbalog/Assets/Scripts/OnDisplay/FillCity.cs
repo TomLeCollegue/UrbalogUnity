@@ -6,16 +6,24 @@ using UnityEngine;
 public class FillCity : NetworkBehaviour
 {
     [SerializeField]
-    private Transform[] SpawnPoints;
+    private Transform[] SpawnPoints; // 3 
     public GameObject Building;
     public GameObject bikeRoad;
     public GameObject Poste;
     public GameObject BorneVelo;
     public GameObject petitMagasin;
-    public Transform SpawnPoste;
-    public Transform SpawnBikeRoad;
-    public Transform SpawnBorneVelo;
-    public Transform SpawnPetitMagasin;
+    public GameObject CDU;
+    public GameObject banc;
+    public GameObject PAV;
+    public GameObject bigMarket;
+    public GameObject consigne;
+    public GameObject garden;
+    public GameObject gazStation;
+    public GameObject terrasse;
+    public GameObject meeting;
+    public GameObject delivery;
+    public GameObject antiram;
+    public int nbSpawnPointUsed = 0; 
 
     //Stock la liste des buildings contruits sur la map
     [SerializeField]
@@ -29,48 +37,127 @@ public class FillCity : NetworkBehaviour
 
         for (int i = 0; i < _game.BuildingsBuilt.Count; i++)
         {
-            Spawn(_game.BuildingsBuilt[i], SpawnPoints[i]);
+            Spawn(_game.BuildingsBuilt[i]);
         }
     }
 
     
-    public void Spawn(Building _building, Transform spawnPoint)
+    public void Spawn(Building _building)
     {
         if(_building.name.Equals("Piste cyclable"))
         {
-            GameObject building = (GameObject)Instantiate(bikeRoad, SpawnBikeRoad.position, SpawnBikeRoad.rotation);
+            GameObject building = (GameObject)Instantiate(bikeRoad);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else if (_building.name.Equals("Borne vélo"))
         {
-            GameObject building = (GameObject)Instantiate(BorneVelo, SpawnBorneVelo.position, SpawnBorneVelo.rotation);
+            GameObject building = (GameObject)Instantiate(BorneVelo);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else if (_building.name.Equals("Poste"))
         {
-            GameObject building = (GameObject)Instantiate(Poste, SpawnPoste.position, SpawnPoste.rotation);
+            GameObject building = (GameObject)Instantiate(Poste);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else if (_building.name.Equals("Petit magasin"))
         {
-            GameObject building = (GameObject)Instantiate(petitMagasin, SpawnPetitMagasin.position, SpawnPetitMagasin.rotation);
+            GameObject building = (GameObject)Instantiate(petitMagasin);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("CDU"))
+        {
+            GameObject building = (GameObject)Instantiate(CDU);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Banc"))
+        {
+            GameObject building = (GameObject)Instantiate(banc);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("PAV"))
+        {
+            GameObject building = (GameObject)Instantiate(PAV);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Grand magasin"))
+        {
+            GameObject building = (GameObject)Instantiate(bigMarket);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Réseau de consignes"))
+        {
+            GameObject building = (GameObject)Instantiate(consigne);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Zone végétalisée"))
+        {
+            GameObject building = (GameObject)Instantiate(garden);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Stations GAZ GNV"))
+        {
+            GameObject building = (GameObject)Instantiate(gazStation);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Zone de rencontre"))
+        {
+            GameObject building = (GameObject)Instantiate(meeting);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Aire de livraison"))
+        {
+            GameObject building = (GameObject)Instantiate(delivery);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Dispositif anti-bélier"))
+        {
+            GameObject building = (GameObject)Instantiate(antiram);
+            building.GetComponent<RenameBuilding>().Rename(_building);
+            NetworkServer.Spawn(building);
+            Buildings.Add(building);
+        }
+        else if (_building.name.Equals("Terrasse"))
+        {
+            GameObject building = (GameObject)Instantiate(terrasse);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
         }
         else
         {
-            GameObject building = (GameObject)Instantiate(Building, spawnPoint.position, spawnPoint.rotation);
+            GameObject building = (GameObject)Instantiate(Building, SpawnPoints[nbSpawnPointUsed].position, SpawnPoints[nbSpawnPointUsed].rotation);
             building.GetComponent<RenameBuilding>().Rename(_building);
             NetworkServer.Spawn(building);
             Buildings.Add(building);
+            nbSpawnPointUsed++; // We used a spawn point
         }
+
     }
 
     public void DestroyBuildings()

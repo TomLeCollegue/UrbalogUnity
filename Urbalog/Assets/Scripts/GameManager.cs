@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
             
         //game.FillDeckBuildings();
         game.FillMarket();
-        game.FillRoles();
-        //game.fillRolesFromJson();
+        //game.FillRoles();
+        game.fillRolesFromJson();
 
     }
 

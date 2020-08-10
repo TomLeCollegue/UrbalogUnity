@@ -102,7 +102,7 @@ public class PlayerSetup : NetworkBehaviour
     [Command]
     public void CmdSendRulesToPlayer()
     {
-        RpcGetRules(GameSettings.TurnTimeMax, GameSettings.isTimerActive, GameSettings.nbBuildingsPerTurn);
+        RpcGetRules(GameSettings.TurnTimeMax, GameSettings.isTimerActive, GameSettings.nbBuildingsPerTurn, GameSettings.CentralTablet, GameSettings.ServeurNonPlayer);
     }
 
     /// <summary>
@@ -111,11 +111,13 @@ public class PlayerSetup : NetworkBehaviour
     /// <param name="_turnTimeMax"></param>
     /// <param name="_isTimerActive"></param>
     [ClientRpc]
-    public void RpcGetRules(float _turnTimeMax, bool _isTimerActive, int _nbBuildingsPerTurn)
+    public void RpcGetRules(float _turnTimeMax, bool _isTimerActive, int _nbBuildingsPerTurn, bool TabletCentral, bool Serveur)
     {
         GameSettings.TurnTimeMax = _turnTimeMax;
         GameSettings.isTimerActive = _isTimerActive;
         GameSettings.nbBuildingsPerTurn = _nbBuildingsPerTurn;
+        GameSettings.CentralTablet = TabletCentral;
+        GameSettings.ServeurNonPlayer = Serveur;
     }
 
 
@@ -277,6 +279,9 @@ public class PlayerSetup : NetworkBehaviour
             player.OldScore = playerBackup.OldScore;
             player.num = playerBackup.num;
             player.role = playerBackup.role;
+            player.playerBets = playerBackup.playerBets;
+            BetControl betControl = GetComponent<BetControl>();
+            betControl.playerBets = playerBackup.playerBets;
 
         }
 

@@ -1,8 +1,8 @@
 {
     "Items": [
         {
-            "nameRole": "Transporteur",
-            "hold": "Environment",
+            "nameRole": "test",
+            "hold": "Attractiveness",
             "improve": "Fluidity",
             "ressourceSocial": 0,
             "ressourcePolitical": 20,
@@ -11,44 +11,24 @@
             "ressource2": "Political"
         },
         {
-            "nameRole": "Habitant",
-            "hold": "Fluidity",
-            "improve": "Environment",
-            "ressourceSocial": 7,
-            "ressourcePolitical": 3,
-            "ressourceEconomical": 0,
-            "ressource1": "Political",
-            "ressource2": "Social"
-        },
-        {
-            "nameRole": "Collectivité Locale",
-            "hold": "Environment",
-            "improve": "Attractiveness",
-            "ressourceSocial": 0,
-            "ressourcePolitical": 4,
-            "ressourceEconomical": 6,
-            "ressource1": "Economical",
-            "ressource2": "Political"
-        },
-        {
-            "nameRole": "Commerçant",
-            "hold": "Fluidity",
-            "improve": "Attractiveness",
-            "ressourceSocial": 6,
-            "ressourcePolitical": 0,
-            "ressourceEconomical": 4,
-            "ressource1": "Economical",
-            "ressource2": "Social"
-        },
-        {
-            "nameRole": "Opérateur de transport public",
-            "hold": "Environment",
+            "nameRole": "testin",
+            "hold": "Attractiveness",
             "improve": "Fluidity",
-            "ressourceSocial": 0,
-            "ressourcePolitical": 6,
-            "ressourceEconomical": 4,
+            "ressourceSocial": 4,
+            "ressourcePolitical": 0,
+            "ressourceEconomical": 2,
             "ressource1": "Economical",
-            "ressource2": "Political"
+            "ressource2": "Social"
+        },
+        {
+            "nameRole": "testgfffff",
+            "hold": "Attractiveness",
+            "improve": "Attractiveness",
+            "ressourceSocial": 0,
+            "ressourcePolitical": 0,
+            "ressourceEconomical": 1,
+            "ressource1": "Economical",
+            "ressource2": "Social"
         }
     ]
 }

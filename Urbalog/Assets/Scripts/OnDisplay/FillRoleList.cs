@@ -81,10 +81,9 @@ public class FillRoleList : MonoBehaviour
         //Create a new JSON with this List
         JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles);
 
-        //UpdateList()
         UpdateList();
-
-
     }
+
+
 
 }

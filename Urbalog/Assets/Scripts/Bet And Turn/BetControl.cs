@@ -181,6 +181,7 @@ public class BetControl : NetworkBehaviour
     public void CmdBet(int idPlayer, int value, string Ressource, int num)
     {
         BetLog(idPlayer, value, Ressource, num);
+        BackupPlayerBets(idPlayer,value,Ressource, num);
         BackupPlayer(idPlayer, value, Ressource);
         RpcBet(value, Ressource, num);
     }
@@ -282,7 +283,7 @@ public class BetControl : NetworkBehaviour
     public bool IsFinanced(Building _building)
     {
         return (_building.FinanceEconomical >= _building.Economical && _building.FinancePolitical >= _building.Political
-           /* && _building.FinanceSocial >= _building.Social*/);
+           /*&& _building.FinanceSocial >= _building.Social*/);
     }
     /// <summary>
     /// Check how many buildings are financed and return it
@@ -519,5 +520,30 @@ public class BetControl : NetworkBehaviour
     public bool ResourceIsCompleted(int _finance, int _max)
     {
         return (_finance >= _max);
+    }
+
+    public void BackupPlayerBets(int idPlayer, int value, string Ressource, int num)
+    {
+        Player player = SearchPlayer(idPlayer);
+        string ID = GameObject.Find("playerLocal").GetComponent<Player>().ID;
+        if (!player.ID.Equals(ID))
+        {
+
+            if (player.role.ressource1.Equals(Ressource))
+            {
+                player.playerBets[num,0] += value;
+                Debug.Log("PlayerBets" + num + value);
+
+            }
+            else if (player.role.ressource2.Equals(Ressource))
+            {
+                player.playerBets[num, 1] += value;
+                Debug.Log("PlayerBets" + num + value);
+            }
+
+        Debug.Log("PlayerBets" + player.playerBets[0,1].ToString() + player.playerBets[1, 1].ToString() + player.playerBets[2, 0].ToString() + player.playerBets[3, 0].ToString());
+        }
+
+
     }
 }

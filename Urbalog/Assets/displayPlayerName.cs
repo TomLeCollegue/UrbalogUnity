@@ -26,11 +26,20 @@ public class displayPlayerName : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player1text.text = GameManager.singleton.players[0].namePlayer;
-        player2text.text = GameManager.singleton.players[1].namePlayer;
-        player3text.text = GameManager.singleton.players[2].namePlayer;
-        player4text.text = GameManager.singleton.players[3].namePlayer;
-        player5text.text = GameManager.singleton.players[4].namePlayer;
+        int boucle = 0;
+        if (GameSettings.ServeurNonPlayer)
+        {
+            boucle = 1;
+        }
+        if (GameSettings.CentralTablet)
+        {
+            boucle = 2;
+        }
+        player1text.text = GameManager.singleton.players[0 + boucle].namePlayer;
+        player2text.text = GameManager.singleton.players[1 + boucle].namePlayer;
+        player3text.text = GameManager.singleton.players[2 + boucle].namePlayer;
+        player4text.text = GameManager.singleton.players[3 + boucle].namePlayer;
+        player5text.text = GameManager.singleton.players[4 + boucle].namePlayer;
 
     }
 

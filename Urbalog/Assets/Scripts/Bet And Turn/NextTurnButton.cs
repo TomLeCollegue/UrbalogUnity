@@ -14,6 +14,7 @@ public class NextTurnButton : NetworkBehaviour
     public Button ButtonNextTurn;
 
     public TextMeshProUGUI CityTitle;
+    public TextMeshProUGUI nbNextTurn;
 
     public bool EndWarmup = false;
 
@@ -36,7 +37,6 @@ public class NextTurnButton : NetworkBehaviour
             }
             if (CheckEndGameCondition())
             {
-
                 if (!GameSettings.Warmup)
                 {
                     CmdChangeSceneToEndGame();
@@ -85,9 +85,23 @@ public class NextTurnButton : NetworkBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Changes how the next turn button is displayed
+    /// </summary>
+    /// <param name="_TurnPressed"></param>
+    /// <param name="_NbBuildingFinancedTooHighForEndGame"></param>
+    /// <param name="_NbBuildingFinancedTooHighForTurn"></param>
     private void PrintTheGoodNextTurnButton(bool _TurnPressed, bool _NbBuildingFinancedTooHighForEndGame, bool _NbBuildingFinancedTooHighForTurn)
     {
+        int nbTurnVote = 0; 
+        for (int i = 0; i < GameManager.singleton.players.Count; i++)
+        {
+            nbTurnVote += (GameManager.singleton.players[i].nextTurn) ? 1:0;
+        }
+
+
+        String DisplayNbTurnVote = nbTurnVote + "/" + GameManager.singleton.players.Count;
+        nbNextTurn.text = DisplayNbTurnVote;
         if (!_TurnPressed && !_NbBuildingFinancedTooHighForEndGame && !_NbBuildingFinancedTooHighForTurn)
         {
             TextButton.text = Language.NEXT_TURN;
@@ -136,16 +150,27 @@ public class NextTurnButton : NetworkBehaviour
     private bool CheckForTimerStart()
     {
         GameManager gameManager = GameManager.singleton;
+
+        int boucle = 1;
+        if (GameSettings.ServeurNonPlayer)
+        {
+            boucle = 2;
+        }
+        if (GameSettings.CentralTablet)
+        {
+            boucle = 3;
+        }
+
         int countPlayersReady = 0;
         bool _OnlyOnePlayerNotReady;
-        for (int i = 0; i < gameManager.players.Count; i++)
+        for (int i = boucle; i < gameManager.players.Count; i++)
         {
             if (gameManager.players[i].nextTurn)
             {
                 countPlayersReady++;
             }
         }
-        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == 1;  //int i = 3 quand on joue avec le serveur et le plateau
+        _OnlyOnePlayerNotReady = gameManager.players.Count - countPlayersReady == boucle;  //int i = 3 quand on joue avec le serveur et le plateau
         bool _res = _OnlyOnePlayerNotReady && GameSettings.isTimerActive;
 
         return _res;
@@ -194,7 +219,7 @@ public class NextTurnButton : NetworkBehaviour
         BetControl betControl = GameObject.Find("playerLocal").GetComponent<BetControl>();
         PlayerSetup playerSetup = GameObject.Find("playerLocal").GetComponent<PlayerSetup>();
         GameManager gameManager = GameManager.singleton;
-
+        ResetTableBetPlayers();
         ResetTurnBoolPlayer();                   //Reset des boolean de tour des players
         betControl.CmdGiveBackResourcesToPlayerWhenNextTurn();       // Rendre les ressources aux joueurs pour les aménagements pas financés entièrement.
         DistribScorePlayer();
@@ -209,6 +234,14 @@ public class NextTurnButton : NetworkBehaviour
         GameObject.Find("CityManager").GetComponent<FillTruckCity>().SpawnTrucks();
         CallCityView();
         GameObject.Find("playerLocal").GetComponent<Player>().InvokePopUP();
+    }
+
+    private void ResetTableBetPlayers()
+    {
+        for (int i = 0; i < GameManager.singleton.players.Count; i++)
+        {
+            GameManager.singleton.players[i].playerBets = new int[5, 2];
+        }
     }
 
     private void ResetFinanceBuildingInMarket()
@@ -247,7 +280,16 @@ public class NextTurnButton : NetworkBehaviour
     { 
         GameManager gameManager = GameManager.singleton;
         bool boolTurn = true;
-        for (int i = 0; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
+        int boucle = 0;
+        if (GameSettings.ServeurNonPlayer)
+        {
+            boucle = 1;
+        }
+        if (GameSettings.CentralTablet)
+        {
+            boucle = 2;
+        }
+        for (int i = boucle; i < gameManager.players.Count; i++) //int i = 2 quand on joue avec le serveur et le plateau
         {    
             if (!gameManager.players[i].nextTurn)
             {
@@ -383,7 +425,7 @@ public class NextTurnButton : NetworkBehaviour
 
 
     [Server]
-    private void CmdChangeSceneToEndGame()
+    public void CmdChangeSceneToEndGame()
     {
         NetworkManager.singleton.ServerChangeScene("EndGame");
     } 
