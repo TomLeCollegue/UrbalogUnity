@@ -4,11 +4,11 @@
             "nameRole": "test",
             "hold": "Attractiveness",
             "improve": "Fluidity",
-            "ressourceSocial": 1,
-            "ressourcePolitical": 21,
-            "ressourceEconomical": 0,
-            "ressource1": "Political",
-            "ressource2": "Social"
+            "ressourceSocial": 0,
+            "ressourcePolitical": 20,
+            "ressourceEconomical": 20,
+            "ressource1": "Economical",
+            "ressource2": "Political"
         },
         {
             "nameRole": "testin",
