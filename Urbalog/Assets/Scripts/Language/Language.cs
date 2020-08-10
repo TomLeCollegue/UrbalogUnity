@@ -158,6 +158,8 @@
 
     #region SettingsMenu
     //Main Menu
+    public static string FR_SETTINGS_TITLE = "Réglages";
+    public static string EN_SETTINGS_TITLE = "Settings";
     public static string FR_BUILDING_MENU_BUTTON = "Aménagements";
     public static string EN_BUILDING_MENU_BUTTON = "Buildings";
     public static string FR_ROLES_MENU_BUTTON = "Rôles";
@@ -177,7 +179,6 @@
     public static string FR_BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
     public static string EN_BUILDINGSPERTURN_TEXT = "How many buildings can be built per turn";
 
-
     //Timer Menu
     public static string FR_TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
     public static string EN_TURN_TIMER_TEXT = "Time per turn in seconds :";
@@ -187,6 +188,19 @@
     public static string EN_TURN_TIMER_TOGGLE = "Turn Timer Activation";
     public static string FR_GAME_TIMER_TOGGLE = "Activation du timer de partie.";
     public static string EN_GAME_TIMER_TOGGLE = "Game Timer Activation";
+
+    //Role Menu
+    public static string FR_ADD_ROLE_BUTTON = "Ajouter un rôle";
+    public static string EN_ADD_ROLE_BUTTON = "Add a role";
+    public static string FR_RESET_ROLES_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string EN_RESET_ROLES_BUTTON = "Reset to default values";
+    public static string FR_DELETE_ROLE_BUTTON = "Supprimer le rôle";
+    public static string EN_DELETE_ROLE_BUTTON = "Delete role";
+    public static string FR_APPLY_CHANGES_ROLE_BUTTON = "Modifier le rôle";
+    public static string EN_APPLY_CHANGES_ROLE_BUTTON = "Apply Changes";
+    public static string FR_ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
+    public static string EN_ADD_ROLE_IN_JSON_BUTTON = "Add role in the list";
+
     #endregion
 
     #region Form
@@ -274,6 +288,7 @@
 
     #region Settings
     //Main Menu
+    public static string SETTINGS_TITLE = "Réglages";
     public static string BUILDING_MENU_BUTTON = "Aménagements";
     public static string ROLES_MENU_BUTTON = "Rôles";
     public static string TIME_MENU_BUTTON = "Limite de temps";
@@ -290,6 +305,13 @@
     public static string GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
     public static string TURN_TIMER_TOGGLE = "Activation du timer de tour.";
     public static string GAME_TIMER_TOGGLE = "Activation du timer de partie.";
+
+    //Role Menu
+    public static string ADD_ROLE_BUTTON = "Ajouter un rôle";
+    public static string RESET_ROLES_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string DELETE_ROLE_BUTTON = "Supprimer le rôle";
+    public static string APPLY_CHANGES_ROLE_BUTTON = "Modifier le rôle";
+    public static string ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
 
     #endregion
 
@@ -402,6 +424,7 @@
             GAME_TIMER_TOGGLE = FR_GAME_TIMER_TOGGLE;
 
             //Main Menu
+            SETTINGS_TITLE = FR_SETTINGS_TITLE;
             BUILDING_MENU_BUTTON = FR_BUILDING_MENU_BUTTON;
             ROLES_MENU_BUTTON = FR_ROLES_MENU_BUTTON;
             TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
@@ -412,6 +435,13 @@
             CONFIRM_NBBUILDINGS_BUTTON = FR_CONFIRM_NBBUILDINGS_BUTTON;
             BUILDINGS_LIST_BUTTON = FR_BUILDINGS_LIST_BUTTON;
             BUILDINGSPERTURN_TEXT = FR_BUILDINGSPERTURN_TEXT;
+
+            //Role Menu
+            ADD_ROLE_BUTTON = FR_ADD_ROLE_BUTTON;
+            RESET_ROLES_BUTTON = FR_RESET_ROLES_BUTTON;
+            DELETE_ROLE_BUTTON = FR_DELETE_ROLE_BUTTON;
+            APPLY_CHANGES_ROLE_BUTTON = FR_APPLY_CHANGES_ROLE_BUTTON;
+            ADD_ROLE_IN_JSON_BUTTON = FR_ADD_ROLE_IN_JSON_BUTTON;
 }
         if (language.Equals("En"))
         {
@@ -489,6 +519,7 @@
             GAME_TIMER_TOGGLE = EN_GAME_TIMER_TOGGLE;
 
             //Main Menu
+            SETTINGS_TITLE = EN_SETTINGS_TITLE;
             BUILDING_MENU_BUTTON = EN_BUILDING_MENU_BUTTON;
             ROLES_MENU_BUTTON = EN_ROLES_MENU_BUTTON;
             TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
@@ -499,6 +530,13 @@
             CONFIRM_NBBUILDINGS_BUTTON = EN_CONFIRM_NBBUILDINGS_BUTTON;
             BUILDINGS_LIST_BUTTON = EN_BUILDINGS_LIST_BUTTON;
             BUILDINGSPERTURN_TEXT = EN_BUILDINGSPERTURN_TEXT;
+
+            //Role Menu
+            ADD_ROLE_BUTTON = EN_ADD_ROLE_BUTTON;
+            RESET_ROLES_BUTTON = EN_RESET_ROLES_BUTTON;
+            DELETE_ROLE_BUTTON = EN_DELETE_ROLE_BUTTON;
+            APPLY_CHANGES_ROLE_BUTTON = EN_APPLY_CHANGES_ROLE_BUTTON;
+            ADD_ROLE_IN_JSON_BUTTON = EN_ADD_ROLE_IN_JSON_BUTTON;
         }
     }
     
