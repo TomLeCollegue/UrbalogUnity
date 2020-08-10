@@ -164,10 +164,14 @@
     public static string EN_BUILDING_MENU_BUTTON = "Buildings";
     public static string FR_ROLES_MENU_BUTTON = "Rôles";
     public static string EN_ROLES_MENU_BUTTON = "Roles";
-    public static string FR_DATABASE_MENU_BUTTON = "Base de données";
-    public static string EN_DATABASE_MENU_BUTTON = "Database";
     public static string FR_TIME_MENU_BUTTON = "Limite de temps";
     public static string EN_TIME_MENU_BUTTON = "Time Limit";
+    public static string FR_SERVER_TOGGLE_TEXT = "Le serveur n'est pas joueur";
+    public static string EN_SERVER_TOGGLE_TEXT = "The server is not a player";
+    public static string FR_CENTRAL_TABLET_TOGGLE = "Tablette centrale activée";
+    public static string EN_CENTRAL_TABLET_TOGGLE = "Central tablet in use";
+    public static string FR_CENTRAL_TABLET_WARNING = "Si l'option 'Tablette Centrale' est activée, alors le serveur sera forcément non-joueur.";
+    public static string EN_CENTRAL_TABLET_WARNING = "If 'Central tablet in use' is checked, the server will not be a player.";
 
     //Buildings Menu
     public static string FR_BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
@@ -292,7 +296,9 @@
     public static string BUILDING_MENU_BUTTON = "Aménagements";
     public static string ROLES_MENU_BUTTON = "Rôles";
     public static string TIME_MENU_BUTTON = "Limite de temps";
-    public static string DATABASE_MENU_BUTTON = "Base de données";
+    public static string SERVER_TOGGLE_TEXT = "Le serveur n'est pas joueur";
+    public static string CENTRAL_TABLET_TOGGLE = "Tablette centrale activée";
+    public static string CENTRAL_TABLET_WARNING = "Si l'option 'Tablette Centrale' est activée, alors le serveur sera forcément non-joueur.";
 
     //Buildings Menu
     public static string BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
@@ -428,10 +434,12 @@
             BUILDING_MENU_BUTTON = FR_BUILDING_MENU_BUTTON;
             ROLES_MENU_BUTTON = FR_ROLES_MENU_BUTTON;
             TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
-            DATABASE_MENU_BUTTON = FR_DATABASE_MENU_BUTTON;
+            SERVER_TOGGLE_TEXT = FR_SERVER_TOGGLE_TEXT;
+            CENTRAL_TABLET_TOGGLE = FR_CENTRAL_TABLET_TOGGLE;
+            CENTRAL_TABLET_WARNING = FR_CENTRAL_TABLET_WARNING;
 
-            //Buildings Menu
-            BUILDINGSTOEND_TEXT = FR_BUILDINGSTOEND_TEXT;
+    //Buildings Menu
+    BUILDINGSTOEND_TEXT = FR_BUILDINGSTOEND_TEXT;
             CONFIRM_NBBUILDINGS_BUTTON = FR_CONFIRM_NBBUILDINGS_BUTTON;
             BUILDINGS_LIST_BUTTON = FR_BUILDINGS_LIST_BUTTON;
             BUILDINGSPERTURN_TEXT = FR_BUILDINGSPERTURN_TEXT;
@@ -523,7 +531,9 @@
             BUILDING_MENU_BUTTON = EN_BUILDING_MENU_BUTTON;
             ROLES_MENU_BUTTON = EN_ROLES_MENU_BUTTON;
             TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
-            DATABASE_MENU_BUTTON = EN_DATABASE_MENU_BUTTON;
+            SERVER_TOGGLE_TEXT = EN_SERVER_TOGGLE_TEXT;
+            CENTRAL_TABLET_TOGGLE = EN_CENTRAL_TABLET_TOGGLE;
+            CENTRAL_TABLET_WARNING = EN_CENTRAL_TABLET_WARNING;
 
             //Buildings Menu
             BUILDINGSTOEND_TEXT = EN_BUILDINGSTOEND_TEXT;

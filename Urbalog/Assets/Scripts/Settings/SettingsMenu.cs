@@ -73,6 +73,10 @@ public class SettingsMenu : MonoBehaviour
 
     public PopulateBuildingsSettingsList displayList;
 
+    public Toggle ServerToggle;
+    public Toggle TabletToggle;
+
+
     public void GoToSettingsScene()
     {
         SceneManager.LoadScene("SettingsScene");
@@ -87,6 +91,18 @@ public class SettingsMenu : MonoBehaviour
     {
         nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
         nbbuildingsForEnding.text = NextTurnButton.NumberBuildingsToEnd.ToString();
+        ServerToggle.isOn = GameSettings.ServeurNonPlayer;
+    }
+
+    private void Start()
+    {
+        ServerToggle.isOn = GameSettings.ServeurNonPlayer;
+        TabletToggle.isOn = GameSettings.CentralTablet;
+    }
+
+    public bool ServerToggled()
+    {
+        return GameSettings.ServeurNonPlayer || GameSettings.CentralTablet;
     }
 
     public void DisplayBuildingsSettingsMenu()

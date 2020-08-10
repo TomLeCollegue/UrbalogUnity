@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameSettings : MonoBehaviour
 
     public static float GameTimerMax;
     public static bool isGameTimerActive;
+
+    
 
     public void ChangeTimePerTurn(string _time)
     {
@@ -70,8 +73,13 @@ public class GameSettings : MonoBehaviour
     {
         ServeurNonPlayer = _isTabletCentral;
         CentralTablet = _isTabletCentral;
-        //int boolInt = ServeurNonPlayer ? 1 : 0;
-        //PlayerPrefs.SetInt("ServeurNonPlayer", boolInt);
+        int boolInt = _isTabletCentral ? 1 : 0;
+        if (!ServeurNonPlayer && CentralTablet)
+        {
+            PlayerPrefs.SetInt("ServeurNonPlayer", boolInt);
+        }
+        PlayerPrefs.SetInt("CentralTablet", boolInt);
+
     }
 
     public void ChangerNbBuildingsMaxPerTurn(string _nbMax)
@@ -95,8 +103,14 @@ public class GameSettings : MonoBehaviour
         NextTurnButton.NumberBuildingsToEnd = PlayerPrefs.GetInt("BuildingsToEnd");
         GameTimerMax = PlayerPrefs.GetFloat("GameTimerMax");
         isGameTimerActive = PlayerPrefs.GetInt("isGameTimerActive") == 1;
+        ServeurNonPlayer = (PlayerPrefs.GetInt("ServeurNonPlayer") == 1) || (PlayerPrefs.GetInt("CentralTablet") == 1);
+        CentralTablet = PlayerPrefs.GetInt("CentralTablet") == 1;
     }
 
+    private void Update()
+    {
+        ServeurNonPlayer = (PlayerPrefs.GetInt("ServeurNonPlayer") == 1) || (PlayerPrefs.GetInt("CentralTablet") == 1);
+    }
 
     public void InitWarmUP()
     {
