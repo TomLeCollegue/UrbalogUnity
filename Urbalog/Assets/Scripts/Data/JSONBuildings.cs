@@ -252,30 +252,30 @@ public class JSONBuildings : MonoBehaviour
     public void FillDeckBuildingEN()
     {
 
-        DefaultDeck.Clear();
+        DefaultDeckEN.Clear();
         DefaultDeck.Add(new Building("Cycle lane", "Lane reserved for cyclists and protected from other traffic", 2, 2, 3, 1, 1, 0, 2,
             "As the entire lane is protected from traffic, this infrastructure creates an obstacle to deliveries by limiting the access to sidewalks.", "Piste cyclable"));
-        DefaultDeck.Add(new Building("Bike self service dock", "Terminal for borrowing a self-service bicycle", 1, 2, 2, 1, -1, 1, -1, "These structures create punctual obstacles to deliveries by limiting access to the sidewalk.", "Borne vélo"));
-        DefaultDeck.Add(new Building("Terrace", "Cafe or restaurant terrace", 1, 2, 1, 1, -2, 1, -3, " This development limits access to the facility while exten-ding on the sidewalk and parking slot.", "Terrasse"));
-        DefaultDeck.Add(new Building("Shop", "Small business (less then 20 employees)", 2, 4, 1, 0, 1, 2, -1, "This activity generates goods traffic: deliveries and pur-chase trips.", "Petit magasin"));
-        DefaultDeck.Add(new Building("Post office", "Allows the collection of parcels by private individuals.", 2, 1, 1, -1, 2, 0, 1, "This development allows parcels to be delivered in the absence of recipients, so flows are consolidated, but opening hours are restricted.", "Poste"));
-        DefaultDeck.Add(new Building("Department store", "Supermarket or department store (more than 20 employees)", 3, 6, 2, -1, -2, 5, -2, "This location generates goods movements: deliveries and purchase trips.", "Grand magasin"));
-        DefaultDeck.Add(new Building("Shared space", "A shared space minimises the segregation between road users (trucks, cars, cycles, pedestrians ... ). There is no sidewalk, traffic signs or lights and speed is limited to 12 mph", 2, 2, 2, 2, -1, 1, 0,
+        DefaultDeckEN.Add(new Building("Bike self service dock", "Terminal for borrowing a self-service bicycle", 1, 2, 2, 1, -1, 1, -1, "These structures create punctual obstacles to deliveries by limiting access to the sidewalk.", "Borne vélo"));
+        DefaultDeckEN.Add(new Building("Terrace", "Cafe or restaurant terrace", 1, 2, 1, 1, -2, 1, -3, " This development limits access to the facility while exten-ding on the sidewalk and parking slot.", "Terrasse"));
+        DefaultDeckEN.Add(new Building("Shop", "Small business (less then 20 employees)", 2, 4, 1, 0, 1, 2, -1, "This activity generates goods traffic: deliveries and pur-chase trips.", "Petit magasin"));
+        DefaultDeckEN.Add(new Building("Post office", "Allows the collection of parcels by private individuals.", 2, 1, 1, -1, 2, 0, 1, "This development allows parcels to be delivered in the absence of recipients, so flows are consolidated, but opening hours are restricted.", "Poste"));
+        DefaultDeckEN.Add(new Building("Department store", "Supermarket or department store (more than 20 employees)", 3, 6, 2, -1, -2, 5, -2, "This location generates goods movements: deliveries and purchase trips.", "Grand magasin"));
+        DefaultDeckEN.Add(new Building("Shared space", "A shared space minimises the segregation between road users (trucks, cars, cycles, pedestrians ... ). There is no sidewalk, traffic signs or lights and speed is limited to 12 mph", 2, 2, 2, 2, -1, 1, 0,
             "The absence of sidewalks facilitates access to facilities for delivery vehicles, but limited speed reduces accessibility", "Zone de rencontre"));
-        DefaultDeck.Add(new Building("Delivery lockers", "Network of secure boxes allowing the collection of parcels at any time of the day or night", 2, 3, 2, 0, 2, 0, 2,
+        DefaultDeckEN.Add(new Building("Delivery lockers", "Network of secure boxes allowing the collection of parcels at any time of the day or night", 2, 3, 2, 0, 2, 0, 2,
             "Accessible at any time of the day, this arrangement allows parcels to be delivered in the absence of the recipients. It limits the number of delivery vehicles through consolidation.", "Réseau de consignes"));
-        DefaultDeck.Add(new Building("Bollards", "Concrete blocks in front of buildings to avoid the use of ram cars.", 1, 1, 1, 0, -2, 1, -2,
+        DefaultDeckEN.Add(new Building("Bollards", "Concrete blocks in front of buildings to avoid the use of ram cars.", 1, 1, 1, 0, -2, 1, -2,
             "This system prohibits vehicle access to establishments and residents.", "Dispositif anti-bélier"));
-        DefaultDeck.Add(new Building("Delivery area", "Space reserved for stopping vehicles to deliver or collect goods.", 3, 1, 2, -1, 2, -1, 1,
+        DefaultDeckEN.Add(new Building("Delivery area", "Space reserved for stopping vehicles to deliver or collect goods.", 3, 1, 2, -1, 2, -1, 1,
             "This facility provides parking for delivery vehicles. While relieving congestion on the road, it facilitates the work of the delivery person.", "Aire de livraison"));
-        DefaultDeck.Add(new Building("UCC", "An Urban Consolidation Centre is a warehouse located in town to facilitate delivery.", 3, 2, 2, 2, 4, -1, 1,
+        DefaultDeckEN.Add(new Building("UCC", "An Urban Consolidation Centre is a warehouse located in town to facilitate delivery.", 3, 2, 2, 2, 4, -1, 1,
             "This development allows the pooling of freight flows. The final delivery is made with clean vehicles. Can be linked with other logistics areas (VRP, lockers).", "CDU"));
-        DefaultDeck.Add(new Building("VRP", "A VRP is a large delivery area equipped with handling facilities for the delivery men.", 2, 2, 1, -1, 4, -3, 2,
+        DefaultDeckEN.Add(new Building("VRP", "A VRP is a large delivery area equipped with handling facilities for the delivery men.", 2, 2, 1, -1, 4, -3, 2,
             "Parking and handling are facilitated. As a result, delivery is more efficient and the driver’s working conditions are improved.", "PAV"));
-        DefaultDeck.Add(new Building("NGV station", "Natural gas charging station used to refill cleaner trucks.", 2, 3, 1, 2, 0, -1, 1,
+        DefaultDeckEN.Add(new Building("NGV station", "Natural gas charging station used to refill cleaner trucks.", 2, 3, 1, 2, 0, -1, 1,
             "This equipment allows gas vehicles to be recharged and carriers to operate even during pollution peak periods.", "Stations GAZ GNV"));
-        DefaultDeck.Add(new Building("Benches", "2 benches", 1, 1, 1, 1, -1, 0, -1, "This development constitutes a punctual obstacle to delive-ries by limiting access to the sidewalk.", "Banc"));
-        DefaultDeck.Add(new Building("Green space", "Urban open space", 1, 2, 2, 4, -4, 1, -2, "This area, which cannot be crossed with handling tools, hinders delivery.", "Zone végétalisée"));
+        DefaultDeckEN.Add(new Building("Benches", "2 benches", 1, 1, 1, 1, -1, 0, -1, "This development constitutes a punctual obstacle to delive-ries by limiting access to the sidewalk.", "Banc"));
+        DefaultDeckEN.Add(new Building("Green space", "Urban open space", 1, 2, 2, 4, -4, 1, -2, "This area, which cannot be crossed with handling tools, hinders delivery.", "Zone végétalisée"));
     }
 
 
