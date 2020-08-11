@@ -195,7 +195,7 @@ public class RoleSettingsPanel : MonoBehaviour
         //Debug.Log("après nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
 
         //Create a new JSON with this List
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles);
+        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
         
 
         //refresh the list
@@ -219,7 +219,7 @@ public class RoleSettingsPanel : MonoBehaviour
         Debug.Log("add role 2");
 
         //CreateNewJsonRole with JSON.CurrentRoles
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles);
+        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
         Debug.Log("add role 3");
 
         //Close add role panel
@@ -396,7 +396,7 @@ public class RoleSettingsPanel : MonoBehaviour
         JSONRoles.CurrentRoles.RemoveAt(_indexCurRole);
 
         //Create the new JSON file with CurrentRoles
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles);
+        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
 
         //close settings panel
         CloseRoleSettingsPanel();

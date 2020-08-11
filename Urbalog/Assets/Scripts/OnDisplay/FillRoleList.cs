@@ -37,7 +37,9 @@ public class FillRoleList : MonoBehaviour
     /// </summary>
     public void SpawnAllRoles()
     {
-        Role[] _roles = JSONRoles.loadRoleFromJson("/roles.json");
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+
+        Role[] _roles = JSONRoles.loadRoleFromJson(_fileName);
         //JSONRoles.putRolesArrayInRolesList(_roles, JSONRoles.CurrentRoles);
         JSONRoles.CurrentRoles = JSONRoles.returnRolesArrayInRolesList(_roles);
         for (int i = 0; i < JSONRoles.CurrentRoles.Count; i++)
@@ -79,7 +81,7 @@ public class FillRoleList : MonoBehaviour
         //JSONRoles.DefaultRoles;
 
         //Create a new JSON with this List
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles);
+        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles, "/roles.json");
 
         UpdateList();
     }

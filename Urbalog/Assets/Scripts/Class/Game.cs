@@ -119,7 +119,9 @@ public class Game
     /// </summary>
     public void fillRolesFromJson()
     {
-        JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson("/roles.json"), Roles);
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+
+        JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson(_fileName), Roles);
     }
 
     /**

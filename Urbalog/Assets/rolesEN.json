@@ -1,7 +1,7 @@
 {
     "Items": [
         {
-            "nameRole": "Transporteur",
+            "nameRole": "Freight operator",
             "hold": "Attractiveness",
             "improve": "Fluidity",
             "ressourceSocial": 0,
@@ -11,7 +11,7 @@
             "ressource2": "Political"
         },
         {
-            "nameRole": "Habitant",
+            "nameRole": "Citizen",
             "hold": "Fluidity",
             "improve": "Environment",
             "ressourceSocial": 7,
@@ -21,7 +21,7 @@
             "ressource2": "Social"
         },
         {
-            "nameRole": "Collectivité Locale",
+            "nameRole": "Metropolitan authority",
             "hold": "Environment",
             "improve": "Attractiveness",
             "ressourceSocial": 0,
@@ -31,7 +31,7 @@
             "ressource2": "Political"
         },
         {
-            "nameRole": "Commerçant",
+            "nameRole": "Shop owner",
             "hold": "Fluidity",
             "improve": "Attractiveness",
             "ressourceSocial": 6,
@@ -41,7 +41,7 @@
             "ressource2": "Social"
         },
         {
-            "nameRole": "Opérateur de transport public",
+            "nameRole": "Public transport operator",
             "hold": "Environment",
             "improve": "Fluidity",
             "ressourceSocial": 0,
