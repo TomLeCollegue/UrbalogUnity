@@ -221,8 +221,16 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void ChangeBuildingSettings()
     {
-        Building[] _buildings = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
-        //Building[] _buildings = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
+        string _fileName;
+        if (GameSettings.Language == "Fr")
+        {
+            _fileName = "/buildings.json";
+        }
+        else //GameSettings.Language == "En"
+        {
+            _fileName = "/buildingsEN.json";
+        }
+        Building[] _buildings = JSONBuildings.loadBuildingsFromJSON(_fileName);
 
         Building _newBuilding = CreateNewBuildingWithInputFields();
 
@@ -232,7 +240,7 @@ public class SettingsMenu : MonoBehaviour
             {
                 _buildings[i] = _newBuilding;
                 //savedansJSON (_buildings)
-                JSONBuildings.CreateBuildingJSONWithBuildings(_buildings);
+                JSONBuildings.CreateBuildingJSONWithBuildings(_buildings, _fileName);
             }
         }
         CloseBuildingSettingsPanel();

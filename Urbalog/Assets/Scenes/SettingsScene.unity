@@ -10807,6 +10807,7 @@ MonoBehaviour:
     attractScore: 0
     logisticScore: 0
     logisticDescription: 
+    nameForSprite: 
   panel: {fileID: 1754004226}
   NameInput: {fileID: 2002210075}
   descriptionInput: {fileID: 279502363}
@@ -10818,7 +10819,7 @@ MonoBehaviour:
   attractInput: {fileID: 1674202445}
   logiInput: {fileID: 578152010}
   LogisticDescriptionInput: {fileID: 985719089}
-  addBuildingPanel: {fileID: 0}
+  addBuildingPanel: {fileID: 1103792316}
   addNameInput: {fileID: 1733002857}
   AddDescriptionInput: {fileID: 1452028021}
   AddEcoInput: {fileID: 1086902588}
@@ -10829,7 +10830,7 @@ MonoBehaviour:
   AddAttractInput: {fileID: 307606454}
   AddLogiInput: {fileID: 902921318}
   AddLogisticDescriptionInput: {fileID: 1360782949}
-  addRolePanel: {fileID: 0}
+  addRolePanel: {fileID: 1822538628}
   timerPlaceholder: {fileID: 1913823498}
   turnTimerToggle: {fileID: 838755088}
   GameTimerPlaceholder: {fileID: 1952910516}

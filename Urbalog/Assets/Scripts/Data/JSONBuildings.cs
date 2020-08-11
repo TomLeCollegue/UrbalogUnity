@@ -63,10 +63,10 @@ public class JSONBuildings : MonoBehaviour
 
     }
 
-    public static void CreateBuildingJSONWithBuildings(Building[] _buildings)
+    public static void CreateBuildingJSONWithBuildings(Building[] _buildings, string _fileName)
     {
         string _jsonBuilding = JsonHelper.ToJson(_buildings, true);
-        File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuilding);
+        File.WriteAllText(Application.dataPath + _fileName, _jsonBuilding);
     }
 
     /// <summary>
@@ -128,8 +128,18 @@ public class JSONBuildings : MonoBehaviour
     /// <param name="_building"></param>
     public static void DeleteBuildingFromJSON(Building _building)
     {
-        Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
-        //Building[] _buildingsFromJson = loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
+        string _filename;
+        Building[] _buildingsFromJson;
+        if (GameSettings.Language == "Fr")
+        {
+            _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+            _filename = "/buildings.json";
+        }
+        else //GameSettings.Language == "En"
+        {
+            _buildingsFromJson = loadBuildingsFromJSON("/buildingsEN.json");
+            _filename = "/buildingsEN.json";
+        }
         Building[] _newBuildingsFromJson;
         int index;
 
@@ -137,12 +147,10 @@ public class JSONBuildings : MonoBehaviour
 
         _newBuildingsFromJson = DeleteBuildingFromIndex(_buildingsFromJson, index);
 
-        Debug.Log("delete index :" + index);
+        //Debug.Log("delete index :" + index);
+        //Debug.Log("new array + " + BuildingArrayToString(_newBuildingsFromJson));
 
-        Debug.Log("new array + " + BuildingArrayToString(_newBuildingsFromJson));
-
-
-        CreateBuildingJSONWithBuildings(_newBuildingsFromJson); //recreate json file with the new array
+        CreateBuildingJSONWithBuildings(_newBuildingsFromJson, _filename); //recreate json file with the new array
 
     }
 
@@ -199,15 +207,25 @@ public class JSONBuildings : MonoBehaviour
     /// <param name="_buildingToAdd"></param>
     internal static void AddInJson(Building _buildingToAdd)
     {
+        string _filename;
+        if (GameSettings.Language == "Fr")
+        {
+            _filename = "/buildings.json";
+        }
+        else //GameSettings.Languaga == "En"
+        {
+            _filename = "/buildingsEN.json";
+        }
+
         //load the current list
-        Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+        Building[] _buildingsFromJson = loadBuildingsFromJSON(_filename);
         //Building[] _buildingsFromJson = loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
 
         //Create a new list with _buildingToAdd at the end
         Building[] _newBuildings = AddBuildingToArray(_buildingsFromJson,_buildingToAdd);
 
         //Create a new JSON file with the new list
-        CreateBuildingJSONWithBuildings(_newBuildings);
+        CreateBuildingJSONWithBuildings(_newBuildings, _filename);
     }
 
     /// <summary>
