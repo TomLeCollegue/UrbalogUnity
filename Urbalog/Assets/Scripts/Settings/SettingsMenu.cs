@@ -344,7 +344,7 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void ResetBuildingsToDefault()
     {
-        JSONBuildings.CreateBuildingsJSONWithDeck(JSONBuildings.DefaultDeck);
+        JSONBuildings.CreateBuildingsJSONWithDeck("/buildings.json",JSONBuildings.DefaultDeck);
         RefreshBuildingsList();
     }
 
