@@ -78,10 +78,17 @@ public class FillRoleList : MonoBehaviour
     public void ResetListToDefault()
     {
         //Gets the default values of a building in a List
-        //JSONRoles.DefaultRoles;
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
 
-        //Create a new JSON with this List
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles, "/roles.json");
+        if (GameSettings.Language == "Fr")
+        {
+            //Create a new JSON with this List
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles, _fileName);
+        }
+        else //GameSettings.Language == "En"
+        {
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRolesEN, _fileName);
+        }
 
         UpdateList();
     }
