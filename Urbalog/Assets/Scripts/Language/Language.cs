@@ -356,6 +356,8 @@
     {
         if (language.Equals("Fr"))
         {
+            GameSettings.Language = "Fr";
+
             JOUEUR = FR_JOUEUR;
             ADMIN = FR_ADMIN;
             JOIN_GAME = FR_JOIN_GAME;
@@ -453,6 +455,8 @@
 }
         if (language.Equals("En"))
         {
+            GameSettings.Language = "En";
+
             JOUEUR = EN_JOUEUR;
             ADMIN = EN_ADMIN;
             JOIN_GAME = EN_JOIN_GAME;

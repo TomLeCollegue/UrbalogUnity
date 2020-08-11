@@ -49,8 +49,15 @@ public class PopulateBuildingsSettingsElement : MonoBehaviour
 
     public Building ReturnBuildingFromJson()
     {
-        Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
-        //Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
+        Building[] _buildingList;
+        if (GameSettings.Language == "Fr")
+        {
+            _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
+        }
+        else //GameSettings.Language == "En"
+        {
+            _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildingsEN.json");
+        }
         Building _building = _buildingList[buildingNumber];
         if (buildingNumber<_buildingList.Length-1)
         {

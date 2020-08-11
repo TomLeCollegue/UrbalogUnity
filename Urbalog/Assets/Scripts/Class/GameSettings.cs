@@ -10,7 +10,7 @@ public class GameSettings : MonoBehaviour
     public static float TurnTimeMax;
     public static bool isTimerActive;
     public static int nbBuildingsPerTurn;
-    public static string Language;
+    public static string Language = "Fr";
     public static bool Warmup = false;
 
     public static bool ServeurNonPlayer = false;

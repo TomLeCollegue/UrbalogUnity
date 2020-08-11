@@ -30,7 +30,15 @@ public class PopulateBuildingsSettingsList : MonoBehaviour
     public void Init()
     {
         PopulateBuildingsSettingsElement.buildingNumber = 0;
-        Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
+        Building[] _buildingList;
+        if (GameSettings.Language == "Fr")
+        {
+            _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
+        }
+        else //(GameSettings.Language == "En")
+        {
+            _buildingList = JSONBuildings.loadBuildingsFromJSON("/buildingsEN.json");
+        }
         //Building[] _buildingList = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
         for (int i = 0; i < _buildingList.Length; i++)
         {

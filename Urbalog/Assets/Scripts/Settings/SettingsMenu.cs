@@ -239,7 +239,6 @@ public class SettingsMenu : MonoBehaviour
 
         RefreshBuildingsList();
 
-        //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
     }
 
     /// <summary>
@@ -344,7 +343,14 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void ResetBuildingsToDefault()
     {
-        JSONBuildings.CreateBuildingsJSONWithDeck("/buildings.json",JSONBuildings.DefaultDeck);
+        if (GameSettings.Language == "Fr")
+        {
+            JSONBuildings.CreateBuildingsJSONWithDeck("/buildings.json",JSONBuildings.DefaultDeck);
+        }
+        else if (GameSettings.Language == "En")
+        {
+            JSONBuildings.CreateBuildingsJSONWithDeck("/buildingsEN.json",JSONBuildings.DefaultDeckEN);
+        }
         RefreshBuildingsList();
     }
 
