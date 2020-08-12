@@ -178,24 +178,43 @@ public class RoleSettingsPanel : MonoBehaviour
     /// </summary>
     public void ValidateRoleChanges()
     {
-        //import role List from Json
-        //List<Role> _newList = JSONRoles.CurrentRoles;
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+        int _index;
 
         //Create a new role with inputField and button values
         Role _newRole = CreateNewRoleWithInputValues();
-        //Debug.Log("rôle courant :"+currentRole.nameRole);
-        //Debug.Log("rôle nouveau :"+_newRole.nameRole);
-        
-        //Take this new role and put it the role list in place of the role.
-        int _index = JSONRoles.CurrentRoles.IndexOf(currentRole);
-        //Debug.Log("index :" + _index);
-        //Debug.Log("avant nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
 
-        JSONRoles.CurrentRoles[_index] = _newRole;
-        //Debug.Log("après nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
+        if (GameSettings.Language == "Fr")
+        {
+            _index = JSONRoles.CurrentRoles.IndexOf(currentRole);
+            //Debug.Log("index :" + _index);
+            //Debug.Log("avant nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
 
-        //Create a new JSON with this List
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
+            JSONRoles.CurrentRoles[_index] = _newRole;
+            //Debug.Log("après nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
+
+            //Create a new JSON with this List
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, _fileName);
+        }
+        else //GameSettings.Language == "En"
+        {
+            _index = GetIndexFromRoleInRoleList(JSONRoles.CurrentRolesEN, currentRole);
+
+            JSONRoles.CurrentRolesEN[_index] = _newRole;
+
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRolesEN, _fileName);
+        }
+
+        ////Take this new role and put it the role list in place of the role.
+        //int _index = JSONRoles.CurrentRoles.IndexOf(currentRole);
+        ////Debug.Log("index :" + _index);
+        ////Debug.Log("avant nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
+
+        //JSONRoles.CurrentRoles[_index] = _newRole;
+        ////Debug.Log("après nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
+
+        ////Create a new JSON with this List
+        //JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
         
 
         //refresh the list
@@ -236,14 +255,6 @@ public class RoleSettingsPanel : MonoBehaviour
             JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRolesEN, _fileName);
             Debug.Log("add role 3");
         }
-
-        ////Adds into JSON.CurrentRoles
-        //JSONRoles.CurrentRoles.Add(_newRole);
-        //Debug.Log("add role 2");
-
-        ////CreateNewJsonRole with JSON.CurrentRoles
-        //JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
-        //Debug.Log("add role 3");
 
         //Close add role panel
         CloseAddRolePanel();
