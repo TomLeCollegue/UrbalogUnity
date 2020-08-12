@@ -49,22 +49,6 @@
             "nameForSprite": "Terrasse"
         },
         {
-            "name": "Shop",
-            "description": "Small business (less then 20 employees)",
-            "Economical": 2,
-            "Social": 4,
-            "Political": 1,
-            "FinanceEconomical": 0,
-            "FinanceSocial": 0,
-            "FinancePolitical": 0,
-            "enviScore": 0,
-            "fluidScore": 1,
-            "attractScore": 2,
-            "logisticScore": -1,
-            "logisticDescription": "This activity generates goods traffic: deliveries and pur-chase trips.",
-            "nameForSprite": "Petit magasin"
-        },
-        {
             "name": "Post office",
             "description": "Allows the collection of parcels by private individuals.",
             "Economical": 2,
@@ -159,22 +143,6 @@
             "logisticScore": 1,
             "logisticDescription": "This facility provides parking for delivery vehicles. While relieving congestion on the road, it facilitates the work of the delivery person.",
             "nameForSprite": "Aire de livraison"
-        },
-        {
-            "name": "UCC",
-            "description": "An Urban Consolidation Centre is a warehouse located in town to facilitate delivery.",
-            "Economical": 3,
-            "Social": 2,
-            "Political": 2,
-            "FinanceEconomical": 0,
-            "FinanceSocial": 0,
-            "FinancePolitical": 0,
-            "enviScore": 2,
-            "fluidScore": 4,
-            "attractScore": -1,
-            "logisticScore": 1,
-            "logisticDescription": "This development allows the pooling of freight flows. The final delivery is made with clean vehicles. Can be linked with other logistics areas (VRP, lockers).",
-            "nameForSprite": "CDU"
         },
         {
             "name": "VRP",
