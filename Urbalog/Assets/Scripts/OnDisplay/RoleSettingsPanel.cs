@@ -210,17 +210,40 @@ public class RoleSettingsPanel : MonoBehaviour
     /// </summary>
     public void AddRole()
     {
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+
         //Create Role with Input Values
         Role _newRole = CreateNewRoleWithInputValuesInAddPanel();
         Debug.Log("add role 1");
 
-        //Adds into JSON.CurrentRoles
-        JSONRoles.CurrentRoles.Add(_newRole);
-        Debug.Log("add role 2");
+        if (GameSettings.Language == "Fr")
+        {
+            //Adds into JSON.CurrentRoles
+            JSONRoles.CurrentRoles.Add(_newRole);
+            Debug.Log("add role 2");
 
-        //CreateNewJsonRole with JSON.CurrentRoles
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
-        Debug.Log("add role 3");
+            //CreateNewJsonRole with JSON.CurrentRoles
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, _fileName);
+            Debug.Log("add role 3");
+        }
+        else //GameSettings.Language == "En"
+        {
+            //Adds into JSON.CurrentRoles
+            JSONRoles.CurrentRolesEN.Add(_newRole);
+            Debug.Log("add role 2");
+
+            //CreateNewJsonRole with JSON.CurrentRoles
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRolesEN, _fileName);
+            Debug.Log("add role 3");
+        }
+
+        ////Adds into JSON.CurrentRoles
+        //JSONRoles.CurrentRoles.Add(_newRole);
+        //Debug.Log("add role 2");
+
+        ////CreateNewJsonRole with JSON.CurrentRoles
+        //JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
+        //Debug.Log("add role 3");
 
         //Close add role panel
         CloseAddRolePanel();
@@ -438,7 +461,6 @@ public class RoleSettingsPanel : MonoBehaviour
         }
         return -1;
     }
-
 
     internal void CloseRoleSettingsPanel()
     {

@@ -49,6 +49,16 @@
             "ressourceEconomical": 4,
             "ressource1": "Economical",
             "ressource2": "Political"
+        },
+        {
+            "nameRole": "testRole",
+            "hold": "Attractiveness",
+            "improve": "Environment",
+            "ressourceSocial": 6,
+            "ressourcePolitical": 5,
+            "ressourceEconomical": 0,
+            "ressource1": "Political",
+            "ressource2": "Social"
         }
     ]
 }
