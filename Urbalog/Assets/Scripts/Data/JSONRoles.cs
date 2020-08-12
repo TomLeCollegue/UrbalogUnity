@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -184,4 +185,19 @@ public class JSONRoles : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Return the good List depending on the language used.
+    /// </summary>
+    /// <returns></returns>
+    internal static List<Role> CurrentRolesFromLanguage()
+    {
+        if (GameSettings.Language == "Fr")
+        {
+            return CurrentRoles;
+        }
+        else //GameSettings.Language == "En"
+        {
+            return CurrentRolesEN;
+        }
+    }
 }

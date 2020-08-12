@@ -46,4 +46,35 @@ public class Role
         }
     }
 
+    public string RoleToString()
+    {
+        string _result = "\nnom : " + this.nameRole + "\n"
+            + "hold : " + this.hold + "\n"
+            + "improve : " + this.improve + "\n"
+            + "social : " + this.ressourceSocial + "\n"
+            + "political : " + this.ressourcePolitical + "\n"
+            + "economical : " + this.ressourceEconomical + "\n";
+
+        return _result;
+    }
+
+    public static bool RoleEquals(Role _role1, Role _role2)
+    {
+        Debug.Log("role 1.25 :\ncompare role \nrole1 : " + _role1.RoleToString() + "\nrole 2 : " + _role2.RoleToString());
+
+        if (_role1.nameRole == _role2.nameRole
+            && _role1.hold == _role2.hold
+            && _role1.improve == _role2.improve
+            && _role1.ressourceEconomical == _role2.ressourceEconomical
+            && _role1.ressourcePolitical == _role2.ressourcePolitical
+            && _role1.ressourceSocial == _role2.ressourceSocial)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

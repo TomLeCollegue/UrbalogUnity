@@ -84,11 +84,17 @@ public class FillRoleList : MonoBehaviour
         {
             //Create a new JSON with this List
             JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles, _fileName);
+            //TODO: update JSONRoles.CurrentRoles
+            //JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson("/roles.json"), JSONRoles.CurrentRoles);
         }
         else //GameSettings.Language == "En"
         {
             JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRolesEN, _fileName);
+            //TODO: update JSONRoles.CurrentRolesEN
+            JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson("/rolesEN.json"), JSONRoles.CurrentRolesEN);
         }
+
+
 
         UpdateList();
     }
