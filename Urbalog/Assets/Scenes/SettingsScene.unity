@@ -2000,6 +2000,8 @@ MonoBehaviour:
   ConfirmButton: {fileID: 1034364279}
   BuildingsListButton: {fileID: 223458521}
   NbBuildingsPerTurnText: {fileID: 2036659989}
+  AddBuildingButton: {fileID: 1626862774}
+  ResetBuildingsButton: {fileID: 495023169}
   TurnTimeLimitText: {fileID: 1429824158}
   TurnTimeLimitToggle: {fileID: 1229534640}
   GameTimeLimitText: {fileID: 1965941034}
@@ -2040,6 +2042,19 @@ MonoBehaviour:
   AddSocialTitle: {fileID: 329648635}
   AddResourceWarning: {fileID: 1706121524}
   AddRoleButtonValidate: {fileID: 738023987}
+  MBDescriptionTitle: {fileID: 1705184708}
+  MBCostTitle: {fileID: 234565412}
+  MBEcoTitle: {fileID: 1960195060}
+  MBSocialTitle: {fileID: 957781104}
+  MBPoliticalTitle: {fileID: 1867045581}
+  MBEffectTitle: {fileID: 727437435}
+  MBEnviTitle: {fileID: 22812840}
+  MBFluidTitle: {fileID: 1809201004}
+  MBAttractTitle: {fileID: 374583750}
+  MBLogisticTitle: {fileID: 495882083}
+  MBLogisticDescription: {fileID: 570113707}
+  MBDelete: {fileID: 581888589}
+  MBApplyChanges: {fileID: 1969840403}
 --- !u!4 &142898700
 Transform:
   m_ObjectHideFlags: 0
@@ -2257,7 +2272,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6183,9 +6198,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -17}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &486425210
 MonoBehaviour:
@@ -6586,7 +6601,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00028123907, y: 0}
-  m_SizeDelta: {x: -1878, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &506378373
 MonoBehaviour:
@@ -6792,10 +6807,10 @@ RectTransform:
   m_Father: {fileID: 129727464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 959, y: -554.4968}
-  m_SizeDelta: {x: 1918, y: 1108.9937}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511578827
 MonoBehaviour:
@@ -21657,7 +21672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1593389811
 RectTransform:
   m_ObjectHideFlags: 0

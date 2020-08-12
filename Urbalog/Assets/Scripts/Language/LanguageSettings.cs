@@ -25,6 +25,9 @@ public class LanguageSettings : MonoBehaviour
     public TextMeshProUGUI ConfirmButton;
     public TextMeshProUGUI BuildingsListButton;
     public TextMeshProUGUI NbBuildingsPerTurnText;
+
+    public TextMeshProUGUI AddBuildingButton;
+    public TextMeshProUGUI ResetBuildingsButton;
     #endregion
 
     [Space(10)]
@@ -98,7 +101,28 @@ public class LanguageSettings : MonoBehaviour
     public TextMeshProUGUI AddRoleButtonValidate;
     #endregion
 
+    [Space(10)]
+    #region Modify Building Panel
+    public TextMeshProUGUI MBDescriptionTitle;
 
+    public TextMeshProUGUI MBCostTitle;
+
+    public TextMeshProUGUI MBEcoTitle;
+    public TextMeshProUGUI MBSocialTitle;
+    public TextMeshProUGUI MBPoliticalTitle;
+
+    public TextMeshProUGUI MBEffectTitle;
+
+    public TextMeshProUGUI MBEnviTitle;
+    public TextMeshProUGUI MBFluidTitle;
+    public TextMeshProUGUI MBAttractTitle;
+    public TextMeshProUGUI MBLogisticTitle;
+    
+    public TextMeshProUGUI MBLogisticDescription;
+
+    public TextMeshProUGUI MBDelete;
+    public TextMeshProUGUI MBApplyChanges;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -109,6 +133,7 @@ public class LanguageSettings : MonoBehaviour
         FillRoleMenu();
         FillModifyRolePanel();
         FillAddRolePanel();
+        FillModifyBuildingPanel();
     }
 
     private void FillRoleMenu()
@@ -127,7 +152,11 @@ public class LanguageSettings : MonoBehaviour
         ConfirmButton.text = Language.CONFIRM_NBBUILDINGS_BUTTON;
         BuildingsListButton.text = Language.BUILDINGS_LIST_BUTTON;
         NbBuildingsPerTurnText.text = Language.BUILDINGSPERTURN_TEXT;
-    }
+
+        //In building List
+        AddBuildingButton.text = Language.ADD_BUILDING_BUTTON;
+        ResetBuildingsButton.text = Language.RESET_BUILDINGS_BUTTON;
+}
 
     private void FillTimerMenu()
     {
@@ -202,4 +231,26 @@ public class LanguageSettings : MonoBehaviour
         AddRoleButtonValidate.text = Language.ADD_ROLE_BUTTON_VALIDATE;
     }
 
+    private void FillModifyBuildingPanel()
+    {
+        MBDescriptionTitle.text = Language.MB_DESCRIPTION_TITLE;
+
+        MBCostTitle.text = Language.MB_COST_TITLE;
+
+        MBEcoTitle.text = Language.MB_ECO_TITLE;
+        MBSocialTitle.text = Language.MB_SOCIAL_TITLE;
+        MBPoliticalTitle.text = Language.MB_POLI_TITLE;
+
+        MBEffectTitle.text = Language.MB_EFFECT_TITLE;
+
+        MBEnviTitle.text = Language.MB_ENVI_TITLE;
+        MBFluidTitle.text = Language.MB_FLUID_TITLE;
+        MBAttractTitle.text = Language.MB_ATTRACT_TITLE;
+        MBLogisticTitle.text = Language.MB_LOGISTIC_TITLE;
+
+        MBLogisticDescription.text = Language.MB_LOGISTIC_DESCRIPTION;
+
+        MBDelete.text = Language.MB_DELETE;
+        MBApplyChanges.text = Language.MB_APPLY_CHANGES;
+    }
 }

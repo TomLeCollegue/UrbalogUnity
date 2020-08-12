@@ -183,6 +183,11 @@
     public static string FR_BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
     public static string EN_BUILDINGSPERTURN_TEXT = "How many buildings can be built per turn";
 
+    public static string FR_ADD_BUILDING_BUTTON = "Ajouter un aménagement";
+    public static string EN_ADD_BUILDING_BUTTON = "Add a building";
+    public static string FR_RESET_BUILDINGS_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string EN_RESET_BUILDINGS_BUTTON = "Reset Buildings to default";
+
     //Timer Menu
     public static string FR_TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
     public static string EN_TURN_TIMER_TEXT = "Time per turn in seconds :";
@@ -286,7 +291,42 @@
     public static string FR_ADD_ROLE_BUTTON_VALIDATE = "Ajouter le rôle dans la liste";
     public static string EN_ADD_ROLE_BUTTON_VALIDATE = "Add role in list";
 
+    //Modify Building Panel
+    public static string FR_MB_DESCRIPTION_TITLE = "Description :";
+    public static string EN_MB_DESCRIPTION_TITLE = "Description :";
+
+    public static string FR_MB_COST_TITLE = "Coûts :";
+    public static string EN_MB_COST_TITLE = "Costs :";
+
+    public static string FR_MB_ECO_TITLE = "Économique :";
+    public static string EN_MB_ECO_TITLE = "Economic :";
+    public static string FR_MB_SOCIAL_TITLE = "Social :";
+    public static string EN_MB_SOCIAL_TITLE = "Social :";
+    public static string FR_MB_POLI_TITLE = "Politique :";
+    public static string EN_MB_POLI_TITLE = "Political :";
+
+    public static string FR_MB_EFFECT_TITLE = "Effets :";
+    public static string EN_MB_EFFECT_TITLE = "Effects :";
+
+    public static string FR_MB_ENVI_TITLE = "Environnement :";
+    public static string EN_MB_ENVI_TITLE = "Environment :";
+    public static string FR_MB_FLUID_TITLE = "Fluidité :";
+    public static string EN_MB_FLUID_TITLE = "Fluidity :";
+    public static string FR_MB_ATTRACT_TITLE = "Attractivité :";
+    public static string EN_MB_ATTRACT_TITLE = "Attractiveness :";
+    public static string FR_MB_LOGISTIC_TITLE = "Logistique :";
+    public static string EN_MB_LOGISTIC_TITLE = "Logistic :";
+
+    public static string FR_MB_LOGISTIC_DESCRIPTION = "Description Logistique :";
+    public static string EN_MB_LOGISTIC_DESCRIPTION = "Logistic Description:";
+
+    public static string FR_MB_DELETE = "Supprimer l'aménagement";
+    public static string EN_MB_DELETE = "Delete this building";
+    public static string FR_MB_APPLY_CHANGES = "Enregistrer les changements";
+    public static string EN_MB_APPLY_CHANGES = "Apply changes";
+
     #endregion
+
 
     #region Form
     public static string FR_PREVIOUS = "Précédent";
@@ -387,6 +427,9 @@
     public static string BUILDINGS_LIST_BUTTON = "Liste des aménagements";
     public static string BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
 
+    public static string ADD_BUILDING_BUTTON = "Ajouter un aménagement";
+    public static string RESET_BUILDINGS_BUTTON = "Réinitialiser aux valeurs par défaut";
+
     //Timer Menu
     public static string TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
     public static string GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
@@ -449,13 +492,29 @@
 
     public static string ADD_RES_WARNING = "Attention : Il faut bien remplir tous les champs. Aussi, l'une des 3 valeurs" +
         " de ressources doit être à 0.";
-    //"Be Careful : You must fill all fields. Also, one of the resources field has to be at 0."
 
     public static string ADD_ROLE_BUTTON_VALIDATE = "Ajouter le rôle dans la liste";
 
+    //Modify Building Panel
+    public static string MB_DESCRIPTION_TITLE = "Description :";
 
+    public static string MB_COST_TITLE = "Coûts :";
 
+    public static string MB_ECO_TITLE = "Économique :";
+    public static string MB_SOCIAL_TITLE = "Social :";
+    public static string MB_POLI_TITLE = "Politique :";
 
+    public static string MB_EFFECT_TITLE = "Effets :";
+
+    public static string MB_ENVI_TITLE = "Environnement :";
+    public static string MB_FLUID_TITLE = "Fluidité :";
+    public static string MB_ATTRACT_TITLE = "Attractivité :";
+    public static string MB_LOGISTIC_TITLE = "Logistique :";
+
+    public static string MB_LOGISTIC_DESCRIPTION = "Description Logistique :";
+
+    public static string MB_DELETE = "Supprimer l'aménagement";
+    public static string MB_APPLY_CHANGES = "Enregistrer les changements";
     #endregion
 
     #region EndGame
@@ -583,8 +642,11 @@
             BUILDINGS_LIST_BUTTON = FR_BUILDINGS_LIST_BUTTON;
             BUILDINGSPERTURN_TEXT = FR_BUILDINGSPERTURN_TEXT;
 
-            //Role Menu
-            ADD_ROLE_BUTTON = FR_ADD_ROLE_BUTTON;
+            ADD_BUILDING_BUTTON = FR_ADD_BUILDING_BUTTON;
+            RESET_BUILDINGS_BUTTON = FR_RESET_BUILDINGS_BUTTON;
+
+    //Role Menu
+    ADD_ROLE_BUTTON = FR_ADD_ROLE_BUTTON;
             RESET_ROLES_BUTTON = FR_RESET_ROLES_BUTTON;
             DELETE_ROLE_BUTTON = FR_DELETE_ROLE_BUTTON;
             APPLY_CHANGES_ROLE_BUTTON = FR_APPLY_CHANGES_ROLE_BUTTON;
@@ -637,6 +699,28 @@
 
             ADD_RES_WARNING = FR_ADD_RES_WARNING;
             ADD_ROLE_BUTTON_VALIDATE = FR_ADD_ROLE_BUTTON_VALIDATE;
+
+            //Modify Building Panel
+            MB_DESCRIPTION_TITLE = FR_MB_DESCRIPTION_TITLE;
+
+            MB_COST_TITLE = FR_MB_COST_TITLE;
+            
+            MB_ECO_TITLE = FR_MB_ECO_TITLE;
+            MB_SOCIAL_TITLE = FR_MB_SOCIAL_TITLE;
+            MB_POLI_TITLE = FR_MB_POLI_TITLE;
+
+            MB_EFFECT_TITLE = FR_MB_EFFECT_TITLE;
+
+            MB_ENVI_TITLE = FR_MB_ENVI_TITLE;
+            MB_FLUID_TITLE = FR_MB_FLUID_TITLE;
+            MB_ATTRACT_TITLE = FR_MB_ATTRACT_TITLE;
+            MB_LOGISTIC_TITLE = FR_MB_LOGISTIC_TITLE;
+
+            MB_LOGISTIC_DESCRIPTION = FR_MB_LOGISTIC_DESCRIPTION;
+
+            MB_DELETE = FR_MB_DELETE;
+            MB_APPLY_CHANGES = FR_MB_APPLY_CHANGES;
+
 
 
 }
@@ -732,6 +816,9 @@
             BUILDINGS_LIST_BUTTON = EN_BUILDINGS_LIST_BUTTON;
             BUILDINGSPERTURN_TEXT = EN_BUILDINGSPERTURN_TEXT;
 
+            ADD_BUILDING_BUTTON = EN_ADD_BUILDING_BUTTON;
+            RESET_BUILDINGS_BUTTON = EN_RESET_BUILDINGS_BUTTON;
+
             //Role Menu
             ADD_ROLE_BUTTON = EN_ADD_ROLE_BUTTON;
             RESET_ROLES_BUTTON = EN_RESET_ROLES_BUTTON;
@@ -784,6 +871,27 @@
 
             ADD_RES_WARNING = EN_ADD_RES_WARNING;
             ADD_ROLE_BUTTON_VALIDATE = EN_ADD_ROLE_BUTTON_VALIDATE;
+
+            //Modify Building Panel
+            MB_DESCRIPTION_TITLE = EN_MB_DESCRIPTION_TITLE;
+
+            MB_COST_TITLE = EN_MB_COST_TITLE;
+
+            MB_ECO_TITLE = EN_MB_ECO_TITLE;
+            MB_SOCIAL_TITLE = EN_MB_SOCIAL_TITLE;
+            MB_POLI_TITLE = EN_MB_POLI_TITLE;
+
+            MB_EFFECT_TITLE = EN_MB_EFFECT_TITLE;
+
+            MB_ENVI_TITLE = EN_MB_ENVI_TITLE;
+            MB_FLUID_TITLE = EN_MB_FLUID_TITLE;
+            MB_ATTRACT_TITLE = EN_MB_ATTRACT_TITLE;
+            MB_LOGISTIC_TITLE = EN_MB_LOGISTIC_TITLE;
+
+            MB_LOGISTIC_DESCRIPTION = EN_MB_LOGISTIC_DESCRIPTION;
+
+            MB_DELETE = EN_MB_DELETE;
+            MB_APPLY_CHANGES = EN_MB_APPLY_CHANGES;
         }
     }
     
