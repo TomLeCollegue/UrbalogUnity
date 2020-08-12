@@ -124,6 +124,30 @@ public class LanguageSettings : MonoBehaviour
     public TextMeshProUGUI MBApplyChanges;
     #endregion
 
+    [Space(10)]
+    #region Add Building Panel
+    public TextMeshProUGUI ABDescriptionTitle;
+
+    public TextMeshProUGUI ABCostTitle;
+
+    public TextMeshProUGUI ABEcoTitle;
+    public TextMeshProUGUI ABSocialTitle;
+    public TextMeshProUGUI ABPoliticalTitle;
+
+    public TextMeshProUGUI ABEffectTitle;
+
+    public TextMeshProUGUI ABEnviTitle;
+    public TextMeshProUGUI ABFluidTitle;
+    public TextMeshProUGUI ABAttractTitle;
+    public TextMeshProUGUI ABLogisticTitle;
+    
+    public TextMeshProUGUI ABLogisticDescription;
+
+    public TextMeshProUGUI ABWarning; //Only ones to change in language
+    public TextMeshProUGUI ABAddButton; //Only ones to change in language
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -134,6 +158,7 @@ public class LanguageSettings : MonoBehaviour
         FillModifyRolePanel();
         FillAddRolePanel();
         FillModifyBuildingPanel();
+        FillAddBuildingPanel();
     }
 
     private void FillRoleMenu()
@@ -252,5 +277,28 @@ public class LanguageSettings : MonoBehaviour
 
         MBDelete.text = Language.MB_DELETE;
         MBApplyChanges.text = Language.MB_APPLY_CHANGES;
+    }
+
+    private void FillAddBuildingPanel()
+    {
+        ABDescriptionTitle.text = Language.MB_DESCRIPTION_TITLE;
+
+        ABCostTitle.text = Language.MB_COST_TITLE;
+
+        ABEcoTitle.text = Language.MB_ECO_TITLE;
+        ABSocialTitle.text = Language.MB_SOCIAL_TITLE;
+        ABPoliticalTitle.text = Language.MB_POLI_TITLE;
+
+        ABEffectTitle.text = Language.MB_EFFECT_TITLE;
+
+        ABEnviTitle.text = Language.MB_ENVI_TITLE;
+        ABFluidTitle.text = Language.MB_FLUID_TITLE;
+        ABAttractTitle.text = Language.MB_ATTRACT_TITLE;
+        ABLogisticTitle.text = Language.MB_LOGISTIC_TITLE;
+
+        ABLogisticDescription.text = Language.MB_LOGISTIC_DESCRIPTION;
+
+        ABWarning.text = Language.AB_WARNING;
+        ABAddButton.text = Language.AB_ADD_BUTTON;
     }
 }

@@ -325,6 +325,12 @@
     public static string FR_MB_APPLY_CHANGES = "Enregistrer les changements";
     public static string EN_MB_APPLY_CHANGES = "Apply changes";
 
+    //Add building Panel
+    //Add building Panel
+    public static string FR_AB_WARNING = "Remplissez bien tous les champs avant d'ajouter l'aménagement.";
+    public static string EN_AB_WARNING = "Fill all the fields before you add the building.";
+    public static string FR_AB_ADD_BUTTON = "Ajouter l'aménagement";
+    public static string EN_AB_ADD_BUTTON = "Add the building";
     #endregion
 
 
@@ -515,6 +521,10 @@
 
     public static string MB_DELETE = "Supprimer l'aménagement";
     public static string MB_APPLY_CHANGES = "Enregistrer les changements";
+
+    //Add building Panel
+    public static string AB_WARNING = "Remplissez bien tous les champs avant d'ajouter l'aménagement.";
+    public static string AB_ADD_BUTTON = "Ajouter l'aménagement";
     #endregion
 
     #region EndGame
@@ -645,8 +655,8 @@
             ADD_BUILDING_BUTTON = FR_ADD_BUILDING_BUTTON;
             RESET_BUILDINGS_BUTTON = FR_RESET_BUILDINGS_BUTTON;
 
-    //Role Menu
-    ADD_ROLE_BUTTON = FR_ADD_ROLE_BUTTON;
+            //Role Menu
+            ADD_ROLE_BUTTON = FR_ADD_ROLE_BUTTON;
             RESET_ROLES_BUTTON = FR_RESET_ROLES_BUTTON;
             DELETE_ROLE_BUTTON = FR_DELETE_ROLE_BUTTON;
             APPLY_CHANGES_ROLE_BUTTON = FR_APPLY_CHANGES_ROLE_BUTTON;
@@ -720,6 +730,10 @@
 
             MB_DELETE = FR_MB_DELETE;
             MB_APPLY_CHANGES = FR_MB_APPLY_CHANGES;
+
+            //Add building panel
+            AB_WARNING = FR_AB_WARNING;
+            AB_ADD_BUTTON = FR_AB_ADD_BUTTON;
 
 
 
@@ -892,6 +906,10 @@
 
             MB_DELETE = EN_MB_DELETE;
             MB_APPLY_CHANGES = EN_MB_APPLY_CHANGES;
+
+            //Add building panel
+            AB_WARNING = EN_AB_WARNING;
+            AB_ADD_BUTTON = EN_AB_ADD_BUTTON;
         }
     }
     
