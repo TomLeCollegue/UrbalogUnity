@@ -866,7 +866,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 119.3
+  m_fontSize: 119.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2009,6 +2009,37 @@ MonoBehaviour:
   DeleteRoleButton: {fileID: 1240365535}
   ApplyChangesRoleButton: {fileID: 957361693}
   AddNewRoleInJSONButton: {fileID: 738023987}
+  ModObjectiveTitle: {fileID: 859276545}
+  ModHoldTitle: {fileID: 1496339393}
+  ModImproveTitle: {fileID: 335129943}
+  ModHoldAttractButton: {fileID: 1449536615}
+  ModHoldEnviButton: {fileID: 1831139741}
+  ModHoldFluidButton: {fileID: 565172037}
+  ModImproveAttractButton: {fileID: 836009433}
+  ModImproveEnviButton: {fileID: 1992324342}
+  ModImproveFluidButton: {fileID: 1085344064}
+  ModResourceTitle: {fileID: 989749075}
+  ModPoliTitle: {fileID: 575225009}
+  ModEcoTitle: {fileID: 1273287962}
+  ModSocialTitle: {fileID: 1777900757}
+  ModResourceWarning: {fileID: 1102073619}
+  ModDeleteRole: {fileID: 1240365535}
+  ModApplyChangesRole: {fileID: 957361693}
+  AddObjectiveTitle: {fileID: 1239831648}
+  AddHoldTitle: {fileID: 1481318136}
+  AddImproveTitle: {fileID: 990682733}
+  AddHoldAttractButton: {fileID: 876718917}
+  AddHoldEnviButton: {fileID: 1619214021}
+  AddHoldFluidButton: {fileID: 383438438}
+  AddImproveAttractButton: {fileID: 1264011285}
+  AddImproveEnviButton: {fileID: 1560391315}
+  AddImproveFluidButton: {fileID: 1641162510}
+  AddResourceTitle: {fileID: 811009282}
+  AddPoliTitle: {fileID: 262807191}
+  AddEcoTitle: {fileID: 1886109756}
+  AddSocialTitle: {fileID: 329648635}
+  AddResourceWarning: {fileID: 1706121524}
+  AddRoleButtonValidate: {fileID: 738023987}
 --- !u!4 &142898700
 Transform:
   m_ObjectHideFlags: 0
@@ -25055,7 +25086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1754004227
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -172,7 +172,6 @@ public class RoleSettingsPanel : MonoBehaviour
     }
 
 
-
     /// <summary>
     /// Changes the role when the admin clicks on "validate changes"
     /// </summary>
@@ -187,11 +186,8 @@ public class RoleSettingsPanel : MonoBehaviour
         if (GameSettings.Language == "Fr")
         {
             _index = JSONRoles.CurrentRoles.IndexOf(currentRole);
-            //Debug.Log("index :" + _index);
-            //Debug.Log("avant nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
 
             JSONRoles.CurrentRoles[_index] = _newRole;
-            //Debug.Log("après nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
 
             //Create a new JSON with this List
             JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, _fileName);
@@ -204,18 +200,6 @@ public class RoleSettingsPanel : MonoBehaviour
 
             JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRolesEN, _fileName);
         }
-
-        ////Take this new role and put it the role list in place of the role.
-        //int _index = JSONRoles.CurrentRoles.IndexOf(currentRole);
-        ////Debug.Log("index :" + _index);
-        ////Debug.Log("avant nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
-
-        //JSONRoles.CurrentRoles[_index] = _newRole;
-        ////Debug.Log("après nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
-
-        ////Create a new JSON with this List
-        //JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, "/roles.json");
-        
 
         //refresh the list
         GameObject.Find("RoleListManager").GetComponent<FillRoleList>().UpdateList();

@@ -82,10 +82,10 @@ public class AdminTableManager : MonoBehaviour
         buildingsEnd.text = NextTurnButton.NumberBuildingsToEnd.ToString();
         buildingsTurn.text = GameSettings.nbBuildingsPerTurn.ToString();
         TimerTurnBool.text = "Timer Turn: " +  GameSettings.isTimerActive.ToString();
-        TimerTurn.text = GameSettings.TurnTimeMax.ToString();
+        TimerTurn.text = GameSettings.TurnTimeMax.ToString() + " s";
         //TimerGameBool;
-        TimerGameBool.text = GameSettings.isGameTimerActive.ToString();
+        TimerGameBool.text = "Timer Game: " + GameSettings.isGameTimerActive.ToString();
         //TimerGame;
-        TimerGame.text = (GameSettings.GameTimerMax / 60).ToString();
+        TimerGame.text = (GameSettings.GameTimerMax / 60).ToString() + " mn";
     }
 }

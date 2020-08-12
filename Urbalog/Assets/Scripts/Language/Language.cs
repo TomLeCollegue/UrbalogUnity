@@ -205,6 +205,87 @@
     public static string FR_ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
     public static string EN_ADD_ROLE_IN_JSON_BUTTON = "Add role in the list";
 
+    //Modify Role Panel
+    public static string FR_MOD_OBJ_TITLE = "Objectifs :";
+    public static string EN_MOD_OBJ_TITLE = "Objectives :";
+
+    public static string FR_MOD_HOLD_TITLE = "Maintenir :";
+    public static string EN_MOD_HOLD_TITLE = "Hold :";
+    public static string FR_MOD_IMPROVE_TITLE = "Améliorer :";
+    public static string EN_MOD_IMPROVE_TITLE = "Improve :";
+
+    public static string FR_MOD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_MOD_HOLD_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_MOD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string EN_MOD_HOLD_ENVI_BUTTON = "Environment";
+    public static string FR_MOD_HOLD_FLUID_BUTTON = "Fluidité";
+    public static string EN_MOD_HOLD_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_MOD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_MOD_IMPROVE_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_MOD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string EN_MOD_IMPROVE_ENVI_BUTTON = "Environment";
+    public static string FR_MOD_IMPROVE_FLUID_BUTTON = "Fluidité";
+    public static string EN_MOD_IMPROVE_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_MOD_RESOURCE_TITLE = "Ressources :";
+    public static string EN_MOD_RESOURCE_TITLE = "Resources :";
+
+    public static string FR_MOD_POLI_TITLE = "Politique :";
+    public static string EN_MOD_POLI_TITLE = "Politic :";
+    public static string FR_MOD_ECO_TITLE = "Économique :";
+    public static string EN_MOD_ECO_TITLE = "Economic :";
+    public static string FR_MOD_SOCIAL_TITLE = "Social :";
+    public static string EN_MOD_SOCIAL_TITLE = "Social :";
+
+    public static string FR_MOD_RES_WARNING = "L'une de ces 3 ressources doit être à 0.";
+    public static string EN_MOD_RES_WARNING = "One of these resources must be at 0.";
+
+    public static string FR_MOD_DELETE_ROLE = "Supprimer le rôle";
+    public static string EN_MOD_DELETE_ROLE = "Delete this role";
+    public static string FR_MOD_APPLY_CHANGES_ROLE = "Modifier le rôle";
+    public static string EN_MOD_APPLY_CHANGES_ROLE = "Apply Changes";
+
+    //Add Role Panel
+    public static string FR_ADD_OBJ_TITLE = "Objectifs :";
+    public static string EN_ADD_OBJ_TITLE = "Objectives :";
+
+    public static string FR_ADD_HOLD_TITLE = "Maintenir :";
+    public static string EN_ADD_HOLD_TITLE = "Hold :";
+    public static string FR_ADD_IMPROVE_TITLE = "Améliorer :";
+    public static string EN_ADD_IMPROVE_TITLE = "Improve :";
+
+    public static string FR_ADD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_ADD_HOLD_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_ADD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string EN_ADD_HOLD_ENVI_BUTTON = "Environment";
+    public static string FR_ADD_HOLD_FLUID_BUTTON = "Fluidité";
+    public static string EN_ADD_HOLD_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_ADD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_ADD_IMPROVE_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_ADD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string EN_ADD_IMPROVE_ENVI_BUTTON = "Environment";
+    public static string FR_ADD_IMPROVE_FLUID_BUTTON = "Fluidité";
+    public static string EN_ADD_IMPROVE_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_ADD_RESOURCE_TITLE = "Ressources :";
+    public static string EN_ADD_RESOURCE_TITLE = "Resources:";
+
+    public static string FR_ADD_POLI_TITLE = "Politique :";
+    public static string EN_ADD_POLI_TITLE = "Politic:";
+    public static string FR_ADD_ECO_TITLE = "Économique :";
+    public static string EN_ADD_ECO_TITLE = "Economic:";
+    public static string FR_ADD_SOCIAL_TITLE = "Social :";
+    public static string EN_ADD_SOCIAL_TITLE = "Social :";
+
+    public static string FR_ADD_RES_WARNING = "Attention : Il faut bien remplir tous les champs. Aussi, l'une des 3 valeurs" +
+        " de ressources doit être à 0.";
+    public static string EN_ADD_RES_WARNING = "Be Careful : You must fill all fields. Also, one of the resources field has to be at 0.";
+
+    public static string FR_ADD_ROLE_BUTTON_VALIDATE = "Ajouter le rôle dans la liste";
+    public static string EN_ADD_ROLE_BUTTON_VALIDATE = "Add role in list";
+
     #endregion
 
     #region Form
@@ -318,6 +399,62 @@
     public static string DELETE_ROLE_BUTTON = "Supprimer le rôle";
     public static string APPLY_CHANGES_ROLE_BUTTON = "Modifier le rôle";
     public static string ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
+
+
+    //Modify Role Panel
+    public static string MOD_OBJ_TITLE = "Objectifs :";
+
+    public static string MOD_HOLD_TITLE = "Maintenir :";
+    public static string MOD_IMPROVE_TITLE = "Améliorer :";
+
+    public static string MOD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string MOD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string MOD_HOLD_FLUID_BUTTON = "Fluidité";    
+    
+    public static string MOD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string MOD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string MOD_IMPROVE_FLUID_BUTTON = "Fluidité";
+
+    public static string MOD_RESOURCE_TITLE = "Ressources :";
+
+    public static string MOD_POLI_TITLE = "Politique :";
+    public static string MOD_ECO_TITLE = "Économique :";
+    public static string MOD_SOCIAL_TITLE = "Social :";
+
+    public static string MOD_RES_WARNING = "L'une de ces 3 ressources doit être à 0.";
+
+    public static string MOD_DELETE_ROLE = "Supprimer le rôle";
+    public static string MOD_APPLY_CHANGES_ROLE = "Modifier le rôle";
+
+
+    //Add Role Panel
+    public static string ADD_OBJ_TITLE = "Objectifs :";
+
+    public static string ADD_HOLD_TITLE = "Maintenir :";
+    public static string ADD_IMPROVE_TITLE = "Améliorer :";
+
+    public static string ADD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string ADD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string ADD_HOLD_FLUID_BUTTON = "Fluidité";
+
+    public static string ADD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string ADD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string ADD_IMPROVE_FLUID_BUTTON = "Fluidité";
+
+    public static string ADD_RESOURCE_TITLE = "Ressources :";
+
+    public static string ADD_POLI_TITLE = "Politique :";
+    public static string ADD_ECO_TITLE = "Économique :";
+    public static string ADD_SOCIAL_TITLE = "Social :";
+
+    public static string ADD_RES_WARNING = "Attention : Il faut bien remplir tous les champs. Aussi, l'une des 3 valeurs" +
+        " de ressources doit être à 0.";
+    //"Be Careful : You must fill all fields. Also, one of the resources field has to be at 0."
+
+    public static string ADD_ROLE_BUTTON_VALIDATE = "Ajouter le rôle dans la liste";
+
+
+
 
     #endregion
 
@@ -440,8 +577,8 @@
             CENTRAL_TABLET_TOGGLE = FR_CENTRAL_TABLET_TOGGLE;
             CENTRAL_TABLET_WARNING = FR_CENTRAL_TABLET_WARNING;
 
-    //Buildings Menu
-    BUILDINGSTOEND_TEXT = FR_BUILDINGSTOEND_TEXT;
+            //Buildings Menu
+            BUILDINGSTOEND_TEXT = FR_BUILDINGSTOEND_TEXT;
             CONFIRM_NBBUILDINGS_BUTTON = FR_CONFIRM_NBBUILDINGS_BUTTON;
             BUILDINGS_LIST_BUTTON = FR_BUILDINGS_LIST_BUTTON;
             BUILDINGSPERTURN_TEXT = FR_BUILDINGSPERTURN_TEXT;
@@ -452,6 +589,56 @@
             DELETE_ROLE_BUTTON = FR_DELETE_ROLE_BUTTON;
             APPLY_CHANGES_ROLE_BUTTON = FR_APPLY_CHANGES_ROLE_BUTTON;
             ADD_ROLE_IN_JSON_BUTTON = FR_ADD_ROLE_IN_JSON_BUTTON;
+
+
+            //Modify Role Panel
+            MOD_OBJ_TITLE = FR_MOD_OBJ_TITLE;
+            MOD_HOLD_TITLE = FR_MOD_HOLD_TITLE;
+            MOD_IMPROVE_TITLE = FR_MOD_IMPROVE_TITLE;
+
+            MOD_HOLD_ATTRACT_BUTTON = FR_MOD_HOLD_ATTRACT_BUTTON;
+            MOD_HOLD_ENVI_BUTTON = FR_MOD_HOLD_ENVI_BUTTON;
+            MOD_HOLD_FLUID_BUTTON = FR_MOD_HOLD_FLUID_BUTTON;
+
+            MOD_IMPROVE_ATTRACT_BUTTON = FR_MOD_IMPROVE_ATTRACT_BUTTON;
+            MOD_IMPROVE_ENVI_BUTTON = FR_MOD_IMPROVE_ENVI_BUTTON;
+            MOD_IMPROVE_FLUID_BUTTON = FR_MOD_IMPROVE_FLUID_BUTTON;
+
+            MOD_RESOURCE_TITLE = FR_MOD_RESOURCE_TITLE;
+
+            MOD_POLI_TITLE = FR_MOD_POLI_TITLE;
+            MOD_ECO_TITLE = FR_MOD_ECO_TITLE;
+            MOD_SOCIAL_TITLE = FR_MOD_SOCIAL_TITLE;
+
+            MOD_RES_WARNING = FR_MOD_RES_WARNING;
+
+            MOD_DELETE_ROLE = FR_MOD_DELETE_ROLE;
+            MOD_APPLY_CHANGES_ROLE = FR_MOD_APPLY_CHANGES_ROLE;
+
+
+            //Add Role Panel
+            ADD_OBJ_TITLE = FR_ADD_OBJ_TITLE;
+            ADD_HOLD_TITLE = FR_ADD_HOLD_TITLE;
+            ADD_IMPROVE_TITLE = FR_ADD_IMPROVE_TITLE;
+
+            ADD_HOLD_ATTRACT_BUTTON = FR_ADD_HOLD_ATTRACT_BUTTON;
+            ADD_HOLD_ENVI_BUTTON = FR_ADD_HOLD_ENVI_BUTTON;
+            ADD_HOLD_FLUID_BUTTON = FR_ADD_HOLD_FLUID_BUTTON;
+
+            ADD_IMPROVE_ATTRACT_BUTTON = FR_ADD_IMPROVE_ATTRACT_BUTTON;
+            ADD_IMPROVE_ENVI_BUTTON = FR_ADD_IMPROVE_ENVI_BUTTON;
+            ADD_IMPROVE_FLUID_BUTTON = FR_ADD_IMPROVE_FLUID_BUTTON;
+
+            ADD_RESOURCE_TITLE = FR_ADD_RESOURCE_TITLE;
+
+            ADD_POLI_TITLE = FR_ADD_POLI_TITLE;
+            ADD_ECO_TITLE = FR_ADD_ECO_TITLE;
+            ADD_SOCIAL_TITLE = FR_ADD_SOCIAL_TITLE;
+
+            ADD_RES_WARNING = FR_ADD_RES_WARNING;
+            ADD_ROLE_BUTTON_VALIDATE = FR_ADD_ROLE_BUTTON_VALIDATE;
+
+
 }
         if (language.Equals("En"))
         {
@@ -551,6 +738,52 @@
             DELETE_ROLE_BUTTON = EN_DELETE_ROLE_BUTTON;
             APPLY_CHANGES_ROLE_BUTTON = EN_APPLY_CHANGES_ROLE_BUTTON;
             ADD_ROLE_IN_JSON_BUTTON = EN_ADD_ROLE_IN_JSON_BUTTON;
+
+            //Modify Role Panel
+            MOD_OBJ_TITLE = EN_MOD_OBJ_TITLE;
+            MOD_HOLD_TITLE = EN_MOD_HOLD_TITLE;
+            MOD_IMPROVE_TITLE = EN_MOD_IMPROVE_TITLE;
+
+            MOD_HOLD_ATTRACT_BUTTON = EN_MOD_HOLD_ATTRACT_BUTTON;
+            MOD_HOLD_ENVI_BUTTON = EN_MOD_HOLD_ENVI_BUTTON;
+            MOD_HOLD_FLUID_BUTTON = EN_MOD_HOLD_FLUID_BUTTON;
+
+            MOD_IMPROVE_ATTRACT_BUTTON = EN_MOD_IMPROVE_ATTRACT_BUTTON;
+            MOD_IMPROVE_ENVI_BUTTON = EN_MOD_IMPROVE_ENVI_BUTTON;
+            MOD_IMPROVE_FLUID_BUTTON = EN_MOD_IMPROVE_FLUID_BUTTON;
+
+            MOD_RESOURCE_TITLE = EN_MOD_RESOURCE_TITLE;
+
+            MOD_POLI_TITLE = EN_MOD_POLI_TITLE;
+            MOD_ECO_TITLE = EN_MOD_ECO_TITLE;
+            MOD_SOCIAL_TITLE = EN_MOD_SOCIAL_TITLE;
+
+            MOD_RES_WARNING = EN_MOD_RES_WARNING;
+
+            MOD_DELETE_ROLE = EN_MOD_DELETE_ROLE;
+            MOD_APPLY_CHANGES_ROLE = EN_MOD_APPLY_CHANGES_ROLE;
+
+            //Add Role Panel
+            ADD_OBJ_TITLE = EN_ADD_OBJ_TITLE;
+            ADD_HOLD_TITLE = EN_ADD_HOLD_TITLE;
+            ADD_IMPROVE_TITLE = EN_ADD_IMPROVE_TITLE;
+
+            ADD_HOLD_ATTRACT_BUTTON = EN_ADD_HOLD_ATTRACT_BUTTON;
+            ADD_HOLD_ENVI_BUTTON = EN_ADD_HOLD_ENVI_BUTTON;
+            ADD_HOLD_FLUID_BUTTON = EN_ADD_HOLD_FLUID_BUTTON;
+
+            ADD_IMPROVE_ATTRACT_BUTTON = EN_ADD_IMPROVE_ATTRACT_BUTTON;
+            ADD_IMPROVE_ENVI_BUTTON = EN_ADD_IMPROVE_ENVI_BUTTON;
+            ADD_IMPROVE_FLUID_BUTTON = EN_ADD_IMPROVE_FLUID_BUTTON;
+
+            ADD_RESOURCE_TITLE = EN_ADD_RESOURCE_TITLE;
+
+            ADD_POLI_TITLE = EN_ADD_POLI_TITLE;
+            ADD_ECO_TITLE = EN_ADD_ECO_TITLE;
+            ADD_SOCIAL_TITLE = EN_ADD_SOCIAL_TITLE;
+
+            ADD_RES_WARNING = EN_ADD_RES_WARNING;
+            ADD_ROLE_BUTTON_VALIDATE = EN_ADD_ROLE_BUTTON_VALIDATE;
         }
     }
     

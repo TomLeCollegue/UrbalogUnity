@@ -239,6 +239,38 @@
             "logisticScore": -2,
             "logisticDescription": "Cette zone, non franchissable avec des outils de manutention, gêne la livraison.",
             "nameForSprite": "Zone végétalisée"
+        },
+        {
+            "name": "test",
+            "description": "tetesss",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 1,
+            "fluidScore": 1,
+            "attractScore": 1,
+            "logisticScore": 1,
+            "logisticDescription": "hjsjsjsj",
+            "nameForSprite": "DEFAULT"
+        },
+        {
+            "name": "tertergeh",
+            "description": "gdgdgdg",
+            "Economical": 1,
+            "Social": 1,
+            "Political": 1,
+            "FinanceEconomical": 0,
+            "FinanceSocial": 0,
+            "FinancePolitical": 0,
+            "enviScore": 2,
+            "fluidScore": 2,
+            "attractScore": 2,
+            "logisticScore": 7,
+            "logisticDescription": "drhehehes",
+            "nameForSprite": "DEFAULT"
         }
     ]
 }
