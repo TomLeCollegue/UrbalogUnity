@@ -381,8 +381,30 @@ public class SettingsMenu : MonoBehaviour
         Building _buildingToAdd = CreateNewBuildingWithInputFieldsInAddPanel();
         JSONBuildings.AddInJson(_buildingToAdd);
         RefreshBuildingsList();
+        ResetAddBuildingPanelInputsToNull();
         CloseAddBuildingPanel();
     }
 
+    /// <summary>
+    /// When called, resets all the input fields in the add building panel to 0 or nothing
+    /// </summary>
+    private void ResetAddBuildingPanelInputsToNull()
+    {
+        addNameInput.text = "...";
 
+        AddDescriptionInput.text = "...";
+
+        AddEcoInput.text = "";
+        AddSocInput.text = "";
+        AddPoliInput.text = "";
+
+        AddEnviInput.text = "";
+        AddFluidInput.text = "";
+        AddAttractInput.text = "";
+        
+        AddLogiInput.text = "";
+
+        AddLogisticDescriptionInput.text = "";
+
+    }
 }
