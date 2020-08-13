@@ -409,6 +409,42 @@ public class RoleSettingsPanel : MonoBehaviour
         return _result;
     }
 
+    /// <summary> 
+    /// Resets the add role buttons to defaut values 
+    /// </summary> 
+    private void ResetAddRolePanelButtonsToNull()
+    {
+        //Hold 
+        addHoldAttractIsPressed = false;
+        addHoldEnviIsPressed = false;
+        addHoldFluidIsPressed = false;
+
+        addHoldAttractButtonText.color = Color.black;
+        addHoldEnviButtonText.color = Color.black;
+        addHoldFluidButtonText.color = Color.black;
+
+        //Improve 
+        addImproveAttractIsPressed = false;
+        addImproveEnviIsPressed = false;
+        addImproveFluidIsPressed = false;
+
+        addImproveAttractButtonText.color = Color.black;
+        addImproveEnviButtonText.color = Color.black;
+        addImproveFluidButtonText.color = Color.black;
+    }
+
+    /// <summary> 
+    /// Takes a panel and empties its input fields 
+    /// </summary> 
+    private void ResetAddRolePanelInputFieldsToNull()
+    {
+        addRoleNameInput.text = "";
+
+        addPoliNumberInput.text = "";
+        addEcoNumberInput.text = "";
+        addSocialNumberInput.text = "";
+    }
+
     /// <summary>
     /// Delete Role from JSON and then refresh display list
     /// </summary>
