@@ -118,48 +118,8 @@ public class RoleSettingsPanel : MonoBehaviour
     {
         if (addRolePanel != null)
         {
-            //reset input fields
-            ResetAddRolePanelInputFieldsToNull();
-            ResetAddRolePanelButtonsToNull();
-
             addRolePanel.SetActive(true);
         }
-    }
-
-    /// <summary>
-    /// Resets the add role buttons to defaut values
-    /// </summary>
-    private void ResetAddRolePanelButtonsToNull()
-    {
-        //Hold
-        addHoldAttractIsPressed = false;
-        addHoldEnviIsPressed = false;
-        addHoldFluidIsPressed = false;
-
-        addHoldAttractButtonText.color = Color.black;
-        addHoldEnviButtonText.color = Color.black;
-        addHoldFluidButtonText.color = Color.black;
-
-        //Improve
-        addImproveAttractIsPressed = false;
-        addImproveEnviIsPressed = false;
-        addImproveFluidIsPressed = false;
-
-        addImproveAttractButtonText.color = Color.black;
-        addImproveEnviButtonText.color = Color.black;
-        addImproveFluidButtonText.color = Color.black;
-    }
-
-    /// <summary>
-    /// Takes a panel and empties its input fields
-    /// </summary>
-    private void ResetAddRolePanelInputFieldsToNull()
-    {
-        addRoleNameInput.text = "";
-
-        addPoliNumberInput.text = "";
-        addEcoNumberInput.text = "";
-        addSocialNumberInput.text = "";
     }
 
     public void CloseAddRolePanel()

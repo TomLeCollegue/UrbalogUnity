@@ -49,56 +49,6 @@
             "ressourceEconomical": 4,
             "ressource1": "Economical",
             "ressource2": "Political"
-        },
-        {
-            "nameRole": "test",
-            "hold": "Attractiveness",
-            "improve": "Environment",
-            "ressourceSocial": 1,
-            "ressourcePolitical": 11,
-            "ressourceEconomical": 1,
-            "ressource1": "Economical",
-            "ressource2": "Political"
-        },
-        {
-            "nameRole": "test",
-            "hold": "Environment",
-            "improve": "Fluidity",
-            "ressourceSocial": 2,
-            "ressourcePolitical": 22,
-            "ressourceEconomical": 2,
-            "ressource1": "Economical",
-            "ressource2": "Political"
-        },
-        {
-            "nameRole": "Morgane",
-            "hold": "Attractiveness",
-            "improve": "Environment",
-            "ressourceSocial": 7,
-            "ressourcePolitical": 6,
-            "ressourceEconomical": 7,
-            "ressource1": "Economical",
-            "ressource2": "Political"
-        },
-        {
-            "nameRole": "Morgane Je t'aime",
-            "hold": "Attractiveness",
-            "improve": "Fluidity",
-            "ressourceSocial": 2,
-            "ressourcePolitical": 6,
-            "ressourceEconomical": 8,
-            "ressource1": "Economical",
-            "ressource2": "Political"
-        },
-        {
-            "nameRole": "M",
-            "hold": "Environment",
-            "improve": "Attractiveness",
-            "ressourceSocial": 5,
-            "ressourcePolitical": 5,
-            "ressourceEconomical": 5,
-            "ressource1": "Economical",
-            "ressource2": "Political"
         }
     ]
 }
