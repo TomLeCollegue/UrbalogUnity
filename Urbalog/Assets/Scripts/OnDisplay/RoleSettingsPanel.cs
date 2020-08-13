@@ -244,6 +244,10 @@ public class RoleSettingsPanel : MonoBehaviour
         CloseAddRolePanel();
         Debug.Log("add role 4");
 
+        //reset input fields in add role panel
+        ResetAddRolePanelInputFieldsToNull();
+        ResetAddRolePanelButtonsToNull();
+
         //Refresh the list
         GameObject.Find("RoleListManager").GetComponent<FillRoleList>().UpdateList();
         Debug.Log("add role 5");
