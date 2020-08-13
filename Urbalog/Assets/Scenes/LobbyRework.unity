@@ -14848,6 +14848,7 @@ MonoBehaviour:
     attractScore: 0
     logisticScore: 0
     logisticDescription: 
+    nameForSprite: 
   panel: {fileID: 0}
   NameInput: {fileID: 0}
   descriptionInput: {fileID: 0}
@@ -14859,7 +14860,7 @@ MonoBehaviour:
   attractInput: {fileID: 0}
   logiInput: {fileID: 0}
   LogisticDescriptionInput: {fileID: 0}
-  addPanel: {fileID: 0}
+  addBuildingPanel: {fileID: 0}
   addNameInput: {fileID: 0}
   AddDescriptionInput: {fileID: 0}
   AddEcoInput: {fileID: 0}
@@ -14870,10 +14871,16 @@ MonoBehaviour:
   AddAttractInput: {fileID: 0}
   AddLogiInput: {fileID: 0}
   AddLogisticDescriptionInput: {fileID: 0}
+  addRolePanel: {fileID: 0}
   timerPlaceholder: {fileID: 0}
+  turnTimerToggle: {fileID: 0}
+  GameTimerPlaceholder: {fileID: 0}
+  gameTimerToggle: {fileID: 0}
   nbBuildingsMaxPerTurnPlaceholder: {fileID: 0}
   nbbuildingsForEnding: {fileID: 0}
   displayList: {fileID: 0}
+  ServerToggle: {fileID: 0}
+  TabletToggle: {fileID: 0}
 --- !u!1 &1526576431
 GameObject:
   m_ObjectHideFlags: 0
@@ -16890,6 +16897,7 @@ MonoBehaviour:
   compagny: {fileID: 1662649052}
   status: {fileID: 491941248}
   activity: {fileID: 1224886297}
+  WarmUpButton: {fileID: 471199691}
 --- !u!4 &1743353261
 Transform:
   m_ObjectHideFlags: 0

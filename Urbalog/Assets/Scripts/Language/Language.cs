@@ -21,9 +21,12 @@
 
         public static string FR_PSEUDO = "Votre pseudo";
         public static string EN_PSEUDO = "Your pseudo";
+
+    public static string FR_WARMUP_BUTTON = "Tour de chauffe";
+    public static string EN_WARMUP_BUTTON = "Warm-up game";
     #endregion
     #region PlayerView
-        public static string FR_OBJECTIF = "OBJECTIF";
+    public static string FR_OBJECTIF = "OBJECTIF";
         public static string EN_OBJECTIVES = "OBJECTIVES";
 
         public static string FR_HOLD = "Maintenir";
@@ -371,6 +374,7 @@
     public static string HOST_GAME = "Héberger une partie";
     public static string CREATE_GAME = "Créer la partie";
     public static string PSEUDO = "Votre pseudo";
+    public static string WARMUP_BUTTON = "Tour de chauffe";
     #endregion
     #region PlayerView
     public static string OBJECTIF = "OBJECTIF"; 
@@ -570,7 +574,10 @@
             SERVEURS = FR_SERVEURS;
             HOST_GAME = FR_HOST_GAME;
             CREATE_GAME = FR_CREATE_GAME;
-            PSEUDO = FR_PSEUDO;
+
+            WARMUP_BUTTON = FR_WARMUP_BUTTON;
+
+    PSEUDO = FR_PSEUDO;
             OBJECTIF = FR_OBJECTIF;
             HOLD = FR_HOLD;
             IMPROVE = FR_IMPROVE;
@@ -748,6 +755,9 @@
             SERVEURS = EN_SERVEURS;
             HOST_GAME = EN_HOST_GAME;
             CREATE_GAME = EN_CREATE_GAME;
+
+            WARMUP_BUTTON = EN_WARMUP_BUTTON;
+
             PSEUDO = EN_PSEUDO;
             OBJECTIF = EN_OBJECTIVES;
             HOLD = EN_HOLD;

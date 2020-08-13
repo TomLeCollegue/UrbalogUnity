@@ -36,6 +36,8 @@ public class LanguageMenu : MonoBehaviour
     public TextMeshProUGUI status;
     public TextMeshProUGUI activity;
 
+    public TextMeshProUGUI WarmUpButton;
+
     void FillForm()
     {
         Previous1.text = Language.PREVIOUS;
@@ -92,6 +94,7 @@ public class LanguageMenu : MonoBehaviour
         Host_a_Game.text = Language.HOST_GAME;
         CreateGame.text = Language.CREATE_GAME;
         Pseudo.text = Language.PSEUDO;
+        WarmUpButton.text = Language.WARMUP_BUTTON ;
     }
 
 
