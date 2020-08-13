@@ -34,9 +34,7 @@ public class GameManager : MonoBehaviour
             game.FillPiocheAtTheBeginning();
         }
             
-        //game.FillDeckBuildings();
         game.FillMarket();
-        //game.FillRoles();
         game.fillRolesFromJson();
 
     }

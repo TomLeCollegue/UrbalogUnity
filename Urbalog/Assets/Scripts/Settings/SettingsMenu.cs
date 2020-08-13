@@ -221,8 +221,16 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void ChangeBuildingSettings()
     {
-        Building[] _buildings = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
-        //Building[] _buildings = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
+        string _fileName;
+        if (GameSettings.Language == "Fr")
+        {
+            _fileName = "/buildings.json";
+        }
+        else //GameSettings.Language == "En"
+        {
+            _fileName = "/buildingsEN.json";
+        }
+        Building[] _buildings = JSONBuildings.loadBuildingsFromJSON(_fileName);
 
         Building _newBuilding = CreateNewBuildingWithInputFields();
 
@@ -232,14 +240,13 @@ public class SettingsMenu : MonoBehaviour
             {
                 _buildings[i] = _newBuilding;
                 //savedansJSON (_buildings)
-                JSONBuildings.CreateBuildingJSONWithBuildings(_buildings);
+                JSONBuildings.CreateBuildingJSONWithBuildings(_buildings, _fileName);
             }
         }
         CloseBuildingSettingsPanel();
 
         RefreshBuildingsList();
 
-        //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
     }
 
     /// <summary>
@@ -344,7 +351,14 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void ResetBuildingsToDefault()
     {
-        JSONBuildings.CreateBuildingsJSONWithDeck(JSONBuildings.DefaultDeck);
+        if (GameSettings.Language == "Fr")
+        {
+            JSONBuildings.CreateBuildingsJSONWithDeck("/buildings.json",JSONBuildings.DefaultDeck);
+        }
+        else if (GameSettings.Language == "En")
+        {
+            JSONBuildings.CreateBuildingsJSONWithDeck("/buildingsEN.json",JSONBuildings.DefaultDeckEN);
+        }
         RefreshBuildingsList();
     }
 

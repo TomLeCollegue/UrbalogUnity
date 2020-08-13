@@ -65,7 +65,7 @@
             "nameForSprite": "Petit magasin"
         },
         {
-            "name": "Poser la poste",
+            "name": "Poste",
             "description": "Bureau de poste",
             "Economical": 2,
             "Social": 1,

@@ -86,6 +86,6 @@ public class AdminTableManager : MonoBehaviour
         //TimerGameBool;
         TimerGameBool.text = "Timer Game: " + GameSettings.isGameTimerActive.ToString();
         //TimerGame;
-        TimerGame.text = (GameSettings.GameTimerMax / 60).ToString() + " mn" ;
+        TimerGame.text = (GameSettings.GameTimerMax / 60).ToString() + " mn";
     }
 }

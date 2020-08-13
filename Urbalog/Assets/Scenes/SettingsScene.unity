@@ -866,7 +866,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 119.3
+  m_fontSize: 119.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2000,6 +2000,8 @@ MonoBehaviour:
   ConfirmButton: {fileID: 1034364279}
   BuildingsListButton: {fileID: 223458521}
   NbBuildingsPerTurnText: {fileID: 2036659989}
+  AddBuildingButton: {fileID: 1626862774}
+  ResetBuildingsButton: {fileID: 495023169}
   TurnTimeLimitText: {fileID: 1429824158}
   TurnTimeLimitToggle: {fileID: 1229534640}
   GameTimeLimitText: {fileID: 1965941034}
@@ -2009,6 +2011,63 @@ MonoBehaviour:
   DeleteRoleButton: {fileID: 1240365535}
   ApplyChangesRoleButton: {fileID: 957361693}
   AddNewRoleInJSONButton: {fileID: 738023987}
+  ModObjectiveTitle: {fileID: 859276545}
+  ModHoldTitle: {fileID: 1496339393}
+  ModImproveTitle: {fileID: 335129943}
+  ModHoldAttractButton: {fileID: 1449536615}
+  ModHoldEnviButton: {fileID: 1831139741}
+  ModHoldFluidButton: {fileID: 565172037}
+  ModImproveAttractButton: {fileID: 836009433}
+  ModImproveEnviButton: {fileID: 1992324342}
+  ModImproveFluidButton: {fileID: 1085344064}
+  ModResourceTitle: {fileID: 989749075}
+  ModPoliTitle: {fileID: 575225009}
+  ModEcoTitle: {fileID: 1273287962}
+  ModSocialTitle: {fileID: 1777900757}
+  ModResourceWarning: {fileID: 1102073619}
+  ModDeleteRole: {fileID: 1240365535}
+  ModApplyChangesRole: {fileID: 957361693}
+  AddObjectiveTitle: {fileID: 1239831648}
+  AddHoldTitle: {fileID: 1481318136}
+  AddImproveTitle: {fileID: 990682733}
+  AddHoldAttractButton: {fileID: 876718917}
+  AddHoldEnviButton: {fileID: 1619214021}
+  AddHoldFluidButton: {fileID: 383438438}
+  AddImproveAttractButton: {fileID: 1264011285}
+  AddImproveEnviButton: {fileID: 1560391315}
+  AddImproveFluidButton: {fileID: 1641162510}
+  AddResourceTitle: {fileID: 811009282}
+  AddPoliTitle: {fileID: 262807191}
+  AddEcoTitle: {fileID: 1886109756}
+  AddSocialTitle: {fileID: 329648635}
+  AddResourceWarning: {fileID: 1706121524}
+  AddRoleButtonValidate: {fileID: 738023987}
+  MBDescriptionTitle: {fileID: 1705184708}
+  MBCostTitle: {fileID: 234565412}
+  MBEcoTitle: {fileID: 1960195060}
+  MBSocialTitle: {fileID: 957781104}
+  MBPoliticalTitle: {fileID: 1867045581}
+  MBEffectTitle: {fileID: 727437435}
+  MBEnviTitle: {fileID: 22812840}
+  MBFluidTitle: {fileID: 1809201004}
+  MBAttractTitle: {fileID: 374583750}
+  MBLogisticTitle: {fileID: 495882083}
+  MBLogisticDescription: {fileID: 570113707}
+  MBDelete: {fileID: 581888589}
+  MBApplyChanges: {fileID: 1969840403}
+  ABDescriptionTitle: {fileID: 1933968066}
+  ABCostTitle: {fileID: 1989355703}
+  ABEcoTitle: {fileID: 1404646261}
+  ABSocialTitle: {fileID: 1860297677}
+  ABPoliticalTitle: {fileID: 1639619325}
+  ABEffectTitle: {fileID: 1769852785}
+  ABEnviTitle: {fileID: 199279776}
+  ABFluidTitle: {fileID: 1702564078}
+  ABAttractTitle: {fileID: 1920112265}
+  ABLogisticTitle: {fileID: 1515896607}
+  ABLogisticDescription: {fileID: 1664308996}
+  ABWarning: {fileID: 126036869}
+  ABAddButton: {fileID: 946122602}
 --- !u!4 &142898700
 Transform:
   m_ObjectHideFlags: 0
@@ -10807,6 +10866,7 @@ MonoBehaviour:
     attractScore: 0
     logisticScore: 0
     logisticDescription: 
+    nameForSprite: 
   panel: {fileID: 1754004226}
   NameInput: {fileID: 2002210075}
   descriptionInput: {fileID: 279502363}
@@ -10818,7 +10878,7 @@ MonoBehaviour:
   attractInput: {fileID: 1674202445}
   logiInput: {fileID: 578152010}
   LogisticDescriptionInput: {fileID: 985719089}
-  addBuildingPanel: {fileID: 0}
+  addBuildingPanel: {fileID: 1103792316}
   addNameInput: {fileID: 1733002857}
   AddDescriptionInput: {fileID: 1452028021}
   AddEcoInput: {fileID: 1086902588}
@@ -10829,7 +10889,7 @@ MonoBehaviour:
   AddAttractInput: {fileID: 307606454}
   AddLogiInput: {fileID: 902921318}
   AddLogisticDescriptionInput: {fileID: 1360782949}
-  addRolePanel: {fileID: 0}
+  addRolePanel: {fileID: 1822538628}
   timerPlaceholder: {fileID: 1913823498}
   turnTimerToggle: {fileID: 838755088}
   GameTimerPlaceholder: {fileID: 1952910516}

@@ -172,31 +172,34 @@ public class RoleSettingsPanel : MonoBehaviour
     }
 
 
-
     /// <summary>
     /// Changes the role when the admin clicks on "validate changes"
     /// </summary>
     public void ValidateRoleChanges()
     {
-        //import role List from Json
-        //List<Role> _newList = JSONRoles.CurrentRoles;
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+        int _index;
 
         //Create a new role with inputField and button values
         Role _newRole = CreateNewRoleWithInputValues();
-        //Debug.Log("rôle courant :"+currentRole.nameRole);
-        //Debug.Log("rôle nouveau :"+_newRole.nameRole);
-        
-        //Take this new role and put it the role list in place of the role.
-        int _index = JSONRoles.CurrentRoles.IndexOf(currentRole);
-        //Debug.Log("index :" + _index);
-        //Debug.Log("avant nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
 
-        JSONRoles.CurrentRoles[_index] = _newRole;
-        //Debug.Log("après nouveau rôle : "+JSONRoles.RoleListToString(JSONRoles.CurrentRoles));
+        if (GameSettings.Language == "Fr")
+        {
+            _index = JSONRoles.CurrentRoles.IndexOf(currentRole);
 
-        //Create a new JSON with this List
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles);
-        
+            JSONRoles.CurrentRoles[_index] = _newRole;
+
+            //Create a new JSON with this List
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, _fileName);
+        }
+        else //GameSettings.Language == "En"
+        {
+            _index = GetIndexFromRoleInRoleList(JSONRoles.CurrentRolesEN, currentRole);
+
+            JSONRoles.CurrentRolesEN[_index] = _newRole;
+
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRolesEN, _fileName);
+        }
 
         //refresh the list
         GameObject.Find("RoleListManager").GetComponent<FillRoleList>().UpdateList();
@@ -210,17 +213,32 @@ public class RoleSettingsPanel : MonoBehaviour
     /// </summary>
     public void AddRole()
     {
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+
         //Create Role with Input Values
         Role _newRole = CreateNewRoleWithInputValuesInAddPanel();
         Debug.Log("add role 1");
 
-        //Adds into JSON.CurrentRoles
-        JSONRoles.CurrentRoles.Add(_newRole);
-        Debug.Log("add role 2");
+        if (GameSettings.Language == "Fr")
+        {
+            //Adds into JSON.CurrentRoles
+            JSONRoles.CurrentRoles.Add(_newRole);
+            Debug.Log("add role 2");
 
-        //CreateNewJsonRole with JSON.CurrentRoles
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles);
-        Debug.Log("add role 3");
+            //CreateNewJsonRole with JSON.CurrentRoles
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, _fileName);
+            Debug.Log("add role 3");
+        }
+        else //GameSettings.Language == "En"
+        {
+            //Adds into JSON.CurrentRoles
+            JSONRoles.CurrentRolesEN.Add(_newRole);
+            Debug.Log("add role 2");
+
+            //CreateNewJsonRole with JSON.CurrentRoles
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRolesEN, _fileName);
+            Debug.Log("add role 3");
+        }
 
         //Close add role panel
         CloseAddRolePanel();
@@ -386,23 +404,57 @@ public class RoleSettingsPanel : MonoBehaviour
 
         return _result;
     }
+
     /// <summary>
     /// Delete Role from JSON and then refresh display list
     /// </summary>
     public void DeleteRole()
     {
-        //Delete currentRole from JSONRoles.CurrentRoles
-        int _indexCurRole = JSONRoles.CurrentRoles.IndexOf(currentRole);
-        JSONRoles.CurrentRoles.RemoveAt(_indexCurRole);
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+        int _indexCurRole;
 
-        //Create the new JSON file with CurrentRoles
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles);
+        if (GameSettings.Language == "Fr")
+        {
+            //Delete currentRole from JSONRoles.CurrentRoles
+            _indexCurRole = JSONRoles.CurrentRoles.IndexOf(currentRole);
+            JSONRoles.CurrentRoles.RemoveAt(_indexCurRole);
 
+            //Create the new JSON file with CurrentRoles
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRoles, _fileName);
+        }
+        else //GameSettings.Language == "En"
+        {
+            //Delete currentRole from JSONRoles.CurrentRoles
+            _indexCurRole = GetIndexFromRoleInRoleList(JSONRoles.CurrentRolesEN, currentRole);
+
+            JSONRoles.CurrentRolesEN.RemoveAt(_indexCurRole);
+
+            //Create the new JSON file with CurrentRoles
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.CurrentRolesEN, _fileName);
+        }
         //close settings panel
         CloseRoleSettingsPanel();
 
         //refresh display list
         GameObject.Find("RoleListManager").GetComponent<FillRoleList>().UpdateList();
+    }
+
+    /// <summary>
+    /// Give the index of a role in a list, returns -1 if it's not in the List
+    /// </summary>
+    /// <param name="_roleList"></param>
+    /// <param name="_role"></param>
+    /// <returns></returns>
+    public int GetIndexFromRoleInRoleList(List<Role> _roleList, Role _role)
+    {
+        for (int i = 0; i < _roleList.Count; i++)
+        {
+            if (Role.RoleEquals(_role,_roleList[i]))
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     internal void CloseRoleSettingsPanel()

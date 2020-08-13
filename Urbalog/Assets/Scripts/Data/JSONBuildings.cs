@@ -14,21 +14,32 @@ public class JSONBuildings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("file : " + Application.dataPath);
-        Debug.Log("exists : " + File.Exists(Application.dataPath + "\\buildings.json"));
+        //Debug.Log("file : " + Application.dataPath);
+        //Debug.Log("exists : " + File.Exists(Application.dataPath + "\\buildings.json"));
 
         FillDeckBuildingTest();
-        if (/*!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")*/
-            !File.Exists(Application.dataPath + "\\buildings.json")) //On vérifie si le buildings.json existe
+        FillDeckBuildingEN();
+        if (!File.Exists(Application.dataPath + "\\buildings.json")) //On vérifie si le buildings.json existe
         {
-            CreateBuildingsJSONWithDeck(DefaultDeck);
-            Debug.Log("fichier Créé");
+            CreateBuildingsJSONWithDeck("/buildings.json",DefaultDeck);
+            Debug.Log("fichier Créé - fr");
         }
         else
         {
-            Debug.Log("On ne crée pas le fichier");
+            Debug.Log("On ne crée pas le fichier - fr");
+        }
+
+        if (!File.Exists(Application.dataPath + "\\buildingsEN.json"))
+        {
+            CreateBuildingsJSONWithDeck("/buildingsEN.json",DefaultDeckEN);
+            Debug.Log("fichier Créé - en");
+        }
+        else
+        {
+            Debug.Log("on ne crée pas le fichier - en");
         }
 }
+
 
     // Update is called once per frame
     void Update()
@@ -40,21 +51,22 @@ public class JSONBuildings : MonoBehaviour
     /// Takes the Deck List and puts it in a JSON File.
     /// Will be useful when the admin wants to reset his modifications on all the buildings.
     /// </summary>
-    public static void CreateBuildingsJSONWithDeck(List<Building> _defaultDeck)
+    public static void CreateBuildingsJSONWithDeck(string _fileName, List<Building> _defaultDeck)
     {
         string _jsonBuilding = "";
 
         Building[] _DeckArray = _defaultDeck.ToArray();
 
         _jsonBuilding = JsonHelper.ToJson(_DeckArray, true);
-        File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuilding);
+        //File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuilding);
+        File.WriteAllText(Application.dataPath + _fileName, _jsonBuilding);
 
     }
 
-    public static void CreateBuildingJSONWithBuildings(Building[] _buildings)
+    public static void CreateBuildingJSONWithBuildings(Building[] _buildings, string _fileName)
     {
         string _jsonBuilding = JsonHelper.ToJson(_buildings, true);
-        File.WriteAllText(Application.dataPath + "/buildings.json", _jsonBuilding);
+        File.WriteAllText(Application.dataPath + _fileName, _jsonBuilding);
     }
 
     /// <summary>
@@ -116,8 +128,18 @@ public class JSONBuildings : MonoBehaviour
     /// <param name="_building"></param>
     public static void DeleteBuildingFromJSON(Building _building)
     {
-        Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
-        //Building[] _buildingsFromJson = loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
+        string _filename;
+        Building[] _buildingsFromJson;
+        if (GameSettings.Language == "Fr")
+        {
+            _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+            _filename = "/buildings.json";
+        }
+        else //GameSettings.Language == "En"
+        {
+            _buildingsFromJson = loadBuildingsFromJSON("/buildingsEN.json");
+            _filename = "/buildingsEN.json";
+        }
         Building[] _newBuildingsFromJson;
         int index;
 
@@ -125,12 +147,10 @@ public class JSONBuildings : MonoBehaviour
 
         _newBuildingsFromJson = DeleteBuildingFromIndex(_buildingsFromJson, index);
 
-        Debug.Log("delete index :" + index);
+        //Debug.Log("delete index :" + index);
+        //Debug.Log("new array + " + BuildingArrayToString(_newBuildingsFromJson));
 
-        Debug.Log("new array + " + BuildingArrayToString(_newBuildingsFromJson));
-
-
-        CreateBuildingJSONWithBuildings(_newBuildingsFromJson); //recreate json file with the new array
+        CreateBuildingJSONWithBuildings(_newBuildingsFromJson, _filename); //recreate json file with the new array
 
     }
 
@@ -187,15 +207,25 @@ public class JSONBuildings : MonoBehaviour
     /// <param name="_buildingToAdd"></param>
     internal static void AddInJson(Building _buildingToAdd)
     {
+        string _filename;
+        if (GameSettings.Language == "Fr")
+        {
+            _filename = "/buildings.json";
+        }
+        else //GameSettings.Languaga == "En"
+        {
+            _filename = "/buildingsEN.json";
+        }
+
         //load the current list
-        Building[] _buildingsFromJson = loadBuildingsFromJSON("/buildings.json");
+        Building[] _buildingsFromJson = loadBuildingsFromJSON(_filename);
         //Building[] _buildingsFromJson = loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
 
         //Create a new list with _buildingToAdd at the end
         Building[] _newBuildings = AddBuildingToArray(_buildingsFromJson,_buildingToAdd);
 
         //Create a new JSON file with the new list
-        CreateBuildingJSONWithBuildings(_newBuildings);
+        CreateBuildingJSONWithBuildings(_newBuildings, _filename);
     }
 
     /// <summary>
@@ -253,7 +283,7 @@ public class JSONBuildings : MonoBehaviour
     {
 
         DefaultDeckEN.Clear();
-        DefaultDeck.Add(new Building("Cycle lane", "Lane reserved for cyclists and protected from other traffic", 2, 2, 3, 1, 1, 0, 2,
+        DefaultDeckEN.Add(new Building("Cycle lane", "Lane reserved for cyclists and protected from other traffic", 2, 2, 3, 1, 1, 0, 2,
             "As the entire lane is protected from traffic, this infrastructure creates an obstacle to deliveries by limiting the access to sidewalks.", "Piste cyclable"));
         DefaultDeckEN.Add(new Building("Bike self service dock", "Terminal for borrowing a self-service bicycle", 1, 2, 2, 1, -1, 1, -1, "These structures create punctual obstacles to deliveries by limiting access to the sidewalk.", "Borne vélo"));
         DefaultDeckEN.Add(new Building("Terrace", "Cafe or restaurant terrace", 1, 2, 1, 1, -2, 1, -3, " This development limits access to the facility while exten-ding on the sidewalk and parking slot.", "Terrasse"));
