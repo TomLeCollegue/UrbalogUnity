@@ -121,6 +121,7 @@ public class SettingsMenu : MonoBehaviour
         BuildingsSettingsMenu.SetActive(false);
         RolePanel.SetActive(false);
         //nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
+        //nbbuildingsForEnding.text = 
     }
 
     public void DisplayBuildingsList()

@@ -18,6 +18,7 @@ public class NextTurnButton : NetworkBehaviour
 
     public bool EndWarmup = false;
 
+
     /// <summary>
     /// Change your Next turn bool from a state to an other
     /// </summary>

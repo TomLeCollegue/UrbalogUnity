@@ -19,8 +19,6 @@ public class GameSettings : MonoBehaviour
     public static float GameTimerMax;
     public static bool isGameTimerActive;
 
-    
-
     public void ChangeTimePerTurn(string _time)
     {
         //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
@@ -47,7 +45,6 @@ public class GameSettings : MonoBehaviour
         isGameTimerActive = _isGameTimerActive;
         int _boolint = isGameTimerActive ? 1 : 0;
         PlayerPrefs.SetInt("isGameTimerActive", _boolint);
-        //Debug.Log("Test du toggle du timer : " + (PlayerPrefs.GetInt("isGameTimerActive") == 1));
         Debug.Log("Test du toggle du timer : " + isGameTimerActive);
     }
 
@@ -60,7 +57,6 @@ public class GameSettings : MonoBehaviour
         GameTimerMax = Convert.ToInt16(_gameTime) * 60; //*60 so the input works in minutes, not in seconds
         PlayerPrefs.SetFloat("GameTimerMax", GameTimerMax);
         Debug.Log("Test de la save du timer : " + PlayerPrefs.GetFloat("GameTimerMax"));
-
     }
 
     public void ToggleServeur(bool _isSeveurJoueur)
@@ -97,10 +93,28 @@ public class GameSettings : MonoBehaviour
 
     public void Start()
     {
+
         TurnTimeMax = PlayerPrefs.GetFloat("TurnTimeMax");
+
+        if (PlayerPrefs.HasKey("nbBuildingperTurn"))
+        {
+            nbBuildingsPerTurn = PlayerPrefs.GetInt("nbBuildingperTurn");
+        }
+        else
+        {
+            nbBuildingsPerTurn = 2;
+        }
+
+        if (PlayerPrefs.HasKey("BuildingsToEnd"))
+        {
+            NextTurnButton.NumberBuildingsToEnd = PlayerPrefs.GetInt("BuildingsToEnd");
+        }
+        else
+        {
+            NextTurnButton.NumberBuildingsToEnd = 6;
+        }
+
         isTimerActive = PlayerPrefs.GetInt("isTimerActive") == 1;
-        nbBuildingsPerTurn = PlayerPrefs.GetInt("nbBuildingperTurn");
-        NextTurnButton.NumberBuildingsToEnd = PlayerPrefs.GetInt("BuildingsToEnd");
         GameTimerMax = PlayerPrefs.GetFloat("GameTimerMax");
         isGameTimerActive = PlayerPrefs.GetInt("isGameTimerActive") == 1;
         ServeurNonPlayer = (PlayerPrefs.GetInt("ServeurNonPlayer") == 1) || (PlayerPrefs.GetInt("CentralTablet") == 1);
@@ -112,6 +126,9 @@ public class GameSettings : MonoBehaviour
         ServeurNonPlayer = (PlayerPrefs.GetInt("ServeurNonPlayer") == 1) || (PlayerPrefs.GetInt("CentralTablet") == 1);
     }
 
+    /// <summary>
+    /// Valeurs par défaut des gameSettings utilisées pour le WarmUp
+    /// </summary>
     public void InitWarmUP()
     {
         TurnTimeMax = 90f;
