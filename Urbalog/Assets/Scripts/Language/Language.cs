@@ -353,15 +353,100 @@
     public static string FR_AGE = "Votre âge";
     public static string EN_AGE = "Your age";
     public static string FR_PLACE_RESIDENCE = "Lieu de résidence";
-    public static string EN_PLACE_RESIDENCE = "Place of résidence";
-    public static string FR_COMPAGNY = "Votre entreprise";
-    public static string EN_COMPAGNY = "Your compagny";
+    public static string EN_PLACE_RESIDENCE = "Place of residence";
+    public static string FR_COMPANY = "Votre entreprise";
+    public static string EN_COMPANY = "Your COMPANY";
     public static string FR_ACT_STATUS = "Votre statut d'activité";
     public static string EN_ACT_STATUS = "Your activity status";
     public static string FR_ACTIVITY = "Votre secteur d'activité";
     public static string EN_ACTIVITY = "Your Activity";
     public static string FR_FINISH = "Terminer";
     public static string EN_FINISH = "Finish";
+
+    //Placeholders
+    public static string FR_NAME_PLACEHOLDER = "Nom";
+    public static string EN_NAME_PLACEHOLDER = "Name";
+    public static string FR_FIRSTNAME_PLACEHOLDER = "Prénom";
+    public static string EN_FIRSTNAME_PLACEHOLDER = "Firstname";
+
+    //p2
+    public static string FR_PLACE_RESIDENCE_PLACEHOLDER = "Code Postal";
+    public static string EN_PLACE_RESIDENCE_PLACEHOLDER = "Zip code";
+    public static string FR_COMPANY_PLACEHOLDER = "Nom de l'entreprise";
+    public static string EN_COMPANY_PLACEHOLDER = "COMPANY Name";
+    //form dropdowns
+    public static string FR_CHOOSE_DROPDOWN = "Choisir ...";
+    public static string EN_CHOOSE_DROPDOWN = "Choose ...";
+    public static string FR_CHOOSE_DROPDOWN_LABEL = "Choisir ...";
+    public static string EN_CHOOSE_DROPDOWN_LABEL = "Choose ...";
+
+    //gender dropdown
+    public static string FR_GENDER_DROPDOWN_OPT1 = "Femme";
+    public static string EN_GENDER_DROPDOWN_OPT1 = "Woman";
+    public static string FR_GENDER_DROPDOWN_OPT2 = "Homme";
+    public static string EN_GENDER_DROPDOWN_OPT2 = "Man";
+    public static string FR_GENDER_DROPDOWN_OPT3 = "Ni l'un ni l'autre";
+    public static string EN_GENDER_DROPDOWN_OPT3 = "Neither";
+
+    //age dropdown
+    public static string FR_AGE_DROPDOWN_OPT1 = "Moins de 15 ans";
+    public static string EN_AGE_DROPDOWN_OPT1 = "Less than 15 y/o";
+    public static string FR_AGE_DROPDOWN_OPT2 = "de 15 à 18 ans";
+    public static string EN_AGE_DROPDOWN_OPT2 = "between 15 and 18 y/o";
+    public static string FR_AGE_DROPDOWN_OPT3 = "de 19 à 24 ans";
+    public static string EN_AGE_DROPDOWN_OPT3 = "between 19 and 24 y/o";
+    public static string FR_AGE_DROPDOWN_OPT4 = "de 25 à 34 ans";
+    public static string EN_AGE_DROPDOWN_OPT4 = "between 25 and 34 y/o";
+    public static string FR_AGE_DROPDOWN_OPT5 = "de 35 à 44 ans";
+    public static string EN_AGE_DROPDOWN_OPT5 = "between 35 and 44 y/o";
+    public static string FR_AGE_DROPDOWN_OPT6 = "de 45 à 54 ans";
+    public static string EN_AGE_DROPDOWN_OPT6 = "between 45 and 54 y/o";
+    public static string FR_AGE_DROPDOWN_OPT7 = "de 55 à 64 ans";
+    public static string EN_AGE_DROPDOWN_OPT7 = "between 55 and 64 y/o";
+    public static string FR_AGE_DROPDOWN_OPT8 = "de 65 ans et plus";
+    public static string EN_AGE_DROPDOWN_OPT8 = "65 y/o or more";
+
+    //activity status dropdown
+    public static string FR_ACTIVITY_STATUS_OPT1 = "Salarié";
+    public static string EN_ACTIVITY_STATUS_OPT1 = "Employee";
+    public static string FR_ACTIVITY_STATUS_OPT2 = "Indépendant";
+    public static string EN_ACTIVITY_STATUS_OPT2 = "Independent";
+    public static string FR_ACTIVITY_STATUS_OPT3 = "Chômeur";
+    public static string EN_ACTIVITY_STATUS_OPT3 = "Unemployed";
+    public static string FR_ACTIVITY_STATUS_OPT4 = "Retraité";
+    public static string EN_ACTIVITY_STATUS_OPT4 = "Retired";
+    public static string FR_ACTIVITY_STATUS_OPT5 = "Autres inactifs (Dont étudiants)";
+    public static string EN_ACTIVITY_STATUS_OPT5 = "other non-economically active people (students included)";
+
+    //activity field dropdown
+    public static string FR_ACTIVITY_FIELD_OPT1 = "Agriculture";
+    public static string EN_ACTIVITY_FIELD_OPT1 = "Agriculture";
+    public static string FR_ACTIVITY_FIELD_OPT2 = "Industrie";
+    public static string EN_ACTIVITY_FIELD_OPT2 = "Industry";
+    public static string FR_ACTIVITY_FIELD_OPT3 = "Construction";
+    public static string EN_ACTIVITY_FIELD_OPT3 = "Construction";
+    public static string FR_ACTIVITY_FIELD_OPT4 = "Commerce";
+    public static string EN_ACTIVITY_FIELD_OPT4 = "Trade";
+    public static string FR_ACTIVITY_FIELD_OPT5 = "Hébergement et restauration";
+    public static string EN_ACTIVITY_FIELD_OPT5 = "Accommodation and catering";
+    public static string FR_ACTIVITY_FIELD_OPT6 = "Information communication";
+    public static string EN_ACTIVITY_FIELD_OPT6 = "Information and communication";
+    public static string FR_ACTIVITY_FIELD_OPT7 = "Finance, assurance, immobilier";
+    public static string EN_ACTIVITY_FIELD_OPT7 = "Finance, insurance, real estate";
+    public static string FR_ACTIVITY_FIELD_OPT8 = "Activités scientifiques, techniques, services administratifs";
+    public static string EN_ACTIVITY_FIELD_OPT8 = "Science, technical, administrative services";
+    public static string FR_ACTIVITY_FIELD_OPT9 = "Administration publique";
+    public static string EN_ACTIVITY_FIELD_OPT9 = "public administration";
+    public static string FR_ACTIVITY_FIELD_OPT10 = "Enseignement";
+    public static string EN_ACTIVITY_FIELD_OPT10 = "Education";
+    public static string FR_ACTIVITY_FIELD_OPT11 = "Activité pour la santé humaine";
+    public static string EN_ACTIVITY_FIELD_OPT11 = "Human health activities";
+    public static string FR_ACTIVITY_FIELD_OPT12 = "Hébergement médico-social et social et action sociale sans hébergement";
+    public static string EN_ACTIVITY_FIELD_OPT12 = "Medico-social accomodation, social accomodation and social action without accomodation";
+    public static string FR_ACTIVITY_FIELD_OPT13 = "Autres services";
+    public static string EN_ACTIVITY_FIELD_OPT13 = "Other services";
+    public static string FR_ACTIVITY_FIELD_OPT14 = "Activité indéterminée";
+    public static string EN_ACTIVITY_FIELD_OPT14 = "Undetermined activity";
 
 
     #endregion
@@ -551,13 +636,61 @@
     public static string SEXE = "Votre sexe";
     public static string AGE = "Votre âge";
     public static string PLACE_RESIDENCE = "Lieu de résidence"; 
-    public static string COMPAGNY = "Votre entreprise";   
+    public static string COMPANY = "Votre entreprise";   
     public static string ACT_STATUS = "Votre statut d'activité";
     public static string ACTIVITY = "Votre secteur d'activité";
     public static string FINISH = "Terminer";
-
     public static string END_WARMUP = "Fin du Tour de chauffe";
 
+    //Placeholders
+    //p1
+    public static string NAME_PLACEHOLDER = "Nom";
+    public static string FIRSTNAME_PLACEHOLDER = "Prénom" ;
+
+    //p2
+    public static string PLACE_RESIDENCE_PLACEHOLDER = "Code Postal";
+    public static string COMPANY_PLACEHOLDER = "Nom de l'entreprise";
+
+    //form dropdowns
+    public static string CHOOSE_DROPDOWN = "Choisir ...";
+    public static string CHOOSE_DROPDOWN_LABEL = "Choisir ...";
+
+    //gender dropdown
+    public static string GENDER_DROPDOWN_OPT1 = "Femme";
+    public static string GENDER_DROPDOWN_OPT2 = "Homme";
+    public static string GENDER_DROPDOWN_OPT3 = "Ni l'un ni l'autre";
+    //age dropdown
+    public static string AGE_DROPDOWN_OPT1 = "Moins de 15 ans";
+    public static string AGE_DROPDOWN_OPT2 = "de 15 à 18 ans";
+    public static string AGE_DROPDOWN_OPT3 = "de 19 à 24 ans";
+    public static string AGE_DROPDOWN_OPT4 = "de 25 à 34 ans";
+    public static string AGE_DROPDOWN_OPT5 = "de 35 à 44 ans";
+    public static string AGE_DROPDOWN_OPT6 = "de 45 à 54 ans";
+    public static string AGE_DROPDOWN_OPT7 = "de 55 à 64 ans";
+    public static string AGE_DROPDOWN_OPT8 = "de 65 ans et plus";
+
+    //activity status dropdown
+    public static string ACTIVITY_STATUS_OPT1 = "Salarié";
+    public static string ACTIVITY_STATUS_OPT2 = "Indépendant";
+    public static string ACTIVITY_STATUS_OPT3 = "Chômeur";
+    public static string ACTIVITY_STATUS_OPT4 = "Retraité";
+    public static string ACTIVITY_STATUS_OPT5 = "Autres inactifs (Dont étudiants)";
+
+    //activity field dropdown
+    public static string ACTIVITY_FIELD_OPT1 = "Agriculture";
+    public static string ACTIVITY_FIELD_OPT2 = "Industrie";
+    public static string ACTIVITY_FIELD_OPT3 = "Construction";
+    public static string ACTIVITY_FIELD_OPT4 = "Commerce";
+    public static string ACTIVITY_FIELD_OPT5 = "Hébergement et restauration";
+    public static string ACTIVITY_FIELD_OPT6 = "Information communication";
+    public static string ACTIVITY_FIELD_OPT7 = "Finance, assurance, immobilier";
+    public static string ACTIVITY_FIELD_OPT8 = "Activités scientifiques, techniques, services administratifs";
+    public static string ACTIVITY_FIELD_OPT9 = "Administration publique";
+    public static string ACTIVITY_FIELD_OPT10 = "Enseignement";
+    public static string ACTIVITY_FIELD_OPT11 = "Activité pour la santé humaine";
+    public static string ACTIVITY_FIELD_OPT12 = "Hébergement médico-social et social et action sociale sans hébergement";
+    public static string ACTIVITY_FIELD_OPT13 = "Autres services";
+    public static string ACTIVITY_FIELD_OPT14 = "Activité indéterminée";
 
     #endregion
 
@@ -577,7 +710,7 @@
 
             WARMUP_BUTTON = FR_WARMUP_BUTTON;
 
-    PSEUDO = FR_PSEUDO;
+            PSEUDO = FR_PSEUDO;
             OBJECTIF = FR_OBJECTIF;
             HOLD = FR_HOLD;
             IMPROVE = FR_IMPROVE;
@@ -624,11 +757,64 @@
             SEXE = FR_SEXE;
             AGE = FR_AGE;
             PLACE_RESIDENCE = FR_PLACE_RESIDENCE;
-            COMPAGNY = FR_COMPAGNY;
+            COMPANY = FR_COMPANY;
             ACT_STATUS = FR_ACT_STATUS;
             ACTIVITY = FR_ACTIVITY;
             FINISH = FR_FINISH;
             END_WARMUP = FR_END_WARMUP;
+
+            //Form Placeholders
+            NAME_PLACEHOLDER = FR_NAME_PLACEHOLDER;
+            FIRSTNAME_PLACEHOLDER = FR_FIRSTNAME_PLACEHOLDER;
+
+            //p2
+            PLACE_RESIDENCE_PLACEHOLDER = FR_PLACE_RESIDENCE_PLACEHOLDER;
+            COMPANY_PLACEHOLDER = FR_COMPANY_PLACEHOLDER;
+
+            //form dropdowns
+            CHOOSE_DROPDOWN = FR_CHOOSE_DROPDOWN;
+            CHOOSE_DROPDOWN_LABEL = FR_CHOOSE_DROPDOWN_LABEL;
+
+            //gender dropdown
+            GENDER_DROPDOWN_OPT1 = FR_GENDER_DROPDOWN_OPT1;
+            GENDER_DROPDOWN_OPT2 = FR_GENDER_DROPDOWN_OPT2;
+            GENDER_DROPDOWN_OPT3 = FR_GENDER_DROPDOWN_OPT3;
+
+            //Age dropdown
+            AGE_DROPDOWN_OPT1 = FR_AGE_DROPDOWN_OPT1;
+            AGE_DROPDOWN_OPT2 = FR_AGE_DROPDOWN_OPT2;
+            AGE_DROPDOWN_OPT3 = FR_AGE_DROPDOWN_OPT3;
+            AGE_DROPDOWN_OPT4 = FR_AGE_DROPDOWN_OPT4;
+            AGE_DROPDOWN_OPT5 = FR_AGE_DROPDOWN_OPT5;
+            AGE_DROPDOWN_OPT6 = FR_AGE_DROPDOWN_OPT6;
+            AGE_DROPDOWN_OPT7 = FR_AGE_DROPDOWN_OPT7;
+            AGE_DROPDOWN_OPT8 = FR_AGE_DROPDOWN_OPT8;
+
+            //activity status dropdown
+             ACTIVITY_STATUS_OPT1 = FR_ACTIVITY_STATUS_OPT1;
+             ACTIVITY_STATUS_OPT2 = FR_ACTIVITY_STATUS_OPT2;
+             ACTIVITY_STATUS_OPT3 = FR_ACTIVITY_STATUS_OPT3;
+             ACTIVITY_STATUS_OPT4 = FR_ACTIVITY_STATUS_OPT4;
+             ACTIVITY_STATUS_OPT5 = FR_ACTIVITY_STATUS_OPT5;
+
+            //activity field dropdown
+            ACTIVITY_FIELD_OPT1 = FR_ACTIVITY_FIELD_OPT1;
+            ACTIVITY_FIELD_OPT2 = FR_ACTIVITY_FIELD_OPT2;
+            ACTIVITY_FIELD_OPT3 = FR_ACTIVITY_FIELD_OPT3;
+            ACTIVITY_FIELD_OPT4 = FR_ACTIVITY_FIELD_OPT4;
+            ACTIVITY_FIELD_OPT5 = FR_ACTIVITY_FIELD_OPT5;
+            ACTIVITY_FIELD_OPT6 = FR_ACTIVITY_FIELD_OPT6;
+            ACTIVITY_FIELD_OPT7 = FR_ACTIVITY_FIELD_OPT7;
+            ACTIVITY_FIELD_OPT8 = FR_ACTIVITY_FIELD_OPT8;
+            ACTIVITY_FIELD_OPT9 = FR_ACTIVITY_FIELD_OPT9;
+            ACTIVITY_FIELD_OPT10 = FR_ACTIVITY_FIELD_OPT10;
+            ACTIVITY_FIELD_OPT11 = FR_ACTIVITY_FIELD_OPT11;
+            ACTIVITY_FIELD_OPT12 = FR_ACTIVITY_FIELD_OPT12;
+            ACTIVITY_FIELD_OPT13 = FR_ACTIVITY_FIELD_OPT13;
+            ACTIVITY_FIELD_OPT14 = FR_ACTIVITY_FIELD_OPT14;
+
+
+
 
             //game popup
             GAME_TIMER_WARNING_POPUP_TITLE = FR_GAME_TIMER_WARNING_POPUP_TITLE;
@@ -743,7 +929,6 @@
             AB_ADD_BUTTON = FR_AB_ADD_BUTTON;
 
 
-
 }
         if (language.Equals("En"))
         {
@@ -805,11 +990,61 @@
             SEXE = EN_SEXE;
             AGE = EN_AGE;
             PLACE_RESIDENCE = EN_PLACE_RESIDENCE;
-            COMPAGNY = EN_COMPAGNY;
+            COMPANY = EN_COMPANY;
             ACT_STATUS = EN_ACT_STATUS;
             ACTIVITY = EN_ACTIVITY;
             FINISH = EN_FINISH;
             END_WARMUP = EN_END_WARMUP;
+
+            //Form Placeholders
+            //p1
+            NAME_PLACEHOLDER = EN_NAME_PLACEHOLDER;
+            FIRSTNAME_PLACEHOLDER = EN_FIRSTNAME_PLACEHOLDER;
+            //p2
+            PLACE_RESIDENCE_PLACEHOLDER = EN_PLACE_RESIDENCE_PLACEHOLDER;
+            COMPANY_PLACEHOLDER = EN_COMPANY_PLACEHOLDER;
+
+            //form dropdowns
+            CHOOSE_DROPDOWN = EN_CHOOSE_DROPDOWN;
+            CHOOSE_DROPDOWN_LABEL = EN_CHOOSE_DROPDOWN_LABEL;
+
+            //gender dropdown
+            GENDER_DROPDOWN_OPT1 = EN_GENDER_DROPDOWN_OPT1;
+            GENDER_DROPDOWN_OPT2 = EN_GENDER_DROPDOWN_OPT2;
+            GENDER_DROPDOWN_OPT3 = EN_GENDER_DROPDOWN_OPT3;
+
+            //Age dropdown
+            AGE_DROPDOWN_OPT1 = EN_AGE_DROPDOWN_OPT1;
+            AGE_DROPDOWN_OPT2 = EN_AGE_DROPDOWN_OPT2;
+            AGE_DROPDOWN_OPT3 = EN_AGE_DROPDOWN_OPT3;
+            AGE_DROPDOWN_OPT4 = EN_AGE_DROPDOWN_OPT4;
+            AGE_DROPDOWN_OPT5 = EN_AGE_DROPDOWN_OPT5;
+            AGE_DROPDOWN_OPT6 = EN_AGE_DROPDOWN_OPT6;
+            AGE_DROPDOWN_OPT7 = EN_AGE_DROPDOWN_OPT7;
+            AGE_DROPDOWN_OPT8 = EN_AGE_DROPDOWN_OPT8;
+
+            //activity status dropdown
+            ACTIVITY_STATUS_OPT1 = EN_ACTIVITY_STATUS_OPT1;
+            ACTIVITY_STATUS_OPT2 = EN_ACTIVITY_STATUS_OPT2;
+            ACTIVITY_STATUS_OPT3 = EN_ACTIVITY_STATUS_OPT3;
+            ACTIVITY_STATUS_OPT4 = EN_ACTIVITY_STATUS_OPT4;
+            ACTIVITY_STATUS_OPT5 = EN_ACTIVITY_STATUS_OPT5;
+
+            //activity field dropdown
+            ACTIVITY_FIELD_OPT1 = EN_ACTIVITY_FIELD_OPT1;
+            ACTIVITY_FIELD_OPT2 = EN_ACTIVITY_FIELD_OPT2;
+            ACTIVITY_FIELD_OPT3 = EN_ACTIVITY_FIELD_OPT3;
+            ACTIVITY_FIELD_OPT4 = EN_ACTIVITY_FIELD_OPT4;
+            ACTIVITY_FIELD_OPT5 = EN_ACTIVITY_FIELD_OPT5;
+            ACTIVITY_FIELD_OPT6 = EN_ACTIVITY_FIELD_OPT6;
+            ACTIVITY_FIELD_OPT7 = EN_ACTIVITY_FIELD_OPT7;
+            ACTIVITY_FIELD_OPT8 = EN_ACTIVITY_FIELD_OPT8;
+            ACTIVITY_FIELD_OPT9 = EN_ACTIVITY_FIELD_OPT9;
+            ACTIVITY_FIELD_OPT10 = EN_ACTIVITY_FIELD_OPT10;
+            ACTIVITY_FIELD_OPT11 = EN_ACTIVITY_FIELD_OPT11;
+            ACTIVITY_FIELD_OPT12 = EN_ACTIVITY_FIELD_OPT12;
+            ACTIVITY_FIELD_OPT13 = EN_ACTIVITY_FIELD_OPT13;
+            ACTIVITY_FIELD_OPT14 = EN_ACTIVITY_FIELD_OPT14;
 
             //game popup
             GAME_TIMER_WARNING_POPUP_TITLE = EN_GAME_TIMER_WARNING_POPUP_TITLE;
