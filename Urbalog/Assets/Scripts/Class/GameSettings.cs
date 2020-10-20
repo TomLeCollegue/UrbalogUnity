@@ -94,7 +94,7 @@ public class GameSettings : MonoBehaviour
     public void Start()
     {
 
-        TurnTimeMax = PlayerPrefs.GetFloat("TurnTimeMax");
+        
 
         if (PlayerPrefs.HasKey("nbBuildingperTurn"))
         {
@@ -115,8 +115,25 @@ public class GameSettings : MonoBehaviour
         }
 
         isTimerActive = PlayerPrefs.GetInt("isTimerActive") == 1;
-        GameTimerMax = PlayerPrefs.GetFloat("GameTimerMax");
         isGameTimerActive = PlayerPrefs.GetInt("isGameTimerActive") == 1;
+        if (PlayerPrefs.HasKey("GameTimerMax"))
+        {
+            GameTimerMax = PlayerPrefs.GetFloat("GameTimerMax");
+        }
+        else
+        {
+            GameTimerMax = 60 * 20f;
+        }
+
+        if (PlayerPrefs.HasKey("TurnTimeMax"))
+        {
+            TurnTimeMax = PlayerPrefs.GetFloat("TurnTimeMax");
+        }
+        else
+        {
+            TurnTimeMax = 60f;
+        }
+
         ServeurNonPlayer = (PlayerPrefs.GetInt("ServeurNonPlayer") == 1) || (PlayerPrefs.GetInt("CentralTablet") == 1);
         CentralTablet = PlayerPrefs.GetInt("CentralTablet") == 1;
     }

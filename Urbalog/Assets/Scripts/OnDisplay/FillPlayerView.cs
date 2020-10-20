@@ -440,11 +440,7 @@ public class FillPlayerView : MonoBehaviour
         {
             Building5FullBorder.GetComponent<Image>().color = _defaultBorderColor;
         }
-
-
     }
-
-
 
 
     /// <summary>

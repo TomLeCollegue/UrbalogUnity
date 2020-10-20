@@ -130,6 +130,22 @@
         public static string FR_END_WARMUP = "Fin du Tour de chauffe";
         public static string EN_END_WARMUP = "End of Warmup";
 
+    //Help PopUp
+    public static string FR_HELP_ENVI = "Qualité Environnementale";
+    public static string EN_HELP_ENVI = "Environmental quality";
+    public static string FR_HELP_FLUID = "Fluidité du trafic";
+    public static string EN_HELP_FLUID = "Traffic flow";
+    public static string FR_HELP_ATTRACT = "Attractivité de la ville";
+    public static string EN_HELP_ATTRACT = "Attractiveness of the city";
+    public static string FR_HELP_LOGI = "Qualité Logistique";
+    public static string EN_HELP_LOGI = "Logistics quality";
+    public static string FR_HELP_ECO = "Ressource Économique";
+    public static string EN_HELP_ECO = "Economic resource";
+    public static string FR_HELP_POLI = "Ressource Politique";
+    public static string EN_HELP_POLI = "Political Resource";
+    public static string FR_HELP_SOCIAL = "Ressource Sociale";
+    public static string EN_HELP_SOCIAL = "Social Resource";
+
     //GameTimerPopUp
     public static string FR_GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
     public static string EN_GAME_TIMER_WARNING_POPUP_TITLE = "Be Careful !";
@@ -355,7 +371,7 @@
     public static string FR_PLACE_RESIDENCE = "Lieu de résidence";
     public static string EN_PLACE_RESIDENCE = "Place of residence";
     public static string FR_COMPANY = "Votre entreprise";
-    public static string EN_COMPANY = "Your COMPANY";
+    public static string EN_COMPANY = "Your company";
     public static string FR_ACT_STATUS = "Votre statut d'activité";
     public static string EN_ACT_STATUS = "Your activity status";
     public static string FR_ACTIVITY = "Votre secteur d'activité";
@@ -496,6 +512,15 @@
     public static string TEXT_WIN = "Objectif atteint. \n Vous gagnez un point !";
     public static string TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
     public static string TIMER_TURN = "Temps restant : ";
+
+    //Help PopUp
+    public static string HELP_ENVI = "Qualité Environnementale";
+    public static string HELP_FLUID = "Fluidité du trafic";
+    public static string HELP_ATTRACT = "Attractivité de la ville";
+    public static string HELP_LOGI = "Qualité logistique";
+    public static string HELP_ECO = "Ressource Économique";
+    public static string HELP_POLI = "Ressource Politique";
+    public static string HELP_SOCIAL = "Ressource Sociale";
 
     //Game Timer PopUp
     public static string GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
@@ -763,6 +788,15 @@
             FINISH = FR_FINISH;
             END_WARMUP = FR_END_WARMUP;
 
+            //Help PopUp
+            HELP_ENVI = FR_HELP_ENVI;
+            HELP_FLUID = FR_HELP_FLUID;
+            HELP_ATTRACT = FR_HELP_ATTRACT;
+            HELP_LOGI = FR_HELP_LOGI;
+            HELP_ECO = FR_HELP_ECO;
+            HELP_POLI = FR_HELP_POLI;
+            HELP_SOCIAL = FR_HELP_SOCIAL;
+
             //Form Placeholders
             NAME_PLACEHOLDER = FR_NAME_PLACEHOLDER;
             FIRSTNAME_PLACEHOLDER = FR_FIRSTNAME_PLACEHOLDER;
@@ -995,6 +1029,15 @@
             ACTIVITY = EN_ACTIVITY;
             FINISH = EN_FINISH;
             END_WARMUP = EN_END_WARMUP;
+
+            //Help PopUp
+            HELP_ENVI = EN_HELP_ENVI;
+            HELP_FLUID = EN_HELP_FLUID;
+            HELP_ATTRACT = EN_HELP_ATTRACT;
+            HELP_LOGI = EN_HELP_LOGI;
+            HELP_ECO = EN_HELP_ECO;
+            HELP_POLI = EN_HELP_POLI;
+            HELP_SOCIAL = EN_HELP_SOCIAL;
 
             //Form Placeholders
             //p1
