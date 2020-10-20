@@ -232,18 +232,16 @@ public class LogManager : MonoBehaviour
 
             conn.Open();
 
-            string sql = "INSERT INTO buildings (game_key, name, description, political_cost, social_cost, economical_cost, attract_score, fluid_score, envi_score, logi_score, logi_description) VALUES (" +
+            string sql = "INSERT INTO buildings (game_key, name, political_cost, social_cost, economical_cost, attract_score, fluid_score, envi_score, logi_score) VALUES (" +
                         "'" + uuidParty + "'," +
                         "'" + building.name + "'," +
-                        "'" + building.description.ToString() + "'," +
                         "'" + building.Political.ToString() + "'," +
                         "'" + building.Social.ToString() + "'," +
                         "'" + building.Economical.ToString() + "'," +
                         "'" + building.attractScore.ToString() + "'," +
                         "'" + building.fluidScore.ToString() + "'," +
                         "'" + building.enviScore.ToString() + "'," +
-                        "'" + building.logisticScore.ToString() + "'," +
-                        "'" + building.logisticDescription.ToString() + "')";
+                        "'" + building.logisticScore.ToString() + "')";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             object result = cmd.ExecuteScalar();
@@ -358,18 +356,7 @@ public class LogManager : MonoBehaviour
             buildingBuilt.Add("");
         }
 
-        Debug.Log("liste des buildings " + buildingBuilt[0] + buildingBuilt[1] + buildingBuilt[2] + buildingBuilt[3] + buildingBuilt[4] );
-
-        /*WWWForm infoBuilding = new WWWForm();
-        infoBuilding.AddField("game_key", uuidParty);
-        infoBuilding.AddField("turn_number", turn.numTurn.ToString());
-        infoBuilding.AddField("building_market_1", turn.Market[0].name);
-        infoBuilding.AddField("building_market_2", turn.Market[1].name);
-        infoBuilding.AddField("building_market_3", turn.Market[2].name);
-        infoBuilding.AddField("building_market_4", turn.Market[3].name);
-        infoBuilding.AddField("building_market_5", turn.Market[4].name);
-        infoBuilding.AddField("created_at", turn.dateTime);*/
-
+       
 
         string connStr = "server=localhost;user=root;database=logurbalog;port=3306;password=1234";
         MySqlConnection conn = new MySqlConnection(connStr);
@@ -405,30 +392,5 @@ public class LogManager : MonoBehaviour
 
 
     }
-
-
-
-
     #endregion
-
-
-
-    public void getLog()
-    {
-        // Game
-        StartCoroutine(GetAllLOG());
-    }
-    IEnumerator GetAllLOG()
-    {
-        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendInfoToServerUrbalog.php");
-        yield return www;
-        if (www.text != "0")
-        {
-            Debug.Log(www.bytes.ToString());
-        }
-        else
-        {
-            Debug.Log("Failed");
-        }
-    }
 }

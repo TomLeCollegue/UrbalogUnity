@@ -95,7 +95,6 @@ public class LogCreateTable : MonoBehaviour
                          "`id` int(255) NOT NULL AUTO_INCREMENT," +
                          "`game_key` varchar(255) NOT NULL," +
                          "`name` varchar(255) NOT NULL," +
-                         "`description` text NOT NULL," +
                          "`political_cost` varchar(255) NOT NULL," +
                          "`social_cost` varchar(255) NOT NULL," +
                          "`economical_cost` varchar(255) NOT NULL," +
@@ -103,7 +102,6 @@ public class LogCreateTable : MonoBehaviour
                          "`fluid_score` varchar(255) NOT NULL," +
                          "`envi_score` varchar(255) NOT NULL," +
                          "`logi_score` varchar(255) NOT NULL," +
-                         "`logi_description` text NOT NULL," +
                          "PRIMARY KEY(`id`)" +
                          ") ENGINE = InnoDB AUTO_INCREMENT = 325 DEFAULT CHARSET = latin1";
 
