@@ -25,6 +25,7 @@ public class DisplayScorePlayer : MonoBehaviour
     public Sprite TransporteurPublic;
     public Sprite Habitant;
     public Sprite Mairie;
+    public Sprite DefaultPic;
 
     private void Update()
     {
@@ -63,29 +64,29 @@ public class DisplayScorePlayer : MonoBehaviour
 
     private Sprite GetInfoPlayer(Player player)
     {
-        if (player.nameRole.Equals("Habitant"))
+        if (player.role.roleForSprite.Equals("Habitant"))
         {
             return Habitant;
         }
-        else if (player.nameRole.Equals("Transporteur"))
+        else if (player.role.roleForSprite.Equals("Transporteur"))
         {
             return Transporteur;
         }
-        else if (player.nameRole.Equals("Commerçant"))
+        else if (player.role.roleForSprite.Equals("Commerçant"))
         {
             return Commercant;
         }
-        else if (player.nameRole.Equals("Collectivité locale"))
+        else if (player.role.roleForSprite.Equals("Collectivité locale"))
         {
             return Mairie;
         }
-        else if (player.nameRole.Equals("Opérateur de transport public"))
+        else if (player.role.roleForSprite.Equals("Opérateur de transport public"))
         {
             return TransporteurPublic;
         }
         else
         {
-            return Mairie;
+            return DefaultPic;
         }
 
     }

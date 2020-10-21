@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4383403, g: 0.48639303, b: 0.56666845, a: 1}
+  m_IndirectSpecularColor: {r: 0.43834105, g: 0.48639393, b: 0.56666934, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -29002,6 +29002,7 @@ MonoBehaviour:
   TransporteurPublic: {fileID: 21300000, guid: e69899af35a573a4d88ad6747d75e169, type: 3}
   Habitant: {fileID: 21300000, guid: f5afad406424a5140b8078d5de6805eb, type: 3}
   Mairie: {fileID: 21300000, guid: c06659b791d94de459ccd4d90829ff64, type: 3}
+  DefaultPic: {fileID: 21300000, guid: 43bd11a500c380f469e630d12cfbfc3f, type: 3}
 --- !u!114 &1376666351
 MonoBehaviour:
   m_ObjectHideFlags: 0
