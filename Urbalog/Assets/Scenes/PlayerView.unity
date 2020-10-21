@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43834105, g: 0.48639393, b: 0.56666934, a: 1}
+  m_IndirectSpecularColor: {r: 0.4383403, g: 0.48639303, b: 0.56666845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1821,7 +1821,7 @@ GameObject:
   - component: {fileID: 49592259}
   - component: {fileID: 49592258}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: helpAttractText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2052,7 +2052,7 @@ GameObject:
   - component: {fileID: 57223495}
   - component: {fileID: 57223494}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: helpEnviText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4989,7 +4989,7 @@ GameObject:
   - component: {fileID: 171573701}
   - component: {fileID: 171573700}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: helpLogiImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5315,7 +5315,7 @@ GameObject:
   - component: {fileID: 187213921}
   - component: {fileID: 187213920}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: helpPoliImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7085,7 +7085,7 @@ GameObject:
   - component: {fileID: 274623344}
   - component: {fileID: 274623343}
   m_Layer: 5
-  m_Name: Image (6)
+  m_Name: helpSocialImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15872,7 +15872,7 @@ GameObject:
   - component: {fileID: 704325644}
   - component: {fileID: 704325643}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: helpFluidImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16124,7 +16124,7 @@ GameObject:
   - component: {fileID: 718422475}
   - component: {fileID: 718422474}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: helpLogiText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17810,7 +17810,7 @@ GameObject:
   - component: {fileID: 822206257}
   - component: {fileID: 822206256}
   m_Layer: 5
-  m_Name: Text (TMP) (6)
+  m_Name: helpSocialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18837,7 +18837,7 @@ GameObject:
   - component: {fileID: 869513615}
   - component: {fileID: 869513614}
   m_Layer: 5
-  m_Name: Text (TMP) (5)
+  m_Name: helpPoliIText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20421,7 +20421,7 @@ GameObject:
   - component: {fileID: 936742203}
   - component: {fileID: 936742202}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: helpFluidText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22113,7 +22113,7 @@ GameObject:
   - component: {fileID: 1046513744}
   - component: {fileID: 1046513743}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: helpAttractImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26728,7 +26728,7 @@ GameObject:
   - component: {fileID: 1261951543}
   - component: {fileID: 1261951542}
   m_Layer: 5
-  m_Name: Image
+  m_Name: helpEnviImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29077,6 +29077,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 2029861659}
+  HelpEnviText: {fileID: 57223494}
+  HelpFluidText: {fileID: 936742202}
+  HelpAttractText: {fileID: 49592258}
+  HelpLogiText: {fileID: 718422474}
+  HelpEcoText: {fileID: 1699682518}
+  HelpPoliText: {fileID: 869513614}
+  HelpSocialText: {fileID: 822206256}
 --- !u!114 &1376666354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30543,6 +30550,7 @@ MonoBehaviour:
   Improve: {fileID: 1424971428}
   text_objectives: {fileID: 597873908}
   turn: {fileID: 1728802572}
+  time_left_text: {fileID: 1142671510}
   Score_player: {fileID: 1731530852}
   Score_city: {fileID: 617674065}
   turn_city: {fileID: 643007141}
@@ -34293,7 +34301,7 @@ GameObject:
   - component: {fileID: 1614623972}
   - component: {fileID: 1614623971}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: helpEcoImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35786,7 +35794,7 @@ GameObject:
   - component: {fileID: 1699682519}
   - component: {fileID: 1699682518}
   m_Layer: 5
-  m_Name: Text (TMP) (4)
+  m_Name: helpEcoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

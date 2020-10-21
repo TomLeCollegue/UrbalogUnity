@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,7 @@ public class LanguagePlayer : MonoBehaviour
     public TextMeshProUGUI Improve;
     public TextMeshProUGUI text_objectives;
     public TextMeshProUGUI turn;
+    public TextMeshProUGUI time_left_text;
     
     public TextMeshProUGUI Score_player;
     public TextMeshProUGUI Score_city;
@@ -45,6 +47,8 @@ public class LanguagePlayer : MonoBehaviour
     public TextMeshProUGUI GameTimerEndText;
 
 
+
+
     public void FillGameTimerPopUps()
     {
         GameTimerWarningTitle.text = Language.GAME_TIMER_WARNING_POPUP_TITLE;
@@ -71,6 +75,8 @@ public class LanguagePlayer : MonoBehaviour
         FillGameTimerPopUps();
     }
 
+
+
     public void FillRole()
     {
         Center_City.text = Language.CENTER_CITY;
@@ -81,6 +87,7 @@ public class LanguagePlayer : MonoBehaviour
         Improve.text = Language.IMPROVE;
         text_objectives.text = Language.TEXT_OBJECTIVE;
         turn.text = Language.TURNS + "0";
+        time_left_text.text = Language.TIMER_TURN;
     }
 
     public void FillCity()
