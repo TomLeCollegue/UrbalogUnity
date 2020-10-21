@@ -239,38 +239,6 @@
             "logisticScore": -2,
             "logisticDescription": "Cette zone, non franchissable avec des outils de manutention, gêne la livraison.",
             "nameForSprite": "Zone végétalisée"
-        },
-        {
-            "name": "Morgane",
-            "description": "C'est la meilleure du monde entier",
-            "Economical": 1,
-            "Social": 1,
-            "Political": 1,
-            "FinanceEconomical": 0,
-            "FinanceSocial": 0,
-            "FinancePolitical": 0,
-            "enviScore": 100,
-            "fluidScore": 100,
-            "attractScore": 100,
-            "logisticScore": 100,
-            "logisticDescription": "A changé ma vie.",
-            "nameForSprite": "DEFAULT"
-        },
-        {
-            "name": "test",
-            "description": "20",
-            "Economical": 2,
-            "Social": 2,
-            "Political": 2,
-            "FinanceEconomical": 0,
-            "FinanceSocial": 0,
-            "FinancePolitical": 0,
-            "enviScore": 2,
-            "fluidScore": 2,
-            "attractScore": 2,
-            "logisticScore": 2,
-            "logisticDescription": "tesggg",
-            "nameForSprite": "DEFAULT"
         }
     ]
 }

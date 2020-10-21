@@ -188,13 +188,9 @@ public class FillPlayerView : MonoBehaviour
     public Sprite Mairie;
     public Sprite Habitant;
     public Sprite TransportPublic;
+    public Sprite defaultRoleSprite;
 
     public TextMeshProUGUI NamePlayer;
-
-
-
-
-
 
     #endregion
 
@@ -537,26 +533,30 @@ public class FillPlayerView : MonoBehaviour
         NameRole.text = role.nameRole;
         NamePlayer.text = GameObject.Find("playerLocal").GetComponent<Player>().namePlayer;
 
-        if (role.nameRole.Equals("Habitant"))
+        if (role.roleForSprite.Equals("Habitant"))
         {
             PicRole.GetComponent<Image>().sprite = Habitant;
         }
-        else if (role.nameRole.Equals("Transporteur"))
+        else if (role.roleForSprite.Equals("Transporteur"))
         {
             PicRole.GetComponent<Image>().sprite = Transport;
         }
-        else if (role.nameRole.Equals("Collectivité Locale"))
+        else if (role.roleForSprite.Equals("Collectivité Locale"))
         {
             PicRole.GetComponent<Image>().sprite = Mairie;
         }
-        else if (role.nameRole.Equals("Commerçant"))
+        else if (role.roleForSprite.Equals("Commerçant"))
         {
             PicRole.GetComponent<Image>().sprite = Commercant;
 
         }
-        else
+        else if (role.roleForSprite.Equals("Opérateur de transport public"))
         {
             PicRole.GetComponent<Image>().sprite = TransportPublic;
+        }
+        else
+        {
+            PicRole.GetComponent<Image>().sprite = defaultRoleSprite;
         }
 
         #region Ressources

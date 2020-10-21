@@ -98,8 +98,10 @@ public class JSONRoles : MonoBehaviour
         }
         for (int i = 0; i < _rolesArray.Length; i++)
         {
+            //_Roles.Add(new Role(_rolesArray[i].nameRole, _rolesArray[i].hold, _rolesArray[i].improve, 
+            //    _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical));
             _Roles.Add(new Role(_rolesArray[i].nameRole, _rolesArray[i].hold, _rolesArray[i].improve, 
-                _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical));
+                _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical, _rolesArray[i].roleForSprite));
         }
     }
 
@@ -129,11 +131,16 @@ public class JSONRoles : MonoBehaviour
         DefaultRoles.Clear();
         //DefaultRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
         //DefaultRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
-        DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
-        DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
-        DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
-        DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
-        DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+        //DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
+        DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7, "Transporteur"));
+        //DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0, "Habitant"));
+        //DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
+        DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6, "Collectivité Locale"));
+        //DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
+        DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4, "Commerçant"));
+        //DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+        DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4, "Opérateur de transport public"));
     }
 
 
@@ -145,11 +152,16 @@ public class JSONRoles : MonoBehaviour
         DefaultRolesEN.Clear();
         //DefaultRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
         //DefaultRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
-        DefaultRolesEN.Add(new Role("Freight operator", "Attractiveness", "Fluidity", 0, 3, 7));
-        DefaultRolesEN.Add(new Role("Citizen", "Fluidity", "Environment", 7, 3, 0));
-        DefaultRolesEN.Add(new Role("Metropolitan authority", "Environment", "Attractiveness", 0, 4, 6));
-        DefaultRolesEN.Add(new Role("Shop owner", "Fluidity", "Attractiveness", 6, 0, 4));
-        DefaultRolesEN.Add(new Role("Public transport operator", "Environment", "Fluidity", 0, 6, 4));
+        //DefaultRolesEN.Add(new Role("Freight operator", "Attractiveness", "Fluidity", 0, 3, 7));
+        DefaultRolesEN.Add(new Role("Freight operator", "Attractiveness", "Fluidity", 0, 3, 7, "Transporteur"));
+        //DefaultRolesEN.Add(new Role("Citizen", "Fluidity", "Environment", 7, 3, 0));
+        DefaultRolesEN.Add(new Role("Citizen", "Fluidity", "Environment", 7, 3, 0, "Habitant"));
+        //DefaultRolesEN.Add(new Role("Metropolitan authority", "Environment", "Attractiveness", 0, 4, 6));
+        DefaultRolesEN.Add(new Role("Metropolitan authority", "Environment", "Attractiveness", 0, 4, 6, "Collectivité Locale"));
+        //DefaultRolesEN.Add(new Role("Shop owner", "Fluidity", "Attractiveness", 6, 0, 4));
+        DefaultRolesEN.Add(new Role("Shop owner", "Fluidity", "Attractiveness", 6, 0, 4, "Commerçant"));
+        //DefaultRolesEN.Add(new Role("Public transport operator", "Environment", "Fluidity", 0, 6, 4));
+        DefaultRolesEN.Add(new Role("Public transport operator", "Environment", "Fluidity", 0, 6, 4, "Opérateur de transport public"));
     }
 
     /// <summary>
