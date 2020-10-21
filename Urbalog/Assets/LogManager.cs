@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Accessibility;
+using MySql.Data.MySqlClient;
 
-public class LogManager : MonoBehaviour 
+public class LogManager : MonoBehaviour
 {
 
     public static LogManager singleton;
@@ -20,6 +21,7 @@ public class LogManager : MonoBehaviour
     public int FluidScore;
     public int EnviScore;
     public int LogiScore;
+    public string dateTime;
 
     private void Awake()
     {
@@ -55,12 +57,13 @@ public class LogManager : MonoBehaviour
     private void Start()
     {
         SetUUID();
+        dateTime = DateTime.Now.ToString();
         Roles = GameManager.singleton.game.Roles.ToList();
     }
 
     public List<Building> GetMarket()
     {
-        return GameManager.singleton.game.Market.ToList(); 
+        return GameManager.singleton.game.Market.ToList();
     }
 
     public void GetScoreCity()
@@ -84,132 +87,174 @@ public class LogManager : MonoBehaviour
     public void SendInfo()
     {
         // Game
-        StartCoroutine(SendGameInfos());
+        Debug.Log("On envoie les log");
+        SendGameInfos();
 
         //Player
         for (int i = 0; i < players.Count; i++)
         {
-            StartCoroutine(SendPlayerInfo(players[i]));
+            Debug.Log("On envoie les players");
+            SendPlayerInfo(players[i]);
         }
-
+        
         //Roles
         for (int i = 0; i < Roles.Count; i++)
         {
-            StartCoroutine(SendRoleInfo(Roles[i]));
+            SendRoleInfo(Roles[i]);
         }
+
+        
         //Buildings
         for (int i = 0; i < DeckBuilding.Count; i++)
         {
-            StartCoroutine(SendBuildingInfo(DeckBuilding[i]));
+            Debug.Log("On envoie " + DeckBuilding[i].name);
+            SendBuildingInfo(DeckBuilding[i]);
         }
+
+        
 
         //Bet and Turn
-        for (int i = 0; i < Turns.Count-1; i++)
+        for (int i = 0; i < Turns.Count - 1; i++)
         {
             SendBetFromTurn(Turns[i]);
-            StartCoroutine(SendTurnInfo(Turns[i]));
+            SendTurnInfo(Turns[i]);
         }
 
     }
-    IEnumerator SendGameInfos()
+    void SendGameInfos()
     {
-        WWWForm infoGame = new WWWForm();
-        infoGame.AddField("game_key", uuidParty);
-        infoGame.AddField("nb_player", players.Count.ToString());
-        infoGame.AddField("nb_buildings", GameManager.singleton.game.BuildingsBuilt.Count.ToString());
-        infoGame.AddField("game_timer", 0.ToString());
-        infoGame.AddField("turn_timer", 0.ToString());
-        infoGame.AddField("envi_score", EnviScore.ToString());
-        infoGame.AddField("attract_score", AttractScore.ToString());
-        infoGame.AddField("fluid_score", FluidScore.ToString());
-        infoGame.AddField("logi_score", LogiScore.ToString());
-        infoGame.AddField("nb_turn", Turns.Count.ToString());
-        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfogame.php", infoGame);
-        yield return www;
-        if(www.text == "0")
+        string connStr = "server=localhost;user=root;database=logurbalog;port=3306;password=1234";
+        MySqlConnection conn = new MySqlConnection(connStr);
+
+        try
         {
-            Debug.Log("GameUpload success");
+            
+            conn.Open();
+
+            string sql = "INSERT INTO games (game_key, nb_players, nb_buildings,nb_buildings_per_turn, game_timer, turn_timer, score_fuild, score_attract, score_envi, score_logi, nb_turn) VALUES (" +
+                        "'" + uuidParty + "'," +
+                        "'" + players.Count.ToString() + "'," +
+                        "'" + GameManager.singleton.game.BuildingsBuilt.Count.ToString() + "'," +
+                        "'" + GameSettings.nbBuildingsPerTurn.ToString() + "'," +
+                        "'" + GameSettings.GameTimerMax.ToString() + "'," +
+                        "'" + GameSettings.TurnTimeMax.ToString() + "'," +
+                        "'" + FluidScore.ToString() + "'," +
+                        "'" + AttractScore.ToString() + "'," +
+                        "'" + EnviScore.ToString() + "'," +
+                        "'" + LogiScore.ToString() + "'," +
+                        "'" + (Turns.Count - 1 ).ToString() + "')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            object result = cmd.ExecuteScalar();
+
         }
-        else
+        catch (Exception ex)
         {
-            Debug.Log("Game upload Failed");
+            Console.WriteLine(ex.ToString());
         }
+
+    }
+    void SendPlayerInfo(Player player)
+    {
+        string connStr = "server=localhost;user=root;database=logurbalog;port=3306;password=1234";
+        MySqlConnection conn = new MySqlConnection(connStr);
+
+        try
+        {
+
+            conn.Open();
+
+            string sql = "INSERT INTO players (game_keys, game_id, nom, firstname, sexe, age, residence, statut_activite, job,secteur_activite,entreprise,role_player) VALUES (" +
+                        "'" + uuidParty + "'," +
+                        "'" + player.ID + "'," +
+                        "'" + player.playerFamilyName + "'," +
+                        "'" + player.namePlayer + "'," +
+                        "'" + player.gender + "'," +
+                        "'" + player.age + "'," +
+                        "'" + player.zipcode + "'," +
+                        "'" + player.jobStatus + "'," +
+                        "'" + player.jobStatus + "'," +
+                        "'" + player.field + "'," +
+                        "'" + player.company + "'," +
+                        "'" + player.role.nameRole + "')";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            object result = cmd.ExecuteScalar();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+
+
+
+    }
+    void SendRoleInfo(Role role)
+    {
        
-    }
-    IEnumerator SendPlayerInfo(Player player)
-    {
-        WWWForm infoPlayer = new WWWForm();
-        infoPlayer.AddField("game_key", uuidParty);
-        infoPlayer.AddField("game_id", player.ID);
-        infoPlayer.AddField("nom", player.playerFamilyName);
-        infoPlayer.AddField("prenom", player.namePlayer);
-        infoPlayer.AddField("sexe", player.gender);
-        infoPlayer.AddField("age", player.age);
-        infoPlayer.AddField("residence", player.zipcode);
-        infoPlayer.AddField("statut_activite", player.jobStatus);
-        infoPlayer.AddField("job", player.jobStatus);
-        infoPlayer.AddField("secteur_activite", player.field);
-        infoPlayer.AddField("entreprise", player.company);
-        infoPlayer.AddField("role", player.role.nameRole);
-        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfoplayer.php", infoPlayer);
-        
-        yield return www;
-        if (www.text == "0")
+
+        string connStr = "server=localhost;user=root;database=logurbalog;port=3306;password=1234";
+        MySqlConnection conn = new MySqlConnection(connStr);
+
+        try
         {
-            Debug.Log(player.namePlayer + "upload success");
+
+            conn.Open();
+
+            string sql = "INSERT INTO roles (game_key, name, social_tokens, economical_tokens, political_tokens, hold, improve) VALUES (" +
+                        "'" + uuidParty + "'," +
+                        "'" + role.nameRole + "'," +
+                        "'" + role.ressourceSocial.ToString() + "'," +
+                        "'" + role.ressourceEconomical.ToString() + "'," +
+                        "'" + role.ressourcePolitical.ToString() + "'," +
+                        "'" + role.hold + "'," +
+                        "'" + role.improve + "')";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            object result = cmd.ExecuteScalar();
+
         }
-        else
+        catch (Exception ex)
         {
-            Debug.Log("Player upload Failed");
+            Console.WriteLine(ex.ToString());
         }
 
-    }
-    IEnumerator SendRoleInfo(Role role)
-    {
-        WWWForm infoRole = new WWWForm();
-        infoRole.AddField("game_key", uuidParty);
-        infoRole.AddField("name", role.nameRole);
-        infoRole.AddField("social_tokens", role.ressourceSocial.ToString());
-        infoRole.AddField("economical_tokens", role.ressourceEconomical.ToString());
-        infoRole.AddField("political_tokens", role.ressourcePolitical.ToString());
-        infoRole.AddField("hold", role.hold);
-        infoRole.AddField("improve", role.improve);
-        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinforole.php", infoRole);
-        yield return www;
-        if (www.text == "0")
-        {
-            Debug.Log(role.nameRole + "upload success");
-        }
-        else
-        {
-            Debug.Log("Role upload Failed");
-        }
 
     }
-    IEnumerator SendBuildingInfo(Building building)
+    void SendBuildingInfo(Building building)
     {
-        WWWForm infoBuilding = new WWWForm();
-        infoBuilding.AddField("game_key", uuidParty);
-        infoBuilding.AddField("name", building.name);
-        infoBuilding.AddField("description", building.description.ToString());
-        infoBuilding.AddField("political_cost", building.Political.ToString());
-        infoBuilding.AddField("economical_cost", building.Economical.ToString());
-        infoBuilding.AddField("social_cost", building.Social.ToString());
-        infoBuilding.AddField("attract_score", building.attractScore.ToString());
-        infoBuilding.AddField("fluid_score", building.fluidScore.ToString());
-        infoBuilding.AddField("envi_score", building.enviScore.ToString());
-        infoBuilding.AddField("logi_score", building.logisticScore.ToString());
-        infoBuilding.AddField("logi_description", building.logisticDescription);
-        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfobuilding.php", infoBuilding);
-        yield return www;
-        if (www.text == "0")
+
+        string connStr = "server=localhost;user=root;database=logurbalog;port=3306;password=1234";
+        MySqlConnection conn = new MySqlConnection(connStr);
+
+        try
         {
-            Debug.Log(building.name + "upload success");
+
+            conn.Open();
+
+            string sql = "INSERT INTO buildings (game_key, name, political_cost, social_cost, economical_cost, attract_score, fluid_score, envi_score, logi_score) VALUES (" +
+                        "'" + uuidParty + "'," +
+                        "'" + building.name + "'," +
+                        "'" + building.Political.ToString() + "'," +
+                        "'" + building.Social.ToString() + "'," +
+                        "'" + building.Economical.ToString() + "'," +
+                        "'" + building.attractScore.ToString() + "'," +
+                        "'" + building.fluidScore.ToString() + "'," +
+                        "'" + building.enviScore.ToString() + "'," +
+                        "'" + building.logisticScore.ToString() + "')";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            object result = cmd.ExecuteScalar();
+
         }
-        else
+        catch (Exception ex)
         {
-            Debug.Log("building upload Failed");
+            Console.WriteLine(ex.ToString());
         }
+
+
+
+
 
     }
 
@@ -217,11 +262,11 @@ public class LogManager : MonoBehaviour
     {
         for (int i = 0; i < turn.Bets.Count; i++)
         {
-            StartCoroutine(SendBetInfo(turn.Bets[i], turn.numTurn));
+            SendBetInfo(turn.Bets[i], turn.numTurn);
         }
     }
 
-    IEnumerator SendBetInfo(Bet bet, int numTurn)
+    void SendBetInfo(Bet bet, int numTurn)
     {
         WWWForm infoBuilding = new WWWForm();
         infoBuilding.AddField("game_key", uuidParty);
@@ -231,84 +276,121 @@ public class LogManager : MonoBehaviour
         infoBuilding.AddField("economical_bet", bet.econommical.ToString());
         infoBuilding.AddField("turn", numTurn.ToString());
         infoBuilding.AddField("building", bet.BuildingName);
-        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfobet.php", infoBuilding);
-        yield return www;
-        if (www.text == "0")
+        infoBuilding.AddField("created_at", bet.dateTime);
+
+
+        string connStr = "server=localhost;user=root;database=logurbalog;port=3306;password=1234";
+        MySqlConnection conn = new MySqlConnection(connStr);
+
+        try
         {
-            Debug.Log("Bet upload success");
+
+            conn.Open();
+
+            string sql = "INSERT INTO bet_history (game_key, player_id, political_bet, social_bet, economical_bet, turn, building, created_at) VALUES (" +
+                        "'" + uuidParty + "'," +
+                        "'" + bet.PlayerId + "'," +
+                        "'" + bet.politic.ToString() + "'," +
+                        "'" + bet.social.ToString() + "'," +
+                        "'" + bet.econommical.ToString() + "'," +
+                        "'" + numTurn.ToString() + "'," +
+                        "'" + bet.BuildingName + "'," +
+                        "'" + bet.dateTime + "')";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            object result = cmd.ExecuteScalar();
+
         }
-        else
+        catch (Exception ex)
         {
-            Debug.Log("building upload Failed");
+            Console.WriteLine(ex.ToString());
         }
+
 
     }
 
-    IEnumerator SendTurnInfo(Turn turn)
+
+
+    void SendTurnInfo(Turn turn)
     {
-        WWWForm infoBuilding = new WWWForm();
-        infoBuilding.AddField("game_key", uuidParty);
-        infoBuilding.AddField("turn_number", turn.numTurn.ToString());
-        infoBuilding.AddField("building_market_1", turn.Market[0].name);
-        infoBuilding.AddField("building_market_2", turn.Market[1].name);
-        infoBuilding.AddField("building_market_3", turn.Market[2].name);
-        infoBuilding.AddField("building_market_4", turn.Market[3].name);
-        infoBuilding.AddField("building_market_5", turn.Market[4].name);
-        if(turn.BuildingBuild.Count >=1)
+
+        List<String> buildingBuilt = new List<String>();
+        if (turn.BuildingBuild.Count >= 1)
         {
-            infoBuilding.AddField("building_completed_1", turn.BuildingBuild[0].name);
+            buildingBuilt.Add(turn.BuildingBuild[0].name);
         }
         else
         {
-            infoBuilding.AddField("building_completed_1", "");
+            buildingBuilt.Add("");
         }
         if (turn.BuildingBuild.Count >= 2)
         {
-            infoBuilding.AddField("building_completed_2", turn.BuildingBuild[1].name);
+            buildingBuilt.Add(turn.BuildingBuild[1].name);
         }
         else
         {
-            infoBuilding.AddField("building_completed_2", "");
+            buildingBuilt.Add("");
         }
         if (turn.BuildingBuild.Count >= 3)
         {
-            infoBuilding.AddField("building_completed_3", turn.BuildingBuild[2].name);
+            buildingBuilt.Add(turn.BuildingBuild[2].name);
         }
         else
         {
-            infoBuilding.AddField("building_completed_3", "");
+            buildingBuilt.Add("");
         }
         if (turn.BuildingBuild.Count >= 4)
         {
-            infoBuilding.AddField("building_completed_4", turn.BuildingBuild[3].name);
+            buildingBuilt.Add(turn.BuildingBuild[3].name);
         }
         else
         {
-            infoBuilding.AddField("building_completed_4", "");
+            buildingBuilt.Add("");
         }
         if (turn.BuildingBuild.Count >= 5)
         {
-            infoBuilding.AddField("building_completed_5", turn.BuildingBuild[4].name);
+            buildingBuilt.Add(turn.BuildingBuild[4].name);
         }
         else
         {
-            infoBuilding.AddField("building_completed_5", "");
+            buildingBuilt.Add("");
         }
 
-        WWW www = new WWW("http://89.87.13.28:8800/database/php_request_urba/sendinfoturn.php", infoBuilding);
-        yield return www;
-        if (www.text == "0")
+       
+
+        string connStr = "server=localhost;user=root;database=logurbalog;port=3306;password=1234";
+        MySqlConnection conn = new MySqlConnection(connStr);
+
+        try
         {
-            Debug.Log("Turn upload success");
+
+            conn.Open();
+
+            string sql = "INSERT INTO turn_history (game_key, turn_number, building_market_1, building_market_2, building_market_3, building_market_4, building_market_5, building_completed_1, building_completed_2, building_completed_3,building_completed_4, building_completed_5, created_at) VALUES (" +
+                        "'" + uuidParty + "'," +
+                        "'" + turn.numTurn.ToString() + "'," +
+                        "'" + turn.Market[0].name + "'," +
+                        "'" + turn.Market[1].name + "'," +
+                        "'" + turn.Market[2].name + "'," +
+                        "'" + turn.Market[3].name + "'," +
+                        "'" + turn.Market[4].name + "'," +
+                        "'" + buildingBuilt[0] + "'," +
+                        "'" + buildingBuilt[1] + "'," +
+                        "'" + buildingBuilt[2] + "'," +
+                        "'" + buildingBuilt[3] + "'," +
+                        "'" + buildingBuilt[4] + "'," + 
+                        "'" + turn.dateTime + "')";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            object result = cmd.ExecuteScalar();
+
         }
-        else
+        catch (Exception ex)
         {
-            Debug.Log("turn upload Failed");
+            Console.WriteLine(ex.ToString());
         }
+
+
     }
-
-
-
-
     #endregion
 }

@@ -21,9 +21,12 @@
 
         public static string FR_PSEUDO = "Votre pseudo";
         public static string EN_PSEUDO = "Your pseudo";
+
+    public static string FR_WARMUP_BUTTON = "Tour de chauffe";
+    public static string EN_WARMUP_BUTTON = "Warm-up game";
     #endregion
     #region PlayerView
-        public static string FR_OBJECTIF = "OBJECTIF";
+    public static string FR_OBJECTIF = "OBJECTIF";
         public static string EN_OBJECTIVES = "OBJECTIVES";
 
         public static string FR_HOLD = "Maintenir";
@@ -121,18 +124,39 @@
         public static string FR_TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
         public static string EN_TEXT_LOSE = "One of the 2 conditions were not completed. \n You dont get a point";
 
-        public static string FR_TIMER_TURN = "Temps restant : ";
-        public static string EN_TIMER_TURN = "Time left : ";
+        public static string FR_TIMER_TURN = "Temps restant";
+        public static string EN_TIMER_TURN = "Time left";
 
         public static string FR_END_WARMUP = "Fin du Tour de chauffe";
         public static string EN_END_WARMUP = "End of Warmup";
 
+    //Help PopUp
+    public static string FR_HELP_ENVI = "Qualité Environnementale";
+    public static string EN_HELP_ENVI = "Environmental quality";
+    public static string FR_HELP_FLUID = "Fluidité du trafic";
+    public static string EN_HELP_FLUID = "Traffic flow";
+    public static string FR_HELP_ATTRACT = "Attractivité de la ville";
+    public static string EN_HELP_ATTRACT = "Attractiveness of the city";
+    public static string FR_HELP_LOGI = "Qualité Logistique";
+    public static string EN_HELP_LOGI = "Logistics quality";
+    public static string FR_HELP_ECO = "Ressource Économique";
+    public static string EN_HELP_ECO = "Economic resource";
+    public static string FR_HELP_POLI = "Ressource Politique";
+    public static string EN_HELP_POLI = "Political Resource";
+    public static string FR_HELP_SOCIAL = "Ressource Sociale";
+    public static string EN_HELP_SOCIAL = "Social Resource";
 
-
-
-
-
-
+    //GameTimerPopUp
+    public static string FR_GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TITLE = "Be Careful !";
+    public static string FR_GAME_TIMER_WARNING_POPUP_TEXT_1 = "Il ne vous reste plus que ";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TEXT_1 = "Only ";
+    public static string FR_GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn avant la fin de la partie.";
+    public static string EN_GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn left before the game ends";
+    public static string FR_GAME_TIMER_END_POPUP_TITLE = "Dommage !";
+    public static string EN_GAME_TIMER_END_POPUP_TITLE = "Sorry !";
+    public static string FR_GAME_TIMER_END_POPUP_TEXT = "La partie est terminée car le temps est écoulé.";
+    public static string EN_GAME_TIMER_END_POPUP_TEXT = "The game ended because there is no time left.";
 
     #endregion
     #region EndGame
@@ -149,6 +173,183 @@
     public static string FR_BEGIN_PARTY = "Commencer la partie";
     public static string EN_BEGIN_PARTY = "Start the game";
 
+    #endregion
+
+    #region SettingsMenu
+    //Main Menu
+    public static string FR_SETTINGS_TITLE = "Réglages";
+    public static string EN_SETTINGS_TITLE = "Settings";
+    public static string FR_BUILDING_MENU_BUTTON = "Aménagements";
+    public static string EN_BUILDING_MENU_BUTTON = "Buildings";
+    public static string FR_ROLES_MENU_BUTTON = "Rôles";
+    public static string EN_ROLES_MENU_BUTTON = "Roles";
+    public static string FR_TIME_MENU_BUTTON = "Limite de temps";
+    public static string EN_TIME_MENU_BUTTON = "Time Limit";
+    public static string FR_SERVER_TOGGLE_TEXT = "Le serveur n'est pas joueur";
+    public static string EN_SERVER_TOGGLE_TEXT = "The server is not a player";
+    public static string FR_CENTRAL_TABLET_TOGGLE = "Tablette centrale activée";
+    public static string EN_CENTRAL_TABLET_TOGGLE = "Central tablet in use";
+    public static string FR_CENTRAL_TABLET_WARNING = "Si l'option 'Tablette Centrale' est activée, alors le serveur sera forcément non-joueur.";
+    public static string EN_CENTRAL_TABLET_WARNING = "If 'Central tablet in use' is checked, the server will not be a player.";
+
+    //Buildings Menu
+    public static string FR_BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
+    public static string EN_BUILDINGSTOEND_TEXT = "How many buildings are built before the game ends";
+    public static string FR_CONFIRM_NBBUILDINGS_BUTTON = "Valider";
+    public static string EN_CONFIRM_NBBUILDINGS_BUTTON = "Confirm";
+    public static string FR_BUILDINGS_LIST_BUTTON = "Liste des aménagements";
+    public static string EN_BUILDINGS_LIST_BUTTON = "Buildings list";
+    public static string FR_BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
+    public static string EN_BUILDINGSPERTURN_TEXT = "How many buildings can be built per turn";
+
+    public static string FR_ADD_BUILDING_BUTTON = "Ajouter un aménagement";
+    public static string EN_ADD_BUILDING_BUTTON = "Add a building";
+    public static string FR_RESET_BUILDINGS_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string EN_RESET_BUILDINGS_BUTTON = "Reset Buildings to default";
+
+    //Timer Menu
+    public static string FR_TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
+    public static string EN_TURN_TIMER_TEXT = "Time per turn in seconds :";
+    public static string FR_GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
+    public static string EN_GAME_TIMER_TEXT = "Time before the game ends in minutes :";
+    public static string FR_TURN_TIMER_TOGGLE = "Activation du timer de tour.";
+    public static string EN_TURN_TIMER_TOGGLE = "Turn Timer Activation";
+    public static string FR_GAME_TIMER_TOGGLE = "Activation du timer de partie.";
+    public static string EN_GAME_TIMER_TOGGLE = "Game Timer Activation";
+
+    //Role Menu
+    public static string FR_ADD_ROLE_BUTTON = "Ajouter un rôle";
+    public static string EN_ADD_ROLE_BUTTON = "Add a role";
+    public static string FR_RESET_ROLES_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string EN_RESET_ROLES_BUTTON = "Reset to default values";
+    public static string FR_DELETE_ROLE_BUTTON = "Supprimer le rôle";
+    public static string EN_DELETE_ROLE_BUTTON = "Delete role";
+    public static string FR_APPLY_CHANGES_ROLE_BUTTON = "Modifier le rôle";
+    public static string EN_APPLY_CHANGES_ROLE_BUTTON = "Apply Changes";
+    public static string FR_ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
+    public static string EN_ADD_ROLE_IN_JSON_BUTTON = "Add role in the list";
+
+    //Modify Role Panel
+    public static string FR_MOD_OBJ_TITLE = "Objectifs :";
+    public static string EN_MOD_OBJ_TITLE = "Objectives :";
+
+    public static string FR_MOD_HOLD_TITLE = "Maintenir :";
+    public static string EN_MOD_HOLD_TITLE = "Hold :";
+    public static string FR_MOD_IMPROVE_TITLE = "Améliorer :";
+    public static string EN_MOD_IMPROVE_TITLE = "Improve :";
+
+    public static string FR_MOD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_MOD_HOLD_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_MOD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string EN_MOD_HOLD_ENVI_BUTTON = "Environment";
+    public static string FR_MOD_HOLD_FLUID_BUTTON = "Fluidité";
+    public static string EN_MOD_HOLD_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_MOD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_MOD_IMPROVE_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_MOD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string EN_MOD_IMPROVE_ENVI_BUTTON = "Environment";
+    public static string FR_MOD_IMPROVE_FLUID_BUTTON = "Fluidité";
+    public static string EN_MOD_IMPROVE_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_MOD_RESOURCE_TITLE = "Ressources :";
+    public static string EN_MOD_RESOURCE_TITLE = "Resources :";
+
+    public static string FR_MOD_POLI_TITLE = "Politique :";
+    public static string EN_MOD_POLI_TITLE = "Politic :";
+    public static string FR_MOD_ECO_TITLE = "Économique :";
+    public static string EN_MOD_ECO_TITLE = "Economic :";
+    public static string FR_MOD_SOCIAL_TITLE = "Social :";
+    public static string EN_MOD_SOCIAL_TITLE = "Social :";
+
+    public static string FR_MOD_RES_WARNING = "L'une de ces 3 ressources doit être à 0.";
+    public static string EN_MOD_RES_WARNING = "One of these resources must be at 0.";
+
+    public static string FR_MOD_DELETE_ROLE = "Supprimer le rôle";
+    public static string EN_MOD_DELETE_ROLE = "Delete this role";
+    public static string FR_MOD_APPLY_CHANGES_ROLE = "Modifier le rôle";
+    public static string EN_MOD_APPLY_CHANGES_ROLE = "Apply Changes";
+
+    //Add Role Panel
+    public static string FR_ADD_OBJ_TITLE = "Objectifs :";
+    public static string EN_ADD_OBJ_TITLE = "Objectives :";
+
+    public static string FR_ADD_HOLD_TITLE = "Maintenir :";
+    public static string EN_ADD_HOLD_TITLE = "Hold :";
+    public static string FR_ADD_IMPROVE_TITLE = "Améliorer :";
+    public static string EN_ADD_IMPROVE_TITLE = "Improve :";
+
+    public static string FR_ADD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_ADD_HOLD_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_ADD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string EN_ADD_HOLD_ENVI_BUTTON = "Environment";
+    public static string FR_ADD_HOLD_FLUID_BUTTON = "Fluidité";
+    public static string EN_ADD_HOLD_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_ADD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string EN_ADD_IMPROVE_ATTRACT_BUTTON = "Attractiveness";
+    public static string FR_ADD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string EN_ADD_IMPROVE_ENVI_BUTTON = "Environment";
+    public static string FR_ADD_IMPROVE_FLUID_BUTTON = "Fluidité";
+    public static string EN_ADD_IMPROVE_FLUID_BUTTON = "Fluidity";
+
+    public static string FR_ADD_RESOURCE_TITLE = "Ressources :";
+    public static string EN_ADD_RESOURCE_TITLE = "Resources:";
+
+    public static string FR_ADD_POLI_TITLE = "Politique :";
+    public static string EN_ADD_POLI_TITLE = "Politic:";
+    public static string FR_ADD_ECO_TITLE = "Économique :";
+    public static string EN_ADD_ECO_TITLE = "Economic:";
+    public static string FR_ADD_SOCIAL_TITLE = "Social :";
+    public static string EN_ADD_SOCIAL_TITLE = "Social :";
+
+    public static string FR_ADD_RES_WARNING = "Attention : Il faut bien remplir tous les champs. Aussi, l'une des 3 valeurs" +
+        " de ressources doit être à 0.";
+    public static string EN_ADD_RES_WARNING = "Be Careful : You must fill all fields. Also, one of the resources field has to be at 0.";
+
+    public static string FR_ADD_ROLE_BUTTON_VALIDATE = "Ajouter le rôle dans la liste";
+    public static string EN_ADD_ROLE_BUTTON_VALIDATE = "Add role in list";
+
+    //Modify Building Panel
+    public static string FR_MB_DESCRIPTION_TITLE = "Description :";
+    public static string EN_MB_DESCRIPTION_TITLE = "Description :";
+
+    public static string FR_MB_COST_TITLE = "Coûts :";
+    public static string EN_MB_COST_TITLE = "Costs :";
+
+    public static string FR_MB_ECO_TITLE = "Économique :";
+    public static string EN_MB_ECO_TITLE = "Economic :";
+    public static string FR_MB_SOCIAL_TITLE = "Social :";
+    public static string EN_MB_SOCIAL_TITLE = "Social :";
+    public static string FR_MB_POLI_TITLE = "Politique :";
+    public static string EN_MB_POLI_TITLE = "Political :";
+
+    public static string FR_MB_EFFECT_TITLE = "Effets :";
+    public static string EN_MB_EFFECT_TITLE = "Effects :";
+
+    public static string FR_MB_ENVI_TITLE = "Environnement :";
+    public static string EN_MB_ENVI_TITLE = "Environment :";
+    public static string FR_MB_FLUID_TITLE = "Fluidité :";
+    public static string EN_MB_FLUID_TITLE = "Fluidity :";
+    public static string FR_MB_ATTRACT_TITLE = "Attractivité :";
+    public static string EN_MB_ATTRACT_TITLE = "Attractiveness :";
+    public static string FR_MB_LOGISTIC_TITLE = "Logistique :";
+    public static string EN_MB_LOGISTIC_TITLE = "Logistic :";
+
+    public static string FR_MB_LOGISTIC_DESCRIPTION = "Description Logistique :";
+    public static string EN_MB_LOGISTIC_DESCRIPTION = "Logistic Description:";
+
+    public static string FR_MB_DELETE = "Supprimer l'aménagement";
+    public static string EN_MB_DELETE = "Delete this building";
+    public static string FR_MB_APPLY_CHANGES = "Enregistrer les changements";
+    public static string EN_MB_APPLY_CHANGES = "Apply changes";
+
+    //Add building Panel
+    //Add building Panel
+    public static string FR_AB_WARNING = "Remplissez bien tous les champs avant d'ajouter l'aménagement.";
+    public static string EN_AB_WARNING = "Fill all the fields before you add the building.";
+    public static string FR_AB_ADD_BUTTON = "Ajouter l'aménagement";
+    public static string EN_AB_ADD_BUTTON = "Add the building";
     #endregion
 
 
@@ -168,15 +369,100 @@
     public static string FR_AGE = "Votre âge";
     public static string EN_AGE = "Your age";
     public static string FR_PLACE_RESIDENCE = "Lieu de résidence";
-    public static string EN_PLACE_RESIDENCE = "Place of résidence";
-    public static string FR_COMPAGNY = "Votre entreprise";
-    public static string EN_COMPAGNY = "Your compagny";
+    public static string EN_PLACE_RESIDENCE = "Place of residence";
+    public static string FR_COMPANY = "Votre entreprise";
+    public static string EN_COMPANY = "Your company";
     public static string FR_ACT_STATUS = "Votre statut d'activité";
     public static string EN_ACT_STATUS = "Your activity status";
     public static string FR_ACTIVITY = "Votre secteur d'activité";
     public static string EN_ACTIVITY = "Your Activity";
     public static string FR_FINISH = "Terminer";
     public static string EN_FINISH = "Finish";
+
+    //Placeholders
+    public static string FR_NAME_PLACEHOLDER = "Nom";
+    public static string EN_NAME_PLACEHOLDER = "Name";
+    public static string FR_FIRSTNAME_PLACEHOLDER = "Prénom";
+    public static string EN_FIRSTNAME_PLACEHOLDER = "Firstname";
+
+    //p2
+    public static string FR_PLACE_RESIDENCE_PLACEHOLDER = "Code Postal";
+    public static string EN_PLACE_RESIDENCE_PLACEHOLDER = "Zip code";
+    public static string FR_COMPANY_PLACEHOLDER = "Nom de l'entreprise";
+    public static string EN_COMPANY_PLACEHOLDER = "COMPANY Name";
+    //form dropdowns
+    public static string FR_CHOOSE_DROPDOWN = "Choisir ...";
+    public static string EN_CHOOSE_DROPDOWN = "Choose ...";
+    public static string FR_CHOOSE_DROPDOWN_LABEL = "Choisir ...";
+    public static string EN_CHOOSE_DROPDOWN_LABEL = "Choose ...";
+
+    //gender dropdown
+    public static string FR_GENDER_DROPDOWN_OPT1 = "Femme";
+    public static string EN_GENDER_DROPDOWN_OPT1 = "Woman";
+    public static string FR_GENDER_DROPDOWN_OPT2 = "Homme";
+    public static string EN_GENDER_DROPDOWN_OPT2 = "Man";
+    public static string FR_GENDER_DROPDOWN_OPT3 = "Ni l'un ni l'autre";
+    public static string EN_GENDER_DROPDOWN_OPT3 = "Neither";
+
+    //age dropdown
+    public static string FR_AGE_DROPDOWN_OPT1 = "Moins de 15 ans";
+    public static string EN_AGE_DROPDOWN_OPT1 = "Less than 15 y/o";
+    public static string FR_AGE_DROPDOWN_OPT2 = "de 15 à 18 ans";
+    public static string EN_AGE_DROPDOWN_OPT2 = "between 15 and 18 y/o";
+    public static string FR_AGE_DROPDOWN_OPT3 = "de 19 à 24 ans";
+    public static string EN_AGE_DROPDOWN_OPT3 = "between 19 and 24 y/o";
+    public static string FR_AGE_DROPDOWN_OPT4 = "de 25 à 34 ans";
+    public static string EN_AGE_DROPDOWN_OPT4 = "between 25 and 34 y/o";
+    public static string FR_AGE_DROPDOWN_OPT5 = "de 35 à 44 ans";
+    public static string EN_AGE_DROPDOWN_OPT5 = "between 35 and 44 y/o";
+    public static string FR_AGE_DROPDOWN_OPT6 = "de 45 à 54 ans";
+    public static string EN_AGE_DROPDOWN_OPT6 = "between 45 and 54 y/o";
+    public static string FR_AGE_DROPDOWN_OPT7 = "de 55 à 64 ans";
+    public static string EN_AGE_DROPDOWN_OPT7 = "between 55 and 64 y/o";
+    public static string FR_AGE_DROPDOWN_OPT8 = "de 65 ans et plus";
+    public static string EN_AGE_DROPDOWN_OPT8 = "65 y/o or more";
+
+    //activity status dropdown
+    public static string FR_ACTIVITY_STATUS_OPT1 = "Salarié";
+    public static string EN_ACTIVITY_STATUS_OPT1 = "Employee";
+    public static string FR_ACTIVITY_STATUS_OPT2 = "Indépendant";
+    public static string EN_ACTIVITY_STATUS_OPT2 = "Independent";
+    public static string FR_ACTIVITY_STATUS_OPT3 = "Chômeur";
+    public static string EN_ACTIVITY_STATUS_OPT3 = "Unemployed";
+    public static string FR_ACTIVITY_STATUS_OPT4 = "Retraité";
+    public static string EN_ACTIVITY_STATUS_OPT4 = "Retired";
+    public static string FR_ACTIVITY_STATUS_OPT5 = "Autres inactifs (Dont étudiants)";
+    public static string EN_ACTIVITY_STATUS_OPT5 = "other non-economically active people (students included)";
+
+    //activity field dropdown
+    public static string FR_ACTIVITY_FIELD_OPT1 = "Agriculture";
+    public static string EN_ACTIVITY_FIELD_OPT1 = "Agriculture";
+    public static string FR_ACTIVITY_FIELD_OPT2 = "Industrie";
+    public static string EN_ACTIVITY_FIELD_OPT2 = "Industry";
+    public static string FR_ACTIVITY_FIELD_OPT3 = "Construction";
+    public static string EN_ACTIVITY_FIELD_OPT3 = "Construction";
+    public static string FR_ACTIVITY_FIELD_OPT4 = "Commerce";
+    public static string EN_ACTIVITY_FIELD_OPT4 = "Trade";
+    public static string FR_ACTIVITY_FIELD_OPT5 = "Hébergement et restauration";
+    public static string EN_ACTIVITY_FIELD_OPT5 = "Accommodation and catering";
+    public static string FR_ACTIVITY_FIELD_OPT6 = "Information communication";
+    public static string EN_ACTIVITY_FIELD_OPT6 = "Information and communication";
+    public static string FR_ACTIVITY_FIELD_OPT7 = "Finance, assurance, immobilier";
+    public static string EN_ACTIVITY_FIELD_OPT7 = "Finance, insurance, real estate";
+    public static string FR_ACTIVITY_FIELD_OPT8 = "Activités scientifiques, techniques, services administratifs";
+    public static string EN_ACTIVITY_FIELD_OPT8 = "Science, technical, administrative services";
+    public static string FR_ACTIVITY_FIELD_OPT9 = "Administration publique";
+    public static string EN_ACTIVITY_FIELD_OPT9 = "public administration";
+    public static string FR_ACTIVITY_FIELD_OPT10 = "Enseignement";
+    public static string EN_ACTIVITY_FIELD_OPT10 = "Education";
+    public static string FR_ACTIVITY_FIELD_OPT11 = "Activité pour la santé humaine";
+    public static string EN_ACTIVITY_FIELD_OPT11 = "Human health activities";
+    public static string FR_ACTIVITY_FIELD_OPT12 = "Hébergement médico-social et social et action sociale sans hébergement";
+    public static string EN_ACTIVITY_FIELD_OPT12 = "Medico-social accomodation, social accomodation and social action without accomodation";
+    public static string FR_ACTIVITY_FIELD_OPT13 = "Autres services";
+    public static string EN_ACTIVITY_FIELD_OPT13 = "Other services";
+    public static string FR_ACTIVITY_FIELD_OPT14 = "Activité indéterminée";
+    public static string EN_ACTIVITY_FIELD_OPT14 = "Undetermined activity";
 
 
     #endregion
@@ -189,6 +475,7 @@
     public static string HOST_GAME = "Héberger une partie";
     public static string CREATE_GAME = "Créer la partie";
     public static string PSEUDO = "Votre pseudo";
+    public static string WARMUP_BUTTON = "Tour de chauffe";
     #endregion
     #region PlayerView
     public static string OBJECTIF = "OBJECTIF"; 
@@ -224,10 +511,136 @@
     public static string DOMMAGE = "DOMMAGE !";
     public static string TEXT_WIN = "Objectif atteint. \n Vous gagnez un point !";
     public static string TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
-    public static string TIMER_TURN = "Temps restant : ";
+    public static string TIMER_TURN = "Temps restant";
 
+    //Help PopUp
+    public static string HELP_ENVI = "Qualité Environnementale";
+    public static string HELP_FLUID = "Fluidité du trafic";
+    public static string HELP_ATTRACT = "Attractivité de la ville";
+    public static string HELP_LOGI = "Qualité logistique";
+    public static string HELP_ECO = "Ressource Économique";
+    public static string HELP_POLI = "Ressource Politique";
+    public static string HELP_SOCIAL = "Ressource Sociale";
 
+    //Game Timer PopUp
+    public static string GAME_TIMER_WARNING_POPUP_TITLE = "Attention !";
+    public static string GAME_TIMER_WARNING_POPUP_TEXT_1 = "Il ne vous reste plus que ";
+    public static string GAME_TIMER_WARNING_POPUP_TEXT_2 = "mn avant la fin de la partie.";
+    public static string GAME_TIMER_END_POPUP_TITLE = "Dommage !";
+    public static string GAME_TIMER_END_POPUP_TEXT = "La partie est terminée car le temps est écoulé.";
     #endregion
+
+
+    #region Settings
+    //Main Menu
+    public static string SETTINGS_TITLE = "Réglages";
+    public static string BUILDING_MENU_BUTTON = "Aménagements";
+    public static string ROLES_MENU_BUTTON = "Rôles";
+    public static string TIME_MENU_BUTTON = "Limite de temps";
+    public static string SERVER_TOGGLE_TEXT = "Le serveur n'est pas joueur";
+    public static string CENTRAL_TABLET_TOGGLE = "Tablette centrale activée";
+    public static string CENTRAL_TABLET_WARNING = "Si l'option 'Tablette Centrale' est activée, alors le serveur sera forcément non-joueur.";
+
+    //Buildings Menu
+    public static string BUILDINGSTOEND_TEXT = "Nombre d'aménagements pour terminer la partie";
+    public static string CONFIRM_NBBUILDINGS_BUTTON = "Valider";
+    public static string BUILDINGS_LIST_BUTTON = "Liste des aménagements";
+    public static string BUILDINGSPERTURN_TEXT = "Nombre d'aménagements autorisés par tour";
+
+    public static string ADD_BUILDING_BUTTON = "Ajouter un aménagement";
+    public static string RESET_BUILDINGS_BUTTON = "Réinitialiser aux valeurs par défaut";
+
+    //Timer Menu
+    public static string TURN_TIMER_TEXT = "Limite de temps par tour en secondes :";
+    public static string GAME_TIMER_TEXT = "Limite de temps par partie en minutes :";
+    public static string TURN_TIMER_TOGGLE = "Activation du timer de tour.";
+    public static string GAME_TIMER_TOGGLE = "Activation du timer de partie.";
+
+    //Role Menu
+    public static string ADD_ROLE_BUTTON = "Ajouter un rôle";
+    public static string RESET_ROLES_BUTTON = "Réinitialiser aux valeurs par défaut";
+    public static string DELETE_ROLE_BUTTON = "Supprimer le rôle";
+    public static string APPLY_CHANGES_ROLE_BUTTON = "Modifier le rôle";
+    public static string ADD_ROLE_IN_JSON_BUTTON = "Ajouter le rôle dans la liste";
+
+
+    //Modify Role Panel
+    public static string MOD_OBJ_TITLE = "Objectifs :";
+
+    public static string MOD_HOLD_TITLE = "Maintenir :";
+    public static string MOD_IMPROVE_TITLE = "Améliorer :";
+
+    public static string MOD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string MOD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string MOD_HOLD_FLUID_BUTTON = "Fluidité";    
+    
+    public static string MOD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string MOD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string MOD_IMPROVE_FLUID_BUTTON = "Fluidité";
+
+    public static string MOD_RESOURCE_TITLE = "Ressources :";
+
+    public static string MOD_POLI_TITLE = "Politique :";
+    public static string MOD_ECO_TITLE = "Économique :";
+    public static string MOD_SOCIAL_TITLE = "Social :";
+
+    public static string MOD_RES_WARNING = "L'une de ces 3 ressources doit être à 0.";
+
+    public static string MOD_DELETE_ROLE = "Supprimer le rôle";
+    public static string MOD_APPLY_CHANGES_ROLE = "Modifier le rôle";
+
+
+    //Add Role Panel
+    public static string ADD_OBJ_TITLE = "Objectifs :";
+
+    public static string ADD_HOLD_TITLE = "Maintenir :";
+    public static string ADD_IMPROVE_TITLE = "Améliorer :";
+
+    public static string ADD_HOLD_ATTRACT_BUTTON = "Attractivité";
+    public static string ADD_HOLD_ENVI_BUTTON = "Environnement";
+    public static string ADD_HOLD_FLUID_BUTTON = "Fluidité";
+
+    public static string ADD_IMPROVE_ATTRACT_BUTTON = "Attractivité";
+    public static string ADD_IMPROVE_ENVI_BUTTON = "Environnement";
+    public static string ADD_IMPROVE_FLUID_BUTTON = "Fluidité";
+
+    public static string ADD_RESOURCE_TITLE = "Ressources :";
+
+    public static string ADD_POLI_TITLE = "Politique :";
+    public static string ADD_ECO_TITLE = "Économique :";
+    public static string ADD_SOCIAL_TITLE = "Social :";
+
+    public static string ADD_RES_WARNING = "Attention : Il faut bien remplir tous les champs. Aussi, l'une des 3 valeurs" +
+        " de ressources doit être à 0.";
+
+    public static string ADD_ROLE_BUTTON_VALIDATE = "Ajouter le rôle dans la liste";
+
+    //Modify Building Panel
+    public static string MB_DESCRIPTION_TITLE = "Description :";
+
+    public static string MB_COST_TITLE = "Coûts :";
+
+    public static string MB_ECO_TITLE = "Économique :";
+    public static string MB_SOCIAL_TITLE = "Social :";
+    public static string MB_POLI_TITLE = "Politique :";
+
+    public static string MB_EFFECT_TITLE = "Effets :";
+
+    public static string MB_ENVI_TITLE = "Environnement :";
+    public static string MB_FLUID_TITLE = "Fluidité :";
+    public static string MB_ATTRACT_TITLE = "Attractivité :";
+    public static string MB_LOGISTIC_TITLE = "Logistique :";
+
+    public static string MB_LOGISTIC_DESCRIPTION = "Description Logistique :";
+
+    public static string MB_DELETE = "Supprimer l'aménagement";
+    public static string MB_APPLY_CHANGES = "Enregistrer les changements";
+
+    //Add building Panel
+    public static string AB_WARNING = "Remplissez bien tous les champs avant d'ajouter l'aménagement.";
+    public static string AB_ADD_BUTTON = "Ajouter l'aménagement";
+    #endregion
+
     #region EndGame
     public static string END_GAME_TITLE = "Bilan logistique de la ville";
     public static string END = "Fin";
@@ -248,13 +661,61 @@
     public static string SEXE = "Votre sexe";
     public static string AGE = "Votre âge";
     public static string PLACE_RESIDENCE = "Lieu de résidence"; 
-    public static string COMPAGNY = "Votre entreprise";   
+    public static string COMPANY = "Votre entreprise";   
     public static string ACT_STATUS = "Votre statut d'activité";
     public static string ACTIVITY = "Votre secteur d'activité";
     public static string FINISH = "Terminer";
-
     public static string END_WARMUP = "Fin du Tour de chauffe";
 
+    //Placeholders
+    //p1
+    public static string NAME_PLACEHOLDER = "Nom";
+    public static string FIRSTNAME_PLACEHOLDER = "Prénom" ;
+
+    //p2
+    public static string PLACE_RESIDENCE_PLACEHOLDER = "Code Postal";
+    public static string COMPANY_PLACEHOLDER = "Nom de l'entreprise";
+
+    //form dropdowns
+    public static string CHOOSE_DROPDOWN = "Choisir ...";
+    public static string CHOOSE_DROPDOWN_LABEL = "Choisir ...";
+
+    //gender dropdown
+    public static string GENDER_DROPDOWN_OPT1 = "Femme";
+    public static string GENDER_DROPDOWN_OPT2 = "Homme";
+    public static string GENDER_DROPDOWN_OPT3 = "Ni l'un ni l'autre";
+    //age dropdown
+    public static string AGE_DROPDOWN_OPT1 = "Moins de 15 ans";
+    public static string AGE_DROPDOWN_OPT2 = "de 15 à 18 ans";
+    public static string AGE_DROPDOWN_OPT3 = "de 19 à 24 ans";
+    public static string AGE_DROPDOWN_OPT4 = "de 25 à 34 ans";
+    public static string AGE_DROPDOWN_OPT5 = "de 35 à 44 ans";
+    public static string AGE_DROPDOWN_OPT6 = "de 45 à 54 ans";
+    public static string AGE_DROPDOWN_OPT7 = "de 55 à 64 ans";
+    public static string AGE_DROPDOWN_OPT8 = "de 65 ans et plus";
+
+    //activity status dropdown
+    public static string ACTIVITY_STATUS_OPT1 = "Salarié";
+    public static string ACTIVITY_STATUS_OPT2 = "Indépendant";
+    public static string ACTIVITY_STATUS_OPT3 = "Chômeur";
+    public static string ACTIVITY_STATUS_OPT4 = "Retraité";
+    public static string ACTIVITY_STATUS_OPT5 = "Autres inactifs (Dont étudiants)";
+
+    //activity field dropdown
+    public static string ACTIVITY_FIELD_OPT1 = "Agriculture";
+    public static string ACTIVITY_FIELD_OPT2 = "Industrie";
+    public static string ACTIVITY_FIELD_OPT3 = "Construction";
+    public static string ACTIVITY_FIELD_OPT4 = "Commerce";
+    public static string ACTIVITY_FIELD_OPT5 = "Hébergement et restauration";
+    public static string ACTIVITY_FIELD_OPT6 = "Information communication";
+    public static string ACTIVITY_FIELD_OPT7 = "Finance, assurance, immobilier";
+    public static string ACTIVITY_FIELD_OPT8 = "Activités scientifiques, techniques, services administratifs";
+    public static string ACTIVITY_FIELD_OPT9 = "Administration publique";
+    public static string ACTIVITY_FIELD_OPT10 = "Enseignement";
+    public static string ACTIVITY_FIELD_OPT11 = "Activité pour la santé humaine";
+    public static string ACTIVITY_FIELD_OPT12 = "Hébergement médico-social et social et action sociale sans hébergement";
+    public static string ACTIVITY_FIELD_OPT13 = "Autres services";
+    public static string ACTIVITY_FIELD_OPT14 = "Activité indéterminée";
 
     #endregion
 
@@ -263,12 +724,17 @@
     {
         if (language.Equals("Fr"))
         {
+            GameSettings.Language = "Fr";
+
             JOUEUR = FR_JOUEUR;
             ADMIN = FR_ADMIN;
             JOIN_GAME = FR_JOIN_GAME;
             SERVEURS = FR_SERVEURS;
             HOST_GAME = FR_HOST_GAME;
             CREATE_GAME = FR_CREATE_GAME;
+
+            WARMUP_BUTTON = FR_WARMUP_BUTTON;
+
             PSEUDO = FR_PSEUDO;
             OBJECTIF = FR_OBJECTIF;
             HOLD = FR_HOLD;
@@ -316,21 +782,201 @@
             SEXE = FR_SEXE;
             AGE = FR_AGE;
             PLACE_RESIDENCE = FR_PLACE_RESIDENCE;
-            COMPAGNY = FR_COMPAGNY;
+            COMPANY = FR_COMPANY;
             ACT_STATUS = FR_ACT_STATUS;
             ACTIVITY = FR_ACTIVITY;
             FINISH = FR_FINISH;
             END_WARMUP = FR_END_WARMUP;
 
+            //Help PopUp
+            HELP_ENVI = FR_HELP_ENVI;
+            HELP_FLUID = FR_HELP_FLUID;
+            HELP_ATTRACT = FR_HELP_ATTRACT;
+            HELP_LOGI = FR_HELP_LOGI;
+            HELP_ECO = FR_HELP_ECO;
+            HELP_POLI = FR_HELP_POLI;
+            HELP_SOCIAL = FR_HELP_SOCIAL;
+
+            //Form Placeholders
+            NAME_PLACEHOLDER = FR_NAME_PLACEHOLDER;
+            FIRSTNAME_PLACEHOLDER = FR_FIRSTNAME_PLACEHOLDER;
+
+            //p2
+            PLACE_RESIDENCE_PLACEHOLDER = FR_PLACE_RESIDENCE_PLACEHOLDER;
+            COMPANY_PLACEHOLDER = FR_COMPANY_PLACEHOLDER;
+
+            //form dropdowns
+            CHOOSE_DROPDOWN = FR_CHOOSE_DROPDOWN;
+            CHOOSE_DROPDOWN_LABEL = FR_CHOOSE_DROPDOWN_LABEL;
+
+            //gender dropdown
+            GENDER_DROPDOWN_OPT1 = FR_GENDER_DROPDOWN_OPT1;
+            GENDER_DROPDOWN_OPT2 = FR_GENDER_DROPDOWN_OPT2;
+            GENDER_DROPDOWN_OPT3 = FR_GENDER_DROPDOWN_OPT3;
+
+            //Age dropdown
+            AGE_DROPDOWN_OPT1 = FR_AGE_DROPDOWN_OPT1;
+            AGE_DROPDOWN_OPT2 = FR_AGE_DROPDOWN_OPT2;
+            AGE_DROPDOWN_OPT3 = FR_AGE_DROPDOWN_OPT3;
+            AGE_DROPDOWN_OPT4 = FR_AGE_DROPDOWN_OPT4;
+            AGE_DROPDOWN_OPT5 = FR_AGE_DROPDOWN_OPT5;
+            AGE_DROPDOWN_OPT6 = FR_AGE_DROPDOWN_OPT6;
+            AGE_DROPDOWN_OPT7 = FR_AGE_DROPDOWN_OPT7;
+            AGE_DROPDOWN_OPT8 = FR_AGE_DROPDOWN_OPT8;
+
+            //activity status dropdown
+             ACTIVITY_STATUS_OPT1 = FR_ACTIVITY_STATUS_OPT1;
+             ACTIVITY_STATUS_OPT2 = FR_ACTIVITY_STATUS_OPT2;
+             ACTIVITY_STATUS_OPT3 = FR_ACTIVITY_STATUS_OPT3;
+             ACTIVITY_STATUS_OPT4 = FR_ACTIVITY_STATUS_OPT4;
+             ACTIVITY_STATUS_OPT5 = FR_ACTIVITY_STATUS_OPT5;
+
+            //activity field dropdown
+            ACTIVITY_FIELD_OPT1 = FR_ACTIVITY_FIELD_OPT1;
+            ACTIVITY_FIELD_OPT2 = FR_ACTIVITY_FIELD_OPT2;
+            ACTIVITY_FIELD_OPT3 = FR_ACTIVITY_FIELD_OPT3;
+            ACTIVITY_FIELD_OPT4 = FR_ACTIVITY_FIELD_OPT4;
+            ACTIVITY_FIELD_OPT5 = FR_ACTIVITY_FIELD_OPT5;
+            ACTIVITY_FIELD_OPT6 = FR_ACTIVITY_FIELD_OPT6;
+            ACTIVITY_FIELD_OPT7 = FR_ACTIVITY_FIELD_OPT7;
+            ACTIVITY_FIELD_OPT8 = FR_ACTIVITY_FIELD_OPT8;
+            ACTIVITY_FIELD_OPT9 = FR_ACTIVITY_FIELD_OPT9;
+            ACTIVITY_FIELD_OPT10 = FR_ACTIVITY_FIELD_OPT10;
+            ACTIVITY_FIELD_OPT11 = FR_ACTIVITY_FIELD_OPT11;
+            ACTIVITY_FIELD_OPT12 = FR_ACTIVITY_FIELD_OPT12;
+            ACTIVITY_FIELD_OPT13 = FR_ACTIVITY_FIELD_OPT13;
+            ACTIVITY_FIELD_OPT14 = FR_ACTIVITY_FIELD_OPT14;
+
+
+
+
+            //game popup
+            GAME_TIMER_WARNING_POPUP_TITLE = FR_GAME_TIMER_WARNING_POPUP_TITLE;
+            GAME_TIMER_WARNING_POPUP_TEXT_1 = FR_GAME_TIMER_WARNING_POPUP_TEXT_1;
+            GAME_TIMER_WARNING_POPUP_TEXT_2 = FR_GAME_TIMER_WARNING_POPUP_TEXT_2;
+            GAME_TIMER_END_POPUP_TITLE = FR_GAME_TIMER_END_POPUP_TITLE;
+            GAME_TIMER_END_POPUP_TEXT = FR_GAME_TIMER_END_POPUP_TEXT;
+
+            //timer menu
+            TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
+            TURN_TIMER_TEXT = FR_TURN_TIMER_TEXT;
+            GAME_TIMER_TEXT = FR_GAME_TIMER_TEXT;
+            TURN_TIMER_TOGGLE = FR_TURN_TIMER_TOGGLE;
+            GAME_TIMER_TOGGLE = FR_GAME_TIMER_TOGGLE;
+
+            //Main Menu
+            SETTINGS_TITLE = FR_SETTINGS_TITLE;
+            BUILDING_MENU_BUTTON = FR_BUILDING_MENU_BUTTON;
+            ROLES_MENU_BUTTON = FR_ROLES_MENU_BUTTON;
+            TIME_MENU_BUTTON = FR_TIME_MENU_BUTTON;
+            SERVER_TOGGLE_TEXT = FR_SERVER_TOGGLE_TEXT;
+            CENTRAL_TABLET_TOGGLE = FR_CENTRAL_TABLET_TOGGLE;
+            CENTRAL_TABLET_WARNING = FR_CENTRAL_TABLET_WARNING;
+
+            //Buildings Menu
+            BUILDINGSTOEND_TEXT = FR_BUILDINGSTOEND_TEXT;
+            CONFIRM_NBBUILDINGS_BUTTON = FR_CONFIRM_NBBUILDINGS_BUTTON;
+            BUILDINGS_LIST_BUTTON = FR_BUILDINGS_LIST_BUTTON;
+            BUILDINGSPERTURN_TEXT = FR_BUILDINGSPERTURN_TEXT;
+
+            ADD_BUILDING_BUTTON = FR_ADD_BUILDING_BUTTON;
+            RESET_BUILDINGS_BUTTON = FR_RESET_BUILDINGS_BUTTON;
+
+            //Role Menu
+            ADD_ROLE_BUTTON = FR_ADD_ROLE_BUTTON;
+            RESET_ROLES_BUTTON = FR_RESET_ROLES_BUTTON;
+            DELETE_ROLE_BUTTON = FR_DELETE_ROLE_BUTTON;
+            APPLY_CHANGES_ROLE_BUTTON = FR_APPLY_CHANGES_ROLE_BUTTON;
+            ADD_ROLE_IN_JSON_BUTTON = FR_ADD_ROLE_IN_JSON_BUTTON;
+
+
+            //Modify Role Panel
+            MOD_OBJ_TITLE = FR_MOD_OBJ_TITLE;
+            MOD_HOLD_TITLE = FR_MOD_HOLD_TITLE;
+            MOD_IMPROVE_TITLE = FR_MOD_IMPROVE_TITLE;
+
+            MOD_HOLD_ATTRACT_BUTTON = FR_MOD_HOLD_ATTRACT_BUTTON;
+            MOD_HOLD_ENVI_BUTTON = FR_MOD_HOLD_ENVI_BUTTON;
+            MOD_HOLD_FLUID_BUTTON = FR_MOD_HOLD_FLUID_BUTTON;
+
+            MOD_IMPROVE_ATTRACT_BUTTON = FR_MOD_IMPROVE_ATTRACT_BUTTON;
+            MOD_IMPROVE_ENVI_BUTTON = FR_MOD_IMPROVE_ENVI_BUTTON;
+            MOD_IMPROVE_FLUID_BUTTON = FR_MOD_IMPROVE_FLUID_BUTTON;
+
+            MOD_RESOURCE_TITLE = FR_MOD_RESOURCE_TITLE;
+
+            MOD_POLI_TITLE = FR_MOD_POLI_TITLE;
+            MOD_ECO_TITLE = FR_MOD_ECO_TITLE;
+            MOD_SOCIAL_TITLE = FR_MOD_SOCIAL_TITLE;
+
+            MOD_RES_WARNING = FR_MOD_RES_WARNING;
+
+            MOD_DELETE_ROLE = FR_MOD_DELETE_ROLE;
+            MOD_APPLY_CHANGES_ROLE = FR_MOD_APPLY_CHANGES_ROLE;
+
+
+            //Add Role Panel
+            ADD_OBJ_TITLE = FR_ADD_OBJ_TITLE;
+            ADD_HOLD_TITLE = FR_ADD_HOLD_TITLE;
+            ADD_IMPROVE_TITLE = FR_ADD_IMPROVE_TITLE;
+
+            ADD_HOLD_ATTRACT_BUTTON = FR_ADD_HOLD_ATTRACT_BUTTON;
+            ADD_HOLD_ENVI_BUTTON = FR_ADD_HOLD_ENVI_BUTTON;
+            ADD_HOLD_FLUID_BUTTON = FR_ADD_HOLD_FLUID_BUTTON;
+
+            ADD_IMPROVE_ATTRACT_BUTTON = FR_ADD_IMPROVE_ATTRACT_BUTTON;
+            ADD_IMPROVE_ENVI_BUTTON = FR_ADD_IMPROVE_ENVI_BUTTON;
+            ADD_IMPROVE_FLUID_BUTTON = FR_ADD_IMPROVE_FLUID_BUTTON;
+
+            ADD_RESOURCE_TITLE = FR_ADD_RESOURCE_TITLE;
+
+            ADD_POLI_TITLE = FR_ADD_POLI_TITLE;
+            ADD_ECO_TITLE = FR_ADD_ECO_TITLE;
+            ADD_SOCIAL_TITLE = FR_ADD_SOCIAL_TITLE;
+
+            ADD_RES_WARNING = FR_ADD_RES_WARNING;
+            ADD_ROLE_BUTTON_VALIDATE = FR_ADD_ROLE_BUTTON_VALIDATE;
+
+            //Modify Building Panel
+            MB_DESCRIPTION_TITLE = FR_MB_DESCRIPTION_TITLE;
+
+            MB_COST_TITLE = FR_MB_COST_TITLE;
+            
+            MB_ECO_TITLE = FR_MB_ECO_TITLE;
+            MB_SOCIAL_TITLE = FR_MB_SOCIAL_TITLE;
+            MB_POLI_TITLE = FR_MB_POLI_TITLE;
+
+            MB_EFFECT_TITLE = FR_MB_EFFECT_TITLE;
+
+            MB_ENVI_TITLE = FR_MB_ENVI_TITLE;
+            MB_FLUID_TITLE = FR_MB_FLUID_TITLE;
+            MB_ATTRACT_TITLE = FR_MB_ATTRACT_TITLE;
+            MB_LOGISTIC_TITLE = FR_MB_LOGISTIC_TITLE;
+
+            MB_LOGISTIC_DESCRIPTION = FR_MB_LOGISTIC_DESCRIPTION;
+
+            MB_DELETE = FR_MB_DELETE;
+            MB_APPLY_CHANGES = FR_MB_APPLY_CHANGES;
+
+            //Add building panel
+            AB_WARNING = FR_AB_WARNING;
+            AB_ADD_BUTTON = FR_AB_ADD_BUTTON;
+
+
 }
         if (language.Equals("En"))
         {
+            GameSettings.Language = "En";
+
             JOUEUR = EN_JOUEUR;
             ADMIN = EN_ADMIN;
             JOIN_GAME = EN_JOIN_GAME;
             SERVEURS = EN_SERVEURS;
             HOST_GAME = EN_HOST_GAME;
             CREATE_GAME = EN_CREATE_GAME;
+
+            WARMUP_BUTTON = EN_WARMUP_BUTTON;
+
             PSEUDO = EN_PSEUDO;
             OBJECTIF = EN_OBJECTIVES;
             HOLD = EN_HOLD;
@@ -378,11 +1024,180 @@
             SEXE = EN_SEXE;
             AGE = EN_AGE;
             PLACE_RESIDENCE = EN_PLACE_RESIDENCE;
-            COMPAGNY = EN_COMPAGNY;
+            COMPANY = EN_COMPANY;
             ACT_STATUS = EN_ACT_STATUS;
             ACTIVITY = EN_ACTIVITY;
             FINISH = EN_FINISH;
             END_WARMUP = EN_END_WARMUP;
+
+            //Help PopUp
+            HELP_ENVI = EN_HELP_ENVI;
+            HELP_FLUID = EN_HELP_FLUID;
+            HELP_ATTRACT = EN_HELP_ATTRACT;
+            HELP_LOGI = EN_HELP_LOGI;
+            HELP_ECO = EN_HELP_ECO;
+            HELP_POLI = EN_HELP_POLI;
+            HELP_SOCIAL = EN_HELP_SOCIAL;
+
+            //Form Placeholders
+            //p1
+            NAME_PLACEHOLDER = EN_NAME_PLACEHOLDER;
+            FIRSTNAME_PLACEHOLDER = EN_FIRSTNAME_PLACEHOLDER;
+            //p2
+            PLACE_RESIDENCE_PLACEHOLDER = EN_PLACE_RESIDENCE_PLACEHOLDER;
+            COMPANY_PLACEHOLDER = EN_COMPANY_PLACEHOLDER;
+
+            //form dropdowns
+            CHOOSE_DROPDOWN = EN_CHOOSE_DROPDOWN;
+            CHOOSE_DROPDOWN_LABEL = EN_CHOOSE_DROPDOWN_LABEL;
+
+            //gender dropdown
+            GENDER_DROPDOWN_OPT1 = EN_GENDER_DROPDOWN_OPT1;
+            GENDER_DROPDOWN_OPT2 = EN_GENDER_DROPDOWN_OPT2;
+            GENDER_DROPDOWN_OPT3 = EN_GENDER_DROPDOWN_OPT3;
+
+            //Age dropdown
+            AGE_DROPDOWN_OPT1 = EN_AGE_DROPDOWN_OPT1;
+            AGE_DROPDOWN_OPT2 = EN_AGE_DROPDOWN_OPT2;
+            AGE_DROPDOWN_OPT3 = EN_AGE_DROPDOWN_OPT3;
+            AGE_DROPDOWN_OPT4 = EN_AGE_DROPDOWN_OPT4;
+            AGE_DROPDOWN_OPT5 = EN_AGE_DROPDOWN_OPT5;
+            AGE_DROPDOWN_OPT6 = EN_AGE_DROPDOWN_OPT6;
+            AGE_DROPDOWN_OPT7 = EN_AGE_DROPDOWN_OPT7;
+            AGE_DROPDOWN_OPT8 = EN_AGE_DROPDOWN_OPT8;
+
+            //activity status dropdown
+            ACTIVITY_STATUS_OPT1 = EN_ACTIVITY_STATUS_OPT1;
+            ACTIVITY_STATUS_OPT2 = EN_ACTIVITY_STATUS_OPT2;
+            ACTIVITY_STATUS_OPT3 = EN_ACTIVITY_STATUS_OPT3;
+            ACTIVITY_STATUS_OPT4 = EN_ACTIVITY_STATUS_OPT4;
+            ACTIVITY_STATUS_OPT5 = EN_ACTIVITY_STATUS_OPT5;
+
+            //activity field dropdown
+            ACTIVITY_FIELD_OPT1 = EN_ACTIVITY_FIELD_OPT1;
+            ACTIVITY_FIELD_OPT2 = EN_ACTIVITY_FIELD_OPT2;
+            ACTIVITY_FIELD_OPT3 = EN_ACTIVITY_FIELD_OPT3;
+            ACTIVITY_FIELD_OPT4 = EN_ACTIVITY_FIELD_OPT4;
+            ACTIVITY_FIELD_OPT5 = EN_ACTIVITY_FIELD_OPT5;
+            ACTIVITY_FIELD_OPT6 = EN_ACTIVITY_FIELD_OPT6;
+            ACTIVITY_FIELD_OPT7 = EN_ACTIVITY_FIELD_OPT7;
+            ACTIVITY_FIELD_OPT8 = EN_ACTIVITY_FIELD_OPT8;
+            ACTIVITY_FIELD_OPT9 = EN_ACTIVITY_FIELD_OPT9;
+            ACTIVITY_FIELD_OPT10 = EN_ACTIVITY_FIELD_OPT10;
+            ACTIVITY_FIELD_OPT11 = EN_ACTIVITY_FIELD_OPT11;
+            ACTIVITY_FIELD_OPT12 = EN_ACTIVITY_FIELD_OPT12;
+            ACTIVITY_FIELD_OPT13 = EN_ACTIVITY_FIELD_OPT13;
+            ACTIVITY_FIELD_OPT14 = EN_ACTIVITY_FIELD_OPT14;
+
+            //game popup
+            GAME_TIMER_WARNING_POPUP_TITLE = EN_GAME_TIMER_WARNING_POPUP_TITLE;
+            GAME_TIMER_WARNING_POPUP_TEXT_1 = EN_GAME_TIMER_WARNING_POPUP_TEXT_1;
+            GAME_TIMER_WARNING_POPUP_TEXT_2 = EN_GAME_TIMER_WARNING_POPUP_TEXT_2;
+            GAME_TIMER_END_POPUP_TITLE = EN_GAME_TIMER_END_POPUP_TITLE;
+            GAME_TIMER_END_POPUP_TEXT = EN_GAME_TIMER_END_POPUP_TEXT;
+
+            //timer menu
+            TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
+            TURN_TIMER_TEXT = EN_TURN_TIMER_TEXT;
+            GAME_TIMER_TEXT = EN_GAME_TIMER_TEXT;
+            TURN_TIMER_TOGGLE = EN_TURN_TIMER_TOGGLE;
+            GAME_TIMER_TOGGLE = EN_GAME_TIMER_TOGGLE;
+
+            //Main Menu
+            SETTINGS_TITLE = EN_SETTINGS_TITLE;
+            BUILDING_MENU_BUTTON = EN_BUILDING_MENU_BUTTON;
+            ROLES_MENU_BUTTON = EN_ROLES_MENU_BUTTON;
+            TIME_MENU_BUTTON = EN_TIME_MENU_BUTTON;
+            SERVER_TOGGLE_TEXT = EN_SERVER_TOGGLE_TEXT;
+            CENTRAL_TABLET_TOGGLE = EN_CENTRAL_TABLET_TOGGLE;
+            CENTRAL_TABLET_WARNING = EN_CENTRAL_TABLET_WARNING;
+
+            //Buildings Menu
+            BUILDINGSTOEND_TEXT = EN_BUILDINGSTOEND_TEXT;
+            CONFIRM_NBBUILDINGS_BUTTON = EN_CONFIRM_NBBUILDINGS_BUTTON;
+            BUILDINGS_LIST_BUTTON = EN_BUILDINGS_LIST_BUTTON;
+            BUILDINGSPERTURN_TEXT = EN_BUILDINGSPERTURN_TEXT;
+
+            ADD_BUILDING_BUTTON = EN_ADD_BUILDING_BUTTON;
+            RESET_BUILDINGS_BUTTON = EN_RESET_BUILDINGS_BUTTON;
+
+            //Role Menu
+            ADD_ROLE_BUTTON = EN_ADD_ROLE_BUTTON;
+            RESET_ROLES_BUTTON = EN_RESET_ROLES_BUTTON;
+            DELETE_ROLE_BUTTON = EN_DELETE_ROLE_BUTTON;
+            APPLY_CHANGES_ROLE_BUTTON = EN_APPLY_CHANGES_ROLE_BUTTON;
+            ADD_ROLE_IN_JSON_BUTTON = EN_ADD_ROLE_IN_JSON_BUTTON;
+
+            //Modify Role Panel
+            MOD_OBJ_TITLE = EN_MOD_OBJ_TITLE;
+            MOD_HOLD_TITLE = EN_MOD_HOLD_TITLE;
+            MOD_IMPROVE_TITLE = EN_MOD_IMPROVE_TITLE;
+
+            MOD_HOLD_ATTRACT_BUTTON = EN_MOD_HOLD_ATTRACT_BUTTON;
+            MOD_HOLD_ENVI_BUTTON = EN_MOD_HOLD_ENVI_BUTTON;
+            MOD_HOLD_FLUID_BUTTON = EN_MOD_HOLD_FLUID_BUTTON;
+
+            MOD_IMPROVE_ATTRACT_BUTTON = EN_MOD_IMPROVE_ATTRACT_BUTTON;
+            MOD_IMPROVE_ENVI_BUTTON = EN_MOD_IMPROVE_ENVI_BUTTON;
+            MOD_IMPROVE_FLUID_BUTTON = EN_MOD_IMPROVE_FLUID_BUTTON;
+
+            MOD_RESOURCE_TITLE = EN_MOD_RESOURCE_TITLE;
+
+            MOD_POLI_TITLE = EN_MOD_POLI_TITLE;
+            MOD_ECO_TITLE = EN_MOD_ECO_TITLE;
+            MOD_SOCIAL_TITLE = EN_MOD_SOCIAL_TITLE;
+
+            MOD_RES_WARNING = EN_MOD_RES_WARNING;
+
+            MOD_DELETE_ROLE = EN_MOD_DELETE_ROLE;
+            MOD_APPLY_CHANGES_ROLE = EN_MOD_APPLY_CHANGES_ROLE;
+
+            //Add Role Panel
+            ADD_OBJ_TITLE = EN_ADD_OBJ_TITLE;
+            ADD_HOLD_TITLE = EN_ADD_HOLD_TITLE;
+            ADD_IMPROVE_TITLE = EN_ADD_IMPROVE_TITLE;
+
+            ADD_HOLD_ATTRACT_BUTTON = EN_ADD_HOLD_ATTRACT_BUTTON;
+            ADD_HOLD_ENVI_BUTTON = EN_ADD_HOLD_ENVI_BUTTON;
+            ADD_HOLD_FLUID_BUTTON = EN_ADD_HOLD_FLUID_BUTTON;
+
+            ADD_IMPROVE_ATTRACT_BUTTON = EN_ADD_IMPROVE_ATTRACT_BUTTON;
+            ADD_IMPROVE_ENVI_BUTTON = EN_ADD_IMPROVE_ENVI_BUTTON;
+            ADD_IMPROVE_FLUID_BUTTON = EN_ADD_IMPROVE_FLUID_BUTTON;
+
+            ADD_RESOURCE_TITLE = EN_ADD_RESOURCE_TITLE;
+
+            ADD_POLI_TITLE = EN_ADD_POLI_TITLE;
+            ADD_ECO_TITLE = EN_ADD_ECO_TITLE;
+            ADD_SOCIAL_TITLE = EN_ADD_SOCIAL_TITLE;
+
+            ADD_RES_WARNING = EN_ADD_RES_WARNING;
+            ADD_ROLE_BUTTON_VALIDATE = EN_ADD_ROLE_BUTTON_VALIDATE;
+
+            //Modify Building Panel
+            MB_DESCRIPTION_TITLE = EN_MB_DESCRIPTION_TITLE;
+
+            MB_COST_TITLE = EN_MB_COST_TITLE;
+
+            MB_ECO_TITLE = EN_MB_ECO_TITLE;
+            MB_SOCIAL_TITLE = EN_MB_SOCIAL_TITLE;
+            MB_POLI_TITLE = EN_MB_POLI_TITLE;
+
+            MB_EFFECT_TITLE = EN_MB_EFFECT_TITLE;
+
+            MB_ENVI_TITLE = EN_MB_ENVI_TITLE;
+            MB_FLUID_TITLE = EN_MB_FLUID_TITLE;
+            MB_ATTRACT_TITLE = EN_MB_ATTRACT_TITLE;
+            MB_LOGISTIC_TITLE = EN_MB_LOGISTIC_TITLE;
+
+            MB_LOGISTIC_DESCRIPTION = EN_MB_LOGISTIC_DESCRIPTION;
+
+            MB_DELETE = EN_MB_DELETE;
+            MB_APPLY_CHANGES = EN_MB_APPLY_CHANGES;
+
+            //Add building panel
+            AB_WARNING = EN_AB_WARNING;
+            AB_ADD_BUTTON = EN_AB_ADD_BUTTON;
         }
     }
     

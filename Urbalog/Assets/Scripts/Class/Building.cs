@@ -25,11 +25,13 @@ public class Building
 
     public string logisticDescription ;
 
+    public string nameForSprite;
+
 
     //Constructor
     public Building(string _name, string _description,
         int _economical, int _social, int _political, int _enviScore,
-        int _fluidScore, int _attractScore, int _logisticScore, string _logisticDescription)
+        int _fluidScore, int _attractScore, int _logisticScore, string _logisticDescription, string _nameForSprite)
     {
         name = _name;
         description = _description;
@@ -41,6 +43,7 @@ public class Building
         attractScore = _attractScore;
         logisticScore = _logisticScore;
         logisticDescription = _logisticDescription;
+        nameForSprite = _nameForSprite;
 
     }
 
@@ -66,6 +69,7 @@ public class Building
                 "      },\n" +
                 "      \"scoreLogistique\": "+logisticScore+",\n" +
                 "      \"explicationLogistique\": \""+logisticDescription+"\"\n" +
+                "    \"nomPourSprite\": \"" + nameForSprite + "\"\n" +
                 "    }\n";
         return res;
     }

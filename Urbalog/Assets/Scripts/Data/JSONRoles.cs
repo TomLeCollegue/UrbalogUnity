@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -6,26 +7,39 @@ using UnityEngine;
 public class JSONRoles : MonoBehaviour
 {
     public static List<Role> DefaultRoles = new List<Role>();
+    public static List<Role> DefaultRolesEN = new List<Role>();
 
     public static List<Role> CurrentRoles = new List<Role>();
+    public static List<Role> CurrentRolesEN = new List<Role>();
 
     // Start is called before the first frame update
     void Start()
     {
         FillRoles();
-        if (/*!File.Exists(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json")*/
-            !File.Exists(Application.dataPath + "\\roles.json")) //On vérifie si le buildings.json existe
+        FillRolesEN();
+        if (!File.Exists(Application.dataPath + "\\roles.json")) //On vérifie si le buildings.json existe
         {
-            CreateRoleJSONWithRolesList(DefaultRoles);
-            Debug.Log("fichier role Créé");
+            CreateRoleJSONWithRolesList(DefaultRoles, "/roles.json");
+            Debug.Log("fichier role Créé fr");
             CurrentRoles = new List<Role>(DefaultRoles);
         }
         else
         {
-            Debug.Log("On ne crée pas le fichier role");
+            Debug.Log("On ne crée pas le fichier role fr");
             //récupérer les roles provenant du json
             putRolesArrayInRolesList(loadRoleFromJson("/roles.json"), CurrentRoles);
+        }
 
+        if (!File.Exists(Application.dataPath + "\\rolesEN.json"))
+        {
+            CreateRoleJSONWithRolesList(DefaultRolesEN, "/rolesEN.json");
+            CurrentRolesEN = new List<Role>(DefaultRolesEN);
+            Debug.Log("fichier role Créé en");
+        }
+        else
+        {
+            Debug.Log("On ne crée pas le fichier role en");
+            putRolesArrayInRolesList(loadRoleFromJson("/rolesEN.json"), CurrentRolesEN);
         }
     }
 
@@ -40,13 +54,14 @@ public class JSONRoles : MonoBehaviour
     /// Will be useful when we will want to reset role modifications to default.
     /// </summary>
     /// <param name="_roles"></param>
-    public static void CreateRoleJSONWithRolesList(List<Role> _roles)
+    /// <param name="_fileName"></param>
+    public static void CreateRoleJSONWithRolesList(List<Role> _roles, string _fileName)
     {
         string _jsonRoles = "";
 
         Role[] _RolesArray = _roles.ToArray();
         _jsonRoles = JsonHelper.ToJson(_RolesArray, true);
-        File.WriteAllText(Application.dataPath + "/roles.json", _jsonRoles);
+        File.WriteAllText(Application.dataPath + _fileName, _jsonRoles);
 
     }
 
@@ -70,10 +85,23 @@ public class JSONRoles : MonoBehaviour
     public static void putRolesArrayInRolesList(Role[] _rolesArray, List<Role> _Roles)
     {
         _Roles.Clear();
+
+        if (GameSettings.ServeurNonPlayer)
+        {
+            _Roles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+            //TODO: working in English
+        }
+        if (GameSettings.CentralTablet)
+        {
+            _Roles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+            //TODO: working in English
+        }
         for (int i = 0; i < _rolesArray.Length; i++)
         {
+            //_Roles.Add(new Role(_rolesArray[i].nameRole, _rolesArray[i].hold, _rolesArray[i].improve, 
+            //    _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical));
             _Roles.Add(new Role(_rolesArray[i].nameRole, _rolesArray[i].hold, _rolesArray[i].improve, 
-                _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical));
+                _rolesArray[i].ressourceSocial, _rolesArray[i].ressourcePolitical, _rolesArray[i].ressourceEconomical, _rolesArray[i].roleForSprite));
         }
     }
 
@@ -103,11 +131,37 @@ public class JSONRoles : MonoBehaviour
         DefaultRoles.Clear();
         //DefaultRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
         //DefaultRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
-        DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
-        DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
-        DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
-        DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
-        DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+        //DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7));
+        DefaultRoles.Add(new Role("Transporteur", "Attractiveness", "Fluidity", 0, 3, 7, "Transporteur"));
+        //DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0));
+        DefaultRoles.Add(new Role("Habitant", "Fluidity", "Environment", 7, 3, 0, "Habitant"));
+        //DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6));
+        DefaultRoles.Add(new Role("Collectivité Locale", "Environment", "Attractiveness", 0, 4, 6, "Collectivité Locale"));
+        //DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4));
+        DefaultRoles.Add(new Role("Commerçant", "Fluidity", "Attractiveness", 6, 0, 4, "Commerçant"));
+        //DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4));
+        DefaultRoles.Add(new Role("Opérateur de transport public", "Environment", "Fluidity", 0, 6, 4, "Opérateur de transport public"));
+    }
+
+
+    /// <summary>
+    /// Create a default roles list in English
+    /// </summary>
+    public void FillRolesEN()
+    {
+        DefaultRolesEN.Clear();
+        //DefaultRoles.Add(new Role("SERVEUR", "Environment", "Environment", 0, 1, 1));
+        //DefaultRoles.Add(new Role("PLATEAU", "Environment", "Environment", 0, 1, 1));
+        //DefaultRolesEN.Add(new Role("Freight operator", "Attractiveness", "Fluidity", 0, 3, 7));
+        DefaultRolesEN.Add(new Role("Freight operator", "Attractiveness", "Fluidity", 0, 3, 7, "Transporteur"));
+        //DefaultRolesEN.Add(new Role("Citizen", "Fluidity", "Environment", 7, 3, 0));
+        DefaultRolesEN.Add(new Role("Citizen", "Fluidity", "Environment", 7, 3, 0, "Habitant"));
+        //DefaultRolesEN.Add(new Role("Metropolitan authority", "Environment", "Attractiveness", 0, 4, 6));
+        DefaultRolesEN.Add(new Role("Metropolitan authority", "Environment", "Attractiveness", 0, 4, 6, "Collectivité Locale"));
+        //DefaultRolesEN.Add(new Role("Shop owner", "Fluidity", "Attractiveness", 6, 0, 4));
+        DefaultRolesEN.Add(new Role("Shop owner", "Fluidity", "Attractiveness", 6, 0, 4, "Commerçant"));
+        //DefaultRolesEN.Add(new Role("Public transport operator", "Environment", "Fluidity", 0, 6, 4));
+        DefaultRolesEN.Add(new Role("Public transport operator", "Environment", "Fluidity", 0, 6, 4, "Opérateur de transport public"));
     }
 
     /// <summary>
@@ -127,4 +181,35 @@ public class JSONRoles : MonoBehaviour
         return _result + "\n";
     }
 
+    /// <summary>
+    /// Returns a filename for the role json depending on the Language chosen
+    /// </summary>
+    /// <returns></returns>
+    public static string RoleFileNameDependingOnLanguage()
+    {
+        if (GameSettings.Language == "Fr")
+        {
+            return "/roles.json";
+        }
+        else //GameSettings.Language == "En"
+        {
+            return "/rolesEN.json";
+        }
+    }
+
+    /// <summary>
+    /// Return the good List depending on the language used.
+    /// </summary>
+    /// <returns></returns>
+    internal static List<Role> CurrentRolesFromLanguage()
+    {
+        if (GameSettings.Language == "Fr")
+        {
+            return CurrentRoles;
+        }
+        else //GameSettings.Language == "En"
+        {
+            return CurrentRolesEN;
+        }
+    }
 }

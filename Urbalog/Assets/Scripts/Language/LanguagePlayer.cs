@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,7 @@ public class LanguagePlayer : MonoBehaviour
     public TextMeshProUGUI Improve;
     public TextMeshProUGUI text_objectives;
     public TextMeshProUGUI turn;
+    public TextMeshProUGUI time_left_text;
     
     public TextMeshProUGUI Score_player;
     public TextMeshProUGUI Score_city;
@@ -39,10 +41,20 @@ public class LanguagePlayer : MonoBehaviour
     public TextMeshProUGUI TextPopUpLose;
     public TextMeshProUGUI Dommage;
 
+    //Game Timer PopUp
+    public TextMeshProUGUI GameTimerWarningTitle;
+    public TextMeshProUGUI GameTimerEndTitle;
+    public TextMeshProUGUI GameTimerEndText;
 
 
 
-    
+
+    public void FillGameTimerPopUps()
+    {
+        GameTimerWarningTitle.text = Language.GAME_TIMER_WARNING_POPUP_TITLE;
+        GameTimerEndTitle.text = Language.GAME_TIMER_END_POPUP_TITLE;
+        GameTimerEndText.text = Language.GAME_TIMER_END_POPUP_TEXT;
+    }
 
     public void FillMarket()
     {
@@ -60,7 +72,10 @@ public class LanguagePlayer : MonoBehaviour
         FillMarket();
         FillPopUpBuilding();
         PopUp();
+        FillGameTimerPopUps();
     }
+
+
 
     public void FillRole()
     {
@@ -72,6 +87,7 @@ public class LanguagePlayer : MonoBehaviour
         Improve.text = Language.IMPROVE;
         text_objectives.text = Language.TEXT_OBJECTIVE;
         turn.text = Language.TURNS + "0";
+        time_left_text.text = Language.TIMER_TURN;
     }
 
     public void FillCity()
@@ -98,8 +114,6 @@ public class LanguagePlayer : MonoBehaviour
         TextPopUpWin.text = Language.TEXT_WIN;
         TextPopUpLose.text = Language.TEXT_LOSE;
     }
-
-
 
     public void ChangeCityTitle()
     {

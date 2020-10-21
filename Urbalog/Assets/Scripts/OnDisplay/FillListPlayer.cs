@@ -18,9 +18,20 @@ public class FillListPlayer : MonoBehaviour
     {
         DestroyList();
 
+        int boucle = 0;
+        if (GameSettings.ServeurNonPlayer)
+        {
+            boucle = 1;
+        }
+        if (GameSettings.CentralTablet)
+        {
+            boucle = 2;
+        }
+
+        Debug.Log(boucle.ToString());
         for (int i = 0; i < GameManager.singleton.players.Count; i++)
         {
-            if (i >= 0) // 2 if server and tablet non player
+            if (i >= boucle) // 2 if server and tablet non player
             {
                 SpawnPlayerItem(GameManager.singleton.players[i]);
             }

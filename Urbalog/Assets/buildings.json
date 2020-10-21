@@ -13,7 +13,8 @@
             "fluidScore": 1,
             "attractScore": 0,
             "logisticScore": 2,
-            "logisticDescription": "Toute la voie étant protégée de la circulation, cet aménagement crée un obstacle pour la livraison en limitant l'accès au trottoir."
+            "logisticDescription": "Toute la voie étant protégée de la circulation, cet aménagement crée un obstacle pour la livraison en limitant l'accès au trottoir.",
+            "nameForSprite": "Piste cyclable"
         },
         {
             "name": "Borne vélo",
@@ -28,7 +29,8 @@
             "fluidScore": -1,
             "attractScore": 1,
             "logisticScore": -1,
-            "logisticDescription": "Ces structures créent des obstacles ponctuels pour la livraison en limitant l'accès au trottoir."
+            "logisticDescription": "Ces structures créent des obstacles ponctuels pour la livraison en limitant l'accès au trottoir.",
+            "nameForSprite": "Borne vélo"
         },
         {
             "name": "Terrasse",
@@ -43,7 +45,8 @@
             "fluidScore": -2,
             "attractScore": 1,
             "logisticScore": -3,
-            "logisticDescription": "Cet aménagement limite l'accès à l'établissement tout en empiétant sur le trottoir et sur le stationnement."
+            "logisticDescription": "Cet aménagement limite l'accès à l'établissement tout en empiétant sur le trottoir et sur le stationnement.",
+            "nameForSprite": "Terrasse"
         },
         {
             "name": "Petit magasin",
@@ -58,7 +61,8 @@
             "fluidScore": 1,
             "attractScore": 2,
             "logisticScore": -1,
-            "logisticDescription": "Cet aménagement génère du trafic de marchandises : livraisons et déplacement d'achats."
+            "logisticDescription": "Cet aménagement génère du trafic de marchandises : livraisons et déplacement d'achats.",
+            "nameForSprite": "Petit magasin"
         },
         {
             "name": "Poste",
@@ -73,7 +77,8 @@
             "fluidScore": 2,
             "attractScore": 0,
             "logisticScore": 1,
-            "logisticDescription": "Cet aménagement permet la livraison des colis en l'absence des destinataires, les flux sont donc consolidés, mais les horaires d'ouverture sont restreints."
+            "logisticDescription": "blablabla",
+            "nameForSprite": "Poste"
         },
         {
             "name": "Grand magasin",
@@ -88,7 +93,8 @@
             "fluidScore": -2,
             "attractScore": 5,
             "logisticScore": -2,
-            "logisticDescription": "Ce lieu gènère du trafic de marchandises : livraisons et déplacements d'achats."
+            "logisticDescription": "Ce lieu gènère du trafic de marchandises : livraisons et déplacements d'achats.",
+            "nameForSprite": "Grand magasin"
         },
         {
             "name": "Zone de rencontre",
@@ -103,7 +109,8 @@
             "fluidScore": -1,
             "attractScore": 1,
             "logisticScore": 0,
-            "logisticDescription": "L'absence de trottoirs facilite l'accès aux établissements pour les véhicules de livraisons, mais la vitesse limitée réduit l'accessibilité."
+            "logisticDescription": "L'absence de trottoirs facilite l'accès aux établissements pour les véhicules de livraisons, mais la vitesse limitée réduit l'accessibilité.",
+            "nameForSprite": "Zone de rencontre"
         },
         {
             "name": "Réseau de consignes",
@@ -118,7 +125,8 @@
             "fluidScore": 2,
             "attractScore": 0,
             "logisticScore": 2,
-            "logisticDescription": "Accessible à toute heure, cet aménagement permet la livraison des colis en l'absence des destinataires. Il limite le nombre de véhicules de livraison grâce à la consolidation permise."
+            "logisticDescription": "Accessible à toute heure, cet aménagement permet la livraison des colis en l'absence des destinataires. Il limite le nombre de véhicules de livraison grâce à la consolidation permise.",
+            "nameForSprite": "Réseau de consignes"
         },
         {
             "name": "Dispositif anti-bélier",
@@ -133,7 +141,8 @@
             "fluidScore": -2,
             "attractScore": 1,
             "logisticScore": -2,
-            "logisticDescription": "Ce système interdit l'accès des véhicules aux établissements économiques et aux logements des particuliers."
+            "logisticDescription": "Ce système interdit l'accès des véhicules aux établissements économiques et aux logements des particuliers.",
+            "nameForSprite": "Dispositif anti-bélier"
         },
         {
             "name": "Aire de livraison",
@@ -148,7 +157,8 @@
             "fluidScore": 2,
             "attractScore": -1,
             "logisticScore": 1,
-            "logisticDescription": "Cet aménagement offre aux véhicules de livraison la possibilité de stationner. Tout en décongestionnant la voirie, il facilite le travail du livreur."
+            "logisticDescription": "Cet aménagement offre aux véhicules de livraison la possibilité de stationner. Tout en décongestionnant la voirie, il facilite le travail du livreur.",
+            "nameForSprite": "Aire de livraison"
         },
         {
             "name": "CDU",
@@ -163,7 +173,8 @@
             "fluidScore": 4,
             "attractScore": -1,
             "logisticScore": 1,
-            "logisticDescription": "Cet aménagement permet la mutualisation des flux des particuliers et des activités. La livraison finale est réalisée avec des véhicules propres. Peut s'articuler avec les autres espaces logistiques (PAV, consignes)."
+            "logisticDescription": "Cet aménagement permet la mutualisation des flux des particuliers et des activités. La livraison finale est réalisée avec des véhicules propres. Peut s'articuler avec les autres espaces logistiques (PAV, consignes).",
+            "nameForSprite": "CDU"
         },
         {
             "name": "PAV",
@@ -178,7 +189,8 @@
             "fluidScore": 4,
             "attractScore": -3,
             "logisticScore": 2,
-            "logisticDescription": "Le stationnement et la manutention son facilités. La livraison est donc plus efficace et les conditions de travail du chauffeur améliorées."
+            "logisticDescription": "Le stationnement et la manutention son facilités. La livraison est donc plus efficace et les conditions de travail du chauffeur améliorées.",
+            "nameForSprite": "PAV"
         },
         {
             "name": "Stations GAZ GNV",
@@ -193,7 +205,8 @@
             "fluidScore": 0,
             "attractScore": -1,
             "logisticScore": 1,
-            "logisticDescription": "Ce dispositif permet aux véhicules au gaz de se recharger et aux transporteurs de rouler même lors des pics de pollution."
+            "logisticDescription": "Ce dispositif permet aux véhicules au gaz de se recharger et aux transporteurs de rouler même lors des pics de pollution.",
+            "nameForSprite": "Stations GAZ GNV"
         },
         {
             "name": "Banc",
@@ -208,7 +221,8 @@
             "fluidScore": -1,
             "attractScore": 0,
             "logisticScore": -1,
-            "logisticDescription": "Cet aménagement constitue un obstacle ponctuel pour la livraison en limitant l'accès au trottoir."
+            "logisticDescription": "Cet aménagement constitue un obstacle ponctuel pour la livraison en limitant l'accès au trottoir.",
+            "nameForSprite": "Banc"
         },
         {
             "name": "Zone végétalisée",
@@ -223,52 +237,24 @@
             "fluidScore": -4,
             "attractScore": 1,
             "logisticScore": -2,
-            "logisticDescription": "Cette zone, non franchissable avec des outils de manutention, gêne la livraison."
+            "logisticDescription": "Cette zone, non franchissable avec des outils de manutention, gêne la livraison.",
+            "nameForSprite": "Zone végétalisée"
         },
         {
-            "name": "cest tres bien ",
-            "description": "erere",
+            "name": "Morgane",
+            "description": "C est la meilleure du monde entier",
             "Economical": 1,
             "Social": 1,
             "Political": 1,
             "FinanceEconomical": 0,
             "FinanceSocial": 0,
             "FinancePolitical": 0,
-            "enviScore": 1,
-            "fluidScore": 1,
-            "attractScore": 1,
-            "logisticScore": 1,
-            "logisticDescription": "oui"
-        },
-        {
-            "name": "coolos",
-            "description": "eee",
-            "Economical": 1,
-            "Social": 1,
-            "Political": 1,
-            "FinanceEconomical": 0,
-            "FinanceSocial": 0,
-            "FinancePolitical": 0,
-            "enviScore": 1,
-            "fluidScore": 1,
-            "attractScore": 1,
-            "logisticScore": 1,
-            "logisticDescription": "lnbvc"
-        },
-        {
-            "name": "Cest un test",
-            "description": "test",
-            "Economical": 1,
-            "Social": 1,
-            "Political": 1,
-            "FinanceEconomical": 0,
-            "FinanceSocial": 0,
-            "FinancePolitical": 0,
-            "enviScore": 1,
-            "fluidScore": 1,
-            "attractScore": 1,
-            "logisticScore": 1,
-            "logisticDescription": "1"
+            "enviScore": 100,
+            "fluidScore": 100,
+            "attractScore": 100,
+            "logisticScore": 100,
+            "logisticDescription": "A change ma vie.",
+            "nameForSprite": "DEFAULT"
         }
     ]
 }

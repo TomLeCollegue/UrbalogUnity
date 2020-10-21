@@ -39,7 +39,7 @@ public class SettingsMenu : MonoBehaviour
     #endregion
 
     #region addBuildingPanel
-    public GameObject addPanel;
+    public GameObject addBuildingPanel;
 
     public InputField addNameInput;
 
@@ -58,12 +58,24 @@ public class SettingsMenu : MonoBehaviour
 
     #endregion
 
+    #region addRolePanel
+    public GameObject addRolePanel;
+    #endregion
+
     public TextMeshProUGUI timerPlaceholder;
+    public Toggle turnTimerToggle;
+
+    public TextMeshProUGUI GameTimerPlaceholder;
+    public Toggle gameTimerToggle;
 
     public TextMeshProUGUI nbBuildingsMaxPerTurnPlaceholder;
     public TextMeshProUGUI nbbuildingsForEnding;
 
     public PopulateBuildingsSettingsList displayList;
+
+    public Toggle ServerToggle;
+    public Toggle TabletToggle;
+
 
     public void GoToSettingsScene()
     {
@@ -79,6 +91,18 @@ public class SettingsMenu : MonoBehaviour
     {
         nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
         nbbuildingsForEnding.text = NextTurnButton.NumberBuildingsToEnd.ToString();
+        ServerToggle.isOn = GameSettings.ServeurNonPlayer;
+    }
+
+    private void Start()
+    {
+        ServerToggle.isOn = GameSettings.ServeurNonPlayer;
+        TabletToggle.isOn = GameSettings.CentralTablet;
+    }
+
+    public bool ServerToggled()
+    {
+        return GameSettings.ServeurNonPlayer || GameSettings.CentralTablet;
     }
 
     public void DisplayBuildingsSettingsMenu()
@@ -97,6 +121,7 @@ public class SettingsMenu : MonoBehaviour
         BuildingsSettingsMenu.SetActive(false);
         RolePanel.SetActive(false);
         //nbBuildingsMaxPerTurnPlaceholder.text = GameSettings.nbBuildingsPerTurn.ToString();
+        //nbbuildingsForEnding.text = 
     }
 
     public void DisplayBuildingsList()
@@ -115,7 +140,26 @@ public class SettingsMenu : MonoBehaviour
         MainSettingsMenu.SetActive(false);
         BuildingsSettingsMenu.SetActive(false);
         RolePanel.SetActive(false);
+
         timerPlaceholder.text = GameSettings.TurnTimeMax.ToString();
+        GameTimerPlaceholder.text = (GameSettings.GameTimerMax/60).ToString();
+        if (GameSettings.isTimerActive)
+        {
+            turnTimerToggle.isOn = true;
+        }
+        else
+        {
+            turnTimerToggle.isOn = false;
+        }
+
+        if (GameSettings.isGameTimerActive)
+        {
+            gameTimerToggle.isOn = true;
+        }
+        else
+        {
+            gameTimerToggle.isOn = false;
+        }
     }
 
     public void DisplayRolePanel()
@@ -161,15 +205,15 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void OpenAddBuildingPanel()
     {
-        if (addPanel != null)
+        if (addBuildingPanel != null)
         {
-            addPanel.SetActive(true);
+            addBuildingPanel.SetActive(true);
         }
     }
 
     public void CloseAddBuildingPanel()
     {
-        addPanel.SetActive(false);
+        addBuildingPanel.SetActive(false);
     }
 
 
@@ -178,8 +222,16 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void ChangeBuildingSettings()
     {
-        Building[] _buildings = JSONBuildings.loadBuildingsFromJSON("/buildings.json");
-        //Building[] _buildings = JSONBuildings.loadBuildingsFromJSON(Directory.GetCurrentDirectory() + "\\Assets\\buildings.json");
+        string _fileName;
+        if (GameSettings.Language == "Fr")
+        {
+            _fileName = "/buildings.json";
+        }
+        else //GameSettings.Language == "En"
+        {
+            _fileName = "/buildingsEN.json";
+        }
+        Building[] _buildings = JSONBuildings.loadBuildingsFromJSON(_fileName);
 
         Building _newBuilding = CreateNewBuildingWithInputFields();
 
@@ -189,14 +241,13 @@ public class SettingsMenu : MonoBehaviour
             {
                 _buildings[i] = _newBuilding;
                 //savedansJSON (_buildings)
-                JSONBuildings.CreateBuildingJSONWithBuildings(_buildings);
+                JSONBuildings.CreateBuildingJSONWithBuildings(_buildings, _fileName);
             }
         }
         CloseBuildingSettingsPanel();
 
         RefreshBuildingsList();
 
-        //NextTurnButton.NumberBuildingsToEnd = Convert.ToInt16(_NumBuilding);
     }
 
     /// <summary>
@@ -248,7 +299,7 @@ public class SettingsMenu : MonoBehaviour
         _buildingLogiDescription = LogisticDescriptionInput.text;
 
         Building _res = new Building(_buildingName,_buildingDescription,_buildingEco,_buildingSoc,_buildingPoli,_buildingEnvi
-            ,_buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);
+            ,_buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription,currentBuilding.nameForSprite);
 
         return _res;
     }
@@ -290,7 +341,7 @@ public class SettingsMenu : MonoBehaviour
         _buildingLogiDescription = AddLogisticDescriptionInput.text;
 
         Building _res = new Building(_buildingName, _buildingDescription, _buildingEco, _buildingSoc, _buildingPoli, _buildingEnvi
-    , _buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription);
+    , _buildingFluid, _buildingAttract, _buildingLogi, _buildingLogiDescription, "DEFAULT");
 
         return _res;
     }
@@ -301,7 +352,14 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public void ResetBuildingsToDefault()
     {
-        JSONBuildings.CreateBuildingsJSONWithDeck(JSONBuildings.DefaultDeck);
+        if (GameSettings.Language == "Fr")
+        {
+            JSONBuildings.CreateBuildingsJSONWithDeck("/buildings.json",JSONBuildings.DefaultDeck);
+        }
+        else if (GameSettings.Language == "En")
+        {
+            JSONBuildings.CreateBuildingsJSONWithDeck("/buildingsEN.json",JSONBuildings.DefaultDeckEN);
+        }
         RefreshBuildingsList();
     }
 
@@ -324,8 +382,30 @@ public class SettingsMenu : MonoBehaviour
         Building _buildingToAdd = CreateNewBuildingWithInputFieldsInAddPanel();
         JSONBuildings.AddInJson(_buildingToAdd);
         RefreshBuildingsList();
+        ResetAddBuildingPanelInputsToNull();
         CloseAddBuildingPanel();
     }
 
+    /// <summary>
+    /// When called, resets all the input fields in the add building panel to 0 or nothing
+    /// </summary>
+    private void ResetAddBuildingPanelInputsToNull()
+    {
+        addNameInput.text = "...";
 
+        AddDescriptionInput.text = "...";
+
+        AddEcoInput.text = "";
+        AddSocInput.text = "";
+        AddPoliInput.text = "";
+
+        AddEnviInput.text = "";
+        AddFluidInput.text = "";
+        AddAttractInput.text = "";
+        
+        AddLogiInput.text = "";
+
+        AddLogisticDescriptionInput.text = "";
+
+    }
 }

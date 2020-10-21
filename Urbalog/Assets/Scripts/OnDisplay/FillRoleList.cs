@@ -37,7 +37,9 @@ public class FillRoleList : MonoBehaviour
     /// </summary>
     public void SpawnAllRoles()
     {
-        Role[] _roles = JSONRoles.loadRoleFromJson("/roles.json");
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
+
+        Role[] _roles = JSONRoles.loadRoleFromJson(_fileName);
         //JSONRoles.putRolesArrayInRolesList(_roles, JSONRoles.CurrentRoles);
         JSONRoles.CurrentRoles = JSONRoles.returnRolesArrayInRolesList(_roles);
         for (int i = 0; i < JSONRoles.CurrentRoles.Count; i++)
@@ -76,15 +78,27 @@ public class FillRoleList : MonoBehaviour
     public void ResetListToDefault()
     {
         //Gets the default values of a building in a List
-        //JSONRoles.DefaultRoles;
+        string _fileName = JSONRoles.RoleFileNameDependingOnLanguage();
 
-        //Create a new JSON with this List
-        JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles);
+        if (GameSettings.Language == "Fr")
+        {
+            //Create a new JSON with this List
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRoles, _fileName);
+            //TODO: update JSONRoles.CurrentRoles
+            //JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson("/roles.json"), JSONRoles.CurrentRoles);
+        }
+        else //GameSettings.Language == "En"
+        {
+            JSONRoles.CreateRoleJSONWithRolesList(JSONRoles.DefaultRolesEN, _fileName);
+            //TODO: update JSONRoles.CurrentRolesEN
+            JSONRoles.putRolesArrayInRolesList(JSONRoles.loadRoleFromJson("/rolesEN.json"), JSONRoles.CurrentRolesEN);
+        }
 
-        //UpdateList()
+
+
         UpdateList();
-
-
     }
+
+
 
 }
