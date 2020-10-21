@@ -17,9 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SettingsScene.unity
     guid: bd16a0a05f89a854b8581014e711643f
-  - enabled: 1
-    path: Assets/Scenes/PlayerView ( OLD.unity
-    guid: 0c0e596ccd0816949bec52a1641e7a70
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/PlayerView.unity
     guid: 1849cfae800113243a3a847ae152270e

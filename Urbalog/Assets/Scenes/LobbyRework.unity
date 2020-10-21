@@ -6532,7 +6532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 226.95, y: -140}
+  m_AnchoredPosition: {x: 197.33, y: -140}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530932235
@@ -13054,7 +13054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -226.95, y: -140}
+  m_AnchoredPosition: {x: -197.33, y: -140}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328428828
@@ -16440,6 +16440,7 @@ MonoBehaviour:
   compagny: {fileID: 1662649052}
   status: {fileID: 491941248}
   activity: {fileID: 1224886297}
+  WarmUpButton: {fileID: 471199691}
 --- !u!4 &1743353261
 Transform:
   m_ObjectHideFlags: 0
@@ -20823,6 +20824,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2077398054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077398048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d64ca3475cd074ea3d177f4dd6bf02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2125196808

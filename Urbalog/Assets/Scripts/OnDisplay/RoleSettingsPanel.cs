@@ -244,6 +244,10 @@ public class RoleSettingsPanel : MonoBehaviour
         CloseAddRolePanel();
         Debug.Log("add role 4");
 
+        //reset input fields in add role panel
+        ResetAddRolePanelInputFieldsToNull();
+        ResetAddRolePanelButtonsToNull();
+
         //Refresh the list
         GameObject.Find("RoleListManager").GetComponent<FillRoleList>().UpdateList();
         Debug.Log("add role 5");
@@ -403,6 +407,42 @@ public class RoleSettingsPanel : MonoBehaviour
         Role _result = new Role(_name, _hold, _improve,_resSocial, _resPoli, _resEco );
 
         return _result;
+    }
+
+    /// <summary> 
+    /// Resets the add role buttons to defaut values 
+    /// </summary> 
+    private void ResetAddRolePanelButtonsToNull()
+    {
+        //Hold 
+        addHoldAttractIsPressed = false;
+        addHoldEnviIsPressed = false;
+        addHoldFluidIsPressed = false;
+
+        addHoldAttractButtonText.color = Color.black;
+        addHoldEnviButtonText.color = Color.black;
+        addHoldFluidButtonText.color = Color.black;
+
+        //Improve 
+        addImproveAttractIsPressed = false;
+        addImproveEnviIsPressed = false;
+        addImproveFluidIsPressed = false;
+
+        addImproveAttractButtonText.color = Color.black;
+        addImproveEnviButtonText.color = Color.black;
+        addImproveFluidButtonText.color = Color.black;
+    }
+
+    /// <summary> 
+    /// Takes a panel and empties its input fields 
+    /// </summary> 
+    private void ResetAddRolePanelInputFieldsToNull()
+    {
+        addRoleNameInput.text = "";
+
+        addPoliNumberInput.text = "";
+        addEcoNumberInput.text = "";
+        addSocialNumberInput.text = "";
     }
 
     /// <summary>
