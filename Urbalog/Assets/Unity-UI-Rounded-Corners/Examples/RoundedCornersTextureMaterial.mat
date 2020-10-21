@@ -85,4 +85,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _WidthHeightRadius: {r: 384.53058, g: 222.78488, b: 50, a: 0}
+    - _WidthHeightRadius: {r: 556.20044, g: 322.24503, b: 50, a: 0}

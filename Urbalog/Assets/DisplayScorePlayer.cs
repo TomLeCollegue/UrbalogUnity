@@ -64,23 +64,23 @@ public class DisplayScorePlayer : MonoBehaviour
 
     private Sprite GetInfoPlayer(Player player)
     {
-        if (player.role.roleForSprite.Equals("Habitant"))
+        if (player.nameRole.Equals("Habitant"))
         {
             return Habitant;
         }
-        else if (player.role.roleForSprite.Equals("Transporteur"))
+        else if (player.nameRole.Equals("Transporteur"))
         {
             return Transporteur;
         }
-        else if (player.role.roleForSprite.Equals("Commerçant"))
+        else if (player.nameRole.Equals("Commerçant"))
         {
             return Commercant;
         }
-        else if (player.role.roleForSprite.Equals("Collectivité locale"))
+        else if (player.nameRole.Equals("Collectivité locale"))
         {
             return Mairie;
         }
-        else if (player.role.roleForSprite.Equals("Opérateur de transport public"))
+        else if (player.nameRole.Equals("Opérateur de transport public"))
         {
             return TransporteurPublic;
         }
