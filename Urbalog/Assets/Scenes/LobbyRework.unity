@@ -4670,7 +4670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA9 Version Beta 1.4"
+  m_Text: "\xA9 Version 1.0"
 --- !u!222 &389707545
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20549,7 +20549,7 @@ PrefabInstance:
     - target: {fileID: 518646868029173893, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 518646868029173894, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
@@ -20738,6 +20738,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8284877600998288032, guid: 82530a643bf831641a5c4368be45c2fd,
         type: 3}
+    - target: {fileID: 518646868029173895, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
+        type: 3}
+      propertyPath: networkAddress
+      value: localhost
+      objectReference: {fileID: 0}
     - target: {fileID: 518646868029173898, guid: a4e7b3bbd687f1049aebfe776ad9f9a2,
         type: 3}
       propertyPath: m_Name
@@ -20821,7 +20826,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2072946454}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077398048}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
@@ -20836,6 +20841,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2077398054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077398048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d64ca3475cd074ea3d177f4dd6bf02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2125196808

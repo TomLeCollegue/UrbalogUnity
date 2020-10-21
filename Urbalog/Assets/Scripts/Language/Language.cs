@@ -124,8 +124,8 @@
         public static string FR_TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
         public static string EN_TEXT_LOSE = "One of the 2 conditions were not completed. \n You dont get a point";
 
-        public static string FR_TIMER_TURN = "Temps restant : ";
-        public static string EN_TIMER_TURN = "Time left : ";
+        public static string FR_TIMER_TURN = "Temps restant";
+        public static string EN_TIMER_TURN = "Time left";
 
         public static string FR_END_WARMUP = "Fin du Tour de chauffe";
         public static string EN_END_WARMUP = "End of Warmup";
@@ -511,7 +511,7 @@
     public static string DOMMAGE = "DOMMAGE !";
     public static string TEXT_WIN = "Objectif atteint. \n Vous gagnez un point !";
     public static string TEXT_LOSE = "Une des 2 conditions n\'a pas été remplie. \n Vous ne marquez aucun point !";
-    public static string TIMER_TURN = "Temps restant : ";
+    public static string TIMER_TURN = "Temps restant";
 
     //Help PopUp
     public static string HELP_ENVI = "Qualité Environnementale";
