@@ -15,6 +15,9 @@ public class Role
 
     public string ressource1;
     public string ressource2;
+
+    //for sprite when translation
+    public string roleForSprite;
     
     public Role(string _nameRole, string _hold, string _improve, int _ressourceSocial, int _ressourcePolitical, int _ressourceEconomical)
     {
@@ -24,8 +27,23 @@ public class Role
         ressourceSocial = _ressourceSocial;
         ressourcePolitical = _ressourcePolitical;
         ressourceEconomical = _ressourceEconomical;
+        roleForSprite = "default"; //new
         DetermineRessource();
     }
+
+    public Role(string _nameRole, string _hold, string _improve, int _ressourceSocial, int _ressourcePolitical, int _ressourceEconomical, string _roleForSprite)
+    {
+        nameRole = _nameRole;
+        hold = _hold;
+        improve = _improve;
+        ressourceSocial = _ressourceSocial;
+        ressourcePolitical = _ressourcePolitical;
+        ressourceEconomical = _ressourceEconomical;
+        roleForSprite = _roleForSprite; //new
+        DetermineRessource();
+    }
+
+
 
     void DetermineRessource()
     {
