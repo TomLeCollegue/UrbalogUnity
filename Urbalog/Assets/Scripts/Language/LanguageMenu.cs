@@ -109,6 +109,8 @@ public class LanguageMenu : MonoBehaviour
         {
             _activity_field_dropdown.options.Add(new TMP_Dropdown.OptionData(_option));
         }
+
+        choose_placeholder_label_activity_field.text = _activity_field_dropdown.options[_activity_field_dropdown.value].text;
     }
 
     private void FillDropdownActivityStatus()
@@ -126,6 +128,8 @@ public class LanguageMenu : MonoBehaviour
         {
             _activity_dropdown.options.Add(new TMP_Dropdown.OptionData(_option));
         }
+
+        choose_placeholder_label_activity_status.text = _activity_dropdown.options[_activity_dropdown.value].text;
     }
 
     private void FillDropdownAge()
@@ -142,7 +146,17 @@ public class LanguageMenu : MonoBehaviour
         {
             _age_dropdown.options.Add(new TMP_Dropdown.OptionData(_option));
         }
-        
+
+        ////Keep the current index of the Dropdown in a variable
+        //m_DropdownValue = m_Dropdown.value;
+        ////Change the message to say the name of the current Dropdown selection using the value
+        //m_Message = m_Dropdown.options[m_DropdownValue].text;
+        ////Change the onscreen Text to reflect the current Dropdown selection
+        //m_Text.text = m_Message;
+
+        choose_placeholder_label_age.text = _age_dropdown.options[_age_dropdown.value].text;
+
+
     }
 
     /// <summary>
@@ -161,8 +175,10 @@ public class LanguageMenu : MonoBehaviour
         foreach (string option in gender_list)
         {
             gender_dropdown.options.Add(new TMP_Dropdown.OptionData(option));
-        }        
-        
+        }
+
+        choose_placeholder_label_gender.text = gender_dropdown.options[gender_dropdown.value].text;
+
     }
 
     void Update()
